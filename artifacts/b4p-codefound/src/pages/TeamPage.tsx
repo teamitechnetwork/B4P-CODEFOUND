@@ -119,7 +119,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
   return (
     <div className="team-page flex flex-col min-h-screen font-sans">
       <Header />
-      <main className="flex-1 pt-[78px]">
+      <main className="flex-1 pt-[72px] md:pt-[108px]">
         <div className="team-page__hero">
           <div className="team-page__hero-inner container mx-auto px-6 relative z-10 text-center text-white">
             <span className="team-page__eyebrow">
@@ -136,7 +136,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
             <div />
           </div>
           <div className="team-grid">
-            {team.map((member, i) => (
+            {team.map((member) => (
               <article
                 key={member.name}
                 className="team-card group"
@@ -158,7 +158,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                   )}
                 </div>
                 <div className="team-card__content">
-                  <span className="team-card__number">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="team-card__role-label">{type === 'board' ? 'Board leadership' : type === 'advisory' ? 'Advisory council' : 'B4P CODEFOUND team'}</span>
                   <h3>{member.name}</h3>
                   <p>{member.role}</p>
                 </div>

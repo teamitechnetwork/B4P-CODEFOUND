@@ -4,22 +4,22 @@ import { ArrowRight, Pause, Play } from 'lucide-react';
 
 const heroSlides = [
   {
-    src: '/images/conference/day-1-community.jpg',
-    alt: 'Community members gathered during a B4P CODEFOUND conference',
+    src: '/images/conference/day-1-audience-stage.jpg',
+    alt: 'Day One conference audience gathered in front of the main stage',
     label: 'Day One',
-    detail: 'Community, dialogue, and shared purpose',
+    detail: 'A full room listening, learning, and moving forward together',
   },
   {
-    src: '/images/conference/day-2-community-01.jpg',
-    alt: 'Participants taking part in a B4P CODEFOUND community session',
-    label: 'Day Two',
-    detail: 'Listening closely to local voices',
+    src: '/images/conference/day-1-community-gathering.jpg',
+    alt: 'Day One B4P CODEFOUND conference participants gathered in a community hall',
+    label: 'Day One',
+    detail: 'Community voices at the center of action',
   },
   {
-    src: '/images/conference/day-3-community-01.jpg',
-    alt: 'B4P CODEFOUND conference participants gathered together',
-    label: 'Day Three',
-    detail: 'Turning collective action into progress',
+    src: '/images/conference/day-1-participants.jpg',
+    alt: 'Day One B4P CODEFOUND conference participants seated together',
+    label: 'Day One',
+    detail: 'Building practical pathways together',
   },
 ];
 

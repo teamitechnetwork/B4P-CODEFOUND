@@ -196,7 +196,7 @@ export default function PolishedPage({ path }: { path: string }) {
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans">
       <Header />
-      <main className="flex-1 pt-[78px]">
+      <main className="flex-1 pt-[72px] md:pt-[108px]">
         {/* Polished Hero */}
         <div className="bg-gradient-to-br from-primary to-secondary text-white py-24 px-6 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 opacity-70 pointer-events-none"></div>
