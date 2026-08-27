@@ -111,7 +111,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
   }
 
   return (
-    <div className="team-page flex flex-col min-h-screen font-sans">
+    <div className={`team-page team-page--${type} flex flex-col min-h-screen font-sans`}>
       <Header />
       <main className="flex-1 pt-[72px] md:pt-[108px]">
         <div className="team-page__hero">
@@ -130,34 +130,33 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
             <div />
           </div>
           <div className="team-grid">
-            {team.map((member, index) => (
+            {team.map((member) => (
               <article
                 key={member.name}
                 className={`team-card team-card--${type} group`}
               >
-                <div className={type === 'management' ? 'team-card__portrait' : 'team-card__identity'}>
-                  {type === 'management' && member.image ? (
-                    <img
-                      src={member.image} 
-                      alt={member.name}
-                      className="team-card__image"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="team-card__monogram" aria-label={`${member.name} portrait unavailable`}>
-                      <span>
-                        {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
-                      </span>
-                    </div>
-                  )}
-                  {type !== 'management' && (
-                    <span className="team-card__number" aria-hidden="true">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  )}
-                </div>
+                {type === 'management' && (
+                  <div className="team-card__portrait">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="team-card__image"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="team-card__monogram" aria-label={`${member.name} portrait unavailable`}>
+                        <span>
+                          {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
                 <div className="team-card__content">
-                  <span className="team-card__role-label">{type === 'board' ? 'Board leadership' : type === 'advisory' ? 'Advisory council' : 'B4P CODEFOUND team'}</span>
+                  {type === 'management' && (
+                    <span className="team-card__role-label">B4P CODEFOUND team</span>
+                  )}
                   <h3>{member.name}</h3>
                   <p>{member.role}</p>
                 </div>

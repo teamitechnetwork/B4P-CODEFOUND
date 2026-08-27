@@ -1,10 +1,10 @@
 import { useId, useState, type ReactNode } from 'react';
-import { ArrowUpRight, Mail, MapPin, Minus, Phone, Plus } from 'lucide-react';
+import { ArrowUpRight, Globe2, Mail, MapPin, Minus, Phone, Plus } from 'lucide-react';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
 function FooterAccordion({ title, children }: { title: string; children: ReactNode }) {
   const panelId = useId();
-  const [isOpen, setIsOpen] = useState(() => typeof window === 'undefined' || window.innerWidth > 720);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <section className="site-footer__accordion">
@@ -29,42 +29,14 @@ export function Footer() {
   return (
     <footer id="contact" className="site-footer">
       <div className="container px-4 md:px-6">
-        <section className="site-footer__callout">
-          <div>
-            <span>Build with B4P CODEFOUND</span>
-            <h2>Peace takes root when communities lead.</h2>
-          </div>
-          <a href="/make-a-donation">
-            Support our work
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </a>
-        </section>
-
-        <section className="site-footer__social-band">
-          <div>
-            <span>Stay connected</span>
-            <h2>Follow the work.</h2>
-            <p>Keep up with the people, partnerships, and progress moving communities forward.</p>
-          </div>
-          <SocialLinks className="site-footer__social-links" />
-        </section>
-
-        <div className="site-footer__grid">
-          <div className="site-footer__about">
-            <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND" />
-            <p>Business for Peace Community Development Foundation is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
-            <p className="site-footer__motto">Happy Families = United &amp; Prosperous Communities = A Stronger Nation.</p>
-          </div>
-
-          <FooterAccordion title="Quick Links">
+        <div className="site-footer__accordions">
+          <FooterAccordion title="About B4P CODEFOUND">
             <nav aria-label="Explore B4P CODEFOUND">
               <a href="/about-us">About Us</a>
-              <a href="/become-a-volunteer">Volunteer With Us</a>
-              <a href="/make-a-donation">Donate</a>
-              <a href="/news-blogs">News &amp; Blogs</a>
-              <a href="/faq">FAQ</a>
-              <a href="/resources">Resources</a>
-              <a href="/blogs-discussion-forum">Blogs / Discussion Forum</a>
+              <a href="/the-directors-corner">The Director’s Corner</a>
+              <a href="/the-management-team">Management Team</a>
+              <a href="/the-board">Board of Directors</a>
+              <a href="/advisory-council">Advisory Council</a>
             </nav>
           </FooterAccordion>
 
@@ -77,7 +49,17 @@ export function Footer() {
             </nav>
           </FooterAccordion>
 
-          <FooterAccordion title="Connect">
+          <FooterAccordion title="Get Involved">
+            <nav aria-label="Get involved with B4P CODEFOUND">
+              <a href="/become-a-volunteer">Volunteer With Us</a>
+              <a href="/internship">Internships</a>
+              <a href="/jobs">Jobs</a>
+              <a href="/make-a-donation">Make a Donation</a>
+              <a href="/news-blogs">News &amp; Blogs</a>
+            </nav>
+          </FooterAccordion>
+
+          <FooterAccordion title="Contact & Offices">
             <address className="site-footer__contact">
               <a href="mailto:management@b4pcodefound.org">
                 <Mail size={16} aria-hidden="true" />
@@ -112,9 +94,32 @@ export function Footer() {
           </FooterAccordion>
         </div>
 
+        <a href="/" className="site-footer__brand" aria-label="B4P CODEFOUND home">
+          <img src="/brand/b4p-favicon.png" alt="" />
+          <span>
+            <strong>B4P CODEFOUND</strong>
+            <small>Peacebuilding · Community Development</small>
+          </span>
+        </a>
+
+        <div className="site-footer__social-row">
+          <p>
+            <Globe2 size={17} aria-hidden="true" />
+            Liberia · United States · Global
+          </p>
+          <SocialLinks className="site-footer__social-links" />
+        </div>
+
+        <nav className="site-footer__legal" aria-label="Legal">
+          <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/cookie-policy">Cookies Policy</a>
+          <a href="/contact">Contact Us</a>
+        </nav>
+
         <div className="site-footer__bottom">
-          <p>© {new Date().getFullYear()} B4P CODEFOUND. All rights reserved.</p>
-          <a href="/contact">Contact us</a>
+          <p>© {new Date().getFullYear()} Business for Peace Community Development Foundation. All rights reserved.</p>
+          <p>B4P CODEFOUND is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
         </div>
       </div>
     </footer>
