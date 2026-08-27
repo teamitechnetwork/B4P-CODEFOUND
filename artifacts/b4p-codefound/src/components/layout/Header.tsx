@@ -9,6 +9,7 @@ type NavGroup = { name: string; items: NavItem[] };
 
 const searchItems = [
   { title: 'About B4P CODEFOUND', href: '/about-us', description: 'Our mission, founder story, values, and where we work.', keywords: 'mission founder values history peace community development organization' },
+  { title: 'The Director’s Corner', href: '/the-directors-corner', description: 'A message from Founder and Executive Director Lindora Kolu Howard-Diawara.', keywords: 'director founder lindora howard diawara leadership message' },
   { title: 'What We Do', href: '/what-we-do', description: 'Explore our peacebuilding, economic development, and community initiatives.', keywords: 'what we do peacebuilding economic development empowerment services community' },
   { title: 'Global Programs', href: '/programs/global', description: 'Programs advancing African-led leadership and collective action.', keywords: 'global international africa leadership advocacy women youth programs' },
   { title: 'USA Programs', href: '/programs/usa', description: 'Local programs and diaspora-facing initiatives in the United States.', keywords: 'usa united states ohio columbus diaspora community programs' },

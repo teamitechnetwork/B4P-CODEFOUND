@@ -1,0 +1,22 @@
+{
+  "name": "B4P CODEFOUND",
+  "short_name": "B4P",
+  "description": "African-led peacebuilding, community development, and women’s leadership.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#062e37",
+  "icons": [
+    {
+      "src": "/brand/b4p-favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/b4p-logo-clean.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

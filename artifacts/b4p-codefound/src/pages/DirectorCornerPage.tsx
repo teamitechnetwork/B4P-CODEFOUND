@@ -8,7 +8,7 @@ export default function DirectorCornerPage() {
     <div className="flex flex-col min-h-screen bg-[#fcfdfd] font-sans selection:bg-primary/20 selection:text-primary">
       <Header />
       
-      <main className="flex-1 pt-[72px] md:pt-[108px]">
+      <main className="flex-1 pt-[104px]">
         {/* Intro/Hero Section */}
         <section className="bg-[#052228] text-white pt-20 pb-28 md:pt-32 md:pb-40 px-6 relative overflow-hidden">
           {/* Subtle background texture/pattern */}
@@ -38,12 +38,14 @@ export default function DirectorCornerPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
               
               {/* Left Column: Portrait (Sticky) */}
-              <div className="lg:col-span-5 lg:sticky lg:top-32 order-2 lg:order-1">
+              <div className="lg:col-span-5 lg:sticky lg:top-32">
                 <div className="bg-white p-4 md:p-6 rounded-2xl shadow-[0_20px_40px_-15px_rgba(5,34,40,0.08)] border border-border/40">
                   <div className="relative rounded-xl overflow-hidden aspect-[4/4.5] mb-6 bg-[#eaf7fb]">
-                    <img 
-                      src="/images/team/team-lindora-management.png" 
-                      alt="Lindora Kolu Howard-Diawara" 
+                    <img
+                      src="/images/team/team-lindora-management.png"
+                      alt="Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND"
+                      width="433"
+                      height="406"
                       className="w-full h-full object-cover object-top filter contrast-[1.02]"
                     />
                     <div className="absolute inset-0 border border-black/5 rounded-xl pointer-events-none"></div>
@@ -70,7 +72,7 @@ export default function DirectorCornerPage() {
               </div>
 
               {/* Right Column: The Letter */}
-              <div className="lg:col-span-7 order-1 lg:order-2">
+              <div className="lg:col-span-7">
                 <article className="prose prose-lg md:prose-xl prose-headings:font-extrabold prose-p:font-medium prose-p:leading-relaxed prose-p:text-foreground/80 prose-a:text-primary prose-a:no-underline hover:prose-a:underline max-w-none">
                   
                   <p className="text-2xl md:text-3xl text-foreground font-bold leading-snug mb-10">

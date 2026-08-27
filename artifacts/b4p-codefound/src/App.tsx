@@ -23,6 +23,7 @@ import OpportunityPage from '@/pages/OpportunityPage';
 import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
+import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -165,6 +166,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+          <SiteMetadata />
           <RoutedErrorBoundary>
             <Router />
           </RoutedErrorBoundary>
