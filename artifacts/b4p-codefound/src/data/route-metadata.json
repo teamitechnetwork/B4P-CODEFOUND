@@ -1,0 +1,321 @@
+[
+  {
+    "path": "/",
+    "title": "B4P CODEFOUND | Peacebuilding & Community Development",
+    "description": "B4P CODEFOUND is an African-led nonprofit and social enterprise advancing peacebuilding, community development, and women’s leadership across Liberia, the United States, and beyond.",
+    "indexable": true
+  },
+  {
+    "path": "/about-us",
+    "title": "About B4P CODEFOUND | African-Led Community Development",
+    "description": "Learn how B4P CODEFOUND connects peacebuilding, economic development, and inclusive leadership across Liberia, the United States, and global communities.",
+    "indexable": true
+  },
+  {
+    "path": "/our-impact",
+    "title": "Our Impact | B4P CODEFOUND",
+    "description": "Explore the people-centered impact of B4P CODEFOUND, from women’s leadership and youth opportunity to stronger communities and collective action.",
+    "indexable": true
+  },
+  {
+    "path": "/about",
+    "title": "Our Impact | B4P CODEFOUND",
+    "description": "Explore the people-centered impact of B4P CODEFOUND, from women’s leadership and youth opportunity to stronger communities and collective action.",
+    "canonicalPath": "/our-impact"
+  },
+  {
+    "path": "/our-core-values",
+    "title": "Core Values | B4P CODEFOUND",
+    "description": "Explore the principles that guide B4P CODEFOUND’s African-led peacebuilding, community development, and collective action.",
+    "indexable": true
+  },
+  {
+    "path": "/core-values",
+    "title": "Core Values | B4P CODEFOUND",
+    "description": "Explore the principles that guide B4P CODEFOUND’s African-led peacebuilding, community development, and collective action.",
+    "canonicalPath": "/our-core-values"
+  },
+  {
+    "path": "/what-we-do",
+    "title": "What We Do | B4P CODEFOUND",
+    "description": "Discover B4P CODEFOUND’s peacebuilding, economic development, regional programs, and organizational support for community-led change.",
+    "indexable": true
+  },
+  {
+    "path": "/programs",
+    "title": "What We Do | B4P CODEFOUND",
+    "description": "Discover B4P CODEFOUND’s peacebuilding, economic development, regional programs, and organizational support for community-led change.",
+    "canonicalPath": "/what-we-do"
+  },
+  {
+    "path": "/peacebuilding-program",
+    "title": "Peacebuilding Programs | B4P CODEFOUND",
+    "description": "B4P CODEFOUND facilitates dialogue, builds conflict-resolution capacity, and equips communities with practical tools for lasting peace.",
+    "indexable": true
+  },
+  {
+    "path": "/economic-development-program",
+    "title": "Economic Development | B4P CODEFOUND",
+    "description": "B4P CODEFOUND supports women and youth through enterprise, agriculture, mentorship, financial literacy, and access to opportunity.",
+    "indexable": true
+  },
+  {
+    "path": "/services",
+    "title": "Services for Mission-Driven Work | B4P CODEFOUND",
+    "description": "Explore B4P CODEFOUND services for fiscal sponsorship, nonprofit capacity building, and business development.",
+    "indexable": true
+  },
+  {
+    "path": "/b4p-services",
+    "title": "Services for Mission-Driven Work | B4P CODEFOUND",
+    "description": "Explore B4P CODEFOUND services for fiscal sponsorship, nonprofit capacity building, and business development.",
+    "canonicalPath": "/services"
+  },
+  {
+    "path": "/services/fiscal-sponsorship",
+    "title": "Fiscal Sponsorship | B4P CODEFOUND Services",
+    "description": "Learn about B4P CODEFOUND’s fiscal sponsorship pathway for mission-aligned projects and community initiatives.",
+    "indexable": true
+  },
+  {
+    "path": "/services/nonprofit-capacity-building",
+    "title": "Nonprofit Capacity Building | B4P CODEFOUND",
+    "description": "Explore practical support that helps nonprofit organizations strengthen leadership, planning, and internal systems.",
+    "indexable": true
+  },
+  {
+    "path": "/services/business-development",
+    "title": "Business Development Services | B4P CODEFOUND",
+    "description": "Explore B4P CODEFOUND support for enterprise capacity, mentorship, financial literacy, digital skills, and opportunity.",
+    "indexable": true
+  },
+  {
+    "path": "/programs/global",
+    "title": "Global Programs | B4P CODEFOUND",
+    "description": "Building exchange, leadership, enterprise, governance, and cultural connection across borders.",
+    "indexable": true
+  },
+  {
+    "path": "/global-programs",
+    "title": "Global Programs | B4P CODEFOUND",
+    "description": "Building exchange, leadership, enterprise, governance, and cultural connection across borders.",
+    "canonicalPath": "/programs/global"
+  },
+  {
+    "path": "/programs/usa",
+    "title": "USA Programs | B4P CODEFOUND",
+    "description": "Community-centered programs that help people navigate opportunity, build relationships, and lead.",
+    "indexable": true
+  },
+  {
+    "path": "/usa-programs",
+    "title": "USA Programs | B4P CODEFOUND",
+    "description": "Community-centered programs that help people navigate opportunity, build relationships, and lead.",
+    "canonicalPath": "/programs/usa"
+  },
+  {
+    "path": "/programs/liberia",
+    "title": "Liberia Programs | B4P CODEFOUND",
+    "description": "Locally rooted work supporting livelihoods, health education, youth, and civic participation.",
+    "indexable": true
+  },
+  {
+    "path": "/liberia-programs",
+    "title": "Liberia Programs | B4P CODEFOUND",
+    "description": "Locally rooted work supporting livelihoods, health education, youth, and civic participation.",
+    "canonicalPath": "/programs/liberia"
+  },
+  {
+    "path": "/columbus-women-connect",
+    "title": "Columbus Women Connect | B4P CODEFOUND",
+    "description": "Columbus Women Connect is a multicultural network helping women connect, lead, advocate, and thrive across cultures and generations.",
+    "indexable": true
+  },
+  {
+    "path": "/cwc",
+    "title": "Columbus Women Connect | B4P CODEFOUND",
+    "description": "Columbus Women Connect is a multicultural network helping women connect, lead, advocate, and thrive across cultures and generations.",
+    "canonicalPath": "/columbus-women-connect"
+  },
+  {
+    "path": "/the-directors-corner",
+    "title": "The Director’s Corner | B4P CODEFOUND",
+    "description": "Read a message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND.",
+    "image": "/images/team/team-lindora-management.png",
+    "type": "article",
+    "indexable": true
+  },
+  {
+    "path": "/directors-corner",
+    "title": "The Director’s Corner | B4P CODEFOUND",
+    "description": "Read a message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND.",
+    "image": "/images/team/team-lindora-management.png",
+    "type": "article",
+    "canonicalPath": "/the-directors-corner"
+  },
+  {
+    "path": "/director",
+    "title": "The Director’s Corner | B4P CODEFOUND",
+    "description": "Read a message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND.",
+    "image": "/images/team/team-lindora-management.png",
+    "type": "article",
+    "canonicalPath": "/the-directors-corner"
+  },
+  {
+    "path": "/the-management-team",
+    "title": "Management Team | B4P CODEFOUND",
+    "description": "Meet the team driving B4P CODEFOUND’s global-local peacebuilding, community development, and leadership work.",
+    "indexable": true
+  },
+  {
+    "path": "/management",
+    "title": "Management Team | B4P CODEFOUND",
+    "description": "Meet the team driving B4P CODEFOUND’s global-local peacebuilding, community development, and leadership work.",
+    "canonicalPath": "/the-management-team"
+  },
+  {
+    "path": "/the-board",
+    "title": "Board of Directors | B4P CODEFOUND",
+    "description": "Meet the board guiding B4P CODEFOUND’s strategic vision, accountability, and community impact.",
+    "indexable": true
+  },
+  {
+    "path": "/board",
+    "title": "Board of Directors | B4P CODEFOUND",
+    "description": "Meet the board guiding B4P CODEFOUND’s strategic vision, accountability, and community impact.",
+    "canonicalPath": "/the-board"
+  },
+  {
+    "path": "/advisory-council",
+    "title": "Advisory Council | B4P CODEFOUND",
+    "description": "Learn about the advisors supporting B4P CODEFOUND across peacebuilding, development, philanthropy, and community engagement.",
+    "indexable": true
+  },
+  {
+    "path": "/advisory",
+    "title": "Advisory Council | B4P CODEFOUND",
+    "description": "Learn about the advisors supporting B4P CODEFOUND across peacebuilding, development, philanthropy, and community engagement.",
+    "canonicalPath": "/advisory-council"
+  },
+  {
+    "path": "/where-we-work",
+    "title": "Where We Work | B4P CODEFOUND",
+    "description": "See how B4P CODEFOUND connects communities and partners across Liberia, the United States, and global networks.",
+    "indexable": true
+  },
+  {
+    "path": "/theory-of-change",
+    "title": "Theory of Change | B4P CODEFOUND",
+    "description": "Understand how B4P CODEFOUND turns local leadership, practical tools, and collective action into lasting community change.",
+    "indexable": true
+  },
+  {
+    "path": "/contact",
+    "title": "Contact B4P CODEFOUND",
+    "description": "Connect with B4P CODEFOUND about programs, partnerships, volunteering, donations, and community-led peacebuilding.",
+    "indexable": true
+  },
+  {
+    "path": "/site-directory",
+    "title": "Site Directory | B4P CODEFOUND",
+    "description": "Browse B4P CODEFOUND pages, programs, services, leadership information, and ways to get involved.",
+    "indexable": true
+  },
+  {
+    "path": "/become-a-volunteer",
+    "title": "Volunteer with B4P CODEFOUND",
+    "description": "Share your time and skills with B4P CODEFOUND and support African-led peacebuilding, development, and leadership.",
+    "indexable": true
+  },
+  {
+    "path": "/internship",
+    "title": "Internships at B4P CODEFOUND",
+    "description": "Learn alongside B4P CODEFOUND through a mission-led internship focused on community, leadership, and practical change.",
+    "indexable": true
+  },
+  {
+    "path": "/jobs",
+    "title": "Jobs at B4P CODEFOUND",
+    "description": "Explore current and future opportunities to join B4P CODEFOUND’s peacebuilding and community development work.",
+    "indexable": true
+  },
+  {
+    "path": "/make-a-donation",
+    "title": "Donate to B4P CODEFOUND",
+    "description": "Support B4P CODEFOUND’s African-led peacebuilding, women’s leadership, youth opportunity, and community development work.",
+    "indexable": true
+  },
+  {
+    "path": "/news-blogs",
+    "title": "News & Stories | B4P CODEFOUND",
+    "description": "Read news, field stories, organizational updates, and perspectives from B4P CODEFOUND.",
+    "indexable": true
+  },
+  {
+    "path": "/resources",
+    "title": "Resources | B4P CODEFOUND",
+    "description": "Explore public resources and learning materials from B4P CODEFOUND.",
+    "indexable": true
+  },
+  {
+    "path": "/events-and-conferences",
+    "title": "Events & Conferences | B4P CODEFOUND",
+    "description": "Explore events, convenings, and conferences connected to B4P CODEFOUND’s mission.",
+    "indexable": true
+  },
+  {
+    "path": "/privacy-policy",
+    "title": "Privacy Policy | B4P CODEFOUND",
+    "description": "Read the B4P CODEFOUND privacy policy.",
+    "indexable": true
+  },
+  {
+    "path": "/cookie-policy",
+    "title": "Cookie Policy | B4P CODEFOUND",
+    "description": "Read the B4P CODEFOUND cookie policy.",
+    "indexable": true
+  },
+  {
+    "path": "/terms-and-conditions",
+    "title": "Terms and Conditions | B4P CODEFOUND",
+    "description": "Read the B4P CODEFOUND terms and conditions.",
+    "indexable": true
+  },
+  {
+    "path": "/shop",
+    "title": "B4P CODEFOUND Store",
+    "description": "Visit the B4P CODEFOUND store page for future mission-aligned products and updates.",
+    "indexable": true
+  },
+  {
+    "path": "/store-listing",
+    "title": "Store Listing | B4P CODEFOUND",
+    "description": "Browse the B4P CODEFOUND store listing.",
+    "canonicalPath": "/shop"
+  },
+  {
+    "path": "/cart",
+    "title": "Shopping Cart | B4P CODEFOUND",
+    "description": "Review items in your B4P CODEFOUND shopping cart."
+  },
+  {
+    "path": "/checkout",
+    "title": "Checkout | B4P CODEFOUND",
+    "description": "Complete your B4P CODEFOUND store checkout."
+  },
+  {
+    "path": "/my-account",
+    "title": "My Account | B4P CODEFOUND",
+    "description": "Access your B4P CODEFOUND store account."
+  },
+  {
+    "path": "/my-orders",
+    "title": "My Orders | B4P CODEFOUND",
+    "description": "Review your B4P CODEFOUND store orders."
+  },
+  {
+    "path": "/dashboard/product-subscription",
+    "title": "Product Subscription | B4P CODEFOUND",
+    "description": "Manage your B4P CODEFOUND store product subscription."
+  }
+]
