@@ -27,6 +27,7 @@ const MANAGEMENT_TEAM: TeamMember[] = [
   {
     name: 'Wilmot Kerkulah',
     role: 'Social Media, Marketing & Operations Associate',
+    image: '/images/team/team-wilmot.png'
   },
   {
     name: 'Darlington W. Vangehn',
