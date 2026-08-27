@@ -2,18 +2,10 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Menu, Minus, Plus, Search, Sparkles, X } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { programRegions } from '@/data/programs';
+import { SocialLinks } from '@/components/layout/SocialLinks';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
-type SocialNetwork = 'facebook' | 'instagram' | 'linkedin' | 'youtube' | 'whatsapp';
-
-const socialLinks: { name: string; href: string; network: SocialNetwork }[] = [
-  { name: 'Facebook', href: 'https://www.facebook.com/b4pcodefound.cause', network: 'facebook' },
-  { name: 'Instagram', href: 'https://www.instagram.com/b4pcodefound', network: 'instagram' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/b4pcodefound', network: 'linkedin' },
-  { name: 'YouTube', href: 'https://www.youtube.com/channel/UCag6wU4HaGZlBqbcG6kWThg', network: 'youtube' },
-  { name: 'WhatsApp', href: 'https://whatsapp.com/channel/0029VbBYo7T7dmeaJIfdBT1b', network: 'whatsapp' },
-];
 
 const searchItems = [
   { title: 'About B4P CODEFOUND', href: '/about-us', description: 'Our mission, founder story, values, and where we work.', keywords: 'mission founder values history peace community development organization' },
@@ -29,22 +21,6 @@ const searchItems = [
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
 ];
-
-function SocialIcon({ network }: { network: SocialNetwork }) {
-  const paths: Record<SocialNetwork, React.ReactNode> = {
-    facebook: <path d="M13.6 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5H17V3.7c-.4-.1-1.3-.2-2.4-.2-2.4 0-4 1.5-4 4.1v2.3H8v3.1h2.6v8h3Z" />,
-    instagram: <><rect x="3.3" y="3.3" width="17.4" height="17.4" rx="5.2" /><circle cx="12" cy="12" r="4.1" /><circle cx="17.6" cy="6.6" r="1" fill="currentColor" stroke="none" /></>,
-    linkedin: <><rect x="4" y="9.2" width="3.2" height="10.4" /><circle cx="5.6" cy="5.7" r="1.8" fill="currentColor" stroke="none" /><path d="M10 19.6V9.2h3.1v1.4c.5-.9 1.6-1.8 3.4-1.8 3.1 0 3.7 2 3.7 4.8v6h-3.2v-5.3c0-1.3 0-2.7-1.8-2.7s-2.1 1.3-2.1 2.6v5.4H10Z" /></>,
-    youtube: <path d="M21 8.2a2.9 2.9 0 0 0-2-2C17.2 5.7 12 5.7 12 5.7s-5.2 0-7 .5a2.9 2.9 0 0 0-2 2A29 29 0 0 0 2.5 12 29 29 0 0 0 3 15.8a2.9 2.9 0 0 0 2 2c1.8.5 7 .5 7 .5s5.2 0 7-.5a2.9 2.9 0 0 0 2-2 29 29 0 0 0 .5-3.8 29 29 0 0 0-.5-3.8ZM10 15.3V8.7l5.5 3.3-5.5 3.3Z" />,
-    whatsapp: <path d="M12 3.2a8.7 8.7 0 0 0-7.4 13.3L3.5 20.8l4.5-1.1A8.7 8.7 0 1 0 12 3.2Zm0 15.8a7.1 7.1 0 0 1-3.6-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.2 7.2 0 1 1 12 19Zm3.9-5.4c-.2-.1-1.3-.6-1.5-.6-.2-.1-.4-.1-.6.1-.2.3-.6.8-.8 1-.1.2-.3.2-.5.1-1.4-.7-2.3-1.6-3-3-.1-.2 0-.3.1-.5l.4-.5c.1-.1.1-.3.2-.4 0-.1 0-.3 0-.4l-.6-1.4c-.1-.4-.3-.3-.5-.3h-.4c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1 0-.1-.2-.2-.4-.3Z" />,
-  };
-
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      {paths[network]}
-    </svg>
-  );
-}
 
 const programNavItems: NavItem[] = [
   {
@@ -281,13 +257,7 @@ export function Header() {
               <span className="site-topbar__message">Peacebuilding · Community Development · Collective Action</span>
               <div className="site-topbar__right">
                 <a className="site-topbar__email" href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a>
-                <div className="site-topbar__socials" aria-label="Follow B4P CODEFOUND">
-                  {socialLinks.map((social) => (
-                    <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`B4P CODEFOUND on ${social.name}`}>
-                      <SocialIcon network={social.network} />
-                    </a>
-                  ))}
-                </div>
+                <SocialLinks className="site-topbar__socials" />
                 <button
                   type="button"
                   className="site-topbar__search"

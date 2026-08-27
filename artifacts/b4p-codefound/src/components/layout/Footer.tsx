@@ -1,12 +1,5 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
-
-const socialLinks = [
-  { name: 'Facebook', href: 'https://www.facebook.com/b4pcodefound.cause' },
-  { name: 'Instagram', href: 'https://www.instagram.com/b4pcodefound' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/b4pcodefound' },
-  { name: 'YouTube', href: 'https://www.youtube.com/channel/UCag6wU4HaGZlBqbcG6kWThg' },
-  { name: 'WhatsApp', href: 'https://whatsapp.com/channel/0029VbBYo7T7dmeaJIfdBT1b' },
-];
+import { SocialLinks } from '@/components/layout/SocialLinks';
 
 export function Footer() {
   return (
@@ -23,16 +16,20 @@ export function Footer() {
           </a>
         </section>
 
+        <section className="site-footer__social-band">
+          <div>
+            <span>Stay connected</span>
+            <h2>Follow the work.</h2>
+            <p>Keep up with the people, partnerships, and progress moving communities forward.</p>
+          </div>
+          <SocialLinks className="site-footer__social-links" />
+        </section>
+
         <div className="site-footer__grid">
           <div className="site-footer__about">
             <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND" />
             <p>Business for Peace Community Development Foundation is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
             <p className="site-footer__motto">Happy Families = United &amp; Prosperous Communities = A Stronger Nation.</p>
-            <div className="site-footer__socials" aria-label="Follow B4P CODEFOUND">
-              {socialLinks.map((social) => (
-                <a key={social.name} href={social.href} target="_blank" rel="noreferrer">{social.name}</a>
-              ))}
-            </div>
           </div>
 
           <nav aria-label="Explore B4P CODEFOUND">
