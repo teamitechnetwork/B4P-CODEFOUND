@@ -102,7 +102,9 @@ function PageDirectory({ pages }: { pages: PageMeta[] }) {
       <div className="legacy-directory__links">
         {visiblePages.map((page) => (
           <a key={page.id} href={page.path || `/${page.slug}`}>
-            {page.title.replace(/&#8217;|&#039;/g, '’')}
+            {page.slug === 'home'
+              ? 'Home (legacy archive)'
+              : page.title.replace(/&#8217;|&#039;/g, '’')}
             <ArrowUpRight size={13} aria-hidden="true" />
           </a>
         ))}

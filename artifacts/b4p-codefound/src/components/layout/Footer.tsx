@@ -46,10 +46,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-primary">Quick Links</h4>
             <ul className="space-y-3 font-medium text-background/80">
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#programs" className="hover:text-white transition-colors">What We Do</a></li>
-              <li><a href="#field-stories" className="hover:text-white transition-colors">Field Stories</a></li>
-              <li><a href="#news" className="hover:text-white transition-colors">Latest News</a></li>
+              <li><a href="/about-us" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/peacebuilding-program" className="hover:text-white transition-colors">What We Do</a></li>
+              <li><a href="/our-events" className="hover:text-white transition-colors">Events &amp; Programs</a></li>
+              <li><a href="/resources" className="hover:text-white transition-colors">Resources</a></li>
             </ul>
           </div>
 
@@ -60,10 +60,10 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-3">
               <Button asChild className="bg-secondary hover:bg-secondary/90 text-white w-full shadow-lg">
-                <a href="#donate">Donate Now</a>
+                <a href="/make-a-donation">Donate Now</a>
               </Button>
               <Button asChild variant="outline" className="border-primary/50 text-white hover:bg-primary/20 hover:text-white w-full">
-                <a href="#partner">Become a Partner</a>
+                <a href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">Become a Partner</a>
               </Button>
             </div>
           </div>
