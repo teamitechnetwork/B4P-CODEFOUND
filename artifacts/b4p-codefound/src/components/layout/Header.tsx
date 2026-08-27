@@ -12,7 +12,7 @@ const navGroups: NavGroup[] = [
     items: [
       { name: 'About Us', href: '/about-us' },
       { name: 'Our Impact', href: '/about' },
-      { name: 'Executive Director’s Message', href: '/executive-directors-message' },
+      { name: 'The Director’s Corner', href: '/the-directors-corner' },
       { name: 'The Board', href: '/the-board' },
       { name: 'Management Team', href: '/the-management-team' },
       { name: 'Advisory Council', href: '/advisory-council' },
