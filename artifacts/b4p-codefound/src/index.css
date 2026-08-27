@@ -269,6 +269,7 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: 16.5px;
   }
 
   body {
@@ -4115,7 +4116,7 @@
 .site-footer {
   padding: 22px 0 26px;
   color: #fff;
-  background: #101010;
+  background: #062e37;
 }
 
 .site-footer__accordions {
@@ -4131,7 +4132,7 @@
   padding: 22px 2px;
   border-bottom: 0;
   color: #fff;
-  font-size: 0.88rem;
+  font-size: 0.94rem;
   letter-spacing: -0.01em;
   text-transform: none;
 }
@@ -4155,7 +4156,7 @@
 .site-footer__contact > a,
 .site-footer__contact > p {
   color: rgba(255, 255, 255, 0.68);
-  font-size: 0.78rem;
+  font-size: 0.84rem;
   font-weight: 500;
 }
 
@@ -4187,7 +4188,7 @@
 
 .site-footer__brand small {
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.64rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -4209,7 +4210,7 @@
   gap: 9px;
   margin: 0;
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.75rem;
+  font-size: 0.82rem;
   font-weight: 600;
 }
 
@@ -4251,7 +4252,7 @@
 
 .site-footer__legal a {
   color: rgba(255, 255, 255, 0.82);
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-decoration: none;
 }
@@ -4267,7 +4268,7 @@
   padding: 0;
   border-top: 0;
   color: rgba(255, 255, 255, 0.46);
-  font-size: 0.67rem;
+  font-size: 0.74rem;
   font-weight: 500;
   line-height: 1.55;
   text-align: center;
@@ -4304,7 +4305,7 @@
 
   .site-footer__accordion-trigger {
     padding: 21px 0;
-    font-size: 0.86rem;
+    font-size: 0.92rem;
   }
 
   .site-footer__accordion-panel {
