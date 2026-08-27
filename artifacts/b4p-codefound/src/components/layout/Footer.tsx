@@ -111,6 +111,7 @@ export function Footer() {
         </div>
 
         <nav className="site-footer__legal" aria-label="Legal">
+          <a href="/site-directory">Site Directory</a>
           <a href="/terms-and-conditions">Terms &amp; Conditions</a>
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/cookie-policy">Cookies Policy</a>

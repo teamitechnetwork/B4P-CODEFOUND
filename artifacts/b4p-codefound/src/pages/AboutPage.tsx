@@ -8,9 +8,9 @@ import { Button } from '@/components/ui/button';
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-background font-sans">
+    <div className="about-page flex flex-col min-h-screen bg-background font-sans">
       <Header />
-      <main className="flex-1 pt-[72px] md:pt-[108px]">
+      <main className="flex-1">
         {/* Hero Section */}
         <section className="relative bg-[#062e37] text-white overflow-hidden py-24 md:py-32 lg:py-40">
           <div className="absolute inset-0 z-0 opacity-20">

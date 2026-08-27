@@ -6,6 +6,9 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
 import AboutPage from '@/pages/AboutPage';
+import ImpactPage from '@/pages/ImpactPage';
+import CoreValuesPage from '@/pages/CoreValuesPage';
+import SiteDirectoryPage from '@/pages/SiteDirectoryPage';
 import PolishedPage from '@/pages/PolishedPage';
 import WhatWeDoPage from '@/pages/WhatWeDoPage';
 import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
@@ -31,6 +34,18 @@ function Router() {
 
   if (location === '/about-us') {
     return <AboutPage />;
+  }
+
+  if (location === '/about' || location === '/our-impact') {
+    return <ImpactPage />;
+  }
+
+  if (location === '/our-core-values' || location === '/core-values') {
+    return <CoreValuesPage />;
+  }
+
+  if (location === '/site-directory') {
+    return <SiteDirectoryPage />;
   }
 
   if (location === '/the-management-team' || location === '/management') {
