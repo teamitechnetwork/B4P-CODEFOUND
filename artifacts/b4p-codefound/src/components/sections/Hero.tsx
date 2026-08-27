@@ -83,7 +83,7 @@ export function Hero() {
                 </a>
               </Button>
               <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-bold rounded-sm border-white text-white hover:bg-white hover:text-foreground">
-                <a href="/peacebuilding-program">Discover Our Work</a>
+                <a href="/what-we-do">Discover Our Work</a>
               </Button>
             </div>
 

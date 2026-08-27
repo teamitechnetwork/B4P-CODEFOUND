@@ -1,15 +1,42 @@
 import { ExternalLink } from 'lucide-react';
 
 const newsLinks = [
-  'UN Women: Latest Global Updates on Gender Equality',
-  'Ending Violence Against Women — UN Women Programs',
-  'Women and the Sustainable Development Goals (SDGs)',
-  'ULAA Press — Union of Liberian Associations in the Americas',
-  'Liberian Women Advocacy to End Violence in Liberia',
-  'Liberians in Columbus Incorporated, Inc.',
-  'CSW 2022: WONGOSOL, B4P CODEFOUND hosts its 2nd CSW Side-Event',
-  'ED\'s Visit: B4P CODEFOUND to ensure women\'s participation',
-  'Passage of Dual Citizenship in Liberia'
+  {
+    title: 'UN Women: Latest Global Updates on Gender Equality',
+    href: 'https://www.unwomen.org/en/news',
+  },
+  {
+    title: 'Ending Violence Against Women — UN Women Programs',
+    href: 'https://www.unwomen.org/en/what-we-do/ending-violence-against-women',
+  },
+  {
+    title: 'Women and the Sustainable Development Goals (SDGs)',
+    href: 'https://www.unwomen.org/en/news/in-focus/women-and-the-sdgs',
+  },
+  {
+    title: 'ULAA Press — Union of Liberian Associations in the Americas',
+    href: 'https://ulaalib.org/blog',
+  },
+  {
+    title: 'Liberian Women Advocacy to End Violence in Liberia',
+    href: 'https://www.facebook.com/lwatevl',
+  },
+  {
+    title: 'Liberians in Columbus Incorporated, Inc.',
+    href: 'https://www.facebook.com/liberiansincolumbusinc.lici',
+  },
+  {
+    title: 'CSW 2022: WONGOSOL, B4P CODEFOUND hosts its 2nd CSW Side-Event',
+    href: 'https://womenvoicesnewspaper.org/wongosol-b4p-codefound-hosts-its-2nd-csw-side-event/',
+  },
+  {
+    title: 'ED\'s Visit: B4P CODEFOUND to ensure women\'s participation',
+    href: 'https://smartnewsliberia.com/b4p-codefound-to-ensure-womens-participation-in-liberias-social-economic-and-political-space/',
+  },
+  {
+    title: 'Passage of Dual Citizenship in Liberia',
+    href: 'https://www.liberianobserver.com/liberia-dual-citizenship-becomes-legal',
+  },
 ];
 
 export function News() {
@@ -35,15 +62,17 @@ export function News() {
 
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {newsLinks.map((news, i) => (
+              {newsLinks.map((news) => (
                 <a 
-                  key={i} 
-                  href="#"
+                  key={news.href}
+                  href={news.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="group block bg-white p-6 rounded-xl border border-border/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <h4 className="font-bold text-foreground leading-snug group-hover:text-primary transition-colors">
-                      {news}
+                      {news.title}
                     </h4>
                     <ExternalLink className="w-5 h-5 text-muted-foreground shrink-0 group-hover:text-secondary transition-colors" />
                   </div>

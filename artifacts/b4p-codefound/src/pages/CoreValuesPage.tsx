@@ -51,8 +51,8 @@ export default function CoreValuesPage() {
             </div>
             <div className="values-hero__image">
               <img
-                src="/images/story-cwc.jpg"
-                alt="Women connecting in a B4P CODEFOUND community space"
+                src="/images/conference/day-2-community-03.jpg"
+                alt="A community leader reviewing materials at a B4P CODEFOUND gathering"
                 data-testid="img-values-hero"
               />
             </div>

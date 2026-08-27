@@ -13,6 +13,7 @@ const opportunities: Record<OpportunityKind, {
   focusLabel: string;
   focusOptions: string[];
   note: string;
+  image: string;
 }> = {
   volunteer: {
     eyebrow: 'Work With Us',
@@ -22,6 +23,7 @@ const opportunities: Record<OpportunityKind, {
     focusLabel: 'How would you like to volunteer?',
     focusOptions: ['Community outreach', 'Events and logistics', 'Communications and storytelling', 'Fundraising and partnerships', 'Professional skills volunteering', 'Something else'],
     note: 'Tell us about the skills or experience you would like to share.',
+    image: '/images/conference/day-1-group-02.jpg',
   },
   internship: {
     eyebrow: 'Work With Us',
@@ -31,6 +33,7 @@ const opportunities: Record<OpportunityKind, {
     focusLabel: 'Internship area of interest',
     focusOptions: ['Program support', 'Research and policy', 'Communications', 'Community engagement', 'Operations', 'Other'],
     note: 'Include your course of study, preferred dates, and any placement requirements.',
+    image: '/images/conference/day-3-community-01.jpg',
   },
   jobs: {
     eyebrow: 'Work With Us',
@@ -40,6 +43,7 @@ const opportunities: Record<OpportunityKind, {
     focusLabel: 'Area of interest',
     focusOptions: ['Programs and community development', 'Operations and administration', 'Communications', 'Partnerships and fundraising', 'Leadership', 'Other'],
     note: 'Share the kind of role you are seeking, your experience, and a link to your résumé or portfolio if available.',
+    image: '/images/conference/day-1-community-gathering.jpg',
   },
 };
 
@@ -68,86 +72,92 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 font-sans">
+    <div className="opportunity-page flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 pt-[104px]">
-        <section className="bg-[#062e37] px-4 py-16 text-white md:px-6 md:py-24">
-          <div className="container mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1fr_0.38fr] lg:items-end">
-            <div>
-              <span className="mb-5 inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#83d6f5]">
-                <span className="h-px w-8 bg-[#83d6f5]" />
-                {content.eyebrow}
-              </span>
-              <h1 className="max-w-3xl text-4xl font-extrabold leading-[0.98] tracking-[-0.055em] md:text-6xl">{content.title}</h1>
-              <p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white/80 md:text-xl">{content.description}</p>
+      <main className="flex-1">
+        <section className="opportunity-hero">
+          <div className="page-container opportunity-hero__inner">
+            <div className="opportunity-hero__copy">
+              <span className="page-kicker">{content.eyebrow}</span>
+              <h1>{content.title}</h1>
+              <p>{content.description}</p>
             </div>
-            <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[#83d6f5] shadow-2xl">
-              <Icon size={42} strokeWidth={1.6} aria-hidden="true" />
+            <div className="opportunity-hero__visual">
+              <img src={content.image} alt="" />
+              <div><Icon size={30} strokeWidth={1.6} aria-hidden="true" /><span>Make your contribution count.</span></div>
             </div>
           </div>
         </section>
 
-        <section className="px-4 py-16 md:px-6 md:py-24">
-          <div className="container mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.72fr_1.28fr]">
-            <aside className="lg:pt-8">
-              <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-primary">Start here</span>
-              <h2 className="mt-4 text-3xl font-extrabold tracking-[-0.045em] text-[#123f47]">A simple first conversation.</h2>
-              <p className="mt-5 max-w-md text-base font-medium leading-relaxed text-slate-600">
+        <section className="opportunity-section">
+          <div className="page-container opportunity-layout">
+            <aside className="opportunity-aside">
+              <span className="section-heading__eyebrow">Start here</span>
+              <h2>A simple first conversation.</h2>
+              <p>
                 Complete the form and your usual email app will open with your answers addressed to our team. We will follow up from there.
               </p>
-              <a className="mt-8 inline-flex items-center gap-2 font-bold text-primary hover:text-[#123f47]" href="mailto:b4pcodefound@gmail.com">
+              <a href="mailto:b4pcodefound@gmail.com">
                 <Mail size={18} aria-hidden="true" />
                 b4pcodefound@gmail.com
               </a>
+              <div className="opportunity-aside__note">
+                <strong>What helps us most</strong>
+                <span>Tell us what you care about, what you can offer, and how you would like to participate.</span>
+              </div>
             </aside>
 
-            <form onSubmit={handleSubmit} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-slate-900/5 md:p-10">
-              <div className="grid gap-6 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
+            <form onSubmit={handleSubmit} className="opportunity-form">
+              <div className="opportunity-form__header">
+                <span className="section-heading__eyebrow">Your details</span>
+                <h2>Tell us how you’d like to contribute.</h2>
+              </div>
+              <div className="opportunity-form__grid">
+                <label>
                   Full name
-                  <input name="name" required autoComplete="name" className="h-12 rounded-lg border border-slate-200 px-4 font-medium text-slate-800 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                  <input name="name" required autoComplete="name" />
                 </label>
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
+                <label>
                   Email address
-                  <input name="email" type="email" required autoComplete="email" className="h-12 rounded-lg border border-slate-200 px-4 font-medium text-slate-800 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                  <input name="email" type="email" required autoComplete="email" />
                 </label>
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
-                  Phone number <span className="font-medium text-slate-400">(optional)</span>
-                  <input name="phone" type="tel" autoComplete="tel" className="h-12 rounded-lg border border-slate-200 px-4 font-medium text-slate-800 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                <label>
+                  Phone number <small>(optional)</small>
+                  <input name="phone" type="tel" autoComplete="tel" />
                 </label>
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
+                <label>
                   City and country
-                  <input name="location" required autoComplete="address-level2" className="h-12 rounded-lg border border-slate-200 px-4 font-medium text-slate-800 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                  <input name="location" required autoComplete="address-level2" />
                 </label>
               </div>
 
-              <div className="mt-6 grid gap-6 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
+              <div className="opportunity-form__grid opportunity-form__grid--second">
+                <label>
                   {content.focusLabel}
-                  <select name="focus" required defaultValue="" className="h-12 rounded-lg border border-slate-200 bg-white px-4 font-medium text-slate-800 outline-none transition focus:border-primary focus:ring-4 focus:ring-primary/10">
+                  <select name="focus" required defaultValue="">
                     <option value="" disabled>Select an option</option>
                     {content.focusOptions.map((option) => <option key={option}>{option}</option>)}
                   </select>
                 </label>
-                <label className="grid gap-2 text-sm font-bold text-[#123f47]">
+                <label>
                   Availability
-                  <input name="availability" required placeholder="For example, weekday evenings" className="h-12 rounded-lg border border-slate-200 px-4 font-medium text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                  <input name="availability" required placeholder="For example, weekday evenings" />
                 </label>
               </div>
 
-              <label className="mt-6 grid gap-2 text-sm font-bold text-[#123f47]">
+              <label className="opportunity-form__message">
                 Tell us more
-                <textarea name="message" required rows={6} placeholder={content.note} className="resize-y rounded-lg border border-slate-200 px-4 py-3 font-medium leading-relaxed text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10" />
+                <textarea name="message" required rows={6} placeholder={content.note} />
               </label>
 
               {hasSubmitted && (
-                <p className="mt-6 flex items-start gap-2 rounded-lg bg-primary/10 px-4 py-3 text-sm font-semibold leading-relaxed text-[#123f47]" role="status">
-                  <CheckCircle2 className="mt-0.5 shrink-0 text-primary" size={18} aria-hidden="true" />
+                <p className="opportunity-form__status" role="status">
+                  <CheckCircle2 size={18} aria-hidden="true" />
                   Your email draft is ready. If it did not open automatically, please email b4pcodefound@gmail.com directly.
                 </p>
               )}
 
-              <button type="submit" className="mt-8 inline-flex min-h-12 items-center gap-3 bg-[#df5311] px-6 py-3 text-sm font-extrabold uppercase tracking-[0.1em] text-white transition hover:bg-[#b6410d] focus:outline-none focus:ring-4 focus:ring-[#df5311]/30">
+              <button type="submit">
                 Prepare email to B4P
                 <ArrowRight size={18} aria-hidden="true" />
               </button>

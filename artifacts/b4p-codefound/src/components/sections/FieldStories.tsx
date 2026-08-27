@@ -44,7 +44,7 @@ export function FieldStories() {
             </h2>
           </div>
           <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-wide">
-            <a href="/what-we-do">
+            <a href="/about">
               View All Impact
               <ArrowRight className="ml-2 w-4 h-4" />
             </a>

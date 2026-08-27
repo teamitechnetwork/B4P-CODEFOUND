@@ -28,13 +28,13 @@ export function CTA() {
         
         <div id="partner" className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-16 px-10 text-xl rounded-sm shadow-xl hover:-translate-y-1 transition-all w-full sm:w-auto">
-            <a href="mailto:management@b4pcodefound.org">
+            <a href="/make-a-donation">
               Donate Now
               <ArrowRight className="ml-2 w-6 h-6" />
             </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="h-16 px-10 text-xl font-bold rounded-sm border-white text-white hover:bg-white hover:text-primary transition-all w-full sm:w-auto">
-            <a href="mailto:management@b4pcodefound.org">
+            <a href="/contact">
               Become A Partner
             </a>
           </Button>

@@ -9,6 +9,10 @@ import AboutPage from '@/pages/AboutPage';
 import ImpactPage from '@/pages/ImpactPage';
 import CoreValuesPage from '@/pages/CoreValuesPage';
 import SiteDirectoryPage from '@/pages/SiteDirectoryPage';
+import StorePage from '@/pages/StorePage';
+import ContactPage from '@/pages/ContactPage';
+import WhereWeWorkPage from '@/pages/WhereWeWorkPage';
+import TheoryOfChangePage from '@/pages/TheoryOfChangePage';
 import PolishedPage from '@/pages/PolishedPage';
 import WhatWeDoPage from '@/pages/WhatWeDoPage';
 import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
@@ -46,6 +50,32 @@ function Router() {
 
   if (location === '/site-directory') {
     return <SiteDirectoryPage />;
+  }
+
+  const storeViews: Record<string, Parameters<typeof StorePage>[0]['view']> = {
+    '/shop': 'shop',
+    '/store-listing': 'store-listing',
+    '/cart': 'cart',
+    '/checkout': 'checkout',
+    '/my-account': 'my-account',
+    '/my-orders': 'my-orders',
+    '/dashboard/product-subscription': 'product-subscription',
+  };
+
+  if (storeViews[location]) {
+    return <StorePage view={storeViews[location]} />;
+  }
+
+  if (location === '/contact') {
+    return <ContactPage />;
+  }
+
+  if (location === '/where-we-work') {
+    return <WhereWeWorkPage />;
+  }
+
+  if (location === '/theory-of-change') {
+    return <TheoryOfChangePage />;
   }
 
   if (location === '/the-management-team' || location === '/management') {

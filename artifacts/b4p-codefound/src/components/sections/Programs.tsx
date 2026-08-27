@@ -5,13 +5,13 @@ const programs = [
     title: 'Peacebuilding',
     desc: 'Dialogue, capacity building, small grants, and advocacy that strengthen trust, leadership, and sustainable peace initiatives.',
     icon: ShieldCheck,
-    href: '/what-we-do#peacebuilding',
+    href: '/what-we-do#pillars',
   },
   {
     title: 'Economic Development & Empowerment',
     desc: 'Agribusiness, entrepreneurship, mentorship, and financial and digital literacy that expand economic opportunity.',
     icon: Sprout,
-    href: '/what-we-do#economic-development',
+    href: '/what-we-do#pillars',
   },
   {
     title: 'Global, USA & Liberia Programs',
