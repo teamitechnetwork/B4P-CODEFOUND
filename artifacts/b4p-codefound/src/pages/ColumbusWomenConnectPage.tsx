@@ -25,7 +25,7 @@ export default function ColumbusWomenConnectPage() {
         <section className="cwc-hero">
           <div className="container mx-auto px-6">
             <div className="cwc-hero__copy">
-              <span className="cwc-kicker">A B4P CODEFOUND subsidiary · Columbus, Ohio</span>
+              <span className="cwc-kicker">A subsidiary of B4P CODEFOUND | Columbus, Ohio</span>
               <h1>Columbus<br /><em>Women</em><br />Connect.</h1>
               <p>Empowering women through leadership, advocacy &amp; community — across cultures, across generations.</p>
               <a href="#join">Join the movement <ArrowUpRight size={17} aria-hidden="true" /></a>
@@ -44,9 +44,9 @@ export default function ColumbusWomenConnectPage() {
               <div>
                 <p className="cwc-lead">Columbus Women Connect is a community where every woman has the confidence, resources, and opportunities to lead, advocate, and thrive.</p>
                 <div className="cwc-stat-grid">
-                  <div className="cwc-stat"><CalendarDays size={19} aria-hidden="true" /><strong>November 2024</strong><span>Founded</span></div>
-                  <div className="cwc-stat"><UsersRound size={19} aria-hidden="true" /><strong>60+</strong><span>Women leaders connected</span></div>
-                  <div className="cwc-stat"><HeartIcon /><strong>20+ nationalities</strong><span>Represented at our inaugural conference</span></div>
+                  <div className="cwc-stat"><CalendarDays size={19} aria-hidden="true" /><strong>Founded November 2024</strong><span>Launched by the Business for Peace Community Development Foundation (B4P CODEFOUND)</span></div>
+                  <div className="cwc-stat"><UsersRound size={19} aria-hidden="true" /><strong>60+ Women Leaders</strong><span>Our inaugural conference brought together women from 20+ nationalities across Columbus</span></div>
+                  <div className="cwc-stat"><HeartIcon /><strong>Growing Every Day</strong><span>A multicultural network united by solidarity, civic engagement, and shared prosperity</span></div>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function ColumbusWomenConnectPage() {
           <div className="container mx-auto px-6">
             <div className="cwc-join-grid">
               <div><span className="cwc-label">Join the movement</span><h2>Become part of something bigger than yourself.</h2></div>
-              <div><p>CWC is building a future where every woman has a voice, a network, and a path to lead.</p><ul><li>All women and their daughters are welcome</li><li>Connect with a vibrant multicultural community</li><li>Access mentorship and leadership development</li><li>Add your voice to drive real change</li></ul><a href="mailto:management@b4pcodefound.org?subject=Join%20Columbus%20Women%20Connect">Ready to connect? Reach out today <ArrowUpRight size={17} aria-hidden="true" /></a></div>
+               <div><p>CWC is building a future where every woman has a voice, a network, and a path to lead.</p><ul><li>All women and their daughters are welcome</li><li>Connect with a vibrant multicultural community</li><li>Access mentorship and leadership development</li><li>Add your voice to drive real change</li></ul><a href="mailto:management@b4pcodefound.org?subject=Join%20Columbus%20Women%20Connect">Ready to connect? Reach out today and take the first step toward something extraordinary. <ArrowUpRight size={17} aria-hidden="true" /></a></div>
             </div>
           </div>
         </section>
@@ -86,7 +86,7 @@ export default function ColumbusWomenConnectPage() {
           <div className="container mx-auto px-6">
             <div className="cwc-contact-grid">
               <div><span className="cwc-label">Stay connected</span><h2>Questions? Contact our Chair.</h2><p className="cwc-contact-name">Fatima Kane</p><a href="mailto:fatimahane@hotmail.com">fatimahane@hotmail.com</a><p className="cwc-contact-phone"><Phone size={16} aria-hidden="true" /> 614-424-2938</p></div>
-              <div className="cwc-contact-details"><p><MapPin size={16} aria-hidden="true" /><span>Columbus Women Connect<br />Columbus, Ohio</span></p><p><Mail size={16} aria-hidden="true" /><a href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a></p><div className="cwc-socials"><a href="https://www.facebook.com/b4pcodefound.cause" target="_blank" rel="noreferrer" aria-label="CWC on Facebook">f</a><a href="https://www.instagram.com/b4pcodefound" target="_blank" rel="noreferrer" aria-label="CWC on Instagram"><Instagram size={16} aria-hidden="true" /></a><a href="https://x.com/b4pcodefound" target="_blank" rel="noreferrer" aria-label="CWC on X"><XIcon size={15} aria-hidden="true" /></a></div></div>
+              <div className="cwc-contact-details"><p><MapPin size={16} aria-hidden="true" /><span>Columbus Women Connect<br />Columbus, Ohio</span></p><p><GlobeIcon /><a href="https://b4pcodefound.org" target="_blank" rel="noreferrer">https://b4pcodefound.org</a></p><p><Mail size={16} aria-hidden="true" /><a href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a></p><div className="cwc-socials"><a href="https://www.facebook.com/b4pcodefound.cause" target="_blank" rel="noreferrer" aria-label="CWC on Facebook">Facebook: @b4pcodefound.cause</a><a href="https://www.instagram.com/b4pcodefound" target="_blank" rel="noreferrer" aria-label="CWC on Instagram">Instagram: @b4pcodefound</a><a href="https://x.com/b4pcodefound" target="_blank" rel="noreferrer" aria-label="CWC on X">Twitter/X: @b4pcodefound</a></div></div>
             </div>
           </div>
         </section>
@@ -105,4 +105,8 @@ export default function ColumbusWomenConnectPage() {
 
 function HeartIcon() {
   return <span className="cwc-stat__heart" aria-hidden="true">♥</span>;
+}
+
+function GlobeIcon() {
+  return <span className="cwc-contact__globe" aria-hidden="true">◎</span>;
 }

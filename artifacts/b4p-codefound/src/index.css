@@ -2944,30 +2944,36 @@
   color: var(--cwc-pink);
 }
 
+.cwc-contact__globe {
+  flex: none;
+  margin-top: 1px;
+  color: var(--cwc-pink);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
 .cwc-contact-details a {
   color: var(--cwc-green);
   text-decoration: none;
 }
 
 .cwc-socials {
-  display: flex;
-  gap: 9px;
+  display: grid;
+  gap: 7px;
   margin-top: 10px;
 }
 
 .cwc-socials a {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  color: #fff;
-  background: var(--cwc-green);
-  font-size: 0.92rem;
-  font-weight: 800;
+  width: fit-content;
+  color: var(--cwc-green);
+  font-size: 0.84rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
 .cwc-socials a:hover {
-  background: var(--cwc-pink);
+  color: var(--cwc-pink);
+  text-decoration: underline;
 }
 
 .cwc-brochure {

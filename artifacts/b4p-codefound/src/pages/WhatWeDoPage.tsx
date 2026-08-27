@@ -21,26 +21,28 @@ const pillars = [
     goal: 'Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post conflict communities.',
     objectives: [
       'Facilitate processes, promote tolerance and understanding among diverse cultural and social groups for collective action and conflict transformation.',
-      'Build capacities for peace through conflict resolution and problem-solving skills.',
+      'Build capacities for peace-Conflict Resolution & Problem-Solving Skills.',
       'Equip community members with resources and practical tools.',
     ],
-    activities: 'Dialogues · Capacity building · Small Grants · Advocacy',
-    outcome: 'Enhanced community participation, local capacity and cohesion; enhanced leadership, trust, and sustainable peace initiatives.',
+    activities: 'Dialogues · Capacity building · Small Grants · Advocacy, etc.',
+    outcome: 'Enhanced community participation, local capacity and cohesion; enhanced leadership, trust, and sustainable peace initiatives, etc.',
+    outcomeLabel: 'Outcome',
   },
   {
     id: 'economic-development',
     eyebrow: 'Operational pillar 02',
-    title: 'Economic Development & Empowerment',
+    title: 'Economic Development',
     icon: Sprout,
     goal: 'Driving prosperity, expanding opportunity, and building economic independence for women and girls. Stimulate economic growth and create sustainable livelihoods — especially for women-led households and enterprises.',
     objectives: [
       'Transform subsistence farming into a commercialized and sustainable industry that empowers small-scale farmers, strengthens value chains, promotes economic inclusion and community resilience.',
-      'Build capacity and provide accompaniment support for women- and youth-owned businesses.',
-      'Provide access to financial education, technology and digital literacy for better decision making and participation in the modern economy.',
+      'Build capacity and provide accompaniment support for women & youth-owned businesses.',
+      'Provide access to financial education, technology and digital literacy for better decision making and participation the modern economy.',
       'Provide access to credits, affordable and adaptable services as well as connect businesses to growth networks and development resources.',
     ],
-    activities: 'Agribusiness Development · Entrepreneurship · Coaching/Mentorship · Digital and Financial Literacy · Access to resources and market linkages',
+    activities: 'Agribusiness Development · Entrepreneurship · Coaching/Mentorship · Digital and Financial Literacy · Access to resources and market linkages, etc.',
     outcome: 'Greater economic independence of women and youth; increased social venturing and business models for sustainable development; sustainable agricultural practices and return on investments.',
+    outcomeLabel: 'Outcomes',
   },
 ];
 
@@ -125,7 +127,7 @@ export default function WhatWeDoPage() {
                     </div>
                     <div className="pillar-card__details">
                       <div><span className="pillar-card__label">Activities</span><p>{pillar.activities}</p></div>
-                      <div><span className="pillar-card__label">Outcomes</span><p>{pillar.outcome}</p></div>
+                      <div><span className="pillar-card__label">{pillar.outcomeLabel}</span><p>{pillar.outcome}</p></div>
                     </div>
                   </article>
                 );
