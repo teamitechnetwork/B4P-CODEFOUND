@@ -10,6 +10,7 @@ import WhatWeDoPage from '@/pages/WhatWeDoPage';
 import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
 import ProgramDetailPage from '@/pages/ProgramDetailPage';
 import ColumbusWomenConnectPage from '@/pages/ColumbusWomenConnectPage';
+import OpportunityPage from '@/pages/OpportunityPage';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -66,6 +67,18 @@ function Router() {
 
   if (location === '/columbus-women-connect' || location === '/cwc') {
     return <ColumbusWomenConnectPage />;
+  }
+
+  if (location === '/become-a-volunteer') {
+    return <OpportunityPage kind="volunteer" />;
+  }
+
+  if (location === '/internship') {
+    return <OpportunityPage kind="internship" />;
+  }
+
+  if (location === '/jobs') {
+    return <OpportunityPage kind="jobs" />;
   }
 
   // All other routes fall back to the polished CMS/JSON renderer

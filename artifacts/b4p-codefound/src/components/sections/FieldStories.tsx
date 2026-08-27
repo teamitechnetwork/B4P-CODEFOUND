@@ -5,25 +5,25 @@ const stories = [
   {
     title: 'Building Young Women, Driving Change (BWYDC)',
     desc: 'Empowering the next generation with essential leadership skills and mentorship.',
-    image: '/images/conference/day-1-community.jpg',
+    image: '/images/stories/day-two-0017.jpg',
     tag: 'Youth Leadership'
   },
   {
     title: 'Community Women’s Circle In Action (CWC)',
     desc: 'Creating safe spaces for dialogue, community healing, empowerment and collective decision-making.',
-    image: '/images/conference/day-2-community-02.jpg',
+    image: '/images/stories/day-two-0020.jpg',
     tag: 'Community Action'
   },
   {
     title: 'Voice At The Commission On Status Of Women (CSW)',
     desc: 'Amplifying African women’s stories, advocating for inclusion and equality at the global stage.',
-    image: '/images/conference/day-3-community-01.jpg',
+    image: '/images/stories/day-three-0114.jpg',
     tag: 'Global Advocacy'
   },
   {
     title: 'The Liberia Conference — A Movement',
     desc: 'Delegates and youth leaders charting a unified path for peacebuilding and sustainable development.',
-    image: '/images/conference/day-3-community-04.jpg',
+    image: '/images/stories/day-three-0120.jpg',
     tag: 'Peacebuilding'
   }
 ];
@@ -43,14 +43,16 @@ export function FieldStories() {
               Stories from the Field
             </h2>
           </div>
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-wide">
-            View All Impact
-            <ArrowRight className="ml-2 w-4 h-4" />
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-wide">
+            <a href="/what-we-do">
+              View All Impact
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </a>
           </Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {stories.map((story, i) => (
+          {stories.map((story) => (
             <div 
               key={story.title}
               className="group relative overflow-hidden rounded-2xl aspect-[4/3] md:aspect-[16/9] shadow-lg"
