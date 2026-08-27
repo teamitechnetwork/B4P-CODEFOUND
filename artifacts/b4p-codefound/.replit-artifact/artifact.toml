@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "B4P CODEFOUND"
+description = "A modern, responsive NGO website for B4P CODEFOUND, sharing its mission, founder story, programs, impact framework, and ways to connect with its work across African communities."
+version = "1.0.0"
+id = "artifacts/b4p-codefound"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20576
+
+[services.development]
+run = "pnpm --filter @workspace/b4p-codefound run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/b4p-codefound", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/b4p-codefound/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20576"
+BASE_PATH = "/"
