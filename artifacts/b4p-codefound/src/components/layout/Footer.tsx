@@ -95,7 +95,7 @@ export function Footer() {
         </div>
 
         <a href="/" className="site-footer__brand" aria-label="B4P CODEFOUND home">
-          <img src="/brand/b4p-favicon.png" alt="" />
+          <img src="/brand/b4p-logo-clean.png" alt="B4P CODEFOUND" />
           <span>
             <strong>B4P CODEFOUND</strong>
             <small>Peacebuilding · Community Development</small>

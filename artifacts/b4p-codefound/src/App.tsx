@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
+import AboutPage from '@/pages/AboutPage';
 import PolishedPage from '@/pages/PolishedPage';
 import WhatWeDoPage from '@/pages/WhatWeDoPage';
 import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
@@ -26,6 +27,10 @@ function Router() {
 
   if (location === '/' || location === '') {
     return <Home />;
+  }
+
+  if (location === '/about-us') {
+    return <AboutPage />;
   }
 
   if (location === '/the-management-team' || location === '/management') {
