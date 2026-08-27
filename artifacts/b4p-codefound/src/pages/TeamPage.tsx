@@ -49,32 +49,26 @@ const BOARD_TEAM: TeamMember[] = [
   {
     name: 'David Kudel',
     role: 'Chairperson',
-    image: '/images/team/team-david.jpg'
   },
   {
     name: 'Cecelia Danuweli',
     role: 'Vice Chair Person',
-    image: '/images/team/team-cecelia.jpg'
   },
   {
     name: 'Patrick Flomo',
     role: 'Financial Secretary',
-    image: '/images/team/team-patrick.png'
   },
   {
     name: 'Dr. Ahjah Marie Johnson',
     role: 'Member',
-    image: '/images/team/team-ahjah.png'
   },
   {
     name: 'Deddeh Kwekwe',
     role: 'Member',
-    image: '/images/team/team-deddeh.png'
   },
   {
     name: 'Lindora Howard-Diawara',
     role: 'Secretary & Member',
-    image: '/images/team/team-lindora-board.jpg'
   }
 ];
 
@@ -136,13 +130,13 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
             <div />
           </div>
           <div className="team-grid">
-            {team.map((member) => (
+            {team.map((member, index) => (
               <article
                 key={member.name}
-                className="team-card group"
+                className={`team-card team-card--${type} group`}
               >
-                <div className="team-card__portrait">
-                  {member.image ? (
+                <div className={type === 'management' ? 'team-card__portrait' : 'team-card__identity'}>
+                  {type === 'management' && member.image ? (
                     <img
                       src={member.image} 
                       alt={member.name}
@@ -155,6 +149,11 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                         {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
                       </span>
                     </div>
+                  )}
+                  {type !== 'management' && (
+                    <span className="team-card__number" aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
                   )}
                 </div>
                 <div className="team-card__content">

@@ -1,5 +1,29 @@
-import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { useId, useState, type ReactNode } from 'react';
+import { ArrowUpRight, Mail, MapPin, Minus, Phone, Plus } from 'lucide-react';
 import { SocialLinks } from '@/components/layout/SocialLinks';
+
+function FooterAccordion({ title, children }: { title: string; children: ReactNode }) {
+  const panelId = useId();
+  const [isOpen, setIsOpen] = useState(() => typeof window === 'undefined' || window.innerWidth > 720);
+
+  return (
+    <section className="site-footer__accordion">
+      <button
+        type="button"
+        className="site-footer__accordion-trigger"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+      >
+        <span>{title}</span>
+        {isOpen ? <Minus size={16} aria-hidden="true" /> : <Plus size={16} aria-hidden="true" />}
+      </button>
+      <div id={panelId} className="site-footer__accordion-panel" hidden={!isOpen}>
+        {children}
+      </div>
+    </section>
+  );
+}
 
 export function Footer() {
   return (
@@ -32,57 +56,60 @@ export function Footer() {
             <p className="site-footer__motto">Happy Families = United &amp; Prosperous Communities = A Stronger Nation.</p>
           </div>
 
-          <nav aria-label="Explore B4P CODEFOUND">
-            <h3>Quick Links</h3>
-            <a href="/about-us">About Us</a>
-            <a href="/become-a-volunteer">Volunteer With Us</a>
-            <a href="/make-a-donation">Donate</a>
-            <a href="/news-blogs">News &amp; Blogs</a>
-            <a href="/faq">FAQ</a>
-            <a href="/resources">Resources</a>
-            <a href="/blogs-discussion-forum">Blogs / Discussion Forum</a>
-          </nav>
+          <FooterAccordion title="Quick Links">
+            <nav aria-label="Explore B4P CODEFOUND">
+              <a href="/about-us">About Us</a>
+              <a href="/become-a-volunteer">Volunteer With Us</a>
+              <a href="/make-a-donation">Donate</a>
+              <a href="/news-blogs">News &amp; Blogs</a>
+              <a href="/faq">FAQ</a>
+              <a href="/resources">Resources</a>
+              <a href="/blogs-discussion-forum">Blogs / Discussion Forum</a>
+            </nav>
+          </FooterAccordion>
 
-          <nav aria-label="B4P CODEFOUND programs">
-            <h3>Our Work</h3>
-            <a href="/programs/global">Global Programs</a>
-            <a href="/programs/usa">USA Programs</a>
-            <a href="/programs/liberia">Liberia Programs</a>
-            <a href="/services">Services</a>
-          </nav>
+          <FooterAccordion title="Our Work">
+            <nav aria-label="B4P CODEFOUND programs">
+              <a href="/programs/global">Global Programs</a>
+              <a href="/programs/usa">USA Programs</a>
+              <a href="/programs/liberia">Liberia Programs</a>
+              <a href="/services">Services</a>
+            </nav>
+          </FooterAccordion>
 
-          <address className="site-footer__contact">
-            <h3>Connect</h3>
-            <a href="mailto:management@b4pcodefound.org">
-              <Mail size={16} aria-hidden="true" />
-              management@b4pcodefound.org
-            </a>
-            <a href="mailto:support@b4pcodefound.org">
-              <Mail size={16} aria-hidden="true" />
-              support@b4pcodefound.org
-            </a>
-            <p>
-              <MapPin size={16} aria-hidden="true" />
-              <span><strong>United States</strong><br />1108 Chaser Street<br />Blacklick, Ohio 43004</span>
-            </p>
-            <p>
-              <MapPin size={16} aria-hidden="true" />
-              <span><strong>Liberia</strong><br />Far East Community<br />Gbarnga, Bong County</span>
-            </p>
-            <div className="site-footer__phones">
-              <Phone size={16} aria-hidden="true" />
-              <div>
-                <a href="tel:+13802061631">Ohio: +1 380-206-1631</a>
-                <a href="tel:+16144051088">Ohio: +1 614-405-1088</a>
-                <a href="tel:+13476175935">New York: +1 347-617-5935</a>
-                <a href="tel:+231886472746">Liberia: +231 886-472-746</a>
-                <span>Fax (Ohio): +1 380-206-1630</span>
+          <FooterAccordion title="Connect">
+            <address className="site-footer__contact">
+              <a href="mailto:management@b4pcodefound.org">
+                <Mail size={16} aria-hidden="true" />
+                management@b4pcodefound.org
+              </a>
+              <a href="mailto:support@b4pcodefound.org">
+                <Mail size={16} aria-hidden="true" />
+                support@b4pcodefound.org
+              </a>
+              <p>
+                <MapPin size={16} aria-hidden="true" />
+                <span><strong>United States</strong><br />1108 Chaser Street<br />Blacklick, Ohio 43004</span>
+              </p>
+              <p>
+                <MapPin size={16} aria-hidden="true" />
+                <span><strong>Liberia</strong><br />Far East Community<br />Gbarnga, Bong County</span>
+              </p>
+              <div className="site-footer__phones">
+                <Phone size={16} aria-hidden="true" />
+                <div>
+                  <a href="tel:+13802061631">Ohio: +1 380-206-1631</a>
+                  <a href="tel:+16144051088">Ohio: +1 614-405-1088</a>
+                  <a href="tel:+13476175935">New York: +1 347-617-5935</a>
+                  <a href="tel:+231886472746">Liberia: +231 886-472-746</a>
+                  <span>Fax (Ohio): +1 380-206-1630</span>
+                </div>
               </div>
-            </div>
-            <a className="site-footer__partner" href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">
-              Become a Partner <ArrowUpRight size={15} aria-hidden="true" />
-            </a>
-          </address>
+              <a className="site-footer__partner" href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">
+                Become a Partner <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            </address>
+          </FooterAccordion>
         </div>
 
         <div className="site-footer__bottom">
