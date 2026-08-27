@@ -21,10 +21,10 @@ const pillars = [
     goal: 'Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post conflict communities.',
     objectives: [
       'Facilitate processes, promote tolerance and understanding among diverse cultural and social groups for collective action and conflict transformation.',
-      'Build capacities for peace-Conflict Resolution & Problem-Solving Skills.',
+      'Build capacities for peace-Conflict Resolution & Problem-Solving Skills',
       'Equip community members with resources and practical tools.',
     ],
-    activities: 'Dialogues · Capacity building · Small Grants · Advocacy, etc.',
+    activities: 'Dialogues, Capacity building, Small Grants and Advocacy',
     outcome: 'Enhanced community participation, local capacity and cohesion; enhanced leadership, trust, and sustainable peace initiatives, etc.',
     outcomeLabel: 'Outcome',
   },
@@ -40,8 +40,8 @@ const pillars = [
       'Provide access to financial education, technology and digital literacy for better decision making and participation the modern economy.',
       'Provide access to credits, affordable and adaptable services as well as connect businesses to growth networks and development resources.',
     ],
-    activities: 'Agribusiness Development · Entrepreneurship · Coaching/Mentorship · Digital and Financial Literacy · Access to resources and market linkages, etc.',
-    outcome: 'Greater economic independence of women and youth; increased social venturing and business models for sustainable development; sustainable agricultural practices and return on investments.',
+    activities: 'Agribusiness Development, Entrepreneurship, Coaching/Mentorship, Digital and Financial Literacy, Access to resources and market linkages, etc.',
+    outcome: 'Greater economic independence of women and youths; Increased social venturing and business models for sustainable development; Sustainable agricultural practices and return on investments.',
     outcomeLabel: 'Outcomes',
   },
 ];

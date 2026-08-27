@@ -225,7 +225,7 @@ export function Header() {
                 {openGroup === group.name && (
                   <div className="site-drawer__submenu">
                     {group.items.map((item) => (
-                      <a key={item.href} href={item.href} onClick={() => closeMenu()}>{item.name}</a>
+                      <a key={`${group.name}-${item.name}`} href={item.href} onClick={() => closeMenu()}>{item.name}</a>
                     ))}
                   </div>
                 )}
