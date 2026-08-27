@@ -5,6 +5,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Founder } from '@/components/sections/Founder';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
+import { mission, vision } from '@/data/mission';
 
 export default function AboutPage() {
   return (
@@ -64,14 +65,16 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-8 tracking-tight leading-tight" data-testid="text-mission-title">
-                  Our Mission
+                  Our Mission &amp; Vision
                 </h2>
                 <div className="prose prose-lg text-muted-foreground font-medium leading-relaxed">
                   <p>
-                    Business for Peace Community Development Foundation (B4P CODEFOUND) exists to empower local communities through peacebuilding, economic development, and inclusive leadership. 
+                    <strong className="text-foreground">Our Mission:</strong>{' '}
+                    {mission}
                   </p>
                   <p>
-                    We believe that true, lasting peace is only possible when all members of a society—especially women and youth—are equipped with the tools, resources, and platforms they need to thrive.
+                    <strong className="text-foreground">Our Vision:</strong>{' '}
+                    {vision}
                   </p>
                 </div>
               </div>

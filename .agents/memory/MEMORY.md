@@ -1,0 +1,1 @@
+- [Vite stale module checks](vite-stale-module-checks.md) — restart the web workflow after component deletion or relocation before browser verification.

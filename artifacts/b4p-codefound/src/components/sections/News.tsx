@@ -1,47 +1,38 @@
 import { ExternalLink } from 'lucide-react';
 
-const newsLinks = [
+const partnerGroups = [
   {
-    title: 'UN Women: Latest Global Updates on Gender Equality',
-    href: 'https://www.unwomen.org/en/news',
+    title: 'International frameworks',
+    eyebrow: 'International',
+    links: [
+      { title: 'UN Women: Latest Global Updates on Gender Equality', href: 'https://www.unwomen.org/en/news' },
+      { title: 'Ending Violence Against Women — UN Women Programs', href: 'https://www.unwomen.org/en/what-we-do/ending-violence-against-women' },
+      { title: 'Women and the Sustainable Development Goals (SDGs)', href: 'https://www.unwomen.org/en/news/in-focus/women-and-the-sdgs' },
+    ],
   },
   {
-    title: 'Ending Violence Against Women — UN Women Programs',
-    href: 'https://www.unwomen.org/en/what-we-do/ending-violence-against-women',
+    title: 'Diaspora networks',
+    eyebrow: 'Diaspora',
+    links: [
+      { title: 'ULAA Press — Union of Liberian Associations in the Americas', href: 'https://ulaalib.org/blog' },
+      { title: 'Liberian Women Advocacy to End Violence in Liberia', href: 'https://www.facebook.com/lwatevl' },
+      { title: 'Liberians in Columbus Incorporated, Inc.', href: 'https://www.facebook.com/liberiansincolumbusinc.lici' },
+    ],
   },
   {
-    title: 'Women and the Sustainable Development Goals (SDGs)',
-    href: 'https://www.unwomen.org/en/news/in-focus/women-and-the-sdgs',
-  },
-  {
-    title: 'ULAA Press — Union of Liberian Associations in the Americas',
-    href: 'https://ulaalib.org/blog',
-  },
-  {
-    title: 'Liberian Women Advocacy to End Violence in Liberia',
-    href: 'https://www.facebook.com/lwatevl',
-  },
-  {
-    title: 'Liberians in Columbus Incorporated, Inc.',
-    href: 'https://www.facebook.com/liberiansincolumbusinc.lici',
-  },
-  {
-    title: 'CSW 2022: WONGOSOL, B4P CODEFOUND hosts its 2nd CSW Side-Event',
-    href: 'https://womenvoicesnewspaper.org/wongosol-b4p-codefound-hosts-its-2nd-csw-side-event/',
-  },
-  {
-    title: 'ED\'s Visit: B4P CODEFOUND to ensure women\'s participation',
-    href: 'https://smartnewsliberia.com/b4p-codefound-to-ensure-womens-participation-in-liberias-social-economic-and-political-space/',
-  },
-  {
-    title: 'Passage of Dual Citizenship in Liberia',
-    href: 'https://www.liberianobserver.com/liberia-dual-citizenship-becomes-legal',
+    title: 'Local impact & policy',
+    eyebrow: 'Local impact',
+    links: [
+      { title: 'CSW 2022: WONGOSOL, B4P CODEFOUND hosts its 2nd CSW Side-Event', href: 'https://womenvoicesnewspaper.org/wongosol-b4p-codefound-hosts-its-2nd-csw-side-event/' },
+      { title: 'ED’s Visit: B4P CODEFOUND to ensure women’s participation', href: 'https://smartnewsliberia.com/b4p-codefound-to-ensure-womens-participation-in-liberias-social-economic-and-political-space/' },
+      { title: 'Passage of Dual Citizenship in Liberia', href: 'https://www.liberianobserver.com/liberia-dual-citizenship-becomes-legal' },
+    ],
   },
 ];
 
 export function News() {
   return (
-    <section id="news" className="py-24 bg-background">
+    <section id="partner" className="py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           
@@ -49,34 +40,39 @@ export function News() {
             <div className="sticky top-32">
               <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm mb-4">
                 <span className="w-8 h-[2px] bg-primary"></span>
-                In the Media
+                Partners &amp; Donors
               </div>
               <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
-                Latest Updates <br/>& References
+                Connected work <br/>across borders
               </h2>
               <p className="text-xl text-muted-foreground font-medium mb-8">
-                Follow our advocacy efforts, policy achievements, and key partnerships driving change globally and locally.
+                We are grateful for the international frameworks, diaspora networks, and local advocacy connections that help keep this work grounded and moving.
               </p>
             </div>
           </div>
 
           <div className="lg:col-span-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {newsLinks.map((news) => (
-                <a 
-                  key={news.href}
-                  href={news.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block bg-white p-6 rounded-xl border border-border/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <h4 className="font-bold text-foreground leading-snug group-hover:text-primary transition-colors">
-                      {news.title}
-                    </h4>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground shrink-0 group-hover:text-secondary transition-colors" />
-                  </div>
-                </a>
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+              {partnerGroups.map((group) => (
+                <div key={group.title} className="rounded-xl border border-border/50 bg-white p-6 shadow-sm">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-secondary">{group.eyebrow}</p>
+                  <h3 className="mb-5 border-b border-border/70 pb-4 text-xl font-extrabold text-primary">{group.title}</h3>
+                  <ul className="space-y-4">
+                    {group.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group flex items-start gap-3 text-sm font-semibold leading-relaxed text-muted-foreground transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                        >
+                          <ExternalLink className="mt-0.5 h-4 w-4 shrink-0 text-secondary transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                          <span>{link.title}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
             </div>
           </div>

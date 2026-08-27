@@ -26,7 +26,7 @@ export function CTA() {
           Your support enables African-led peacebuilding, empowers women, and drives sustainable economic development.
         </p>
         
-        <div id="partner" className="flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
           <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-16 px-10 text-xl rounded-sm shadow-xl hover:-translate-y-1 transition-all w-full sm:w-auto">
             <a href="/make-a-donation">
               Donate Now
