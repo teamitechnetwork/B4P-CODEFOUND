@@ -1,53 +1,141 @@
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Pause, Play } from 'lucide-react';
+
+const heroSlides = [
+  {
+    src: '/images/conference/day-1-community.jpg',
+    alt: 'Community members gathered during a B4P CODEFOUND conference',
+    label: 'Day One',
+    detail: 'Community, dialogue, and shared purpose',
+  },
+  {
+    src: '/images/conference/day-2-community-01.jpg',
+    alt: 'Participants taking part in a B4P CODEFOUND community session',
+    label: 'Day Two',
+    detail: 'Listening closely to local voices',
+  },
+  {
+    src: '/images/conference/day-3-community-01.jpg',
+    alt: 'B4P CODEFOUND conference participants gathered together',
+    label: 'Day Three',
+    detail: 'Turning collective action into progress',
+  },
+];
 
 export function Hero() {
-  return (
-    <section id="home" className="hero-section relative min-h-[100svh] flex items-center pt-20 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/images/hero-community.jpg" 
-          alt="B4P CODEFOUND community gathering" 
-          className="w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#062e37]/95 via-[#062e37]/79 to-[#0b4e61]/38" />
-        <div className="absolute inset-0 hero-section__grid" />
-      </div>
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 py-20">
-        <div className="max-w-5xl">
-          <div className="inline-flex items-center gap-3 text-white/90 text-xs font-extrabold uppercase tracking-[0.18em] mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <span className="w-10 h-px bg-[#1b9ed9]" />
-            Established 2015
-          </div>
-          
-          <h1 className="hero-section__title text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.04] mb-7 tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
-            African-led leadership for <span className="text-secondary">peace</span> and <span className="text-[#8bd9fb]">development.</span>
-          </h1>
-          
-          <p className="text-lg md:text-2xl text-white/85 font-medium leading-relaxed max-w-2xl mb-10 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-            Global-Local Peacebuilding and Economic Development through collective action and grassroots empowerment.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
-            <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-8 text-lg rounded-sm shadow-[0_0_40px_rgba(223,83,17,0.3)] hover:shadow-[0_0_60px_rgba(223,83,17,0.5)] transition-all hover:-translate-y-1">
-              <a href="/make-a-donation">
-                Donate Now
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </a>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-sm border-white text-white hover:bg-white hover:text-foreground backdrop-blur-sm transition-all hover:-translate-y-1">
-              <a href="/peacebuilding-program">Discover Our Work</a>
-            </Button>
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotionPreference = () => setReduceMotion(mediaQuery.matches);
+    updateMotionPreference();
+    mediaQuery.addEventListener('change', updateMotionPreference);
+    return () => mediaQuery.removeEventListener('change', updateMotionPreference);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || reduceMotion) return;
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % heroSlides.length);
+    }, 5600);
+    return () => window.clearInterval(timer);
+  }, [isPaused, reduceMotion]);
+
+  const slide = heroSlides[activeSlide];
+
+  return (
+    <section
+      id="home"
+      className="hero-section"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setIsPaused(false);
+        }
+      }}
+    >
+      <div className="hero-section__layout">
+        <div className="hero-section__copy">
+          <div className="hero-section__copy-inner">
+            <div className="hero-section__kicker">
+              <span />
+              Established 2015
+            </div>
+
+            <h1>
+              African-led leadership for <em>peace</em> and <strong>development.</strong>
+            </h1>
+
+            <p>
+              Global-Local Peacebuilding and Economic Development through collective action and grassroots empowerment.
+            </p>
+
+            <div className="hero-section__actions">
+              <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-8 text-base rounded-sm">
+                <a href="/make-a-donation">
+                  Donate Now
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-bold rounded-sm border-white text-white hover:bg-white hover:text-foreground">
+                <a href="/peacebuilding-program">Discover Our Work</a>
+              </Button>
+            </div>
+
+            <div className="hero-section__focus" aria-label="B4P CODEFOUND focus areas">
+              <span>Peacebuilding</span>
+              <span>Economic Development</span>
+              <span>Youth &amp; Civic Engagement</span>
+            </div>
           </div>
         </div>
-        <div className="hero-section__focus animate-in fade-in slide-in-from-bottom-8 duration-700 delay-700">
-          <span>Peacebuilding</span>
-          <span>Economic Development</span>
-          <span>Youth &amp; Civic Engagement</span>
+
+        <div className="hero-section__media" aria-live="polite">
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            className="hero-section__photo"
+          />
+          <div className="hero-section__media-caption">
+            <div>
+              <span>Conference field notes</span>
+              <strong>{slide.detail}</strong>
+            </div>
+            <span className="hero-section__media-day">{slide.label}</span>
+          </div>
+          <div className="hero-section__controls" aria-label="Conference image controls">
+            <button
+              type="button"
+              className="hero-section__play"
+              onClick={() => setIsPaused((paused) => !paused)}
+              aria-label={isPaused ? 'Play conference image slideshow' : 'Pause conference image slideshow'}
+            >
+              {isPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
+            </button>
+            <div className="hero-section__indicators">
+              {heroSlides.map((item, index) => (
+                <button
+                  key={item.src}
+                  type="button"
+                  className={`hero-section__indicator ${index === activeSlide ? 'is-active' : ''}`}
+                  onClick={() => setActiveSlide(index)}
+                  aria-label={`Show ${item.label} conference image`}
+                  aria-current={index === activeSlide ? 'true' : undefined}
+                />
+              ))}
+            </div>
+            <span className="hero-section__count">
+              {String(activeSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
+            </span>
+          </div>
         </div>
       </div>
-      <div className="absolute -bottom-px left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
     </section>
   );
 }

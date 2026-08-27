@@ -400,7 +400,7 @@
 }
 
 .site-header--transparent {
-  background: linear-gradient(180deg, rgba(5, 34, 40, 0.86), rgba(5, 34, 40, 0.28) 75%, transparent);
+  background: rgba(5, 34, 40, 0.86);
   border-bottom-color: transparent;
   box-shadow: none;
 }
@@ -645,29 +645,97 @@
   }
 }
 
-.hero-section__grid {
-  opacity: 0.3;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(to right, black, transparent 68%);
+.hero-section {
+  min-height: min(900px, 100svh);
+  overflow: hidden;
+  background: #062e37;
 }
 
-.hero-section__title {
-  max-width: 950px;
-  letter-spacing: -0.058em;
+.hero-section__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  min-height: min(900px, 100svh);
+}
+
+.hero-section__copy {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background: #062e37;
+}
+
+.hero-section__copy-inner {
+  width: min(100%, 700px);
+  margin-left: max(24px, calc((100vw - 1320px) / 2));
+  padding: 118px 58px 88px 24px;
+}
+
+.hero-section__kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-section__kicker span {
+  width: 38px;
+  height: 2px;
+  background: #1b9ed9;
+}
+
+.hero-section h1 {
+  max-width: 720px;
+  margin: 0 0 26px;
+  color: #fff;
+  font-size: clamp(2.65rem, 5vw, 5.75rem);
+  font-weight: 800;
+  letter-spacing: -0.065em;
+  line-height: 0.99;
+}
+
+.hero-section h1 em,
+.hero-section h1 strong {
+  font-style: normal;
+}
+
+.hero-section h1 em {
+  color: #df5311;
+}
+
+.hero-section h1 strong {
+  color: #8bd9fb;
+}
+
+.hero-section__copy p {
+  max-width: 590px;
+  margin: 0 0 34px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.55vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+.hero-section__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .hero-section__focus {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 22px;
-  margin-top: clamp(44px, 8vw, 104px);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.68rem;
+  gap: 9px 18px;
+  margin-top: 74px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.13em;
+  line-height: 1.4;
   text-transform: uppercase;
 }
 
@@ -683,6 +751,237 @@
   border-radius: 999px;
   background: #df5311;
   content: '';
+}
+
+.hero-section__media {
+  position: relative;
+  min-height: min(900px, 100svh);
+  overflow: hidden;
+  background: #dcecef;
+}
+
+.hero-section__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: min(900px, 100svh);
+  object-fit: cover;
+  object-position: center;
+  animation: hero-photo-in 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-section__media-caption {
+  position: absolute;
+  right: 30px;
+  bottom: 86px;
+  left: 30px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 19px 20px;
+  color: #fff;
+  background: rgba(6, 46, 55, 0.9);
+}
+
+.hero-section__media-caption div {
+  display: grid;
+  gap: 6px;
+}
+
+.hero-section__media-caption span {
+  color: #8bd9fb;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.hero-section__media-caption strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.hero-section__media-day {
+  color: #fff !important;
+  font-family: Georgia, serif;
+  font-size: 1rem !important;
+  font-style: italic;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  white-space: nowrap;
+}
+
+.hero-section__controls {
+  position: absolute;
+  right: 30px;
+  bottom: 28px;
+  left: 30px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-section__play {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  background: rgba(6, 46, 55, 0.8);
+  cursor: pointer;
+}
+
+.hero-section__play:hover,
+.hero-section__play:focus-visible {
+  border-color: #fff;
+  background: #1b9ed9;
+}
+
+.hero-section__indicators {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-section__indicator {
+  position: relative;
+  width: 42px;
+  height: 3px;
+  overflow: hidden;
+  border: 0;
+  background: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+}
+
+.hero-section__indicator::after {
+  position: absolute;
+  inset: 0;
+  background: #df5311;
+  content: '';
+  transform: translateX(-100%);
+}
+
+.hero-section__indicator.is-active::after {
+  transform: translateX(0);
+  animation: hero-progress 5600ms linear;
+}
+
+.hero-section__count {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+@keyframes hero-photo-in {
+  from {
+    opacity: 0.35;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section__photo,
+  .hero-section__indicator.is-active::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section,
+  .hero-section__layout,
+  .hero-section__media {
+    min-height: 0;
+  }
+
+  .hero-section__layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-section__copy-inner {
+    width: 100%;
+    margin-left: 0;
+    padding: 112px 24px 58px;
+  }
+
+  .hero-section__media {
+    height: min(78svh, 620px);
+    order: -1;
+  }
+
+  .hero-section__photo {
+    min-height: 0;
+  }
+
+  .hero-section__media-caption {
+    bottom: 74px;
+  }
+
+  .hero-section__copy h1 {
+    max-width: 700px;
+    font-size: clamp(2.7rem, 8vw, 4.8rem);
+  }
+
+  .hero-section__focus {
+    margin-top: 46px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-section__copy-inner {
+    padding: 72px 20px 48px;
+  }
+
+  .hero-section__media {
+    height: 69svh;
+  }
+
+  .hero-section__media-caption {
+    right: 16px;
+    bottom: 68px;
+    left: 16px;
+    padding: 15px;
+  }
+
+  .hero-section__media-caption strong {
+    font-size: 0.82rem;
+  }
+
+  .hero-section__controls {
+    right: 16px;
+    bottom: 22px;
+    left: 16px;
+  }
+
+  .hero-section__indicator {
+    width: 31px;
+  }
+
+  .hero-section__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-section__actions > * {
+    width: 100%;
+  }
 }
 
 .team-page {
