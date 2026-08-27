@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
+import DirectorCornerPage from '@/pages/DirectorCornerPage';
 import AboutPage from '@/pages/AboutPage';
 import ImpactPage from '@/pages/ImpactPage';
 import CoreValuesPage from '@/pages/CoreValuesPage';
@@ -41,6 +42,10 @@ function Router() {
 
   if (location === '/about-us') {
     return <AboutPage />;
+  }
+
+  if (location === '/the-directors-corner' || location === '/directors-corner' || location === '/director') {
+    return <DirectorCornerPage />;
   }
 
   if (location === '/about' || location === '/our-impact') {
