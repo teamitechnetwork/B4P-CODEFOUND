@@ -1,4 +1,4 @@
-import { Building, Briefcase, HandCoins, Map, Globe2 } from 'lucide-react';
+import { ArrowUpRight, Building, Briefcase, HandCoins, Map, Globe2 } from 'lucide-react';
 
 const programs = [
   {
@@ -45,6 +45,9 @@ export function Programs() {
           <p className="text-xl text-muted-foreground font-medium">
             Through targeted initiatives, we build the institutional capacity of grassroots organizations and connect local needs with global resources.
           </p>
+          <a href="/what-we-do" className="inline-flex items-center gap-2 mt-7 text-sm font-extrabold uppercase tracking-wider text-primary hover:text-secondary transition-colors">
+            Explore What We Do <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

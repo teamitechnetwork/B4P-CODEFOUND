@@ -24,17 +24,18 @@ export function Footer() {
           <nav aria-label="Explore B4P CODEFOUND">
             <h3>Explore</h3>
             <a href="/about-us">About Us</a>
+            <a href="/what-we-do">What We Do</a>
             <a href="/the-management-team">Our Team</a>
             <a href="/theory-of-change">Theory of Change</a>
-            <a href="/our-events">Events &amp; Programs</a>
+            <a href="/columbus-women-connect">Columbus Women Connect</a>
           </nav>
 
           <nav aria-label="B4P CODEFOUND programs">
             <h3>Our Work</h3>
-            <a href="/peacebuilding-program">Peacebuilding</a>
-            <a href="/economic-development-program">Economic Development</a>
-            <a href="/youth-and-civic-engagement">Youth &amp; Civic Engagement</a>
-            <a href="/resources">Resources</a>
+            <a href="/programs/global">Global Programs</a>
+            <a href="/programs/usa">USA Programs</a>
+            <a href="/programs/liberia">Liberia Programs</a>
+            <a href="/services">Services</a>
           </nav>
 
           <address className="site-footer__contact">

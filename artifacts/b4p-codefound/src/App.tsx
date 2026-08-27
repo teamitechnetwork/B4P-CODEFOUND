@@ -6,6 +6,9 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
 import PolishedPage from '@/pages/PolishedPage';
+import WhatWeDoPage from '@/pages/WhatWeDoPage';
+import ProgramDirectoryPage, { type DirectoryKind } from '@/pages/ProgramDirectoryPage';
+import ColumbusWomenConnectPage from '@/pages/ColumbusWomenConnectPage';
 import {
   useLocation,
   Router as WouterRouter,
@@ -32,6 +35,30 @@ function Router() {
   
   if (location === '/advisory-council' || location === '/advisory') {
     return <TeamPage type="advisory" />;
+  }
+
+  if (location === '/what-we-do' || location === '/programs') {
+    return <WhatWeDoPage />;
+  }
+
+  if (location === '/programs/global' || location === '/global-programs') {
+    return <ProgramDirectoryPage kind="global" />;
+  }
+
+  if (location === '/programs/usa' || location === '/usa-programs') {
+    return <ProgramDirectoryPage kind="usa" />;
+  }
+
+  if (location === '/programs/liberia' || location === '/liberia-programs') {
+    return <ProgramDirectoryPage kind="liberia" />;
+  }
+
+  if (location === '/services' || location === '/b4p-services') {
+    return <ProgramDirectoryPage kind="services" />;
+  }
+
+  if (location === '/columbus-women-connect' || location === '/cwc') {
+    return <ColumbusWomenConnectPage />;
   }
 
   // All other routes fall back to the polished CMS/JSON renderer

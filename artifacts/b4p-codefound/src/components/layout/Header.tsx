@@ -23,13 +23,19 @@ const navGroups: NavGroup[] = [
   {
     name: 'What We Do',
     items: [
-      { name: 'Peacebuilding Program', href: '/peacebuilding-program' },
-      { name: 'Economic Development Program', href: '/economic-development-program' },
-      { name: 'Youth and Civic Engagement', href: '/youth-and-civic-engagement' },
-      { name: 'Liberian Organizations and Community Assessment (LOCA)', href: '/liberian-organizations-and-community-assessment-loca' },
-      { name: 'Liberia-Diaspora Dialogues', href: '/liberia-diaspora-dialogues' },
-      { name: 'Events & Conferences', href: '/events-and-conferences' },
-      { name: 'Resources', href: '/resources' },
+      { name: 'What We Do', href: '/what-we-do' },
+      { name: 'Peacebuilding', href: '/peacebuilding-program' },
+      { name: 'Economic Development & Empowerment', href: '/economic-development-program' },
+      { name: 'Services', href: '/services' },
+      { name: 'Columbus Women Connect', href: '/columbus-women-connect' },
+    ],
+  },
+  {
+    name: 'Programs',
+    items: [
+      { name: 'Global Programs', href: '/programs/global' },
+      { name: 'USA Programs', href: '/programs/usa' },
+      { name: 'Liberia Programs', href: '/programs/liberia' },
     ],
   },
   {
