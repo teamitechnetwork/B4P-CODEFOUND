@@ -7,7 +7,7 @@ import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
 import PolishedPage from '@/pages/PolishedPage';
 import WhatWeDoPage from '@/pages/WhatWeDoPage';
-import ProgramDirectoryPage, { type DirectoryKind } from '@/pages/ProgramDirectoryPage';
+import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
 import ColumbusWomenConnectPage from '@/pages/ColumbusWomenConnectPage';
 import {
   useLocation,

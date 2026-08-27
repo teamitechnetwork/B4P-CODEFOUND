@@ -88,7 +88,7 @@ export default function ProgramDirectoryPage({ kind }: { kind: DirectoryKind }) 
             <div className="directory-content__intro">
               <span className="section-heading__eyebrow">{isServices ? 'How we help' : 'Explore the work'}</span>
               <h2>{isServices ? 'Support that meets the work where it is.' : 'Programs shaped with community partners.'}</h2>
-              <p>{isServices ? 'Each service is a starting point for a conversation about what your organization or enterprise needs to grow.' : 'Select a pathway to learn more about the areas of work represented in this region.'}</p>
+              <p>{isServices ? 'Each service is a starting point for a conversation about what your organization or enterprise needs to grow.' : 'Explore the areas of work represented in this region.'}</p>
             </div>
             <div className={`directory-list ${isServices ? 'directory-list--services' : ''}`}>
               {data.items.map((item, index) => (

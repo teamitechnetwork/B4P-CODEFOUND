@@ -1,31 +1,36 @@
-import { ArrowUpRight, Building, Briefcase, HandCoins, Map, Globe2 } from 'lucide-react';
+import { ArrowUpRight, BriefcaseBusiness, Globe2, HeartHandshake, ShieldCheck, Sprout } from 'lucide-react';
 
 const programs = [
   {
-    title: 'Capacity Building Fund',
-    desc: 'Institutional support, accountability, transparency, and community participation.',
-    icon: Building
+    title: 'Peacebuilding',
+    desc: 'Dialogue, capacity building, small grants, and advocacy that strengthen trust, leadership, and sustainable peace initiatives.',
+    icon: ShieldCheck,
+    href: '/what-we-do#peacebuilding',
   },
   {
-    title: 'Community Business Investment',
-    desc: 'Community-led peace and economic development initiatives driving local growth.',
-    icon: Briefcase
+    title: 'Economic Development & Empowerment',
+    desc: 'Agribusiness, entrepreneurship, mentorship, and financial and digital literacy that expand economic opportunity.',
+    icon: Sprout,
+    href: '/what-we-do#economic-development',
   },
   {
-    title: 'Donor Advised Funds',
-    desc: 'Structured funds deployed strictly according to donor guidelines to maximize targeted impact.',
-    icon: HandCoins
+    title: 'Global, USA & Liberia Programs',
+    desc: 'Regionally focused pathways that connect people with leadership, civic participation, livelihoods, health, and education opportunities.',
+    icon: Globe2,
+    href: '/programs/global',
   },
   {
-    title: 'Liberian Organizations and Community Assessment (LOCA)',
-    desc: 'Community building and grassroots development mapping across Liberia.',
-    icon: Map
+    title: 'Organizational Services',
+    desc: 'Fiscal sponsorship, nonprofit capacity building, and business development support for organizations and enterprises.',
+    icon: BriefcaseBusiness,
+    href: '/services',
   },
   {
-    title: 'Liberia-Diaspora Dialogues',
-    desc: 'Fostering self-reliance through meaningful and actionable diaspora engagement.',
-    icon: Globe2
-  }
+    title: 'Columbus Women Connect',
+    desc: 'A B4P CODEFOUND subsidiary empowering women through leadership, advocacy, and community across cultures and generations.',
+    icon: HeartHandshake,
+    href: '/columbus-women-connect',
+  },
 ];
 
 export function Programs() {
@@ -40,10 +45,10 @@ export function Programs() {
             <span className="w-8 h-[2px] bg-secondary"></span>
           </div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
-            Strategic Programs
+            Our Work in Action
           </h2>
           <p className="text-xl text-muted-foreground font-medium">
-            Through targeted initiatives, we build the institutional capacity of grassroots organizations and connect local needs with global resources.
+            Two operational pillars connect peacebuilding, economic opportunity, and community-led progress.
           </p>
           <a href="/what-we-do" className="inline-flex items-center gap-2 mt-7 text-sm font-extrabold uppercase tracking-wider text-primary hover:text-secondary transition-colors">
             Explore What We Do <ArrowUpRight size={16} aria-hidden="true" />
@@ -52,8 +57,9 @@ export function Programs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {programs.map((program, i) => (
-            <div 
+            <a
               key={program.title}
+              href={program.href}
               className={`bg-white p-8 rounded-2xl shadow-sm border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 group ${
                 i === programs.length - 1 && programs.length % 2 !== 0 && programs.length % 3 !== 0
                   ? 'md:col-span-2 lg:col-span-1' 
@@ -69,7 +75,10 @@ export function Programs() {
               <p className="text-muted-foreground font-medium leading-relaxed">
                 {program.desc}
               </p>
-            </div>
+              <span className="mt-6 inline-flex items-center gap-2 text-primary text-xs font-extrabold uppercase tracking-wider">
+                Explore <ArrowUpRight size={15} aria-hidden="true" />
+              </span>
+            </a>
           ))}
         </div>
       </div>
