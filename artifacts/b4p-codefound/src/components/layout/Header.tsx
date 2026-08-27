@@ -275,7 +275,7 @@ export function Header() {
         <header className="site-header">
           <div className="container site-header__inner">
             <a href="/" className="site-header__brand" onClick={() => closeMenu()} aria-label="B4P CODEFOUND home">
-              <img src="/brand/b4p-favicon.png" alt="" />
+              <img src="/brand/b4p-logo-source.jpg" alt="B4P CODEFOUND" />
             </a>
             <div className="site-header__utilities">
               <a href="/make-a-donation" className="site-header__donate" onClick={() => closeMenu()}>Donate</a>
@@ -355,7 +355,7 @@ export function Header() {
       >
         <div className="site-drawer__header">
           <a href="/" className="site-drawer__brand" onClick={() => closeMenu()} aria-label="B4P CODEFOUND home">
-            <img src="/brand/b4p-favicon.png" alt="" />
+            <img src="/brand/b4p-logo-source.jpg" alt="B4P CODEFOUND" />
           </a>
           <button type="button" onClick={() => closeMenu(true)} className="site-drawer__close" aria-label="Close navigation menu">
             <X size={23} aria-hidden="true" />

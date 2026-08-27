@@ -1337,18 +1337,20 @@
 
 .site-header__inner {
   min-height: 72px;
+  padding-inline: 16px;
 }
 
 .site-header__brand {
   display: grid;
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 58px;
   place-items: center;
+  flex-shrink: 0;
 }
 
 .site-header__brand img {
-  width: 50px;
-  height: 50px;
+  width: 64px;
+  height: 58px;
   object-fit: contain;
   filter: none;
 }
@@ -1357,11 +1359,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .site-header__donate {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   height: 37px;
   padding: 0 16px;
   border: 1px solid #df5311;
@@ -1371,6 +1375,7 @@
   font-weight: 800 !important;
   letter-spacing: 0.1em !important;
   line-height: 1;
+  white-space: nowrap;
   text-decoration: none;
   text-transform: uppercase;
   transition: background-color 160ms ease, border-color 160ms ease;
@@ -1387,7 +1392,8 @@
   justify-content: center;
   gap: 8px;
   height: 37px;
-  padding: 0 3px 0 10px;
+  min-width: 44px;
+  padding: 0;
   border: 0;
   color: #123f47;
   background: transparent;
@@ -1625,14 +1631,14 @@
 
 .site-drawer__brand {
   display: grid;
-  width: 51px;
-  height: 51px;
+  width: 72px;
+  height: 58px;
   place-items: center;
 }
 
 .site-drawer__brand img {
-  width: 51px;
-  height: 51px;
+  width: 72px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -2345,27 +2351,30 @@
 
   .site-header__inner {
     min-height: 70px;
+    padding-inline: 14px;
   }
 
   .site-header__brand,
   .site-header__brand img {
-    width: 44px;
-    height: 44px;
+    width: 60px;
+    height: 56px;
   }
 
   .site-header__utilities {
-    gap: 9px;
+    gap: 6px;
   }
 
   .site-header__donate {
-    height: 34px;
-    padding: 0 11px;
-    font-size: 0.62rem !important;
+    height: 38px;
+    min-width: 74px;
+    padding: 0 12px;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.07em !important;
   }
 
   .site-header__menu-button {
-    height: 34px;
-    padding-left: 5px;
+    width: 44px;
+    height: 42px;
   }
 
   .site-header__menu-button span {
@@ -2373,20 +2382,20 @@
   }
 
   .site-drawer__header {
-    min-height: 78px;
-    padding: 14px 20px;
+    min-height: 74px;
+    padding: 10px 16px;
   }
 
   .site-drawer__body {
-    padding: 16px 20px 24px;
+    padding: 12px 16px 24px;
   }
 
   .site-drawer__footer {
-    padding: 20px 20px calc(24px + env(safe-area-inset-bottom));
+    padding: 18px 16px calc(24px + env(safe-area-inset-bottom));
   }
 
   .site-drawer {
-    width: 100%;
+    width: min(100%, 420px);
   }
 
   .site-drawer__submenu {
