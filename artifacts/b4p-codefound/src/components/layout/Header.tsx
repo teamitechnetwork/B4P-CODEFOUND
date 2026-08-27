@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLocation } from 'wouter';
 
-type NavItem = { name: string; href: string };
+type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
 
 const navGroups: NavGroup[] = [
@@ -58,6 +58,35 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
+    name: 'Subsidiaries',
+    items: [
+      {
+        name: 'B4P CODEFOUND Liberia',
+        href: '/programs/liberia',
+        children: [
+          { name: 'Explore Liberia programs', href: '/programs/liberia' },
+          { name: 'Contact B4P CODEFOUND', href: '/contact' },
+        ],
+      },
+      {
+        name: 'Bong County Women and Youth Development Cooperation (BWYDC)',
+        href: '/#field-stories',
+        children: [
+          { name: 'Building Young Women, Driving Change', href: '/#field-stories' },
+          { name: 'Contact B4P CODEFOUND', href: '/contact' },
+        ],
+      },
+      {
+        name: 'Columbus Women Connect (CWC)',
+        href: '/columbus-women-connect',
+        children: [
+          { name: 'Visit Columbus Women Connect', href: '/columbus-women-connect' },
+          { name: 'Join the movement', href: '/columbus-women-connect#join' },
+        ],
+      },
+    ],
+  },
+  {
     name: 'Work With Us',
     items: [
       { name: 'Become a Volunteer', href: '/become-a-volunteer' },
@@ -88,6 +117,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [openSubgroup, setOpenSubgroup] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const isHome = location === '/';
@@ -96,6 +126,7 @@ export function Header() {
   const closeMenu = (restoreFocus = false) => {
     setIsMenuOpen(false);
     setOpenGroup(null);
+    setOpenSubgroup(null);
     if (restoreFocus) {
       window.requestAnimationFrame(() => menuButtonRef.current?.focus());
     }
@@ -224,9 +255,33 @@ export function Header() {
                 </button>
                 {openGroup === group.name && (
                   <div className="site-drawer__submenu">
-                    {group.items.map((item) => (
-                      <a key={`${group.name}-${item.name}`} href={item.href} onClick={() => closeMenu()}>{item.name}</a>
-                    ))}
+                    {group.items.map((item, itemIndex) => {
+                      const subgroupKey = `${group.name}-${itemIndex}-${item.name}`;
+                      if (!item.children) {
+                        return <a key={subgroupKey} href={item.href} onClick={() => closeMenu()}>{item.name}</a>;
+                      }
+
+                      return (
+                        <div className="site-drawer__nested-group" key={subgroupKey}>
+                          <button
+                            type="button"
+                            className="site-drawer__nested-trigger"
+                            onClick={() => setOpenSubgroup(openSubgroup === subgroupKey ? null : subgroupKey)}
+                            aria-expanded={openSubgroup === subgroupKey}
+                          >
+                            {item.name}
+                            <ChevronDown size={16} className={openSubgroup === subgroupKey ? 'rotate-180' : ''} aria-hidden="true" />
+                          </button>
+                          {openSubgroup === subgroupKey && (
+                            <div className="site-drawer__nested-submenu">
+                              {item.children.map((child) => (
+                                <a key={`${subgroupKey}-${child.name}`} href={child.href} onClick={() => closeMenu()}>{child.name}</a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
               </div>
