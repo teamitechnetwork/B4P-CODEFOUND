@@ -1,126 +1,212 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import { useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 
+type NavItem = { name: string; href: string };
+type NavGroup = { name: string; items: NavItem[] };
+
+const navGroups: NavGroup[] = [
+  {
+    name: 'About Us',
+    items: [
+      { name: 'About Us', href: '/about-us' },
+      { name: 'Our Impact', href: '/about' },
+      { name: 'Executive Director’s Message', href: '/executive-directors-message' },
+      { name: 'The Board', href: '/the-board' },
+      { name: 'Management Team', href: '/the-management-team' },
+      { name: 'Advisory Council', href: '/advisory-council' },
+      { name: 'Our Core Values', href: '/our-core-values' },
+      { name: 'Where We Work', href: '/where-we-work' },
+      { name: 'Theory of Change', href: '/theory-of-change' },
+    ],
+  },
+  {
+    name: 'What We Do',
+    items: [
+      { name: 'Peacebuilding Program', href: '/peacebuilding-program' },
+      { name: 'Economic Development Program', href: '/economic-development-program' },
+      { name: 'Youth and Civic Engagement', href: '/youth-and-civic-engagement' },
+      {
+        name: 'Liberian Organizations and Community Assessment (LOCA)',
+        href: '/liberian-organizations-and-community-assessment-loca',
+      },
+      { name: 'Liberia-Diaspora Dialogues', href: '/liberia-diaspora-dialogues' },
+      { name: 'Events & Conferences', href: '/events-and-conferences' },
+      { name: 'Events / Programs', href: '/our-events' },
+      { name: 'Resources', href: '/resources' },
+    ],
+  },
+  {
+    name: 'Work With Us',
+    items: [
+      { name: 'Become a Volunteer', href: '/become-a-volunteer' },
+      { name: 'Internship', href: '/internship' },
+      { name: 'Jobs', href: '/jobs' },
+      { name: 'Careers', href: '/careers' },
+      { name: 'Vendor Registration', href: '/vendor-register' },
+      { name: 'Application', href: '/application' },
+      { name: 'Request for Quote', href: '/request-quote' },
+    ],
+  },
+  {
+    name: 'Shop Now',
+    items: [
+      { name: 'Shop', href: '/shop' },
+      { name: 'Store Listing', href: '/store-listing' },
+      { name: 'Cart', href: '/cart' },
+      { name: 'Checkout', href: '/checkout' },
+      { name: 'My Account', href: '/my-account' },
+      { name: 'My Orders', href: '/my-orders' },
+      { name: 'Product Subscription', href: '/dashboard/product-subscription' },
+      { name: 'Dashboard', href: '/dashboard' },
+    ],
+  },
+];
+
+function closeOnNavigation(
+  event: React.MouseEvent<HTMLAnchorElement>,
+  close: () => void,
+) {
+  if (event.currentTarget.getAttribute('href')?.startsWith('#')) {
+    event.preventDefault();
+    document
+      .getElementById(event.currentTarget.getAttribute('href')!.slice(1))
+      ?.scrollIntoView({ behavior: 'smooth' });
+  }
+  close();
+}
+
 export function Header() {
+  const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const isHome = location === '/';
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'What We Do', href: '#programs' },
-    { name: 'Work With Us', href: '#contact' },
-    { name: 'Shop Now', href: '#shop' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
+  const closeMenus = () => {
     setIsMobileMenuOpen(false);
-    
-    if (href.startsWith('#')) {
-      const element = document.getElementById(href.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    setOpenGroup(null);
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+    <header
+      className={`site-header ${
+        isHome && !isScrolled ? 'site-header--transparent' : ''
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between">
-          <a 
-            href="#home" 
-            onClick={(e) => scrollToSection(e, '#home')}
-            className="flex items-center gap-3 z-50 relative group"
-          >
-            <img 
-              src="/brand/b4p-favicon.png" 
-              alt="B4P Logo" 
-              className="w-10 h-10 object-contain rounded transition-transform group-hover:scale-105"
-            />
-            <span className={`font-bold text-lg tracking-tight ${isScrolled ? 'text-foreground' : 'text-foreground'} max-w-[120px] leading-tight hidden sm:block`}>
-              B4P CODEFOUND
-            </span>
-          </a>
+      <div className="container site-header__inner">
+        <a href="/" className="site-header__brand" onClick={closeMenus}>
+          <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND logo" />
+          <span>
+            B4P
+            <strong>CODEFOUND</strong>
+          </span>
+        </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <ul className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a 
-                    href={link.href}
-                    onClick={(e) => scrollToSection(e, link.href)}
-                    className="text-sm font-semibold text-foreground/80 hover:text-primary transition-colors uppercase tracking-wider"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="flex items-center gap-3 border-l border-border pl-6">
-              <Button asChild variant="outline" className="font-bold tracking-wide border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
-                <a href="#partner" onClick={(e) => scrollToSection(e, '#partner')}>BECOME A PARTNER</a>
-              </Button>
-              <Button asChild className="font-bold tracking-wide bg-secondary hover:bg-secondary/90 text-secondary-foreground shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5">
-                <a href="#donate" onClick={(e) => scrollToSection(e, '#donate')}>DONATE NOW</a>
-              </Button>
+        <nav className="site-nav site-nav--desktop" aria-label="Primary navigation">
+          <a href="/" onClick={closeMenus}>Home</a>
+          {navGroups.map((group) => (
+            <div
+              className="site-nav__group"
+              key={group.name}
+              onMouseEnter={() => setOpenGroup(group.name)}
+              onMouseLeave={() => setOpenGroup(null)}
+            >
+              <button
+                type="button"
+                className="site-nav__trigger"
+                aria-expanded={openGroup === group.name}
+                onClick={() =>
+                  setOpenGroup(openGroup === group.name ? null : group.name)
+                }
+              >
+                {group.name}
+                <ChevronDown size={14} aria-hidden="true" />
+              </button>
+              {openGroup === group.name && (
+                <div className="site-nav__dropdown">
+                  {group.items.map((item) => (
+                    <a key={item.href} href={item.href} onClick={closeMenus}>
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
-          </nav>
+          ))}
+          <a href="/contact" onClick={closeMenus}>Contact</a>
+        </nav>
 
-          {/* Mobile Menu Toggle */}
-          <button 
-            className="lg:hidden z-50 relative p-2 -mr-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+        <div className="site-header__actions">
+          <Button asChild variant="outline" className="site-header__partner">
+            <a
+              href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner"
+              onClick={closeMenus}
+            >
+              Become a Partner
+            </a>
+          </Button>
+          <Button asChild className="site-header__donate">
+            <a href="/make-a-donation" onClick={closeMenus}>Donate Now</a>
+          </Button>
         </div>
+
+        <button
+          type="button"
+          className="site-header__menu-button"
+          onClick={() => setIsMobileMenuOpen((open) => !open)}
+          aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </div>
 
-      {/* Mobile Nav Overlay */}
-      <div 
-        className={`fixed inset-0 bg-background z-40 transition-transform duration-500 ease-in-out lg:hidden flex flex-col pt-24 px-6 pb-6 overflow-y-auto ${
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <ul className="flex flex-col gap-6 text-xl mb-12">
-          {navLinks.map((link) => (
-            <li key={link.name} className="border-b border-border/50 pb-4">
-              <a 
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                className="font-bold text-foreground hover:text-primary transition-colors block"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="flex flex-col gap-4 mt-auto">
-          <Button asChild variant="outline" size="lg" className="w-full border-primary text-primary text-lg">
-            <a href="#partner" onClick={(e) => scrollToSection(e, '#partner')}>BECOME A PARTNER</a>
+      <div className={`site-nav--mobile ${isMobileMenuOpen ? 'is-open' : ''}`}>
+        <a href="/" onClick={(event) => closeOnNavigation(event, closeMenus)}>Home</a>
+        {navGroups.map((group) => (
+          <div className="site-nav__mobile-group" key={group.name}>
+            <button
+              type="button"
+              onClick={() =>
+                setOpenGroup(openGroup === group.name ? null : group.name)
+              }
+            >
+              {group.name}
+              <ChevronDown
+                size={16}
+                className={openGroup === group.name ? 'rotate-180' : ''}
+                aria-hidden="true"
+              />
+            </button>
+            {openGroup === group.name && (
+              <div className="site-nav__mobile-submenu">
+                {group.items.map((item) => (
+                  <a key={item.href} href={item.href} onClick={closeMenus}>
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+        <a href="/contact" onClick={closeMenus}>Contact</a>
+        <div className="site-nav__mobile-actions">
+          <Button asChild variant="outline">
+            <a href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner" onClick={closeMenus}>
+              Become a Partner
+            </a>
           </Button>
-          <Button asChild size="lg" className="w-full bg-secondary text-secondary-foreground text-lg shadow-md">
-            <a href="#donate" onClick={(e) => scrollToSection(e, '#donate')}>DONATE NOW</a>
+          <Button asChild className="site-header__donate">
+            <a href="/make-a-donation" onClick={closeMenus}>Donate Now</a>
           </Button>
         </div>
       </div>

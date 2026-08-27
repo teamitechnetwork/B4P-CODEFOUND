@@ -3,11 +3,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import NotFound from '@/pages/not-found';
 import Home from '@/pages/Home';
+import LegacyPage from '@/pages/LegacyPage';
 import {
-  Route,
-  Switch,
   useLocation,
   Router as WouterRouter,
 } from 'wouter';
@@ -15,12 +13,15 @@ import {
 const queryClient = new QueryClient();
 
 function Router() {
+  const [location] = useLocation();
+
   return (
     <RoutedErrorBoundary>
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
+      {location === '/' || location === '' ? (
+        <Home />
+      ) : (
+        <LegacyPage path={location} />
+      )}
     </RoutedErrorBoundary>
   );
 }
