@@ -1,48 +1,34 @@
-import {
-  ArrowUpRight,
-  BriefcaseBusiness,
-  Check,
-  Globe2,
-  HeartHandshake,
-  LandPlot,
-  ShieldCheck,
-  Sprout,
-  UsersRound,
-} from 'lucide-react';
+import { ArrowUpRight, Check, Globe2, LandPlot, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Link } from 'wouter';
 
 const pillars = [
   {
     id: 'peacebuilding',
+    slug: '/peacebuilding-program',
     eyebrow: 'Operational pillar 01',
     title: 'Peacebuilding',
-    icon: ShieldCheck,
-    goal: 'Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post conflict communities.',
+    image: '/images/conference/day-1-community-gathering.jpg',
+    goal: 'Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post-conflict communities.',
     objectives: [
-      'Facilitate processes, promote tolerance and understanding among diverse cultural and social groups for collective action and conflict transformation.',
-      'Build capacities for peace-Conflict Resolution & Problem-Solving Skills',
-      'Equip community members with resources and practical tools.',
+      'Facilitate processes and promote tolerance',
+      'Build capacities for Conflict Resolution',
+      'Equip community members with practical tools',
     ],
-    activities: 'Dialogues, Capacity building, Small Grants and Advocacy',
-    outcome: 'Enhanced community participation, local capacity and cohesion; enhanced leadership, trust, and sustainable peace initiatives, etc.',
-    outcomeLabel: 'Outcome',
   },
   {
     id: 'economic-development',
+    slug: '/economic-development-program',
     eyebrow: 'Operational pillar 02',
     title: 'Economic Development',
-    icon: Sprout,
-    goal: 'Driving prosperity, expanding opportunity, and building economic independence for women and girls. Stimulate economic growth and create sustainable livelihoods — especially for women-led households and enterprises.',
+    image: '/images/story-bwydc.jpg',
+    goal: 'Driving prosperity, expanding opportunity, and building economic independence for women and girls.',
     objectives: [
-      'Transform subsistence farming into a commercialized and sustainable industry that empowers small-scale farmers, strengthens value chains, promotes economic inclusion and community resilience.',
-      'Build capacity and provide accompaniment support for women & youth-owned businesses.',
-      'Provide access to financial education, technology and digital literacy for better decision making and participation the modern economy.',
-      'Provide access to credits, affordable and adaptable services as well as connect businesses to growth networks and development resources.',
+      'Transform subsistence farming into commercialized industry',
+      'Provide accompaniment support for women & youth businesses',
+      'Provide access to financial education and digital literacy',
     ],
-    activities: 'Agribusiness Development, Entrepreneurship, Coaching/Mentorship, Digital and Financial Literacy, Access to resources and market linkages, etc.',
-    outcome: 'Greater economic independence of women and youths; Increased social venturing and business models for sustainable development; Sustainable agricultural practices and return on investments.',
-    outcomeLabel: 'Outcomes',
   },
 ];
 
@@ -51,160 +37,217 @@ const regions = [
     name: 'Global',
     href: '/programs/global',
     icon: Globe2,
+    image: '/images/conference/day-3-community-01.jpg',
     description: 'Cross-border exchange, leadership, enterprise, peacebuilding, and cultural work.',
-    items: ['Global Youth Exchange Forum (GYEF)', 'LDDWYF/CSW', 'Leadership Development', 'Business Development & Entrepreneurship', 'Peacebuilding & Governance', 'Research & Policy Advocacy', 'Arts & Culture', 'Events'],
   },
   {
     name: 'USA',
     href: '/programs/usa',
     icon: UsersRound,
+    image: '/images/conference/day-1-group-02.jpg',
     description: 'Community-centered pathways for connection, learning, mentorship, and growth.',
-    items: ['Community Navigation & Dialogues', 'Networking & Professional Development', 'Mentorship and Leadership development', 'Events'],
   },
   {
     name: 'Liberia',
     href: '/programs/liberia',
     icon: LandPlot,
+    image: '/images/conference/day-2-community-01.jpg',
     description: 'Locally rooted work supporting agriculture, health, education, and civic participation.',
-    items: ['Business Development Services (Agriculture, etc)', 'Health Education & Sensitization', 'Youth & Education (Civic; Vocational & Skills Training, Financial & Digital Literacy)', 'Events & Conference'],
   },
-];
-
-const services = [
-  { name: 'Fiscal Sponsorship', description: 'A pathway for aligned initiatives to strengthen their work with the right organizational support.' },
-  { name: 'Nonprofit Capacity Building', description: 'Practical support to help nonprofit organizations grow their systems, leadership, and impact.' },
-  { name: 'Business Development', description: 'Business-focused support that helps enterprises build capacity and connect with opportunity.' },
 ];
 
 export default function WhatWeDoPage() {
   return (
-    <div className="what-we-do-page flex min-h-screen flex-col">
+    <div className="what-we-do-page flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        <section className="what-we-do-hero">
-          <div className="container mx-auto px-6">
-            <span className="page-kicker">What we do</span>
-            <h1>From shared purpose to practical progress.</h1>
-            <p>
-              B4P CODEFOUND has two operational pillars — Peacebuilding and Economic Development &amp; Empowerment. Through evidence and rights-based approaches, we co-create programs, projects, and activities with subsidiaries and community partners.
-            </p>
-            <div className="what-we-do-hero__links">
-              <a href="#pillars">Explore our pillars <ArrowUpRight size={17} aria-hidden="true" /></a>
-              <a href="#program-pathways">See program pathways <ArrowUpRight size={17} aria-hidden="true" /></a>
+        {/* HERO */}
+        <section className="relative pt-[180px] pb-32 md:pt-[240px] md:pb-48 px-6 lg:px-12 overflow-hidden bg-[#062e37] text-white">
+          <div className="absolute inset-0">
+            <img src="/images/programs-bg.jpg" alt="B4P Community Gathering" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#062e37] to-transparent" />
+          </div>
+          <div className="container relative z-10 max-w-7xl mx-auto">
+            <div className="max-w-3xl">
+              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#8bd9fb] uppercase mb-8">
+                <span className="w-8 h-[2px] bg-[#df5311]" />
+                What We Do
+              </span>
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
+                From shared purpose to <span className="text-[#1b9ed9]">practical progress.</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium mb-12">
+                Through evidence and rights-based approaches, we co-create programs, projects, and activities with subsidiaries and community partners.
+              </p>
             </div>
           </div>
         </section>
 
-        <section id="pillars" className="what-we-do-section what-we-do-section--light">
-          <div className="container mx-auto px-6">
-            <div className="section-heading section-heading--left">
-              <span className="section-heading__eyebrow">Our operational pillars</span>
-              <h2>We build the conditions for people and communities to thrive.</h2>
-              <p>Our work connects peace, participation, and economic opportunity so communities can shape durable change for themselves.</p>
+        {/* PILLARS */}
+        <section className="py-24 md:py-32 bg-white">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div className="mb-20">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-[#062e37] tracking-tight mb-6">
+                Our operational pillars
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                We build the conditions for people and communities to thrive, connecting peace, participation, and economic opportunity.
+              </p>
             </div>
 
-            <div className="pillar-grid">
-              {pillars.map((pillar) => {
-                const Icon = pillar.icon;
-                return (
-                  <article className="pillar-card" key={pillar.id}>
-                    <div className="pillar-card__top">
-                      <span>{pillar.eyebrow}</span>
-                      <Icon size={25} aria-hidden="true" />
+            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+              {pillars.map((pillar) => (
+                <Link key={pillar.id} href={pillar.slug} className="group block outline-none">
+                  <article className="h-full flex flex-col relative bg-[#f8fbfe] border border-border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#1b9ed9]/10 hover:border-[#1b9ed9]/30">
+                    <div className="aspect-[4/3] w-full relative overflow-hidden">
+                      <img
+                        src={pillar.image}
+                        alt={pillar.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <span className="text-white/90 text-sm font-bold tracking-widest uppercase mb-2 block drop-shadow-md">
+                          {pillar.eyebrow}
+                        </span>
+                        <h3 className="text-3xl md:text-4xl font-extrabold text-white drop-shadow-lg">
+                          {pillar.title}
+                        </h3>
+                      </div>
                     </div>
-                    <h3>{pillar.title}</h3>
-                    <div className="pillar-card__block">
-                      <span className="pillar-card__label">Goal</span>
-                      <p>{pillar.goal}</p>
-                    </div>
-                    <div className="pillar-card__block">
-                      <span className="pillar-card__label">Objectives</span>
-                      <ul>
-                        {pillar.objectives.map((objective) => (
-                          <li key={objective}><Check size={15} aria-hidden="true" />{objective}</li>
+                    <div className="p-8 flex flex-col flex-1">
+                      <p className="text-[#062e37] font-medium text-lg leading-relaxed mb-8">
+                        {pillar.goal}
+                      </p>
+                      <ul className="space-y-4 mb-8 flex-1">
+                        {pillar.objectives.map((obj, i) => (
+                          <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                            <Check className="w-5 h-5 text-[#1b9ed9] shrink-0 mt-0.5" />
+                            <span className="leading-snug">{obj}</span>
+                          </li>
                         ))}
                       </ul>
-                    </div>
-                    <div className="pillar-card__details">
-                      <div><span className="pillar-card__label">Activities</span><p>{pillar.activities}</p></div>
-                      <div><span className="pillar-card__label">{pillar.outcomeLabel}</span><p>{pillar.outcome}</p></div>
+                      <div className="inline-flex items-center gap-2 text-[#df5311] font-bold text-sm tracking-wide uppercase group-hover:text-[#bd4007] transition-colors mt-auto">
+                        Explore Program <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </div>
                     </div>
                   </article>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="program-pathways" className="what-we-do-section what-we-do-section--teal">
-          <div className="container mx-auto px-6">
-            <div className="section-heading section-heading--left section-heading--white">
-              <span className="section-heading__eyebrow">Program pathways</span>
-              <h2>Local knowledge, global connection.</h2>
-              <p>Explore the work through the communities and networks where B4P CODEFOUND is building relationships and opportunity.</p>
+        {/* PROGRAM PATHWAYS */}
+        <section className="py-24 md:py-32 bg-[#062e37] text-white overflow-hidden relative">
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#1b9ed9]/10 blur-[120px] rounded-full pointer-events-none" />
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+            <div className="mb-20">
+              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#8bd9fb] uppercase mb-6">
+                <span className="w-8 h-[2px] bg-[#df5311]" />
+                Program Pathways
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+                Local knowledge, global connection.
+              </h2>
+              <p className="text-xl text-white/70 max-w-2xl leading-relaxed">
+                Explore the work through the communities and networks where B4P CODEFOUND is building relationships and opportunity.
+              </p>
             </div>
-            <div className="region-grid">
+
+            <div className="grid md:grid-cols-3 gap-8">
               {regions.map((region) => {
                 const Icon = region.icon;
                 return (
-                  <article className="region-card" key={region.name}>
-                    <div className="region-card__icon"><Icon size={23} aria-hidden="true" /></div>
-                    <span className="region-card__eyebrow">Program region</span>
-                    <h3>{region.name}</h3>
-                    <p>{region.description}</p>
-                    <ul>
-                      {region.items.map((item) => <li key={item}>{item}</li>)}
-                    </ul>
-                    <a href={region.href}>View {region.name} programs <ArrowUpRight size={16} aria-hidden="true" /></a>
-                  </article>
+                  <Link key={region.name} href={region.href} className="group block outline-none">
+                    <article className="relative h-[480px] rounded-xl overflow-hidden">
+                      <img src={region.image} alt={`${region.name} Programs`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 mix-blend-overlay" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#051c22] via-[#062e37]/80 to-[#062e37]/40" />
+                      <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                        <div className="w-12 h-12 rounded-full bg-[#1b9ed9] flex items-center justify-center mb-6 text-white shrink-0">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-3xl font-bold mb-4">{region.name}</h3>
+                        <p className="text-white/80 leading-relaxed mb-8">
+                          {region.description}
+                        </p>
+                        <div className="inline-flex items-center gap-2 text-[#8bd9fb] font-bold text-sm tracking-wide uppercase transition-colors">
+                          View Programs <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
                 );
               })}
             </div>
           </div>
         </section>
 
-        <section className="what-we-do-section what-we-do-section--cream">
-          <div className="container mx-auto px-6">
-            <div className="services-layout">
-              <div className="section-heading section-heading--left">
-                <span className="section-heading__eyebrow">Services</span>
-                <h2>Support for organizations and enterprises doing important work.</h2>
-                <p>We help mission-driven organizations and businesses build the practical capacity to move their ideas forward.</p>
-                <a className="text-link" href="/services">Explore our services <ArrowUpRight size={16} aria-hidden="true" /></a>
+        {/* SERVICES */}
+        <section className="py-24 md:py-32 bg-[#eaf7fb]">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div className="grid lg:grid-cols-5 gap-16 items-center">
+              <div className="lg:col-span-2">
+                <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase mb-6">
+                  <span className="w-8 h-[2px] bg-[#1b9ed9]" />
+                  Organizational Support
+                </span>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-[#062e37] tracking-tight mb-6">
+                  Services for mission-driven work.
+                </h2>
+                <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                  We help nonprofits and businesses build the practical capacity to move their ideas forward.
+                </p>
+                <Link href="/services" className="inline-flex items-center gap-2 bg-[#1b9ed9] text-white px-6 py-4 font-bold text-sm tracking-widest uppercase hover:bg-[#1580b0] transition-colors rounded-sm">
+                  Explore Services <ArrowUpRight className="w-5 h-5" />
+                </Link>
               </div>
-              <div className="services-list">
-                {services.map((service, index) => (
-                  <a href="/services" className="service-row" key={service.name}>
-                    <span className="service-row__number">0{index + 1}</span>
-                    <span><strong>{service.name}</strong><small>{service.description}</small></span>
-                    <ArrowUpRight size={18} aria-hidden="true" />
-                  </a>
+              <div className="lg:col-span-3 grid gap-6">
+                {[
+                  { name: 'Fiscal Sponsorship', slug: 'fiscal-sponsorship', desc: 'Strengthen initiatives with robust organizational backing.' },
+                  { name: 'Nonprofit Capacity Building', slug: 'nonprofit-capacity-building', desc: 'Practical systems and leadership development for nonprofits.' },
+                  { name: 'Business Development', slug: 'business-development', desc: 'Enterprise-focused support to build capacity and find opportunity.' },
+                ].map((s, i) => (
+                  <Link href={`/services/${s.slug}`} key={s.name} className="group block bg-white p-8 rounded-xl border border-border hover:border-[#1b9ed9]/40 hover:shadow-xl transition-all">
+                    <div className="flex items-start justify-between gap-6">
+                      <div>
+                        <span className="text-sm font-bold text-[#1b9ed9] mb-2 block tracking-widest">0{i + 1}</span>
+                        <h3 className="text-2xl font-bold text-[#062e37] mb-3">{s.name}</h3>
+                        <p className="text-muted-foreground leading-relaxed">{s.desc}</p>
+                      </div>
+                      <div className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center shrink-0 group-hover:bg-[#1b9ed9] group-hover:text-white transition-colors">
+                        <ArrowUpRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="what-we-do-section what-we-do-section--store">
-          <div className="container mx-auto px-6">
-            <div className="store-callout">
-              <div className="store-callout__icon"><BriefcaseBusiness size={26} aria-hidden="true" /></div>
-              <div>
-                <span className="section-heading__eyebrow">The Store</span>
-                <h2>Let’s have a conversation about activating this store.</h2>
-                <p>The store is a future opportunity. If you are interested in helping us shape it, please start a conversation with the B4P CODEFOUND team.</p>
+        {/* SUBSIDIARY */}
+        <section className="py-24 bg-white border-t border-border">
+          <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div className="bg-[#062e37] rounded-2xl p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative">
+              <img src="/images/story-cwc.jpg" alt="Columbus Women Connect" className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay" />
+              <div className="relative z-10 max-w-2xl">
+                <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#8bd9fb] uppercase mb-4">
+                  A B4P CODEFOUND Subsidiary
+                </span>
+                <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6">
+                  Columbus Women Connect
+                </h2>
+                <p className="text-xl text-white/80 leading-relaxed mb-8">
+                  A multicultural network helping women connect, lead, advocate, and thrive across cultures and generations in Columbus, Ohio.
+                </p>
+                <Link href="/columbus-women-connect" className="inline-flex items-center gap-2 bg-white text-[#062e37] px-6 py-4 font-bold text-sm tracking-widest uppercase hover:bg-slate-100 transition-colors rounded-sm">
+                  Visit CWC <ArrowUpRight className="w-5 h-5" />
+                </Link>
               </div>
-              <a href="mailto:management@b4pcodefound.org?subject=Conversation%20about%20activating%20the%20B4P%20store">Start the conversation <ArrowUpRight size={17} aria-hidden="true" /></a>
-            </div>
-          </div>
-        </section>
-
-        <section className="what-we-do-section what-we-do-section--subsidiary">
-          <div className="container mx-auto px-6">
-            <div className="subsidiary-callout">
-              <div className="subsidiary-callout__icon"><HeartHandshake size={26} aria-hidden="true" /></div>
-              <div><span className="section-heading__eyebrow">A B4P CODEFOUND subsidiary</span><h2>Meet Columbus Women Connect.</h2><p>A multicultural network helping women connect, lead, advocate, and thrive across cultures and generations.</p></div>
-              <a href="/columbus-women-connect">Visit CWC <ArrowUpRight size={17} aria-hidden="true" /></a>
+              <div className="relative z-10 shrink-0 w-32 h-32 md:w-48 md:h-48 rounded-full bg-white/10 backdrop-blur flex items-center justify-center border border-white/20">
+                <UsersRound className="w-16 h-16 md:w-20 md:h-20 text-[#8bd9fb]" />
+              </div>
             </div>
           </div>
         </section>

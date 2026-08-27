@@ -19,6 +19,9 @@ import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
 import ProgramDetailPage from '@/pages/ProgramDetailPage';
 import ColumbusWomenConnectPage from '@/pages/ColumbusWomenConnectPage';
 import OpportunityPage from '@/pages/OpportunityPage';
+import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
+import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
+import ServicesPage from '@/pages/ServicesPage';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -94,6 +97,22 @@ function Router() {
     return <WhatWeDoPage />;
   }
 
+  if (location === '/peacebuilding-program') {
+    return <PeacebuildingProgramPage />;
+  }
+
+  if (location === '/economic-development-program') {
+    return <EconomicDevelopmentProgramPage />;
+  }
+
+  if (
+    location === '/services' ||
+    location === '/b4p-services' ||
+    /^\/services\/(fiscal-sponsorship|nonprofit-capacity-building|business-development)$/.test(location)
+  ) {
+    return <ServicesPage />;
+  }
+
   const programMatch = location.match(/^\/programs\/(global|usa|liberia)\/([^/]+)$/);
   if (programMatch) {
     return <ProgramDetailPage region={programMatch[1] as ProgramRegion} slug={programMatch[2]} />;
@@ -109,10 +128,6 @@ function Router() {
 
   if (location === '/programs/liberia' || location === '/liberia-programs') {
     return <ProgramDirectoryPage kind="liberia" />;
-  }
-
-  if (location === '/services' || location === '/b4p-services') {
-    return <ProgramDirectoryPage kind="services" />;
   }
 
   if (location === '/columbus-women-connect' || location === '/cwc') {
