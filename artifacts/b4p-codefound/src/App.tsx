@@ -8,7 +8,9 @@ import { TeamPage } from '@/pages/TeamPage';
 import PolishedPage from '@/pages/PolishedPage';
 import WhatWeDoPage from '@/pages/WhatWeDoPage';
 import ProgramDirectoryPage from '@/pages/ProgramDirectoryPage';
+import ProgramDetailPage from '@/pages/ProgramDetailPage';
 import ColumbusWomenConnectPage from '@/pages/ColumbusWomenConnectPage';
+import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
   Router as WouterRouter,
@@ -39,6 +41,11 @@ function Router() {
 
   if (location === '/what-we-do' || location === '/programs') {
     return <WhatWeDoPage />;
+  }
+
+  const programMatch = location.match(/^\/programs\/(global|usa|liberia)\/([^/]+)$/);
+  if (programMatch) {
+    return <ProgramDetailPage region={programMatch[1] as ProgramRegion} slug={programMatch[2]} />;
   }
 
   if (location === '/programs/global' || location === '/global-programs') {

@@ -1,9 +1,37 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { programRegions } from '@/data/programs';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
+
+const programNavItems: NavItem[] = [
+  {
+    name: 'Global',
+    href: '/programs/global',
+    children: [
+      { name: 'Explore Global Programs', href: '/programs/global' },
+      ...programRegions.global.programs.map((program) => ({ name: program.title, href: `/programs/global/${program.slug}` })),
+    ],
+  },
+  {
+    name: 'USA',
+    href: '/programs/usa',
+    children: [
+      { name: 'Explore USA Programs', href: '/programs/usa' },
+      ...programRegions.usa.programs.map((program) => ({ name: program.title, href: `/programs/usa/${program.slug}` })),
+    ],
+  },
+  {
+    name: 'Liberia',
+    href: '/programs/liberia',
+    children: [
+      { name: 'Explore Liberia Programs', href: '/programs/liberia' },
+      ...programRegions.liberia.programs.map((program) => ({ name: program.title, href: `/programs/liberia/${program.slug}` })),
+    ],
+  },
+];
 
 const navGroups: NavGroup[] = [
   {
@@ -35,27 +63,7 @@ const navGroups: NavGroup[] = [
   },
   {
     name: 'Programs',
-    items: [
-      { name: 'Global', href: '/programs/global' },
-      { name: 'Global Youth Exchange Forum (GYEF)', href: '/programs/global' },
-      { name: 'LDDWYF/CSW', href: '/programs/global' },
-      { name: 'Leadership Development', href: '/programs/global' },
-      { name: 'Business Development & Entrepreneurship', href: '/programs/global' },
-      { name: 'Peacebuilding & Governance', href: '/programs/global' },
-      { name: 'Research & Policy Advocacy', href: '/programs/global' },
-      { name: 'Arts & Culture', href: '/programs/global' },
-      { name: 'Events', href: '/programs/global' },
-      { name: 'USA', href: '/programs/usa' },
-      { name: 'Community Navigation & Dialogues', href: '/programs/usa' },
-      { name: 'Networking & Professional Development', href: '/programs/usa' },
-      { name: 'Mentorship and Leadership development', href: '/programs/usa' },
-      { name: 'Events', href: '/programs/usa' },
-      { name: 'Liberia', href: '/programs/liberia' },
-      { name: 'Business Development Services (Agriculture, etc)', href: '/programs/liberia' },
-      { name: 'Health Education & Sensitization', href: '/programs/liberia' },
-      { name: 'Youth & Education (Civic; Vocational & Skills Training, Financial & Digital Literacy)', href: '/programs/liberia' },
-      { name: 'Events & Conference', href: '/programs/liberia' },
-    ],
+    items: programNavItems,
   },
   {
     name: 'Subsidiaries',
@@ -247,7 +255,10 @@ export function Header() {
               <div className="site-drawer__group" key={group.name}>
                 <button
                   type="button"
-                  onClick={() => setOpenGroup(openGroup === group.name ? null : group.name)}
+                  onClick={() => {
+                    setOpenGroup(openGroup === group.name ? null : group.name);
+                    setOpenSubgroup(null);
+                  }}
                   aria-expanded={openGroup === group.name}
                 >
                   {group.name}
