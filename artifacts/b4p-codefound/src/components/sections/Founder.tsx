@@ -2,37 +2,34 @@ import { Quote } from 'lucide-react';
 
 export function Founder() {
   return (
-    <section id="about" className="py-24 bg-white overflow-hidden">
+    <section id="about" className="py-24 md:py-32 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
-          <div className="w-full lg:w-5/12 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl z-10 aspect-[4/5]">
+          <div className="lg:col-span-5 relative">
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden relative z-10 shadow-2xl">
               <img 
                 src="/brand/b4p-og-source.png" 
                 alt="Lindora Kolu Howard-Diawara, Founder & Executive Director" 
                 className="w-full h-full object-cover"
               />
             </div>
-            {/* Decorative block behind image */}
-            <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl z-0" />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-secondary/20 rounded-full z-0 blur-3xl" />
+            <div className="absolute -bottom-6 -right-6 w-full h-full bg-secondary/10 rounded-2xl z-0" />
           </div>
 
-          <div className="w-full lg:w-7/12">
-            <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-[0.15em] text-xs mb-4">
-              <span className="w-8 h-[2px] bg-primary"></span>
+          <div className="lg:col-span-7 flex flex-col justify-center">
+            <span className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6 block">
               Meet Our Founder
-            </div>
+            </span>
             
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 leading-[1.05] tracking-tight text-balance">
-              Lindora Kolu <br />Howard-Diawara
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 leading-tight text-balance">
+              Lindora Kolu Howard-Diawara
             </h2>
-            <p className="text-xl text-secondary font-bold mb-8">
-              Founder & Executive Director
+            <p className="text-xl text-primary font-bold mb-10">
+              Executive Director
             </p>
 
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl">
+            <div className="space-y-6 text-muted-foreground text-lg md:text-xl leading-relaxed mb-12 max-w-2xl">
               <p>
                 Lindora Kolu Howard-Diawara is a Liberian peace activist and women’s rights advocate. Since founding B4P CODEFOUND in 2015, her leadership has been instrumental in creating sustainable pathways for the next generation of African leaders.
               </p>
@@ -44,13 +41,12 @@ export function Founder() {
               </p>
             </div>
 
-            <div className="bg-background/80 border-l-4 border-secondary p-8 rounded-r-2xl relative shadow-sm max-w-2xl">
-              <Quote className="absolute top-4 right-6 w-16 h-16 text-secondary/5 rotate-180" />
-              <p className="text-xl md:text-2xl font-bold italic text-foreground leading-snug relative z-10 pr-8">
+            <div className="relative pt-8 mt-4 border-t border-border/60 max-w-2xl">
+              <Quote className="absolute top-0 right-0 w-24 h-24 text-secondary/5 rotate-180 -translate-y-6" />
+              <p className="text-2xl md:text-3xl font-serif italic text-foreground leading-snug relative z-10 text-balance">
                 "Empowered women are the foundation of a productive nation."
               </p>
             </div>
-            
           </div>
         </div>
       </div>
