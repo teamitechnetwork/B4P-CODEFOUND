@@ -339,7 +339,18 @@ export function Header() {
                 const isOpen = desktopOpenGroup === group.name;
                 const panelId = `desktop-nav-${group.name.toLowerCase().replaceAll(' ', '-')}`;
                 return (
-                  <div className={`site-desktop-nav__group ${isOpen ? 'is-open' : ''}`} key={group.name}>
+                  <div
+                    className={`site-desktop-nav__group ${isOpen ? 'is-open' : ''}`}
+                    key={group.name}
+                    onMouseEnter={() => setDesktopOpenGroup(group.name)}
+                    onMouseLeave={() => setDesktopOpenGroup((current) => current === group.name ? null : current)}
+                    onFocus={() => setDesktopOpenGroup(group.name)}
+                    onBlur={(event) => {
+                      if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                        setDesktopOpenGroup((current) => current === group.name ? null : current);
+                      }
+                    }}
+                  >
                     <button
                       type="button"
                       aria-expanded={isOpen}
