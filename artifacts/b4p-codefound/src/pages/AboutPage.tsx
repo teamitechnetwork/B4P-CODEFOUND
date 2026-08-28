@@ -25,13 +25,13 @@ export default function AboutPage() {
           </div>
           
           <div className="container relative z-10 px-4 md:px-6">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl mx-auto text-center">
               <span 
-                className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700"
+                className="inline-flex items-center justify-center gap-2 text-primary font-bold uppercase tracking-wider text-sm mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700"
                 data-testid="text-about-eyebrow"
               >
                 <span className="w-8 h-[2px] bg-primary"></span>
-                About B4P CODEFOUND
+                Who We Are
               </span>
               <h1 
                 className="text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.1] animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150"
@@ -41,13 +41,13 @@ export default function AboutPage() {
                 Building <span className="text-accent">peace</span>.
               </h1>
               <p 
-                className="text-lg md:text-xl text-white/80 font-medium leading-relaxed max-w-2xl mb-10 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300"
+                className="text-lg md:text-xl text-white/80 font-medium leading-relaxed max-w-2xl mx-auto mb-10 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300"
                 data-testid="text-about-subtitle"
               >
                 We are an African-led nonprofit and social enterprise dedicated to peacebuilding, community development, and women's leadership across Liberia, the United States, and beyond.
               </p>
               <div 
-                className="flex flex-wrap items-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500"
+                className="flex flex-wrap items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500"
               >
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold px-8 h-14 text-base" data-testid="link-donate-hero">
                   <a href="/make-a-donation">Support Our Work</a>

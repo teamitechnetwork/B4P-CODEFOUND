@@ -7,29 +7,47 @@ const locations = [
   {
     number: '01',
     label: 'Rooted in Liberia',
-    title: 'Community-led work at home.',
-    description: 'Our work is grounded in Liberian communities, supporting women, girls, youth, livelihoods, health education, and civic participation.',
+    title: 'Gbarnga, with Nimba coming soon.',
+    description: 'Our work is grounded in Liberian communities, supporting women, girls, youth, livelihoods, health education, and civic participation from Gbarnga, Bong County.',
     icon: MapPin,
     href: '/programs/liberia',
     linkLabel: 'Explore Liberia programs',
   },
   {
     number: '02',
-    label: 'Connected through the diaspora',
-    title: 'The United States as a bridge.',
-    description: 'We connect Liberian and African diaspora communities with dialogue, professional networks, leadership development, and opportunities to participate.',
+    label: 'Working in the United States',
+    title: 'Ohio and New York.',
+    description: 'Our US presence connects Liberian and African diaspora communities through dialogue, professional networks, leadership development, and opportunities to participate.',
     icon: UsersRound,
     href: '/programs/usa',
     linkLabel: 'Explore USA programs',
   },
+];
+
+const offices = [
   {
-    number: '03',
-    label: 'Open to wider exchange',
-    title: 'Learning that travels.',
-    description: 'Our global relationships make space for cross-cultural exchange, shared learning, advocacy, and partnerships that strengthen peace and development.',
-    icon: Globe2,
-    href: '/programs/global',
-    linkLabel: 'Explore global programs',
+    number: 'US · 01',
+    label: 'Columbus / Blacklick, Ohio',
+    title: 'United States headquarters',
+    description: '1108 Chaser Street, Blacklick, OH 43004',
+  },
+  {
+    number: 'US · 02',
+    label: 'Columbus, Ohio',
+    title: 'Columbus office',
+    description: '3341 South 3rd Street, Suite 100-483, Columbus, OH 43004',
+  },
+  {
+    number: 'US · 03',
+    label: 'Staten Island, New York',
+    title: 'New York presence',
+    description: '145 Nicholas Avenue, Staten Island, New York, NY 10302',
+  },
+  {
+    number: 'LR · 01',
+    label: 'Gbarnga, Bong County',
+    title: 'Liberia office',
+    description: 'Far East Community, Gbarnga, Bong County, Liberia. Nimba location coming soon.',
   },
 ];
 
@@ -83,11 +101,9 @@ export default function WhereWeWorkPage() {
                   B4P CODEFOUND brings a global-local perspective to peacebuilding and economic development. Our relationships begin in community and grow through exchange.
                 </p>
                 <div className="where-route" aria-label="B4P CODEFOUND geographic connection">
-                  <span><MapPin size={16} aria-hidden="true" /> Liberia</span>
+                  <span><MapPin size={16} aria-hidden="true" /> USA</span>
                   <i aria-hidden="true" />
-                  <span><UsersRound size={16} aria-hidden="true" /> Diaspora</span>
-                  <i aria-hidden="true" />
-                  <span><Globe2 size={16} aria-hidden="true" /> Global</span>
+                  <span><UsersRound size={16} aria-hidden="true" /> Liberia</span>
                 </div>
               </div>
             </div>
@@ -108,6 +124,28 @@ export default function WhereWeWorkPage() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section className="where-section where-section--light">
+          <div className="page-container">
+            <div className="section-heading section-heading--left impact-section__heading">
+              <span className="section-heading__eyebrow">Office locations</span>
+              <h2>Find B4P CODEFOUND in the United States and Liberia.</h2>
+            </div>
+            <div className="where-location-grid">
+              {offices.map((office) => (
+                <article className="where-location" key={office.number} data-testid={`card-office-${office.number.toLowerCase().replaceAll(' ', '-').replaceAll('·', '')}`}>
+                  <div className="where-location__top">
+                    <span>{office.number}</span>
+                    <MapPin size={25} aria-hidden="true" />
+                  </div>
+                  <span className="where-location__label">{office.label}</span>
+                  <h3>{office.title}</h3>
+                  <p>{office.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>

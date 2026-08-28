@@ -246,6 +246,12 @@
     "indexable": true
   },
   {
+    "path": "/donate",
+    "title": "Donate to B4P CODEFOUND",
+    "description": "Support B4P CODEFOUND’s African-led peacebuilding, women’s leadership, youth opportunity, and community development work.",
+    "indexable": false
+  },
+  {
     "path": "/news-blogs",
     "title": "News & Stories | B4P CODEFOUND",
     "description": "Read news, field stories, organizational updates, and perspectives from B4P CODEFOUND.",

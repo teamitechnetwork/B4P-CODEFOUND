@@ -253,7 +253,7 @@ export default function PolishedPage({ path }: { path: string }) {
           </div>
         </section>
 
-        {status === 'ready' && !presentation.legal && (
+        {status === 'ready' && !presentation.legal && !/donat/.test(targetPath) && (
           <DrivePhotoGallery
             eyebrow="Community in focus"
             title="The mission is carried by people."

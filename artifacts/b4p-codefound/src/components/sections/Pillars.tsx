@@ -2,29 +2,29 @@ import { HeartHandshake, Users, ShieldCheck, TrendingUp } from 'lucide-react';
 
 const pillars = [
   {
-    title: 'Social Change',
-    subtitle: 'Driving Impact',
+    title: 'Driving Social Change',
+    subtitle: 'Global-local peacebuilding and economic development',
     icon: TrendingUp,
     color: 'text-secondary',
     bg: 'bg-secondary/10'
   },
   {
-    title: 'Capacity Development',
-    subtitle: 'Collective Action',
+    title: 'Capacity Building Support',
+    subtitle: 'Capacity development & collective action',
     icon: Users,
     color: 'text-primary',
     bg: 'bg-primary/10'
   },
   {
-    title: 'Empowerment',
-    subtitle: 'Capacity Building',
+    title: 'Her — The Girl Child',
+    subtitle: 'Women & girls leadership development',
     icon: HeartHandshake,
     color: 'text-secondary',
     bg: 'bg-secondary/10'
   },
   {
-    title: 'Rights & Dignity',
-    subtitle: 'Protecting Futures',
+    title: 'SRHR',
+    subtitle: 'Health, rights & dignity',
     icon: ShieldCheck,
     color: 'text-primary',
     bg: 'bg-primary/10'

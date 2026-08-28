@@ -12,6 +12,7 @@ import CoreValuesPage from '@/pages/CoreValuesPage';
 import SiteDirectoryPage from '@/pages/SiteDirectoryPage';
 import StorePage from '@/pages/StorePage';
 import ContactPage from '@/pages/ContactPage';
+import DonationPage from '@/pages/DonationPage';
 import WhereWeWorkPage from '@/pages/WhereWeWorkPage';
 import TheoryOfChangePage from '@/pages/TheoryOfChangePage';
 import PolishedPage from '@/pages/PolishedPage';
@@ -89,6 +90,10 @@ function Router() {
 
   if (location === '/theory-of-change') {
     return <TheoryOfChangePage />;
+  }
+
+  if (location === '/make-a-donation' || location === '/donate') {
+    return <DonationPage />;
   }
 
   if (location === '/the-management-team' || location === '/management') {

@@ -17,6 +17,7 @@ const pillars = [
       'Build capacities for Conflict Resolution',
       'Equip community members with practical tools',
     ],
+    outcome: 'Enhanced community cohesion, trust, and sustainable peace initiatives.',
   },
   {
     id: 'economic-development',
@@ -24,12 +25,56 @@ const pillars = [
     eyebrow: 'Operational pillar 02',
     title: 'Economic Development',
     image: '/images/story-bwydc.jpg',
-    goal: 'Driving prosperity, expanding opportunity, and building economic independence for women and girls.',
+    goal: 'Driving prosperity, expanding opportunity, and building economic independence for women and girls through sustainable livelihoods.',
     objectives: [
-      'Transform subsistence farming into commercialized industry',
-      'Provide accompaniment support for women & youth businesses',
-      'Provide access to financial education and digital literacy',
+      'Agribusiness development that strengthens farmers, value chains, economic inclusion, and community resilience',
+      'Entrepreneurship training, resources, and mentorship for women-owned businesses',
+      'Digital and financial literacy for stronger decision-making and participation in the modern economy',
+      'Market linkages connecting businesses to credit, adaptable services, networks, and development resources',
     ],
+    outcome: 'Greater economic independence for women and stronger local livelihoods.',
+  },
+  {
+    id: 'youth-civic-engagement',
+    slug: '/programs/global/global-youth-exchange-forum',
+    eyebrow: 'Operational pillar 03',
+    title: 'Youth & Civic Engagement',
+    image: '/images/conference/day-3-community-01.jpg',
+    goal: 'Empowering youth to become active, engaged citizens who drive change from within their communities.',
+    objectives: [
+      'Education and mentorship that unlock youth potential',
+      'Problem-solving projects and exchanges that build practical skills',
+      'Civic participation that strengthens young people’s voices',
+    ],
+    outcome: 'Informed young leaders with a stronger voice in community decision-making.',
+  },
+  {
+    id: 'governance-democracy',
+    slug: '/programs/global/peacebuilding-governance',
+    eyebrow: 'Operational pillar 04',
+    title: 'Governance & Democracy',
+    image: '/images/conference/day-1-audience-stage.jpg',
+    goal: 'Promoting effective, accountable, and inclusive governance structures that serve community members equitably.',
+    objectives: [
+      'Community building and advocacy for participatory, open governance',
+      'Capacity building that strengthens knowledge, skills, and local institutions',
+      'Leadership development that advances women and youth in decision-making roles',
+    ],
+    outcome: 'More responsive public services and stronger public trust in governance.',
+  },
+  {
+    id: 'diaspora-engagement',
+    slug: '/programs/global',
+    eyebrow: 'Operational pillar 05',
+    title: 'Diaspora Engagement & Exchange',
+    image: '/images/conference/day-1-group-02.jpg',
+    goal: 'Uniting diaspora communities and local changemakers to drive sustainable development and lasting peace.',
+    objectives: [
+      'Build communities through dialogue, knowledge transfer, and resource mobilization',
+      'Connect diaspora members with communities across the globe',
+      'Create opportunities for arts, culture, and exchange that increase individual and group agency',
+    ],
+    outcome: 'Locally led and globally connected partnerships for peace, prosperity, and sustainable development.',
   },
 ];
 
@@ -98,7 +143,7 @@ export default function WhatWeDoPage() {
 
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
               {pillars.map((pillar) => (
-                <Link key={pillar.id} href={pillar.slug} className="group block outline-none">
+                <Link key={pillar.id} href={pillar.slug} className="group block outline-none lg:last:col-span-2">
                   <article className="h-full flex flex-col relative bg-[#f8fbfe] border border-border rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#1b9ed9]/10 hover:border-[#1b9ed9]/30">
                     <div className="aspect-[4/3] w-full relative overflow-hidden">
                       <img
@@ -128,6 +173,10 @@ export default function WhatWeDoPage() {
                           </li>
                         ))}
                       </ul>
+                      <div className="mb-8 border-t border-[#062e37]/10 pt-5">
+                        <span className="mb-2 block text-xs font-extrabold uppercase tracking-[0.16em] text-[#118f9b]">Outcome</span>
+                        <p className="text-sm font-semibold leading-relaxed text-[#42636a]">{pillar.outcome}</p>
+                      </div>
                       <div className="inline-flex items-center gap-2 text-[#df5311] font-bold text-sm tracking-wide uppercase group-hover:text-[#bd4007] transition-colors mt-auto">
                         Explore Program <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                       </div>

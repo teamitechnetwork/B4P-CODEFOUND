@@ -10,7 +10,7 @@ type TeamMember = {
 
 const MANAGEMENT_TEAM: TeamMember[] = [
   {
-    name: 'Lindora Howard-Diawara',
+    name: 'Lindora Kolu Howard-Diawara',
     role: 'Founder & Executive Director / Acting Country Director',
     image: '/images/team/team-lindora-management.png'
   },
@@ -68,8 +68,12 @@ const BOARD_TEAM: TeamMember[] = [
     role: 'Member',
   },
   {
-    name: 'Lindora Howard-Diawara',
+    name: 'Lindora Kolu Howard-Diawara',
     role: 'Secretary & Member',
+  },
+  {
+    name: 'Joyce Myers',
+    role: 'Member',
   }
 ];
 

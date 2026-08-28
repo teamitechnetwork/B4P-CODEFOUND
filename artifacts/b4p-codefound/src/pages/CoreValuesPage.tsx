@@ -6,31 +6,31 @@ const values = [
   {
     number: '01',
     title: 'Human rights & dignity',
-    description: 'We center equality, justice, and inclusion in every relationship and intervention.',
+    description: 'We show respect for human rights and uphold the dignity of every person, irrespective of race, ethnicity, age, or culture.',
     icon: Scale,
   },
   {
     number: '02',
     title: 'People & communities',
-    description: 'We listen to local voices and build through collaboration, innovation, and participation.',
+    description: 'We connect people, encourage alliance building and community cooperation, and work collaboratively to reach impact and scale.',
     icon: UsersRound,
   },
   {
     number: '03',
     title: 'Passion & teamwork',
-    description: 'We bring dedication to the work and make room for young people to lead and grow.',
+    description: 'We emphasize local ownership and long-term sustainability while building diversified and inclusive teams globally.',
     icon: Sparkles,
   },
   {
     number: '04',
     title: 'Diversity & inclusion',
-    description: 'We build trust and work toward equal opportunity for everyone we serve.',
+    description: 'We recognize the beauty of diversity and create spaces for learning, participation, trust building, and cooperation.',
     icon: HeartHandshake,
   },
   {
     number: '05',
     title: 'Integrity & commitment',
-    description: 'We act transparently and build sustainable systems for peace and development.',
+    description: 'We remain honest and dependable, building social capital for inclusive development and human security.',
     icon: Scale,
   },
 ];
@@ -46,7 +46,7 @@ export default function CoreValuesPage() {
               <span className="page-kicker">What guides us</span>
               <h1>Values are how we turn good intentions into trusted action.</h1>
               <p>
-                B4P CODEFOUND aspires to remain gender- and conflict-sensitive while building diversified, inclusive teams and stronger communities globally.
+                Innovation, inspirational learning, stakeholder engagement, shared vision, strategic alignment, focus, and iteration guide our work.
               </p>
             </div>
             <div className="values-hero__image">
