@@ -361,7 +361,10 @@ export function Header() {
                       <ChevronDown size={14} aria-hidden="true" />
                     </button>
                     {isOpen && (
-                      <div id={panelId} className="site-desktop-nav__panel">
+                      <div
+                        id={panelId}
+                        className={`site-desktop-nav__panel site-desktop-nav__panel--${group.name.toLowerCase().replaceAll(' ', '-')}`}
+                      >
                         {group.items.map((item) => (
                           <div className="site-desktop-nav__item" key={item.name}>
                             <a

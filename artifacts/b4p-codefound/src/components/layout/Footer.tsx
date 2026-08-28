@@ -18,7 +18,11 @@ function FooterAccordion({ title, children }: { title: string; children: ReactNo
         <span>{title}</span>
         <ChevronDown className={isOpen ? 'is-open' : ''} size={24} aria-hidden="true" />
       </button>
-      <div id={panelId} className="site-footer__accordion-panel" hidden={!isOpen}>
+      <div
+        id={panelId}
+        className={`site-footer__accordion-panel ${isOpen ? 'is-open' : ''}`}
+        data-section-title={title}
+      >
         {children}
       </div>
     </section>

@@ -1708,7 +1708,7 @@
   background: transparent;
   cursor: pointer;
   font: inherit;
-  font-size: clamp(0.62rem, 0.68vw, 0.72rem);
+  font-size: clamp(0.72rem, 0.78vw, 0.84rem);
   font-weight: 800;
   letter-spacing: 0.045em;
   line-height: 1;
@@ -1749,7 +1749,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(9rem, 1fr));
   gap: 1.5rem 2rem;
-  width: min(780px, calc(100vw - 2rem));
+  width: min(720px, calc(100vw - 2rem));
   max-height: calc(100vh - 7rem);
   overflow-y: auto;
   padding: 1.4rem 1.5rem 1.55rem;
@@ -1757,6 +1757,25 @@
   border-top: 3px solid #118f9b;
   background: #fff;
   box-shadow: 0 1.5rem 3rem rgba(5, 30, 36, 0.2);
+}
+
+.site-desktop-nav__panel--about-us,
+.site-desktop-nav__panel--what-we-do {
+  right: auto;
+  left: 0;
+}
+
+.site-desktop-nav__panel--programs,
+.site-desktop-nav__panel--subsidiaries {
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.site-desktop-nav__panel--work-with-us,
+.site-desktop-nav__panel--shop-now {
+  right: 0;
+  left: auto;
 }
 
 .site-desktop-nav__item {
@@ -1802,7 +1821,7 @@
   font-weight: 600;
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1200px) {
   .site-desktop-nav {
     display: flex;
   }
@@ -7556,24 +7575,20 @@ main p.text-xl {
 }
 
 .site-footer__accordions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
   margin-top: 30px;
-  border-top: 0;
+  padding-top: 30px;
+  border-top: 2px solid rgba(255, 255, 255, 0.78);
 }
 
 .site-footer__accordion {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.78);
+  min-width: 0;
 }
 
 .site-footer__accordion-trigger {
-  margin: 0;
-  padding: 25px 9px;
-  border: 0;
-  color: #fff;
-  background: transparent;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.035em;
-  text-transform: uppercase;
+  display: none;
 }
 
 .site-footer__accordion-trigger svg {
@@ -7599,12 +7614,25 @@ main p.text-xl {
 }
 
 .site-footer__accordion-panel {
-  padding: 0 9px 28px;
+  display: block;
+  padding: 0 0 16px;
+}
+
+.site-footer__accordion-panel::before {
+  display: block;
+  margin-bottom: 18px;
+  color: #fff;
+  content: attr(data-section-title);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .site-footer__accordion-panel nav {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 13px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .site-footer__accordion-panel nav a,
@@ -7623,14 +7651,14 @@ main p.text-xl {
 }
 
 .site-footer__involved-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 40px;
+  display: block;
 }
 
 .site-footer__contact {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 17px 28px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 24px;
 }
 
 .site-footer__contact svg,
@@ -7747,6 +7775,13 @@ main p.text-xl {
   margin: 0;
 }
 
+@media (min-width: 721px) and (max-width: 1024px) {
+  .site-footer__accordions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 34px;
+  }
+}
+
 @media (max-width: 720px) {
   .site-footer {
     padding: 0 0 42px;
@@ -7791,16 +7826,40 @@ main p.text-xl {
   }
 
   .site-footer__accordions {
+    display: block;
     margin-top: 27px;
+    padding-top: 0;
+    border-top: 0;
   }
 
   .site-footer__accordion-trigger {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
     padding: 22px 8px;
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.78);
+    color: #fff;
+    background: transparent;
     font-size: 0.98rem;
+    font-weight: 800;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
   }
 
   .site-footer__accordion-panel {
+    display: none;
     padding: 0 8px 26px;
+  }
+
+  .site-footer__accordion-panel.is-open {
+    display: block;
+  }
+
+  .site-footer__accordion-panel::before {
+    display: none;
   }
 
   .site-footer__accordion-panel nav,
@@ -7810,6 +7869,7 @@ main p.text-xl {
   }
 
   .site-footer__involved-panel {
+    display: grid;
     gap: 30px;
   }
 
