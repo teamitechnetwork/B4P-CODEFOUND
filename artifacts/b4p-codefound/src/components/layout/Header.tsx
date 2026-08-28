@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Menu, Minus, Plus, Search, Sparkles, X } from 'lucide-react';
+import { ChevronDown, Menu, Minus, Plus, Search, Sparkles, X } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { programRegions } from '@/data/programs';
 import { SocialLinks } from '@/components/layout/SocialLinks';
@@ -141,11 +141,13 @@ export function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const [openGroup, setOpenGroup] = useState<string | null>(null);
   const [openSubgroup, setOpenSubgroup] = useState<string | null>(null);
+  const [desktopOpenGroup, setDesktopOpenGroup] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const searchButtonRef = useRef<HTMLButtonElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const searchDialogRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
   const isHome = location === '/';
   const isHeroHeader = isHome && !isScrolled;
   const searchResults = useMemo(() => {
@@ -201,7 +203,19 @@ export function Header() {
   useEffect(() => {
     closeMenu();
     closeSearch();
+    setDesktopOpenGroup(null);
   }, [location]);
+
+  useEffect(() => {
+    if (!desktopOpenGroup) return;
+    const handlePointerDown = (event: PointerEvent) => {
+      if (desktopNavRef.current && !desktopNavRef.current.contains(event.target as Node)) {
+        setDesktopOpenGroup(null);
+      }
+    };
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [desktopOpenGroup]);
 
   useEffect(() => {
     document.body.classList.toggle('has-site-drawer-open', isMenuOpen);
@@ -320,6 +334,49 @@ export function Header() {
             <a href="/" className="site-header__brand" onClick={() => closeMenu()} aria-label="B4P CODEFOUND home">
               <img src="/brand/b4p-logo-clean.png" alt="B4P CODEFOUND" />
             </a>
+            <nav className="site-desktop-nav" aria-label="Primary navigation" ref={desktopNavRef}>
+              {navGroups.map((group) => {
+                const isOpen = desktopOpenGroup === group.name;
+                const panelId = `desktop-nav-${group.name.toLowerCase().replaceAll(' ', '-')}`;
+                return (
+                  <div className={`site-desktop-nav__group ${isOpen ? 'is-open' : ''}`} key={group.name}>
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      aria-controls={panelId}
+                      onClick={() => setDesktopOpenGroup(isOpen ? null : group.name)}
+                    >
+                      <span>{group.name}</span>
+                      <ChevronDown size={14} aria-hidden="true" />
+                    </button>
+                    {isOpen && (
+                      <div id={panelId} className="site-desktop-nav__panel">
+                        {group.items.map((item) => (
+                          <div className="site-desktop-nav__item" key={item.name}>
+                            <a
+                              href={item.href}
+                              className={item.children ? 'site-desktop-nav__item-title' : undefined}
+                              onClick={() => setDesktopOpenGroup(null)}
+                            >
+                              {item.name}
+                            </a>
+                            {item.children && (
+                              <div className="site-desktop-nav__children">
+                                {item.children.map((child) => (
+                                  <a href={child.href} key={child.name} onClick={() => setDesktopOpenGroup(null)}>
+                                    {child.name}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
             <div className="site-header__utilities">
               <a href="/make-a-donation" className="site-header__donate" onClick={() => closeMenu()}>Donate</a>
               <button
