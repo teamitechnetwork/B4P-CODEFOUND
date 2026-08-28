@@ -19,35 +19,52 @@ export default function AboutPage() {
                 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-foreground"
                 data-testid="text-about-title"
               >
-                We are an African-led movement for <span className="text-secondary">peace</span> and <span className="text-primary">productivity</span>.
+                Re-imagining <span className="text-secondary">empowerment</span>.
               </h1>
               <p 
                 className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-3xl mb-12"
                 data-testid="text-about-subtitle"
               >
-                B4P CODEFOUND connects peacebuilding initiatives with concrete economic development and community empowerment across Liberia, the United States, and beyond.
+                B4P CODEFOUND promotes political, social, and economic justice globally. We work with women and girls to foster gender equality and dismantle the vicious circle of violence impacting society.
               </p>
             </div>
           </div>
           <div className="container px-4 md:px-6 mx-auto mt-4 md:mt-8 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
-            <div className="relative min-h-[22rem] md:min-h-[32rem] overflow-hidden rounded-2xl bg-[#062e37] px-6 py-10 text-white shadow-2xl md:px-14 md:py-16">
+            <div className="relative overflow-hidden rounded-2xl bg-[#062e37] px-6 py-10 text-white shadow-2xl md:px-14 md:py-16">
               <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/10" aria-hidden="true" />
               <div className="absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full border border-secondary/30" aria-hidden="true" />
-              <div className="relative flex min-h-[18rem] flex-col justify-between md:min-h-[26rem]">
-                <div className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-secondary">
-                  <span className="h-2 w-2 rounded-full bg-secondary" aria-hidden="true" />
-                  Rooted in Liberia · Connected globally
+              <div className="relative">
+                <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
+                  <span className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-secondary">
+                    <span className="h-2 w-2 rounded-full bg-secondary" aria-hidden="true" />
+                    Established 2015
+                  </span>
+                  <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/50">501(c)(3) nonprofit</span>
                 </div>
-                <div className="max-w-3xl">
-                  <p className="mb-5 text-3xl font-extrabold leading-tight tracking-tight md:text-6xl">
-                    Local leadership is the starting point for lasting change.
-                  </p>
-                  <div className="h-1 w-20 bg-primary" aria-hidden="true" />
-                </div>
-                <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold uppercase tracking-[0.16em] text-white/60">
-                  <span>Peacebuilding</span>
-                  <span>Economic development</span>
-                  <span>Collective action</span>
+                <div className="grid gap-8 md:grid-cols-3 md:gap-10">
+                  {[
+                    {
+                      number: '01',
+                      title: 'Build',
+                      description: 'Build women and girls’ confidence to act as agents of change at local, national, and international levels.',
+                    },
+                    {
+                      number: '02',
+                      title: 'Invest',
+                      description: 'Invest resources in women, girls, and communities to enhance their self-reliance and development.',
+                    },
+                    {
+                      number: '03',
+                      title: 'Connect',
+                      description: 'Connect individuals and groups to foster learning and collective action that yields greater community impact.',
+                    },
+                  ].map((item) => (
+                    <div key={item.number} className="border-l border-primary/70 pl-5">
+                      <span className="mb-4 block text-sm font-extrabold tracking-[0.2em] text-primary">{item.number}</span>
+                      <h2 className="mb-3 text-2xl font-extrabold md:text-3xl">{item.title}</h2>
+                      <p className="text-base leading-relaxed text-white/70">{item.description}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -75,6 +92,12 @@ export default function AboutPage() {
                   <h3 className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6">The Vision</h3>
                   <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
                     {vision}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6">The Goal</h3>
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
+                    Facilitate, accompany, and support community cooperation; enhance local community capacities for promoting and sustaining local peace initiatives and shared prosperity.
                   </p>
                 </div>
               </div>
