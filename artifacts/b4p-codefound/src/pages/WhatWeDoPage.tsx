@@ -2,6 +2,7 @@ import { ArrowUpRight, Check, Globe2, LandPlot, UsersRound } from 'lucide-react'
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Link } from 'wouter';
+import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 
 const pillars = [
   {
@@ -225,6 +226,15 @@ export default function WhatWeDoPage() {
             </div>
           </div>
         </section>
+
+        <DrivePhotoGallery
+          eyebrow="In the room"
+          title="Progress begins with people showing up."
+          description="Across our programs, shared learning and conversation turn local knowledge into practical action."
+          variant="editorial"
+          linkHref="/programs/global"
+          linkLabel="Explore program regions"
+        />
 
         {/* SUBSIDIARY */}
         <section className="py-24 bg-white border-t border-border">

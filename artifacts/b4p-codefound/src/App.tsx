@@ -66,8 +66,12 @@ function Router() {
     '/store-listing': 'store-listing',
     '/cart': 'cart',
     '/checkout': 'checkout',
+    '/checkout-2': 'checkout',
     '/my-account': 'my-account',
+    '/my-account-2': 'my-account',
+    '/vendor-register': 'vendor-register',
     '/my-orders': 'my-orders',
+    '/cart-2': 'cart',
     '/dashboard/product-subscription': 'product-subscription',
   };
 
@@ -132,7 +136,7 @@ function Router() {
     return <ProgramDirectoryPage kind="usa" />;
   }
 
-  if (location === '/programs/liberia' || location === '/liberia-programs') {
+  if (location === '/programs/liberia' || location === '/liberia-programs' || location === '/programs-libera') {
     return <ProgramDirectoryPage kind="liberia" />;
   }
 

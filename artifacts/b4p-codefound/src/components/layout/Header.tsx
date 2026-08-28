@@ -144,6 +144,7 @@ export function Header() {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const searchButtonRef = useRef<HTMLButtonElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchDialogRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const isHome = location === '/';
   const isHeroHeader = isHome && !isScrolled;
@@ -180,6 +181,16 @@ export function Header() {
     }
   };
 
+  const focusSearchBoundary = (boundary: 'first' | 'last') => {
+    const focusable = Array.from(
+      searchDialogRef.current?.querySelectorAll<HTMLElement>(
+        'input:not([disabled]), a[href], button:not([disabled])',
+      ) ?? [],
+    );
+    const target = boundary === 'first' ? focusable[0] : focusable[focusable.length - 1];
+    target?.focus();
+  };
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
@@ -196,6 +207,11 @@ export function Header() {
     document.body.classList.toggle('has-site-drawer-open', isMenuOpen);
     return () => document.body.classList.remove('has-site-drawer-open');
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    document.body.classList.toggle('has-site-search-open', isSearchOpen);
+    return () => document.body.classList.remove('has-site-search-open');
+  }, [isSearchOpen]);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -235,11 +251,34 @@ export function Header() {
   useEffect(() => {
     if (!isSearchOpen) return;
 
+    const inertTargets = Array.from(
+      document.querySelectorAll<HTMLElement>('main, footer, .site-header-shell, .site-drawer, .site-drawer__backdrop'),
+    );
+    inertTargets.forEach((target) => {
+      target.inert = true;
+    });
+
     const timeout = window.setTimeout(() => searchInputRef.current?.focus(), 50);
+    const focusableSelector = 'input:not([disabled]), a[href], button:not([disabled])';
     const handleKeydown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         event.preventDefault();
         closeSearch(true);
+        return;
+      }
+
+      if (event.key !== 'Tab' || !searchDialogRef.current) return;
+      const focusable = Array.from(searchDialogRef.current.querySelectorAll<HTMLElement>(focusableSelector));
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
 
@@ -247,6 +286,9 @@ export function Header() {
     return () => {
       window.clearTimeout(timeout);
       document.removeEventListener('keydown', handleKeydown);
+      inertTargets.forEach((target) => {
+        target.inert = false;
+      });
     };
   }, [isSearchOpen]);
 
@@ -299,28 +341,60 @@ export function Header() {
 
       {isSearchOpen && (
         <div className="site-search-layer" role="presentation">
-          <button type="button" className="site-search-layer__backdrop" aria-label="Close AI search" onClick={() => closeSearch(true)} />
-          <section id="site-search-dialog" className="site-search" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
+          <button
+            type="button"
+            className="site-search-layer__backdrop"
+            tabIndex={-1}
+            aria-hidden="true"
+            onClick={() => closeSearch(true)}
+          />
+          <section
+            id="site-search-dialog"
+            className="site-search"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="site-search-title"
+            ref={searchDialogRef}
+          >
+            <span
+              className="site-search__focus-sentinel"
+              tabIndex={0}
+              aria-hidden="true"
+              onFocus={() => focusSearchBoundary('last')}
+            />
             <div className="site-search__heading">
               <div>
                 <span><Sparkles size={15} aria-hidden="true" /> AI site search</span>
                 <h2 id="site-search-title">Ask B4P</h2>
                 <p>Use your own words to find the page, program, or opportunity you need.</p>
               </div>
-              <button type="button" aria-label="Close AI search" onClick={() => closeSearch(true)}>
+              <button
+                type="button"
+                aria-label="Close AI search"
+                onClick={() => closeSearch(true)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Tab' && event.shiftKey) {
+                    event.preventDefault();
+                    focusSearchBoundary('last');
+                  }
+                }}
+              >
                 <X size={21} aria-hidden="true" />
               </button>
             </div>
-            <label className="site-search__input">
-              <Search size={19} aria-hidden="true" />
-              <span className="sr-only">Search B4P CODEFOUND</span>
-              <input
-                ref={searchInputRef}
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Try “women’s leadership in Liberia”"
-              />
-            </label>
+            <div className="site-search__input-wrapper">
+              <div className="site-search__ring" aria-hidden="true" />
+              <label className="site-search__input">
+                <Search size={19} aria-hidden="true" />
+                <span className="sr-only">Search B4P CODEFOUND</span>
+                <input
+                  ref={searchInputRef}
+                  value={searchQuery}
+                  onChange={(event) => setSearchQuery(event.target.value)}
+                  placeholder="Try “women’s leadership in Liberia”"
+                />
+              </label>
+            </div>
             <p className="site-search__hint">{searchQuery ? 'Best matches' : 'Suggested places to start'}</p>
             <div className="site-search__results">
               {searchResults.length ? searchResults.map((result) => (
@@ -335,6 +409,12 @@ export function Header() {
                 </div>
               )}
             </div>
+            <span
+              className="site-search__focus-sentinel"
+              tabIndex={0}
+              aria-hidden="true"
+              onFocus={() => focusSearchBoundary('first')}
+            />
           </section>
         </div>
       )}

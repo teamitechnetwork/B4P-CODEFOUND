@@ -52,6 +52,14 @@ const routeRegistry = JSON.parse(
   await readFile(path.join(projectRoot, 'src', 'data', 'route-metadata.json'), 'utf8'),
 );
 const routes = new Map(routeRegistry.map((metadata) => [metadata.path, metadata]));
+routes.set('/programs-libera', {
+  path: '/programs-libera',
+  canonicalPath: '/programs/liberia',
+  title: 'Liberia Programs | B4P CODEFOUND',
+  description: 'Explore B4P CODEFOUND programs rooted in Liberian communities.',
+  image: '/images/conference/day-2-community-01.jpg',
+  indexable: false,
+});
 
 const programSource = await readFile(path.join(projectRoot, 'src', 'data', 'programs.ts'), 'utf8');
 const programPattern = /\{\s*slug: '([^']+)',\s*title: '([^']+)',\s*description: '([^']+)',\s*region: '(global|usa|liberia)',\s*image: '([^']+)'/g;

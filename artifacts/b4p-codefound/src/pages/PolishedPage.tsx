@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { ArrowUpRight, Loader2 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
+import { featuredDrivePhotos } from '@/data/drivePhotos';
 
 type PageMeta = {
   id: number;
@@ -30,12 +32,55 @@ function normalizePath(value: string) {
   return normalized || '/';
 }
 
+function stripHtml(value: string) {
+  if (!value) return '';
+  if (typeof DOMParser === 'undefined') return value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const document = new DOMParser().parseFromString(value, 'text/html');
+  return (document.body.textContent ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function getPagePresentation(path: string) {
+  if (/privacy|cookie|terms|refund|shipping|return/.test(path)) {
+    return {
+      label: 'Policies & accountability',
+      image: '/images/conference/day-1-audience-stage.jpg',
+      description: 'Read the information that guides how B4P CODEFOUND communicates, operates, and serves its community.',
+      legal: true,
+    };
+  }
+
+  if (/news|blog|event|conference|story|resource|gallery/.test(path)) {
+    return {
+      label: 'News, stories & resources',
+      image: featuredDrivePhotos[0]?.src ?? '/images/story-conference.jpg',
+      description: 'Explore updates, learning, and community moments from across B4P CODEFOUND’s work.',
+      legal: false,
+    };
+  }
+
+  if (/donat|support|partner|volunteer|job|intern|career/.test(path)) {
+    return {
+      label: 'Take part',
+      image: featuredDrivePhotos[4]?.src ?? '/images/conference/day-3-community-02.jpg',
+      description: 'Find a practical way to support African-led peacebuilding and community development.',
+      legal: false,
+    };
+  }
+
+  return {
+    label: 'B4P CODEFOUND',
+    image: featuredDrivePhotos[6]?.src ?? '/images/conference/day-2-community-03.jpg',
+    description: 'Learn more about the people, programs, partnerships, and community knowledge that shape our work.',
+    legal: false,
+  };
+}
+
 function sanitizeContent(html: string) {
   if (typeof DOMParser === 'undefined') return html;
 
   const document = new DOMParser().parseFromString(html, 'text/html');
   document
-    .querySelectorAll('script, style, iframe, object, embed, link, meta, noscript')
+    .querySelectorAll('script, style, iframe, object, embed, link, meta, noscript, form, input, textarea, select, option, button')
     .forEach((element) => element.remove());
 
   document.querySelectorAll('*').forEach((element) => {
@@ -91,6 +136,7 @@ export default function PolishedPage({ path }: { path: string }) {
   const [status, setStatus] = useState<'loading' | 'ready' | 'missing' | 'error'>('loading');
 
   const targetPath = normalizePath(path);
+  const presentation = getPagePresentation(targetPath);
 
   useEffect(() => {
     let cancelled = false;
@@ -135,30 +181,29 @@ export default function PolishedPage({ path }: { path: string }) {
   const title = page?.title
     .replace(/&#8217;|&#039;/g, "'")
     .replace(/&#038;/g, '&') ?? 'B4P CODEFOUND';
+  const excerpt = page ? stripHtml(page.excerpt) : '';
+  const heroDescription = excerpt || presentation.description;
 
   return (
     <div className="flex flex-col min-h-screen bg-background font-sans">
       <Header />
       <main className="legacy-page flex-1">
-        {/* Polished Hero */}
-        <section className="polished-page__hero bg-gradient-to-br from-primary to-secondary text-white px-6 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 opacity-70 pointer-events-none"></div>
-          <div className="page-container relative z-10">
-            <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-wider mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              B4P CODEFOUND
+        <section className="polished-page__hero">
+          <img className="polished-page__hero-image" src={presentation.image} alt="" />
+          <div className="polished-page__hero-overlay" />
+          <div className="page-container polished-page__hero-inner">
+            <span className="page-kicker">
+              {presentation.label}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight max-w-4xl leading-tight animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
+            <h1>
               {status === 'ready' ? title : (status === 'loading' ? 'Loading...' : 'Page Not Found')}
             </h1>
             {status === 'ready' && (
-              <p className="text-xl md:text-2xl font-medium text-white/80 max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-                Learn more about our initiatives, history, and the impact we create together.
-              </p>
+              <p>{heroDescription}</p>
             )}
           </div>
         </section>
 
-        {/* Content Layout */}
         <section className="legacy-page__content">
           <div className="page-container">
             <div className="legacy-page__article-layout">
@@ -188,13 +233,37 @@ export default function PolishedPage({ path }: { path: string }) {
               )}
 
               {status === 'ready' && page && (
-                <article className="legacy-article prose prose-lg text-foreground/90 prose-headings:text-foreground prose-headings:font-extrabold prose-headings:tracking-tight prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:shadow-md max-w-none bg-white rounded-3xl border border-border shadow-sm">
-                  <div dangerouslySetInnerHTML={{ __html: sanitizeContent(page.content) }} />
-                </article>
+                <>
+                  <article className="legacy-article prose prose-lg text-foreground/90 prose-headings:text-foreground prose-headings:font-extrabold prose-headings:tracking-tight prose-a:text-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-img:shadow-md max-w-none">
+                    <div dangerouslySetInnerHTML={{ __html: sanitizeContent(page.content) }} />
+                  </article>
+                  <aside className="legacy-page__aside" aria-label="Continue exploring B4P CODEFOUND">
+                    <span className="section-heading__eyebrow">Continue exploring</span>
+                    <h2>Connect this page to the wider mission.</h2>
+                    <nav>
+                      <Link href="/about-us">About B4P <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                      <Link href="/what-we-do">Explore our work <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                      <Link href="/where-we-work">Where we work <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                      <Link href="/contact">Contact the team <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                    </nav>
+                  </aside>
+                </>
               )}
             </div>
           </div>
         </section>
+
+        {status === 'ready' && !presentation.legal && (
+          <DrivePhotoGallery
+            eyebrow="Community in focus"
+            title="The mission is carried by people."
+            description="See the learning, dialogue, and collective action that connect B4P CODEFOUND’s programs and partnerships."
+            photos={featuredDrivePhotos.slice(0, 6)}
+            variant="editorial"
+            linkHref="/site-directory"
+            linkLabel="Browse the site directory"
+          />
+        )}
       </main>
       <Footer />
     </div>

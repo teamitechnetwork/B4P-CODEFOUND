@@ -1,6 +1,7 @@
 import { ArrowUpRight, HeartHandshake, Sprout, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 
 const impactStats = [
   { value: '10', label: 'Communities reached' },
@@ -160,6 +161,15 @@ export default function ImpactPage() {
             </div>
           </div>
         </section>
+
+        <DrivePhotoGallery
+          eyebrow="Impact in motion"
+          title="The work is built in real rooms with real people."
+          description="These moments of listening, learning, and recognition are part of how B4P CODEFOUND understands progress."
+          variant="editorial"
+          linkHref="/where-we-work"
+          linkLabel="See where we work"
+        />
 
         <section className="impact-section impact-section--teal">
           <div className="page-container">

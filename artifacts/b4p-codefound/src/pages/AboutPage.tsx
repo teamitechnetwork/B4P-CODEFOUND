@@ -6,6 +6,7 @@ import { Founder } from '@/components/sections/Founder';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
 import { mission, vision } from '@/data/mission';
+import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 
 export default function AboutPage() {
   return (
@@ -193,6 +194,15 @@ export default function AboutPage() {
         {/* Existing Components */}
         <Founder />
         <TheoryOfChange />
+
+        <DrivePhotoGallery
+          eyebrow="Our community"
+          title="A people-centered organization by design."
+          description="B4P CODEFOUND creates spaces where women, youth, leaders, and partners can meet with purpose and build what comes next."
+          variant="editorial"
+          linkHref="/the-management-team"
+          linkLabel="Meet our team"
+        />
 
         {/* CTA Section */}
         <section className="py-24 bg-white text-center">

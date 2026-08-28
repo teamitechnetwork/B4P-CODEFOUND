@@ -9,6 +9,7 @@ import { FieldStories } from '@/components/sections/FieldStories';
 import { Timeline } from '@/components/sections/Timeline';
 import { News } from '@/components/sections/News';
 import { CTA } from '@/components/sections/CTA';
+import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <TheoryOfChange />
         <Programs />
         <FieldStories />
+        <DrivePhotoGallery />
         <Timeline />
         <News />
         <CTA />
