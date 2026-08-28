@@ -20,19 +20,19 @@ export function Founder() {
           </div>
 
           <div className="w-full lg:w-7/12">
-            <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm mb-4">
+            <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-[0.15em] text-xs mb-4">
               <span className="w-8 h-[2px] bg-primary"></span>
               Meet Our Founder
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-4 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-4 leading-[1.05] tracking-tight text-balance">
               Lindora Kolu <br />Howard-Diawara
             </h2>
-            <p className="text-xl text-secondary font-semibold mb-8">
+            <p className="text-xl text-secondary font-bold mb-8">
               Founder & Executive Director
             </p>
 
-            <div className="space-y-6 text-foreground/80 text-lg leading-relaxed mb-10">
+            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed mb-10 max-w-2xl">
               <p>
                 Lindora Kolu Howard-Diawara is a Liberian peace activist and women’s rights advocate. Since founding B4P CODEFOUND in 2015, her leadership has been instrumental in creating sustainable pathways for the next generation of African leaders.
               </p>
@@ -44,9 +44,9 @@ export function Founder() {
               </p>
             </div>
 
-            <div className="bg-background border-l-4 border-secondary p-8 rounded-r-xl relative">
-              <Quote className="absolute top-4 right-6 w-12 h-12 text-secondary/10" />
-              <p className="text-xl font-bold italic text-foreground leading-snug relative z-10">
+            <div className="bg-background/80 border-l-4 border-secondary p-8 rounded-r-2xl relative shadow-sm max-w-2xl">
+              <Quote className="absolute top-4 right-6 w-16 h-16 text-secondary/5 rotate-180" />
+              <p className="text-xl md:text-2xl font-bold italic text-foreground leading-snug relative z-10 pr-8">
                 "Empowered women are the foundation of a productive nation."
               </p>
             </div>

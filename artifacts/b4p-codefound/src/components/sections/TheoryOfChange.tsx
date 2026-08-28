@@ -34,16 +34,16 @@ export function TheoryOfChange() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 text-secondary font-bold uppercase tracking-wider text-sm mb-4">
+            <div className="inline-flex items-center gap-2 text-secondary font-bold uppercase tracking-[0.15em] text-xs mb-4">
               <span className="w-8 h-[2px] bg-secondary"></span>
               Our Philosophy
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-extrabold mb-8 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-[1.05] tracking-tight text-balance">
               Theory of Change
             </h2>
             
-            <p className="text-xl md:text-2xl font-medium leading-relaxed text-white/90 mb-12">
+            <p className="text-2xl md:text-[1.75rem] font-medium leading-relaxed text-white/90 mb-12">
               "The more empowered women and girls become, and the more moral, technical, and financial support they receive, the better the conditions for them and their families. As the conditions of families improve, the more productive and proactive their communities will become. As the conditions of their communities improve, the more productive and proactive the country will become."
             </p>
 

@@ -35,18 +35,18 @@ export function FieldStories() {
         
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-wider text-sm mb-4">
+            <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-[0.15em] text-xs mb-4">
               <span className="w-8 h-[2px] bg-primary"></span>
               Our Impact
             </div>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-foreground">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.05] tracking-tight text-balance">
               Stories from the Field
             </h2>
           </div>
-          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-wide">
+          <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white font-bold tracking-wide group transition-all">
             <a href="/about">
               View All Impact
-              <ArrowRight className="ml-2 w-4 h-4" />
+              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
         </div>

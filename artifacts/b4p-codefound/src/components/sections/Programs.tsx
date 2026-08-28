@@ -39,19 +39,19 @@ export function Programs() {
       <div className="container mx-auto px-4 md:px-6">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center justify-center gap-2 text-secondary font-bold uppercase tracking-wider text-sm mb-4">
+          <div className="inline-flex items-center justify-center gap-2 text-secondary font-bold uppercase tracking-[0.15em] text-xs mb-4">
             <span className="w-8 h-[2px] bg-secondary"></span>
             What We Do
             <span className="w-8 h-[2px] bg-secondary"></span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-[1.05] tracking-tight text-balance">
             Our Work in Action
           </h2>
-          <p className="text-xl text-muted-foreground font-medium">
+          <p className="text-xl md:text-2xl text-muted-foreground font-medium text-balance">
             Two operational pillars connect peacebuilding, economic opportunity, and community-led progress.
           </p>
-          <a href="/what-we-do" className="inline-flex items-center gap-2 mt-7 text-sm font-extrabold uppercase tracking-wider text-primary hover:text-secondary transition-colors">
-            Explore What We Do <ArrowUpRight size={16} aria-hidden="true" />
+          <a href="/what-we-do" className="group inline-flex items-center gap-2 mt-7 text-sm font-extrabold uppercase tracking-wider text-primary hover:text-secondary transition-colors">
+            Explore What We Do <ArrowUpRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 

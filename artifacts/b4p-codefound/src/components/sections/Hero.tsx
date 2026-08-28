@@ -76,13 +76,13 @@ export function Hero() {
             </p>
 
             <div className="hero-section__actions">
-              <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-8 text-base rounded-sm">
+              <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-8 text-base rounded-sm group transition-all">
                 <a href="/make-a-donation">
                   Donate Now
-                  <ArrowRight className="ml-2 w-5 h-5" />
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-bold rounded-sm border-white text-white hover:bg-white hover:text-foreground">
+              <Button asChild size="lg" variant="outline" className="h-14 px-8 text-base font-bold rounded-sm border-white text-white hover:bg-white hover:text-foreground transition-all">
                 <a href="/what-we-do">Discover Our Work</a>
               </Button>
             </div>

@@ -1023,6 +1023,7 @@
   font-weight: 800;
   letter-spacing: -0.065em;
   line-height: 0.99;
+  text-wrap: balance;
 }
 
 .hero-section h1 em,
@@ -1042,9 +1043,10 @@
   max-width: 590px;
   margin: 0 0 34px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(1rem, 1.55vw, 1.28rem);
+  font-size: clamp(1.1rem, 1.55vw, 1.28rem);
   font-weight: 500;
   line-height: 1.65;
+  text-wrap: balance;
 }
 
 .hero-section__actions {
@@ -1245,11 +1247,11 @@
   .hero-section__copy-inner {
     width: 100%;
     margin-left: 0;
-    padding: 112px 24px 58px;
+    padding: 48px 24px 64px;
   }
 
   .hero-section__media {
-    height: min(78svh, 620px);
+    height: min(45svh, 380px);
     order: -1;
   }
 
@@ -1258,7 +1260,11 @@
   }
 
   .hero-section__media-caption {
-    bottom: 74px;
+    bottom: 56px;
+  }
+
+  .hero-section__controls {
+    bottom: 16px;
   }
 
   .hero-section__copy h1 {
@@ -1273,18 +1279,19 @@
 
 @media (max-width: 560px) {
   .hero-section__copy-inner {
-    padding: 72px 20px 48px;
+    padding: 32px 20px 48px;
   }
 
   .hero-section__media {
-    height: 69svh;
+    height: 40svh;
+    min-height: 260px;
   }
 
   .hero-section__media-caption {
-    right: 16px;
-    bottom: 68px;
-    left: 16px;
-    padding: 15px;
+    right: 12px;
+    bottom: 48px;
+    left: 12px;
+    padding: 12px;
   }
 
   .hero-section__media-caption strong {
@@ -1292,9 +1299,9 @@
   }
 
   .hero-section__controls {
-    right: 16px;
-    bottom: 22px;
-    left: 16px;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
   }
 
   .hero-section__indicator {
