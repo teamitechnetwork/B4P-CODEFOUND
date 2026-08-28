@@ -30,12 +30,26 @@ export default function AboutPage() {
             </div>
           </div>
           <div className="container px-4 md:px-6 mx-auto mt-4 md:mt-8 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
-            <div className="w-full h-[50vh] md:h-[65vh] rounded-2xl overflow-hidden relative shadow-2xl">
-              <img
-                src="/images/story-cwc.jpg"
-                alt="B4P CODEFOUND community gathering"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative min-h-[22rem] md:min-h-[32rem] overflow-hidden rounded-2xl bg-[#062e37] px-6 py-10 text-white shadow-2xl md:px-14 md:py-16">
+              <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/10" aria-hidden="true" />
+              <div className="absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full border border-secondary/30" aria-hidden="true" />
+              <div className="relative flex min-h-[18rem] flex-col justify-between md:min-h-[26rem]">
+                <div className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-secondary">
+                  <span className="h-2 w-2 rounded-full bg-secondary" aria-hidden="true" />
+                  Rooted in Liberia · Connected globally
+                </div>
+                <div className="max-w-3xl">
+                  <p className="mb-5 text-3xl font-extrabold leading-tight tracking-tight md:text-6xl">
+                    Local leadership is the starting point for lasting change.
+                  </p>
+                  <div className="h-1 w-20 bg-primary" aria-hidden="true" />
+                </div>
+                <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold uppercase tracking-[0.16em] text-white/60">
+                  <span>Peacebuilding</span>
+                  <span>Economic development</span>
+                  <span>Collective action</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
