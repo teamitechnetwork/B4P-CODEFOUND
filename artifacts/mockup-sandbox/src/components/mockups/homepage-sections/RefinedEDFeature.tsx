@@ -1,31 +1,9 @@
 import { ArrowUpRight, CalendarDays, Camera, MapPin } from 'lucide-react';
+import './RefinedHomepageSections.css';
 
-const fieldNotes = [
-  {
-    tag: 'Youth Leadership',
-    title: 'Building Young Women, Driving Change (BWYDC)',
-    description: 'Empowering the next generation with essential leadership skills and mentorship.',
-  },
-  {
-    tag: 'Community Action',
-    title: 'Community Women’s Circle In Action (CWC)',
-    description: 'Creating safe spaces for dialogue, community healing, empowerment and collective decision-making.',
-  },
-  {
-    tag: 'Global Advocacy',
-    title: 'Voice At The Commission On Status Of Women (CSW)',
-    description: 'Amplifying African women’s stories, advocating for inclusion and equality at the global stage.',
-  },
-  {
-    tag: 'Peacebuilding',
-    title: 'The Liberia Conference — A Movement',
-    description: 'Delegates and youth leaders charting a unified path for peacebuilding and sustainable development.',
-  },
-];
-
-export function FieldStories() {
+export function RefinedEDFeature() {
   return (
-    <section id="field-stories" className="refined-section refined-ed" aria-labelledby="field-stories-title">
+    <section className="refined-section refined-ed" aria-labelledby="refined-ed-title">
       <div className="refined-shell">
         <div className="ed-header">
           <div>
@@ -33,7 +11,7 @@ export function FieldStories() {
               <span className="kicker-line" aria-hidden="true" />
               Our Impact
             </div>
-            <h2 id="field-stories-title">Stories from the Field</h2>
+            <h2 id="refined-ed-title">Stories from the Field</h2>
           </div>
           <a className="ed-all-link" href="/about">
             View All Impact
@@ -44,8 +22,8 @@ export function FieldStories() {
         <article className="ed-feature-card">
           <div className="ed-image-wrap">
             <img
-              src="/images/stories/day-three-0114.jpg"
-              alt="B4P CODEFOUND leaders speaking with a community member in Liberia"
+              src="/__mockup/images/stories/day-three-0114.jpg"
+              alt="Women gathered during B4P CODEFOUND's field work in Liberia"
             />
             <div className="ed-image-wash" aria-hidden="true" />
             <div className="ed-image-meta">
@@ -80,20 +58,10 @@ export function FieldStories() {
           </div>
         </article>
 
-        <div className="field-story-list" aria-label="More field stories">
-          {fieldNotes.map((story) => (
-            <article className="field-story-item" key={story.title}>
-              <p>{story.tag}</p>
-              <h3>{story.title}</h3>
-              <span>{story.description}</span>
-            </article>
-          ))}
-        </div>
-
         <div className="ed-footnote">
           <span>Field stories are a record of what communities make possible.</span>
           <span className="ed-footnote-line" aria-hidden="true" />
-          <span>Featured story</span>
+          <span>01 / 01</span>
         </div>
       </div>
     </section>

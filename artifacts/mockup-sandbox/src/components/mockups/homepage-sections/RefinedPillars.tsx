@@ -1,4 +1,5 @@
-import { ArrowUpRight, HeartHandshake, ShieldCheck, TrendingUp, Users } from 'lucide-react';
+import { HeartHandshake, ShieldCheck, TrendingUp, Users, ArrowUpRight } from 'lucide-react';
+import './RefinedHomepageSections.css';
 
 const pillars = [
   {
@@ -35,9 +36,9 @@ const pillars = [
   },
 ] as const;
 
-export function Pillars() {
+export function RefinedPillars() {
   return (
-    <section className="refined-section refined-pillars" aria-labelledby="pillars-title">
+    <section className="refined-section refined-pillars" aria-labelledby="refined-pillars-title">
       <div className="refined-shell">
         <div className="pillars-intro">
           <div className="section-kicker">
@@ -45,7 +46,7 @@ export function Pillars() {
             What moves us
           </div>
           <div className="pillars-heading-row">
-            <h2 id="pillars-title">
+            <h2 id="refined-pillars-title">
               Work that starts
               <span>with people.</span>
             </h2>
@@ -77,7 +78,6 @@ export function Pillars() {
             );
           })}
         </div>
-
         <div className="pillars-footer">
           <span>Four connected areas of action</span>
           <span className="footer-rule" aria-hidden="true" />

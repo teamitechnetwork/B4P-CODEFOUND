@@ -1,4 +1,5 @@
-import { ArrowUpRight, ExternalLink, Globe2, MapPin, Users2 } from 'lucide-react';
+import { ArrowUpRight, Globe2, ExternalLink, MapPin } from 'lucide-react';
+import './RefinedHomepageSections.css';
 
 const partnerGroups = [
   {
@@ -16,7 +17,7 @@ const partnerGroups = [
     title: 'Diaspora networks',
     eyebrow: 'Diaspora',
     number: '02',
-    icon: Users2,
+    icon: Globe2,
     links: [
       { title: 'ULAA Press — Union of Liberian Associations in the Americas', href: 'https://ulaalib.org/blog' },
       { title: 'Liberian Women Advocacy to End Violence in Liberia', href: 'https://www.facebook.com/lwatevl' },
@@ -36,24 +37,22 @@ const partnerGroups = [
   },
 ];
 
-export function News() {
+export function RefinedPartners() {
   return (
-    <section id="partner" className="refined-section refined-partners" aria-labelledby="partners-title">
+    <section id="partner" className="refined-section refined-partners" aria-labelledby="refined-partners-title">
       <div className="refined-shell">
         <div className="partners-topline">
           <div className="section-kicker section-kicker-light">
             <span className="kicker-line" aria-hidden="true" />
             Partners &amp; Donors
           </div>
-          <span className="partners-location">
-            <MapPin size={14} aria-hidden="true" /> Monrovia · Liberia
-          </span>
+          <span className="partners-location"><MapPin size={14} aria-hidden="true" /> Monrovia · Liberia</span>
         </div>
 
         <div className="partners-grid">
           <div className="partners-statement">
             <p className="statement-mark" aria-hidden="true">↗</p>
-            <h2 id="partners-title">
+            <h2 id="refined-partners-title">
               Connected work
               <em>across borders.</em>
             </h2>
@@ -73,9 +72,7 @@ export function News() {
               return (
                 <article className="partner-group" key={group.title}>
                   <div className="partner-group-head">
-                    <div className="partner-group-symbol">
-                      <GroupIcon size={19} strokeWidth={1.7} aria-hidden="true" />
-                    </div>
+                    <div className="partner-group-symbol"><GroupIcon size={19} strokeWidth={1.7} aria-hidden="true" /></div>
                     <span className="partner-number">{group.number}</span>
                   </div>
                   <p className="partner-eyebrow">{group.eyebrow}</p>
