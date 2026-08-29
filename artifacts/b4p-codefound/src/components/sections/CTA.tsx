@@ -3,7 +3,7 @@ import { ArrowRight, Heart } from 'lucide-react';
 
 export function CTA() {
   return (
-    <section id="donate" className="py-24 bg-primary text-white relative overflow-hidden">
+    <section id="donate" className="home-support-cta py-24 bg-primary text-white relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
         <img 
           src="/images/conference/day-3-community-02.jpg" 

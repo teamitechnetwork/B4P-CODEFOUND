@@ -3316,6 +3316,10 @@
   background: var(--refined-blue);
 }
 
+.refined-partners + .home-support-cta {
+  margin-top: 18px;
+}
+
 .refined-partners::after {
   position: absolute;
   top: 12%;
@@ -3816,6 +3820,10 @@
 }
 
 @media (max-width: 620px) {
+  .refined-partners + .home-support-cta {
+    margin-top: 14px;
+  }
+
   .refined-shell {
     padding: 50px 20px;
   }
