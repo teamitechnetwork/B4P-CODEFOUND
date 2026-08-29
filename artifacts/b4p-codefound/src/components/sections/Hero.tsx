@@ -76,7 +76,7 @@ export function Hero() {
             </p>
 
             <div className="hero-section__actions">
-              <Button asChild size="lg" className="bg-secondary hover:bg-secondary/90 text-white font-bold h-14 px-8 text-base rounded-sm group transition-all">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold h-14 px-8 text-base rounded-sm group transition-all">
                 <a href="/make-a-donation">
                   Donate Now
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />

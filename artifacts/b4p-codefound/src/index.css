@@ -1012,7 +1012,7 @@
 .hero-section__kicker span {
   width: 38px;
   height: 2px;
-  background: #1b9ed9;
+  background: hsl(var(--primary));
 }
 
 .hero-section h1 {
@@ -1036,7 +1036,7 @@
 }
 
 .hero-section h1 strong {
-  color: #8bd9fb;
+  color: hsl(var(--primary));
 }
 
 .hero-section__copy p {
