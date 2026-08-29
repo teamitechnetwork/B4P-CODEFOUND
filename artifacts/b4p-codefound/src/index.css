@@ -8832,6 +8832,60 @@ main p.text-xl {
   font-weight: 800;
 }
 
+/* Reference-inspired navy footer geometry: decorative only, content stays B4P-specific. */
+.site-footer.reference-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #25235f;
+}
+
+.reference-footer__content {
+  position: relative;
+  z-index: 1;
+}
+
+.reference-footer__shape {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.reference-footer__shape--blue {
+  right: -5vw;
+  bottom: -220px;
+  width: min(52vw, 720px);
+  height: 410px;
+  background: #079bd4;
+  clip-path: polygon(42% 100%, 100% 0, 100% 100%);
+}
+
+.reference-footer__shape--pink {
+  right: -5vw;
+  bottom: -112px;
+  width: min(54vw, 760px);
+  height: 290px;
+  background: #e6298b;
+  clip-path: polygon(62% 0, 100% 38%, 100% 100%, 0 0);
+  opacity: 0.96;
+}
+
+@media (max-width: 720px) {
+  .reference-footer__shape--blue {
+    right: -92px;
+    bottom: -64px;
+    width: 330px;
+    height: 310px;
+  }
+
+  .reference-footer__shape--pink {
+    right: -92px;
+    bottom: -18px;
+    width: 350px;
+    height: 250px;
+  }
+}
+
 @media (min-width: 1200px) {
   .site-footer__accordions {
     grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.35fr);
