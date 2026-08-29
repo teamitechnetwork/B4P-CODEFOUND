@@ -1724,7 +1724,7 @@
 }
 
 .site-desktop-nav__group > button svg {
-  color: #118f9b;
+  color: #016eb4;
   transition: transform 160ms ease;
 }
 
@@ -1761,7 +1761,7 @@
   overflow-y: auto;
   padding: 1.4rem 1.5rem 1.55rem;
   border: 1px solid rgba(18, 64, 71, 0.12);
-  border-top: 3px solid #118f9b;
+  border-top: 3px solid #016eb4;
   background: #fff;
   box-shadow: 0 1.5rem 3rem rgba(5, 30, 36, 0.2);
 }
@@ -2196,8 +2196,8 @@
 }
 
 .site-drawer__close:hover {
-  border-color: #1b9ed9;
-  color: #1b9ed9;
+  border-color: #016eb4;
+  color: #016eb4;
 }
 
 .site-drawer__body {
@@ -2235,7 +2235,7 @@
 
 .site-drawer__home:hover,
 .site-drawer__group > button:hover {
-  color: #1b9ed9;
+  color: #016eb4;
 }
 
 .site-drawer__submenu {
@@ -2258,7 +2258,7 @@
 }
 
 .site-drawer__submenu a:hover {
-  color: #1b9ed9;
+  color: #016eb4;
 }
 
 .site-drawer__nested-group {
@@ -2289,7 +2289,7 @@
 }
 
 .site-drawer__nested-trigger:hover {
-  color: #1b9ed9;
+  color: #016eb4;
 }
 
 .site-drawer__nested-submenu {
@@ -2347,8 +2347,8 @@
 }
 
 .site-drawer__footer a:hover {
-  border-color: #1b9ed9;
-  background: #1b9ed9;
+  border-color: #016eb4;
+  background: #016eb4;
 }
 
 /* Modern, editorial team profiles */
