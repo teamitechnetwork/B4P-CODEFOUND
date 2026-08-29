@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <Pillars />
         <Founder />
-        <TheoryOfChange />
+        <TheoryOfChange blueBackground />
         <Programs />
         <FieldStories />
         <Timeline />
