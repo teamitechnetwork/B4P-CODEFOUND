@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { SiteUtilities } from '@/components/layout/SiteUtilities';
 import Home from '@/pages/Home';
 import { TeamPage } from '@/pages/TeamPage';
 import DirectorCornerPage from '@/pages/DirectorCornerPage';
@@ -203,6 +204,7 @@ function App() {
           </RoutedErrorBoundary>
         </WouterRouter>
         <Toaster />
+        <SiteUtilities />
       </TooltipProvider>
     </QueryClientProvider>
   );

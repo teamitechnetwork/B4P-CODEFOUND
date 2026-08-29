@@ -10126,3 +10126,106 @@ body.has-site-search-open {
   }
 
 }
+
+/* Floating contact and navigation actions. */
+.site-utilities {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 80;
+  display: grid;
+  justify-items: end;
+  gap: 12px;
+}
+
+.site-utilities__whatsapp,
+.site-utilities__top {
+  box-shadow: 0 14px 32px rgba(4, 44, 66, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.site-utilities__whatsapp {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 19px 0 15px;
+  border: 2px solid rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  color: #fff;
+  background: #25d366;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.site-utilities__whatsapp:hover {
+  color: #fff;
+  background: #1fba59;
+  box-shadow: 0 17px 38px rgba(4, 44, 66, 0.28);
+  transform: translateY(-3px);
+}
+
+.site-utilities__top {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  border-radius: 50%;
+  color: hsl(var(--primary));
+  background: #fff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+}
+
+.site-utilities__top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.site-utilities__top:hover {
+  color: #fff;
+  background: hsl(var(--primary));
+  transform: translateY(-3px);
+}
+
+.site-utilities__whatsapp:focus-visible,
+.site-utilities__top:focus-visible {
+  outline: 3px solid hsl(var(--accent));
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .site-utilities {
+    right: 16px;
+    bottom: 16px;
+    gap: 10px;
+  }
+
+  .site-utilities__whatsapp {
+    width: 54px;
+    height: 54px;
+    min-height: 54px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .site-utilities__whatsapp span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .site-utilities__top {
+    width: 44px;
+    height: 44px;
+  }
+}
