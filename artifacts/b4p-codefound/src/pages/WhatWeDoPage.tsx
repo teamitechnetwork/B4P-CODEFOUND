@@ -120,7 +120,7 @@ export default function WhatWeDoPage() {
                 What We Do
               </span>
               <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-                From shared purpose to <span className="text-[#1b9ed9]">practical progress.</span>
+                 From shared purpose to <span className="text-[#f0cf69]">practical progress.</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium mb-12">
                 Through evidence and rights-based approaches, we co-create programs, projects, and activities with subsidiaries and community partners.

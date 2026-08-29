@@ -23,7 +23,7 @@ export default function DirectorCornerPage() {
               </span>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05]">
                 A message from <br className="hidden md:block" />
-                <span className="text-primary">our founder.</span>
+                <span className="text-[#f0cf69]">our founder.</span>
               </h1>
               <p className="text-lg md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl">
                 Bridging grassroots activism and global policy to build a more inclusive, peaceful future.

@@ -19,7 +19,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-white"
                 data-testid="text-about-title"
               >
-                Re-imagining <span className="text-primary">empowerment</span>.
+                Re-imagining <span className="text-[#f0cf69]">empowerment</span>.
               </h1>
               <p 
                 className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl mb-12"
