@@ -19,7 +19,7 @@ export default function AboutPage() {
                 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-foreground"
                 data-testid="text-about-title"
               >
-                Re-imagining <span className="text-secondary">empowerment</span>.
+                Re-imagining <span className="text-primary">empowerment</span>.
               </h1>
               <p 
                 className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-3xl mb-12"
@@ -32,11 +32,11 @@ export default function AboutPage() {
           <div className="container px-4 md:px-6 mx-auto mt-4 md:mt-8 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
             <div className="relative overflow-hidden rounded-2xl bg-[#062e37] px-6 py-10 text-white shadow-2xl md:px-14 md:py-16">
               <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/10" aria-hidden="true" />
-              <div className="absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full border border-secondary/30" aria-hidden="true" />
+              <div className="absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full border border-primary/30" aria-hidden="true" />
               <div className="relative">
                 <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-                  <span className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-secondary">
-                    <span className="h-2 w-2 rounded-full bg-secondary" aria-hidden="true" />
+                  <span className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">
+                    <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
                     Established 2015
                   </span>
                   <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/50">501(c)(3) nonprofit</span>
@@ -79,23 +79,23 @@ export default function AboutPage() {
                 <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-6" data-testid="text-mission-title">
                   Our Purpose
                 </h2>
-                <div className="w-16 h-1 bg-secondary mb-8"></div>
+                <div className="w-16 h-1 bg-primary mb-8"></div>
               </div>
               <div className="lg:col-span-8 space-y-20">
                 <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6">The Mission</h3>
+                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Mission</h3>
                   <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
                     {mission}
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6">The Vision</h3>
+                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Vision</h3>
                   <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
                     {vision}
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-secondary uppercase mb-6">The Goal</h3>
+                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Goal</h3>
                   <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
                     Facilitate, accompany, and support community cooperation; enhance local community capacities for promoting and sustaining local peace initiatives and shared prosperity.
                   </p>
@@ -134,11 +134,11 @@ export default function AboutPage() {
               {/* Liberia Expansion */}
               <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 items-start group">
                 <div className="md:col-span-3">
-                  <div className="text-5xl md:text-6xl font-extrabold text-secondary/20 group-hover:text-secondary transition-colors duration-500">
+                  <div className="text-5xl md:text-6xl font-extrabold text-primary/20 group-hover:text-primary transition-colors duration-500">
                     Growth
                   </div>
                 </div>
-                <div className="md:col-span-9 md:pt-4 border-t-2 border-border group-hover:border-secondary transition-colors duration-500 pt-6">
+                <div className="md:col-span-9 md:pt-4 border-t-2 border-border group-hover:border-primary transition-colors duration-500 pt-6">
                   <h3 className="text-2xl font-bold text-foreground mb-4">Liberia Operations</h3>
                   <p className="text-xl text-muted-foreground leading-relaxed">
                     Expanded grassroots operations in Gbarnga, Bong County, launching critical programs focused on women's leadership and youth engagement.
