@@ -11,7 +11,7 @@ export default function PeacebuildingProgramPage() {
         {/* HERO */}
         <section className="relative overflow-hidden bg-[#062e37] text-white">
           <div className="absolute inset-0">
-            <img src="/images/conference/day-1-community-gathering.jpg" alt="Community gathering for peacebuilding" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
+            <img src="/images/uploaded/hero-community-outdoors.webp" alt="Community gathering for peacebuilding in Liberia" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#062e37] via-[#062e37]/90 to-transparent" />
           </div>
           

@@ -44,8 +44,8 @@ export function FieldStories() {
         <article className="ed-feature-card">
           <div className="ed-image-wrap">
             <img
-              src="/images/stories/day-three-0114.jpg"
-              alt="B4P CODEFOUND leaders speaking with a community member in Liberia"
+              src="/images/uploaded/field-ed-visit.webp"
+              alt="Women leaders gathered with B4P CODEFOUND during an event in Liberia"
             />
             <div className="ed-image-wash" aria-hidden="true" />
             <div className="ed-image-meta">

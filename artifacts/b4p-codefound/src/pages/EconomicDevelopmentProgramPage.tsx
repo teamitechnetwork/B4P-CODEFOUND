@@ -11,7 +11,7 @@ export default function EconomicDevelopmentProgramPage() {
         {/* HERO */}
         <section className="relative overflow-hidden bg-[#062e37] text-white">
           <div className="absolute inset-0">
-            <img src="/images/story-bwydc.jpg" alt="Women engaged in economic development" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
+            <img src="/images/uploaded/economic-development-group.webp" alt="Women leaders gathered during a B4P CODEFOUND event" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#062e37] via-[#062e37]/90 to-transparent" />
           </div>
           

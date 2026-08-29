@@ -110,7 +110,7 @@ export default function WhatWeDoPage() {
         {/* HERO */}
         <section className="relative pt-[180px] pb-32 md:pt-[240px] md:pb-48 px-6 lg:px-12 overflow-hidden bg-[#062e37] text-white">
           <div className="absolute inset-0">
-            <img src="/images/programs-bg.jpg" alt="B4P Community Gathering" className="w-full h-full object-cover opacity-20" />
+            <img src="/images/uploaded/programs-community-exterior.webp" alt="B4P CODEFOUND participants gathered outside a community venue" className="w-full h-full object-cover opacity-20" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#062e37] to-transparent" />
           </div>
           <div className="container relative z-10 max-w-7xl mx-auto">

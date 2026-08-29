@@ -4,21 +4,21 @@ import { ArrowRight, Pause, Play } from 'lucide-react';
 
 const heroSlides = [
   {
-    src: '/images/conference/day-1-audience-stage.jpg',
-    alt: 'Day One conference audience gathered in front of the main stage',
-    label: 'Day One',
+    src: '/images/uploaded/hero-induction-stage.webp',
+    alt: 'B4P CODEFOUND participants gathered for an induction event in Liberia',
+    label: 'In the room',
     detail: 'A full room listening, learning, and moving forward together',
   },
   {
-    src: '/images/conference/day-1-community-gathering.jpg',
-    alt: 'Day One B4P CODEFOUND conference participants gathered in a community hall',
-    label: 'Day One',
+    src: '/images/uploaded/hero-community-outdoors.webp',
+    alt: 'B4P CODEFOUND participants gathered outside a community venue in Liberia',
+    label: 'In community',
     detail: 'Community voices at the center of action',
   },
   {
-    src: '/images/conference/day-1-participants.jpg',
-    alt: 'Day One B4P CODEFOUND conference participants seated together',
-    label: 'Day One',
+    src: '/images/uploaded/hero-women-leadership.webp',
+    alt: 'Women leaders participating in a B4P CODEFOUND event in Liberia',
+    label: 'In dialogue',
     detail: 'Building practical pathways together',
   },
 ];

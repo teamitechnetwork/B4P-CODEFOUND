@@ -77,8 +77,8 @@ export default function ImpactPage() {
             </div>
             <div className="impact-hero__visual">
               <img
-                src="/images/conference/day-1-community-gathering.jpg"
-                alt="Community members gathered during a B4P CODEFOUND program"
+                src="/images/uploaded/impact-audience.webp"
+                alt="Community members gathered during a B4P CODEFOUND event"
                 data-testid="img-impact-hero"
               />
               <div className="impact-hero__badge">

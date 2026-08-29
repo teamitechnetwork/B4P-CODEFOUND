@@ -6,8 +6,8 @@ export function CTA() {
     <section id="donate" className="home-support-cta py-24 bg-primary text-white relative overflow-hidden">
       <div className="absolute inset-0 z-0 opacity-20 mix-blend-multiply">
         <img 
-          src="/images/conference/day-3-community-02.jpg" 
-          alt="Community Gathering" 
+          src="/images/uploaded/cta-community-gathering.webp" 
+          alt="B4P CODEFOUND participants gathered during a community event in Liberia" 
           className="w-full h-full object-cover"
         />
       </div>
