@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   CalendarDays,
   Clock3,
+  Download,
   Globe2,
   MapPin,
   Sparkles,
@@ -13,6 +14,7 @@ import { Footer } from '@/components/layout/Footer';
 type EventImage = {
   src: string;
   alt: string;
+  label?: string;
 };
 
 type PastEvent = {
@@ -54,6 +56,7 @@ const pastEvents: PastEvent[] = [
       {
         src: '/images/events/liberia-conference-2025-banner.jpg',
         alt: 'Liberia Conference 2025 partner banner featuring B4P CODEFOUND and collaborators',
+        label: 'Partner banner',
       },
     ],
   },
@@ -68,10 +71,12 @@ const pastEvents: PastEvent[] = [
       {
         src: '/images/events/lddwyf-csw-side-event-2026.jpg',
         alt: 'Liberia-Diaspora Dialogue Women and Youth Forum 2026 banner with event partners',
+        label: 'Partner banner',
       },
       {
         src: '/images/events/csw70-side-event-2026.jpg',
         alt: 'CSW70 side event flyer featuring the Liberia Diaspora Dialogue Women and Youth Forum 2026',
+        label: 'Event flyer',
       },
     ],
   },
@@ -183,9 +188,18 @@ export default function EventsPage() {
                 </dl>
                 <div className="events-feature-card__footer">
                   <span>Community, culture, and connection</span>
-                  <a href="#past-events">
-                    Explore the archive <ArrowUpRight size={15} aria-hidden="true" />
-                  </a>
+                  <div className="events-feature-card__actions">
+                    <a
+                      className="events-feature-card__download"
+                      href="/images/events/diaspora-farewell-program-2026.jpg"
+                      download="diaspora-farewell-program-2026.jpg"
+                    >
+                      <Download size={14} aria-hidden="true" /> Download flyer
+                    </a>
+                    <a href="#past-events">
+                      Explore the archive <ArrowUpRight size={15} aria-hidden="true" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -224,6 +238,22 @@ export default function EventsPage() {
                     <h3>{event.title}</h3>
                     <p>{event.description}</p>
                     <EventMeta event={event} />
+                    <div className="event-card__downloads" aria-label={`Download ${event.title} artwork`}>
+                      {event.images.map((image, imageIndex) => (
+                        <a
+                          href={image.src}
+                          download={image.src.split('/').pop()}
+                          key={`download-${image.src}`}
+                        >
+                          <Download size={14} aria-hidden="true" />
+                          <span>
+                            Download {event.images.length > 1
+                              ? (image.label ?? `flyer ${imageIndex + 1}`).toLowerCase()
+                              : 'flyer'}
+                          </span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </article>
               ))}
