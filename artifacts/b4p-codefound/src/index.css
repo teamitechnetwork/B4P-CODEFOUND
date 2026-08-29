@@ -5576,8 +5576,51 @@
   aspect-ratio: 4 / 4.15;
 }
 
+.team-page--management .team-page__hero {
+  background:
+    linear-gradient(118deg, rgba(1, 75, 124, 0.95), rgba(1, 110, 180, 0.72)),
+    url('/images/conference/day-2-community-04.jpg') center/cover;
+}
+
 .team-page--management .team-card__image {
   object-position: center top;
+}
+
+.team-page--management .team-card__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.team-page--management .team-card__title-row h3 {
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.team-card__linkedin {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  margin-top: -2px;
+  padding: 6px 7px;
+  border: 1px solid #c9dde2;
+  border-radius: 6px;
+  color: #64838a;
+  background: #f5fafb;
+  cursor: not-allowed;
+  font: inherit;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.team-card__linkedin:disabled {
+  opacity: 1;
 }
 
 .team-page--board .team-card,
@@ -8223,6 +8266,13 @@ main p.text-xl {
   font-size: clamp(1.9rem, 3.7vw, 3.4rem);
 }
 
+.opportunity-form__intro {
+  margin: 15px 0 0;
+  color: #6c858a;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .opportunity-form__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8291,6 +8341,63 @@ main p.text-xl {
   margin-top: 20px;
 }
 
+.opportunity-form__file {
+  margin-top: 20px;
+}
+
+.opportunity-form__file > input[type='file'] {
+  height: auto;
+  padding: 10px;
+  border-style: dashed;
+  background: #f8fbfc;
+  cursor: pointer;
+}
+
+.opportunity-form__file > input[type='file']::file-selector-button {
+  margin-right: 10px;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 3px;
+  color: #fff;
+  background: #016eb4;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.opportunity-form__file-help {
+  color: #6c858a;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.opportunity-form__file-selected,
+.opportunity-form__file-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.opportunity-form__file-selected {
+  color: #157264;
+}
+
+.opportunity-form__file-selected svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.opportunity-form__file-error {
+  color: #b53a2c;
+  font-weight: 700;
+}
+
 .opportunity-form__status {
   display: flex;
   align-items: flex-start;
@@ -8331,6 +8438,14 @@ main p.text-xl {
 .opportunity-form button:hover {
   background: #123f47;
   transform: translateY(-2px);
+}
+
+.opportunity-form button:disabled,
+.opportunity-form button:disabled:hover {
+  background: #9eafb2;
+  cursor: not-allowed;
+  opacity: 0.78;
+  transform: none;
 }
 
 @media (max-width: 980px) {

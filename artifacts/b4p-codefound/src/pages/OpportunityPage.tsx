@@ -1,9 +1,17 @@
-import { type FormEvent, useState } from 'react';
+import { type ChangeEvent, type FormEvent, useState } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, GraduationCap, HandHeart, Mail } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
 type OpportunityKind = 'volunteer' | 'internship' | 'jobs';
+
+const ACCEPTED_CV_EXTENSIONS = ['.pdf', '.doc', '.docx'];
+const ACCEPTED_CV_TYPES = [
+  'application/pdf',
+  'application/msword',
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+];
+const MAX_CV_SIZE_BYTES = 5 * 1024 * 1024;
 
 const opportunities: Record<OpportunityKind, {
   eyebrow: string;
@@ -47,13 +55,60 @@ const opportunities: Record<OpportunityKind, {
   },
 };
 
+function formatFileSize(bytes: number) {
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function isAcceptedCv(file: File) {
+  const extension = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
+  return ACCEPTED_CV_EXTENSIONS.includes(extension) && (!file.type || ACCEPTED_CV_TYPES.includes(file.type));
+}
+
+function formatSelectedFile(file: File) {
+  return `${file.name} · ${formatFileSize(file.size)}`;
+}
+
 export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
   const content = opportunities[kind];
   const Icon = content.icon;
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState('');
+
+  function handleCvChange(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0] ?? null;
+    setHasSubmitted(false);
+    setFileError('');
+
+    if (!file) {
+      setCvFile(null);
+      return;
+    }
+
+    if (!isAcceptedCv(file)) {
+      setCvFile(null);
+      setFileError('Please choose a PDF, DOC, or DOCX file.');
+      event.target.value = '';
+      return;
+    }
+
+    if (file.size > MAX_CV_SIZE_BYTES) {
+      setCvFile(null);
+      setFileError('Your CV must be 5 MB or smaller.');
+      event.target.value = '';
+      return;
+    }
+
+    setCvFile(file);
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (fileError) return;
+
     const data = new FormData(event.currentTarget);
     const values = [
       ['Name', data.get('name')],
@@ -63,8 +118,15 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
       [content.focusLabel, data.get('focus')],
       ['Availability', data.get('availability')],
       ['Message', data.get('message')],
+      ['CV', cvFile ? `${cvFile.name} (${formatFileSize(cvFile.size)}) — attach this file before sending` : 'No CV selected'],
     ].filter(([, value]) => String(value ?? '').trim());
-    const body = values.map(([label, value]) => `${label}: ${value}`).join('\n\n');
+    const body = [
+      cvFile
+        ? `Please attach the selected CV file (${cvFile.name}) to this email before sending.`
+        : 'No CV was selected. Please attach one before sending if you would like us to review it.',
+      '',
+      ...values.map(([label, value]) => `${label}: ${value}`),
+    ].join('\n\n');
     const subject = `${content.title} inquiry`;
 
     setHasSubmitted(true);
@@ -95,7 +157,7 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
               <span className="section-heading__eyebrow">Start here</span>
               <h2>A simple first conversation.</h2>
               <p>
-                Complete the form and your usual email app will open with your answers addressed to our team. We will follow up from there.
+                Complete the form and we’ll prepare an email draft addressed to our team. Add your CV in the email before sending so we can learn more about you.
               </p>
               <a href="mailto:b4pcodefound@gmail.com">
                 <Mail size={18} aria-hidden="true" />
@@ -111,6 +173,7 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
               <div className="opportunity-form__header">
                 <span className="section-heading__eyebrow">Your details</span>
                 <h2>Tell us how you’d like to contribute.</h2>
+                <p className="opportunity-form__intro">Your answers will open in your email app so you can review them before sending.</p>
               </div>
               <div className="opportunity-form__grid">
                 <label>
@@ -150,15 +213,40 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
                 <textarea name="message" required rows={6} placeholder={content.note} />
               </label>
 
+              <label className="opportunity-form__file">
+                CV or résumé <small>(optional, recommended)</small>
+                <input
+                  name="cv"
+                  type="file"
+                  accept={ACCEPTED_CV_EXTENSIONS.join(',')}
+                  onChange={handleCvChange}
+                  aria-describedby="cv-help cv-error"
+                />
+                <span id="cv-help" className="opportunity-form__file-help">
+                  PDF, DOC, or DOCX · up to 5 MB. Your email app will ask you to attach the selected file before sending.
+                </span>
+                {cvFile && !fileError && (
+                  <span className="opportunity-form__file-selected">
+                    <CheckCircle2 size={16} aria-hidden="true" />
+                    {formatSelectedFile(cvFile)}
+                  </span>
+                )}
+                {fileError && (
+                  <span id="cv-error" className="opportunity-form__file-error" role="alert">
+                    {fileError}
+                  </span>
+                )}
+              </label>
+
               {hasSubmitted && (
                 <p className="opportunity-form__status" role="status">
                   <CheckCircle2 size={18} aria-hidden="true" />
-                  Your email draft is ready. If it did not open automatically, please email b4pcodefound@gmail.com directly.
+                  Your email draft is ready. {cvFile ? `Attach ${cvFile.name} before sending.` : 'Attach your CV before sending if you have one.'}
                 </p>
               )}
 
-              <button type="submit">
-                Prepare email to B4P
+              <button type="submit" disabled={Boolean(fileError)}>
+                Open email draft
                 <ArrowRight size={18} aria-hidden="true" />
               </button>
             </form>
