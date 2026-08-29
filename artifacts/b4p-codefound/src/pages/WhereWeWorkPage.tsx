@@ -1,7 +1,6 @@
 import { ArrowUpRight, Globe2, HeartHandshake, MapPin, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 
 const locations = [
   {
@@ -169,15 +168,6 @@ export default function WhereWeWorkPage() {
             </div>
           </div>
         </section>
-
-        <DrivePhotoGallery
-          eyebrow="Connected communities"
-          title="Local relationships give global work its meaning."
-          description="B4P CODEFOUND’s conference and community moments create space for people to exchange experience and move forward together."
-          variant="editorial"
-          linkHref="/contact"
-          linkLabel="Connect with B4P"
-        />
 
         <section className="where-section where-section--light">
           <div className="page-container where-network">

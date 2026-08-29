@@ -135,7 +135,7 @@ export function Footer() {
         <nav className="site-footer__legal" aria-label="Legal">
           <a href="/site-directory">Site Directory</a>
           <a href="/terms-and-conditions">Terms &amp; Conditions</a>
-          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/privacy-policy">B4P CODEFOUND Privacy</a>
           <a href="/cookie-policy">Cookies Policy</a>
           <a href="/contact">Contact Us</a>
         </nav>
@@ -143,7 +143,12 @@ export function Footer() {
         <div className="site-footer__bottom">
           <p>© {new Date().getFullYear()} Business for Peace Community Development Foundation. All rights reserved.</p>
           <p>B4P CODEFOUND is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
-          <p className="site-footer__developer">Developed by: <strong>iTech Network Africa</strong></p>
+          <p className="site-footer__developer">
+            Developed by:{' '}
+            <a href="https://www.itechnetworkafrica.com" target="_blank" rel="noreferrer">
+              <strong>iTech Network Africa</strong>
+            </a>
+          </p>
         </div>
       </div>
     </footer>
