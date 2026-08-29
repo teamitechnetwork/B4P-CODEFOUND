@@ -9,6 +9,7 @@ import { FieldStories } from '@/components/sections/FieldStories';
 import { Timeline } from '@/components/sections/Timeline';
 import { News } from '@/components/sections/News';
 import { CTA } from '@/components/sections/CTA';
+import { Newsletter } from '@/components/sections/Newsletter';
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <News />
         <CTA />
       </main>
+      <Newsletter />
       <Footer />
     </div>
   );
