@@ -258,6 +258,12 @@
     "indexable": true
   },
   {
+    "path": "/events",
+    "title": "Events & Gatherings | B4P CODEFOUND",
+    "description": "Explore B4P CODEFOUND event stories and flyer artwork from Liberia, the United States, and the diaspora.",
+    "indexable": true
+  },
+  {
     "path": "/resources",
     "title": "Resources | B4P CODEFOUND",
     "description": "Explore public resources and learning materials from B4P CODEFOUND.",

@@ -99,9 +99,15 @@ for (const metadata of routes.values()) {
     image: metadata.image ? `${siteUrl}${metadata.image}` : defaultImage,
     type: metadata.type ?? 'website',
   });
-  const outputPath = path.join(outputRoot, `${metadata.path.slice(1)}.html`);
-  await mkdir(path.dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, rendered);
+  const routePath = metadata.path.slice(1).replace(/\/+$/, '');
+  const outputPaths = [
+    path.join(outputRoot, `${routePath}.html`),
+    path.join(outputRoot, routePath, 'index.html'),
+  ];
+  for (const outputPath of outputPaths) {
+    await mkdir(path.dirname(outputPath), { recursive: true });
+    await writeFile(outputPath, rendered);
+  }
 }
 
 console.log(`Prerendered crawler metadata for ${routes.size} supported routes.`);
