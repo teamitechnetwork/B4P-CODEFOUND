@@ -40,7 +40,7 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
       <Header />
       <main className="flex-1 pt-[104px]">
         {/* HERO */}
-        <section className="relative overflow-hidden bg-[#062e37] text-white">
+        <section className="relative overflow-hidden bg-[#016EB4] text-white">
           <div className="container max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
             <div className="grid min-h-[650px] items-stretch lg:grid-cols-[1.05fr_0.95fr]">
               <div className="flex flex-col justify-center py-20 pr-0 lg:py-24 lg:pr-16">
@@ -64,7 +64,7 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
               </div>
               <div className="relative min-h-[390px] lg:min-h-full">
                 <img src={program.image} alt={program.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#062e37]/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#004b7c]/35 to-transparent" />
               </div>
             </div>
           </div>

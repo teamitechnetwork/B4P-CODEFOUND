@@ -31,10 +31,10 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
       <Header />
       <main className="flex-1 pt-[104px]">
         {/* HERO */}
-        <section className="relative bg-[#062e37] text-white py-24 md:py-32 overflow-hidden">
+        <section className="relative bg-[#016EB4] text-white py-24 md:py-32 overflow-hidden">
           <div className="absolute inset-0">
             <img src={regionImage.src} alt="" className="h-full w-full object-cover opacity-20 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#062e37] via-[#062e37]/90 to-[#062e37]/45" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c] via-[#004b7c]/90 to-[#004b7c]/45" />
           </div>
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1b9ed9]/10 blur-[100px] rounded-full pointer-events-none" />
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">

@@ -132,7 +132,7 @@
   align-items: flex-end;
   overflow: hidden;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .polished-page__hero-image,
@@ -150,8 +150,8 @@
 
 .polished-page__hero-overlay {
   background:
-    linear-gradient(90deg, rgba(3, 29, 36, 0.96) 0%, rgba(3, 29, 36, 0.76) 52%, rgba(3, 29, 36, 0.28) 100%),
-    linear-gradient(0deg, rgba(3, 29, 36, 0.8), transparent 55%);
+    linear-gradient(90deg, rgba(0, 75, 124, 0.96) 0%, rgba(0, 75, 124, 0.76) 52%, rgba(0, 75, 124, 0.28) 100%),
+    linear-gradient(0deg, rgba(0, 75, 124, 0.8), transparent 55%);
 }
 
 .polished-page__hero-inner {
@@ -1338,7 +1338,7 @@
   overflow: hidden;
   padding: clamp(68px, 9vw, 118px) 0 clamp(60px, 7vw, 96px);
   background:
-    linear-gradient(118deg, rgba(6, 46, 55, 0.96), rgba(9, 112, 142, 0.79)),
+    linear-gradient(118deg, rgba(1, 110, 180, 0.96), rgba(1, 110, 180, 0.79)),
     url('/images/conference/day-1-community.jpg') center/cover;
 }
 
@@ -4032,7 +4032,7 @@
 .what-we-do-hero {
   padding: 94px 0 88px;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .what-we-do-hero > div {
@@ -4475,7 +4475,7 @@
 .directory-hero {
   padding: 77px 0 79px;
   color: #fff;
-  background: #123f47;
+  background: #016eb4;
 }
 
 .directory-hero > div {
@@ -4684,7 +4684,7 @@
 .program-detail-hero {
   padding: 76px 0 82px;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .program-detail-hero > div,
@@ -4901,7 +4901,8 @@
 
 .cwc-hero {
   padding: 82px 0 87px;
-  background: #fbfdf8;
+  color: #fff;
+  background: #016eb4;
 }
 
 .cwc-hero > div {
@@ -4913,13 +4914,13 @@
 
 .cwc-kicker,
 .cwc-label {
-  color: var(--cwc-green);
+  color: #d9f5ff;
 }
 
 .cwc-kicker {
   display: inline-flex;
   padding: 7px 10px;
-  border: 1px solid rgba(64, 135, 88, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 100px;
   font-size: 0.64rem;
   font-weight: 800;
@@ -4929,7 +4930,7 @@
 
 .cwc-hero h1 {
   margin: 22px 0 19px;
-  color: #151c1c;
+  color: #fff;
   font-size: clamp(3.5rem, 7.8vw, 7rem);
   font-weight: 900;
   letter-spacing: -0.08em;
@@ -4945,7 +4946,7 @@
 .cwc-hero__copy > p {
   max-width: 490px;
   margin: 0;
-  color: #486159;
+  color: rgba(255, 255, 255, 0.82);
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.64;
@@ -5909,8 +5910,8 @@ main p.text-xl {
 .impact-hero {
   overflow: clip;
   padding: clamp(72px, 8vw, 112px) 0;
-  color: #123f47;
-  background: #f4f8f9;
+  color: #fff;
+  background: #016eb4;
 }
 
 .impact-hero__inner {
@@ -5932,7 +5933,7 @@ main p.text-xl {
 
 .impact-hero__copy h1 em {
   display: block;
-  color: #1b9ed9;
+  color: #f0cf69;
   font-style: normal;
 }
 
@@ -5941,7 +5942,7 @@ main p.text-xl {
 .directory-page__hero p {
   max-width: 690px;
   margin: 0;
-  color: #54747a;
+  color: rgba(255, 255, 255, 0.8);
   font-size: clamp(1.05rem, 1.7vw, 1.26rem);
   font-weight: 560;
   line-height: 1.72;
@@ -6310,7 +6311,7 @@ main p.text-xl {
 .values-hero {
   padding: clamp(72px, 8vw, 108px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .values-hero__inner {
@@ -6493,7 +6494,7 @@ main p.text-xl {
 .directory-page__hero {
   padding: clamp(72px, 8vw, 106px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .directory-page__hero .page-kicker {
@@ -6764,7 +6765,7 @@ main p.text-xl {
 .store-hero {
   padding: clamp(72px, 8vw, 110px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .store-hero__inner {
@@ -7030,7 +7031,7 @@ main p.text-xl {
 .contact-hero {
   padding: clamp(72px, 8vw, 106px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .contact-hero h1 {
@@ -7288,7 +7289,7 @@ main p.text-xl {
 .where-hero {
   padding: clamp(72px, 8vw, 110px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .where-hero__inner {
@@ -7745,7 +7746,7 @@ main p.text-xl {
 .theory-hero {
   padding: clamp(72px, 8vw, 110px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .theory-hero__inner {
@@ -8075,7 +8076,7 @@ main p.text-xl {
 .opportunity-hero {
   padding: clamp(72px, 8vw, 108px) 0;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .opportunity-hero__inner {

@@ -10,7 +10,7 @@ export default function DirectorCornerPage() {
       
       <main className="flex-1 pt-[104px]">
         {/* Intro/Hero Section */}
-        <section className="bg-[#052228] text-white pt-20 pb-28 md:pt-32 md:pb-40 px-6 relative overflow-hidden">
+        <section className="bg-[#016EB4] text-white pt-20 pb-28 md:pt-32 md:pb-40 px-6 relative overflow-hidden">
           {/* Subtle background texture/pattern */}
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
           <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/10 to-transparent blur-3xl"></div>

@@ -12,17 +12,17 @@ export default function AboutPage() {
       <Header />
       <main className="flex-1">
         {/* Editorial Hero Section */}
-        <section className="pt-32 pb-16 md:pt-48 md:pb-24 bg-[#f7fafb] text-[#062e37]">
+        <section className="pt-32 pb-16 md:pt-48 md:pb-24 bg-[#016EB4] text-white">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-700">
               <h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-foreground"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-white"
                 data-testid="text-about-title"
               >
                 Re-imagining <span className="text-primary">empowerment</span>.
               </h1>
               <p 
-                className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed max-w-3xl mb-12"
+                className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl mb-12"
                 data-testid="text-about-subtitle"
               >
                 B4P CODEFOUND promotes political, social, and economic justice globally. We work with women and girls to foster gender equality and dismantle the vicious circle of violence impacting society.

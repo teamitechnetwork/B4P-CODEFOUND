@@ -55,21 +55,21 @@ export default function ServicesPage() {
       <Header />
       <main className="flex-1 pt-[104px]">
         {/* HERO */}
-        <section className="relative bg-[#f8fbfe] border-b border-border py-24 md:py-32">
+        <section className="relative bg-[#016EB4] text-white border-b border-white/20 py-24 md:py-32">
           <div className="container max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <Link href="/what-we-do" className="inline-flex items-center gap-2 text-[#1b9ed9] hover:text-[#062e37] font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
+            <Link href="/what-we-do" className="inline-flex items-center gap-2 text-white/80 hover:text-white font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
               <ArrowLeft className="w-4 h-4" /> Back to What We Do
             </Link>
             
             <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase mb-6">
-                <span className="w-8 h-[2px] bg-[#1b9ed9]" />
+                <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#f0cf69] uppercase mb-6">
+                <span className="w-8 h-[2px] bg-[#f0cf69]" />
                 Organizational Support
               </span>
-              <h1 className="text-5xl md:text-6xl font-extrabold text-[#062e37] tracking-tight leading-[1.05] mb-8">
+              <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.05] mb-8">
                 Services that meet the work where it is.
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed font-medium mb-12">
+              <p className="text-xl text-white/80 leading-relaxed font-medium mb-12">
                 Practical support for nonprofits, community initiatives, and businesses building a more equitable future.
               </p>
             </div>

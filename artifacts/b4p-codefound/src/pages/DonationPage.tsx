@@ -9,15 +9,15 @@ export default function DonationPage() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex min-h-[50vh] items-end overflow-hidden bg-[#062e37] pt-[104px]">
+        <section className="relative flex min-h-[50vh] items-end overflow-hidden bg-[#016EB4] pt-[104px]">
           <div className="absolute inset-0 z-0">
             <img 
               src="/images/conference/day-1-community-gathering.jpg" 
               alt="Community members gathered during a B4P CODEFOUND program"
               className="h-full w-full object-cover opacity-40 mix-blend-overlay"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#031d24]/95 via-[#031d24]/80 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#031d24] via-transparent to-transparent opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c]/95 via-[#004b7c]/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#004b7c] via-transparent to-transparent opacity-80" />
           </div>
           
           <div className="container relative z-10 mx-auto px-4 py-20 md:py-28 lg:py-32">

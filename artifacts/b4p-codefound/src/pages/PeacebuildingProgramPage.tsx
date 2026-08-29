@@ -9,10 +9,10 @@ export default function PeacebuildingProgramPage() {
       <Header />
       <main className="flex-1 pt-[104px]">
         {/* HERO */}
-        <section className="relative overflow-hidden bg-[#062e37] text-white">
+        <section className="relative overflow-hidden bg-[#016EB4] text-white">
           <div className="absolute inset-0">
             <img src="/images/uploaded/hero-community-outdoors.webp" alt="Community gathering for peacebuilding in Liberia" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#062e37] via-[#062e37]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c] via-[#004b7c]/90 to-transparent" />
           </div>
           
           <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 md:py-32">

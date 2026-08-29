@@ -108,10 +108,10 @@ export default function WhatWeDoPage() {
       <Header />
       <main className="flex-1">
         {/* HERO */}
-        <section className="relative pt-[180px] pb-32 md:pt-[240px] md:pb-48 px-6 lg:px-12 overflow-hidden bg-[#062e37] text-white">
+        <section className="relative pt-[180px] pb-32 md:pt-[240px] md:pb-48 px-6 lg:px-12 overflow-hidden bg-[#016EB4] text-white">
           <div className="absolute inset-0">
             <img src="/images/uploaded/programs-community-exterior.webp" alt="B4P CODEFOUND participants gathered outside a community venue" className="w-full h-full object-cover opacity-20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#062e37] to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#004b7c] to-transparent" />
           </div>
           <div className="container relative z-10 max-w-7xl mx-auto">
             <div className="max-w-3xl">
