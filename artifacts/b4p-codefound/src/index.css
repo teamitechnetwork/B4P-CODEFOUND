@@ -8835,12 +8835,12 @@ main p.text-xl {
   font-weight: 800;
 }
 
-/* Reference-inspired navy footer geometry: decorative only, content stays B4P-specific. */
+/* Reference-inspired B4P footer geometry: decorative only, content stays B4P-specific. */
 .site-footer.reference-footer {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #25235f;
+  background: hsl(var(--primary));
 }
 
 .reference-footer__content {
@@ -8859,8 +8859,9 @@ main p.text-xl {
   bottom: -220px;
   width: min(52vw, 720px);
   height: 410px;
-  background: #079bd4;
+  background: linear-gradient(145deg, rgba(49, 174, 218, 0.72), rgba(1, 110, 180, 0.9));
   clip-path: polygon(42% 100%, 100% 0, 100% 100%);
+  opacity: 0.82;
 }
 
 .reference-footer__shape--pink {
@@ -8868,9 +8869,9 @@ main p.text-xl {
   bottom: -112px;
   width: min(54vw, 760px);
   height: 290px;
-  background: #e6298b;
+  background: linear-gradient(145deg, rgba(213, 57, 143, 0.78), rgba(104, 55, 144, 0.46));
   clip-path: polygon(62% 0, 100% 38%, 100% 100%, 0 0);
-  opacity: 0.96;
+  opacity: 0.74;
 }
 
 @media (max-width: 720px) {
