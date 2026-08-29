@@ -9278,8 +9278,7 @@ body.has-site-search-open {
   position: relative;
   overflow: hidden;
   color: #fff;
-  background:
-    linear-gradient(115deg, #062e37 0%, #073f4a 54%, #016eb4 100%);
+  background: #016eb4;
 }
 
 .events-hero::after {
