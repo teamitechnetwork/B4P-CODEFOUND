@@ -1610,9 +1610,10 @@
   width: 27px;
   height: 27px;
   place-items: center;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: 999px;
+  opacity: 1;
   text-decoration: none;
   transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
@@ -1620,7 +1621,9 @@
 .site-topbar__socials svg {
   width: 14px;
   height: 14px;
-  fill: currentColor;
+  color: #fff !important;
+  fill: #fff;
+  opacity: 1;
   stroke: none;
 }
 
