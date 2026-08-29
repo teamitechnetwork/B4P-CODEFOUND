@@ -142,6 +142,7 @@ export function Footer() {
         <div className="site-footer__bottom">
           <p>© {new Date().getFullYear()} Business for Peace Community Development Foundation. All rights reserved.</p>
           <p>B4P CODEFOUND is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
+          <p className="site-footer__developer">Developed by: <strong>iTech Network Africa</strong></p>
         </div>
       </div>
     </footer>

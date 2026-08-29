@@ -24,6 +24,7 @@ import OpportunityPage from '@/pages/OpportunityPage';
 import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
+import InformationPage from '@/pages/InformationPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
@@ -159,6 +160,22 @@ function Router() {
 
   if (location === '/jobs') {
     return <OpportunityPage kind="jobs" />;
+  }
+
+  if (location === '/news-blogs') {
+    return <InformationPage kind="news" />;
+  }
+
+  if (location === '/privacy-policy') {
+    return <InformationPage kind="privacy" />;
+  }
+
+  if (location === '/cookie-policy') {
+    return <InformationPage kind="cookies" />;
+  }
+
+  if (location === '/terms-and-conditions') {
+    return <InformationPage kind="terms" />;
   }
 
   // All other routes fall back to the polished CMS/JSON renderer

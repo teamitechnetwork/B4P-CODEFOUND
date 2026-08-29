@@ -2315,7 +2315,7 @@
   margin-top: auto;
   padding: 26px 32px 32px;
   color: #fff;
-  background: #123f47;
+  background: #016eb4;
   flex: 0 0 auto;
 }
 
@@ -7780,6 +7780,35 @@ main p.text-xl {
 .site-footer__bottom p {
   max-width: 900px;
   margin: 0;
+}
+
+.site-footer__developer strong {
+  color: #fff;
+  font-weight: 800;
+}
+
+@media (min-width: 1200px) {
+  .site-footer__accordions {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.35fr);
+  }
+
+  .site-footer__involved-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    align-items: start;
+    gap: 28px;
+  }
+
+  .site-footer__involved-panel .site-footer__contact {
+    margin-top: 0;
+    gap: 12px;
+  }
+
+  .site-footer__involved-panel .site-footer__contact > a,
+  .site-footer__involved-panel .site-footer__contact > p,
+  .site-footer__involved-panel .site-footer__phones {
+    font-size: 0.82rem;
+  }
 }
 
 @media (min-width: 721px) and (max-width: 1024px) {
