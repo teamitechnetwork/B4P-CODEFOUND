@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { Bell } from 'lucide-react';
 import { FormEvent, useState } from 'react';
 
 export function Newsletter() {
@@ -13,14 +13,13 @@ export function Newsletter() {
   return (
     <section className="newsletter-section" aria-labelledby="newsletter-title">
       <div className="newsletter-shell">
+        <div className="newsletter-bell" aria-hidden="true">
+          <Bell size={62} strokeWidth={1.7} fill="currentColor" />
+        </div>
         <div className="newsletter-copy">
-          <div className="newsletter-kicker">
-            <span aria-hidden="true" />
-            Newsletter
-          </div>
           <h2 id="newsletter-title">
-            Stay in
-            <em>the loop.</em>
+            <span>Ring for</span>{' '}
+            <em>Updates!</em>
           </h2>
         </div>
 
@@ -43,7 +42,6 @@ export function Newsletter() {
           />
           <button type="submit">
             Subscribe
-            <ArrowRight size={17} aria-hidden="true" />
           </button>
           {isReady && (
             <p className="newsletter-form-status" role="status">
