@@ -3436,13 +3436,16 @@
   min-height: 420px;
   flex-direction: column;
   padding: 23px 21px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.17);
-  background: rgba(255, 255, 255, 0.095);
-  transition: background-color 300ms ease, transform 300ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-top: 4px solid var(--refined-gold);
+  color: #123f47;
+  background: #fff;
+  box-shadow: 0 18px 36px rgba(3, 47, 75, 0.14);
+  transition: box-shadow 300ms ease, transform 300ms ease;
 }
 
 .partner-group:hover {
-  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 24px 44px rgba(3, 47, 75, 0.2);
   transform: translateY(-5px);
 }
 
@@ -3458,13 +3461,14 @@
   height: 39px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(240, 207, 105, 0.65);
+  border: 1px solid rgba(1, 110, 180, 0.28);
   border-radius: 50%;
-  color: #f0cf69;
+  color: var(--refined-blue);
+  background: #eef8fc;
 }
 
 .partner-number {
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--refined-blue);
   font-size: 0.69rem;
   font-weight: 800;
   letter-spacing: 0.16em;
@@ -3472,7 +3476,7 @@
 
 .partner-eyebrow {
   margin: 27px 0 9px;
-  color: #f0cf69;
+  color: var(--refined-blue);
   font-size: 0.63rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -3482,7 +3486,8 @@
 .partner-group h3 {
   margin: 0;
   padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #123f47;
+  border-bottom: 1px solid #dce9ec;
   font-size: 1.3rem;
   letter-spacing: -0.04em;
   line-height: 1.07;
@@ -3497,14 +3502,14 @@
 .partner-group li + li {
   padding-top: 12px;
   margin-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid #e5eef0;
 }
 
 .partner-group li a {
   display: flex;
   align-items: flex-start;
   gap: 7px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #46646b;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.42;
@@ -3514,7 +3519,7 @@
 
 .partner-group li a:hover,
 .partner-group li a:focus-visible {
-  color: #fff;
+  color: var(--refined-blue);
 }
 
 .partner-group li a:focus-visible,
@@ -3528,7 +3533,7 @@
 .partner-link-icon {
   flex: 0 0 auto;
   margin-top: 2px;
-  color: #f0cf69;
+  color: var(--refined-blue);
 }
 
 .partner-visit {
@@ -3536,7 +3541,7 @@
   align-items: center;
   gap: 6px;
   margin-top: auto;
-  color: #f0cf69;
+  color: var(--refined-blue);
   font-size: 0.63rem;
   font-weight: 800;
   letter-spacing: 0.1em;
