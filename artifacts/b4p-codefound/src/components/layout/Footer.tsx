@@ -83,6 +83,7 @@ export function Footer() {
                 <a href="/jobs">Jobs</a>
                 <a href="/make-a-donation">Make a Donation</a>
                 <a href="/news-blogs">News &amp; Blogs</a>
+                <a href="/events">Events &amp; Gatherings</a>
                 <a className="site-footer__partner" href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">
                   Become a Partner <ArrowUpRight size={15} aria-hidden="true" />
                 </a>

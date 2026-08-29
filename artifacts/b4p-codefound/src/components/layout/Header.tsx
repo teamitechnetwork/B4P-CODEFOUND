@@ -19,6 +19,7 @@ const searchItems = [
   { title: 'Volunteer with B4P', href: '/become-a-volunteer', description: 'Share your time and skills with B4P CODEFOUND.', keywords: 'volunteer volunteering help serve contribute community' },
   { title: 'Internships', href: '/internship', description: 'Learn alongside B4P through a mission-led internship.', keywords: 'internship student placement learning experience' },
   { title: 'Jobs at B4P', href: '/jobs', description: 'Explore current and future opportunities to join the team.', keywords: 'jobs careers work employment hiring opportunity' },
+  { title: 'Events & Gatherings', href: '/events', description: 'Explore past B4P CODEFOUND gatherings across Liberia and the diaspora.', keywords: 'events gatherings conference diaspora gala forum CSW Liberia' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
 ];
@@ -63,6 +64,7 @@ const navGroups: NavGroup[] = [
       { name: 'Our Core Values', href: '/our-core-values' },
       { name: 'Where We Work', href: '/where-we-work' },
       { name: 'Theory of Change', href: '/theory-of-change' },
+      { name: 'Events & Gatherings', href: '/events' },
     ],
   },
   {

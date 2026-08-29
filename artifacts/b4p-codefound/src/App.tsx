@@ -25,6 +25,7 @@ import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
 import InformationPage from '@/pages/InformationPage';
+import EventsPage from '@/pages/EventsPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
@@ -164,6 +165,10 @@ function Router() {
 
   if (location === '/news-blogs') {
     return <InformationPage kind="news" />;
+  }
+
+  if (location === '/events') {
+    return <EventsPage />;
   }
 
   if (location === '/privacy-policy') {
