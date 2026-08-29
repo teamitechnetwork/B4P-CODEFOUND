@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { type MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, Menu, Minus, Plus, Search, Sparkles, X } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { programRegions } from '@/data/programs';
@@ -136,7 +136,7 @@ const navGroups: NavGroup[] = [
 ];
 
 export function Header() {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -372,14 +372,30 @@ export function Header() {
                             <a
                               href={item.href}
                               className={item.children ? 'site-desktop-nav__item-title' : undefined}
-                              onClick={() => setDesktopOpenGroup(null)}
+                              onClick={(event) => {
+                                if (item.href === '/events') {
+                                  event.preventDefault();
+                                  setLocation('/events');
+                                }
+                                setDesktopOpenGroup(null);
+                              }}
                             >
                               {item.name}
                             </a>
                             {item.children && (
                               <div className="site-desktop-nav__children">
                                 {item.children.map((child) => (
-                                  <a href={child.href} key={child.name} onClick={() => setDesktopOpenGroup(null)}>
+                                  <a
+                                    href={child.href}
+                                    key={child.name}
+                                    onClick={(event) => {
+                                      if (child.href === '/events') {
+                                        event.preventDefault();
+                                        setLocation('/events');
+                                      }
+                                      setDesktopOpenGroup(null);
+                                    }}
+                                  >
                                     {child.name}
                                   </a>
                                 ))}
@@ -537,7 +553,21 @@ export function Header() {
                     {group.items.map((item, itemIndex) => {
                       const subgroupKey = `${group.name}-${itemIndex}-${item.name}`;
                       if (!item.children) {
-                        return <a key={subgroupKey} href={item.href} onClick={() => closeMenu()}>{item.name}</a>;
+                        return (
+                          <a
+                            key={subgroupKey}
+                            href={item.href}
+                            onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+                              if (item.href === '/events') {
+                                event.preventDefault();
+                                setLocation('/events');
+                              }
+                              closeMenu();
+                            }}
+                          >
+                            {item.name}
+                          </a>
+                        );
                       }
 
                       return (
