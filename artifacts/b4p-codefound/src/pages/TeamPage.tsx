@@ -166,16 +166,13 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
                     {type === 'management' && (
-                      <button
-                        type="button"
+                      <span
                         className="team-card__linkedin"
-                        disabled
-                        title="LinkedIn profile coming soon"
-                        aria-label={`LinkedIn profile for ${member.name} coming soon`}
+                        role="img"
+                        aria-label={`LinkedIn profile for ${member.name}`}
                       >
                         <Linkedin size={17} strokeWidth={2.2} aria-hidden="true" />
-                        <span>Coming soon</span>
-                      </button>
+                      </span>
                     )}
                   </div>
                   <p>{member.role}</p>

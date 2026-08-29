@@ -5602,28 +5602,17 @@
 }
 
 .team-card__linkedin {
-  display: inline-flex;
+  display: inline-grid;
   flex: 0 0 auto;
-  align-items: center;
-  gap: 5px;
+  width: 32px;
+  height: 32px;
+  place-items: center;
   margin-top: -2px;
-  padding: 6px 7px;
+  padding: 0;
   border: 1px solid #c9dde2;
-  border-radius: 6px;
+  border-radius: 50%;
   color: #64838a;
   background: #f5fafb;
-  cursor: not-allowed;
-  font: inherit;
-  font-size: 0.56rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.team-card__linkedin:disabled {
-  opacity: 1;
 }
 
 .team-page--board .team-card,
