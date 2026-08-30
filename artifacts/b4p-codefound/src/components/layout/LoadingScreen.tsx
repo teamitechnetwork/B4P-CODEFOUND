@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'wouter';
 
-const LOADER_FADE_START_MS = 1650;
-const LOADER_REMOVE_MS = 2000;
+const LOADER_FADE_START_MS = 4650;
+const LOADER_REMOVE_MS = 5000;
 
 export function LoadingScreen() {
   const [location] = useLocation();
@@ -39,9 +39,8 @@ export function LoadingScreen() {
     >
       <div className="site-loader__content">
         <div className="site-loader__wordmark" aria-hidden="true">
-          <span>B</span>
-          <strong>4</strong>
-          <span>P</span>
+          <span>B4P</span>
+          <strong>CODEFOUND</strong>
         </div>
         <div className="site-loader__art" aria-hidden="true">
           <span className="site-loader__halo" />
