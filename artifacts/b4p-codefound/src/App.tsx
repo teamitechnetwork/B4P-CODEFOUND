@@ -28,6 +28,7 @@ import ServicesPage from '@/pages/ServicesPage';
 import InformationPage from '@/pages/InformationPage';
 import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
+import PartnershipPage from '@/pages/PartnershipPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
@@ -163,6 +164,14 @@ function Router() {
 
   if (location === '/jobs') {
     return <OpportunityPage kind="jobs" />;
+  }
+
+  if (
+    location === '/partner-with-us' ||
+    location === '/become-a-partner' ||
+    location === '/partnership'
+  ) {
+    return <PartnershipPage />;
   }
 
   if (location === '/news-blogs') {

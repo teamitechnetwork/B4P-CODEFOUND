@@ -240,6 +240,24 @@
     "indexable": true
   },
   {
+    "path": "/partner-with-us",
+    "title": "Partner with B4P CODEFOUND",
+    "description": "Explore partnership opportunities with B4P CODEFOUND and connect with African-led peacebuilding and community development.",
+    "indexable": true
+  },
+  {
+    "path": "/become-a-partner",
+    "title": "Partner with B4P CODEFOUND",
+    "description": "Explore partnership opportunities with B4P CODEFOUND and connect with African-led peacebuilding and community development.",
+    "canonicalPath": "/partner-with-us"
+  },
+  {
+    "path": "/partnership",
+    "title": "Partner with B4P CODEFOUND",
+    "description": "Explore partnership opportunities with B4P CODEFOUND and connect with African-led peacebuilding and community development.",
+    "canonicalPath": "/partner-with-us"
+  },
+  {
     "path": "/make-a-donation",
     "title": "Donate to B4P CODEFOUND",
     "description": "Support B4P CODEFOUND’s African-led peacebuilding, women’s leadership, youth opportunity, and community development work.",
