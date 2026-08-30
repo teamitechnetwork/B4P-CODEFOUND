@@ -5,13 +5,10 @@
   "buildCommand": "pnpm run build:web",
   "outputDirectory": "artifacts/b4p-codefound/dist/public",
   "cleanUrls": true,
-  "routes": [
+  "rewrites": [
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
