@@ -40,7 +40,7 @@ export default function CoreValuesPage() {
     <div className="values-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="values-hero">
+        <section className="values-hero image-led-hero" data-hero-route="core-values">
           <div className="page-container values-hero__inner">
             <div>
               <span className="page-kicker">What guides us</span>
@@ -49,7 +49,7 @@ export default function CoreValuesPage() {
                 Innovation, inspirational learning, stakeholder engagement, shared vision, strategic alignment, focus, and iteration guide our work.
               </p>
             </div>
-            <div className="values-hero__image">
+            <div className="image-led-hero__visual values-hero__image" data-testid="hero-core-values-visual">
               <img
                 src="/images/conference/day-2-community-03.jpg"
                 alt="A community leader reviewing materials at a B4P CODEFOUND gathering"

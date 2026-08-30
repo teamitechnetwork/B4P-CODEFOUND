@@ -8608,8 +8608,19 @@ main p.text-xl {
 }
 
 /* Impact page */
-.impact-hero {
+.image-led-hero {
   overflow: clip;
+}
+
+.image-led-hero__visual {
+  box-sizing: border-box;
+}
+
+.image-led-hero [data-hero-overlay] {
+  z-index: 2;
+}
+
+.impact-hero {
   padding: clamp(72px, 8vw, 112px) 0;
   color: #fff;
   background: #016eb4;

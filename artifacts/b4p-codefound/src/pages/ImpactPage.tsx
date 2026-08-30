@@ -59,7 +59,7 @@ export default function ImpactPage() {
     <div className="impact-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="impact-hero">
+        <section className="impact-hero image-led-hero" data-hero-route="impact">
           <div className="page-container impact-hero__inner">
             <div className="impact-hero__copy">
               <span className="page-kicker">Our impact</span>
@@ -74,13 +74,13 @@ export default function ImpactPage() {
                 Explore our impact <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
-            <div className="impact-hero__visual">
+            <div className="image-led-hero__visual impact-hero__visual" data-testid="hero-impact-visual">
               <img
                 src="/images/uploaded/impact-audience.webp"
                 alt="Community members gathered during a B4P CODEFOUND event"
                 data-testid="img-impact-hero"
               />
-              <div className="impact-hero__badge">
+              <div className="impact-hero__badge" data-hero-overlay="badge">
                 <small>Our story</small>
                 <strong>2015</strong>
                 <span>Founded with a commitment to local leadership</span>

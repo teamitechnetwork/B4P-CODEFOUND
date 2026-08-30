@@ -40,7 +40,7 @@ export default function TheoryOfChangePage() {
     <div className="theory-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="theory-hero">
+        <section className="theory-hero image-led-hero" data-hero-route="theory-of-change">
           <div className="page-container theory-hero__inner">
             <div>
               <span className="page-kicker">Our philosophy</span>
@@ -52,13 +52,13 @@ export default function TheoryOfChangePage() {
                 Follow the journey <ArrowRight size={17} aria-hidden="true" />
               </a>
             </div>
-            <div className="theory-hero__visual">
+            <div className="image-led-hero__visual theory-hero__visual" data-testid="hero-theory-of-change-visual">
               <img
                 src="/images/conference/day-1-community-gathering.jpg"
                 alt="Community members gathered together at a B4P CODEFOUND event"
                 data-testid="img-theory-hero"
               />
-              <div className="theory-hero__overlay">
+              <div className="theory-hero__overlay" data-hero-overlay="caption">
                 <span>Our approach</span>
                 <strong>People at the center.</strong>
               </div>

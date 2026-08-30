@@ -62,7 +62,7 @@ export default function WhereWeWorkPage() {
     <div className="where-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="where-hero">
+        <section className="where-hero image-led-hero" data-hero-route="where-we-work">
           <div className="page-container where-hero__inner">
             <div className="where-hero__copy">
               <span className="page-kicker">Where we work</span>
@@ -74,13 +74,13 @@ export default function WhereWeWorkPage() {
                 Explore our regions <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
-            <div className="where-hero__visual">
+            <div className="image-led-hero__visual where-hero__visual" data-testid="hero-where-we-work-visual">
               <img
                 src="/images/conference/day-3-community-01.jpg"
                 alt="Two community leaders exchanging materials at a B4P CODEFOUND gathering"
                 data-testid="img-where-hero"
               />
-              <div className="where-hero__caption">
+              <div className="where-hero__caption" data-hero-overlay="caption">
                 <span>Field note</span>
                 <strong>Relationships are the infrastructure of lasting change.</strong>
               </div>

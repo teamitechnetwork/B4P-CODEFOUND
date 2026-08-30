@@ -25,7 +25,7 @@ type StoreView = 'shop' | 'store-listing' | 'cart' | 'checkout' | 'my-account' |
 function StoreHomeView({ isListing = false }: { isListing?: boolean }) {
   return (
     <>
-      <section className="store-hero">
+      <section className="store-hero image-led-hero" data-hero-route="store">
         <div className="page-container store-hero__inner">
           <div className="store-hero__copy">
             <span className="store-hero__status">Coming soon</span>
@@ -38,16 +38,16 @@ function StoreHomeView({ isListing = false }: { isListing?: boolean }) {
               See what we are building <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </div>
-          <div className="store-hero__visual">
+          <div className="image-led-hero__visual store-hero__visual" data-testid="hero-store-visual">
             <img
               src="/images/cwc/community-photo.png"
               alt="Women gathered together in a community space"
               data-testid="img-store-hero"
             />
-            <div className="store-hero__overlay">
-              <span>Our approach</span>
-              <strong>Commerce with a conscience.</strong>
-            </div>
+              <div className="store-hero__overlay" data-hero-overlay="caption">
+                <span>Our approach</span>
+                <strong>Commerce with a conscience.</strong>
+              </div>
           </div>
         </div>
       </section>
