@@ -34,12 +34,21 @@ export default function ContactPage() {
       <Header />
       <main className="flex-1">
         <section className="contact-hero">
-          <div className="page-container">
-            <span className="page-kicker">Contact B4P CODEFOUND</span>
-            <h1>Let’s build something meaningful together.</h1>
-            <p>
-              Whether you want to support the mission, explore a partnership, or ask a question, our team would be glad to hear from you.
-            </p>
+          <div className="page-container contact-hero__layout">
+            <div className="contact-hero__copy">
+              <span className="page-kicker">Contact B4P CODEFOUND</span>
+              <h1>Bring your next conversation to the work.</h1>
+              <p>
+                Whether you are exploring a partnership, supporting the mission, or looking for a way to get involved, start with a conversation.
+              </p>
+            </div>
+            <aside className="contact-hero__aside" aria-label="B4P CODEFOUND contact invitation">
+              <span>We’re listening</span>
+              <strong>Local insight. Global connection. Shared action.</strong>
+              <a href="mailto:management@b4pcodefound.org">
+                Email the team <ArrowRight size={17} aria-hidden="true" />
+              </a>
+            </aside>
           </div>
         </section>
 
@@ -47,9 +56,9 @@ export default function ContactPage() {
           <div className="page-container contact-layout">
             <div className="contact-details">
               <span className="section-heading__eyebrow">Start a conversation</span>
-              <h2>There is more than one way to join the work.</h2>
+              <h2>Find the right way in.</h2>
               <p>
-                Send a message and your email app will open with a draft addressed to the B4P CODEFOUND team. We will follow up from there.
+                Choose the channel that fits your question, or use the form to share what you have in mind with the B4P CODEFOUND team.
               </p>
 
               <div className="contact-detail-list">
@@ -78,8 +87,11 @@ export default function ContactPage() {
 
             <form className="contact-form" onSubmit={handleSubmit} data-testid="form-contact">
               <div className="contact-form__heading">
-                <span className="section-heading__eyebrow">Write to us</span>
-                <h2>How can we help?</h2>
+                <div>
+                  <span className="section-heading__eyebrow">Write to us</span>
+                  <h2>Tell us what you’re building.</h2>
+                </div>
+                <span className="contact-form__step">01 / 01</span>
               </div>
               <div className="contact-form__grid">
                 <label>
