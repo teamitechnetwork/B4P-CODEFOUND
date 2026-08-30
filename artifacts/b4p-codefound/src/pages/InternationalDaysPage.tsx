@@ -148,6 +148,12 @@ export const calendarObservances: CalendarObservance[] = unescoObservances.map((
 
 export const calendarMonths = unescoMonths;
 
+function formatPlanningDate(date: string) {
+  const [day, month] = date.split(' ');
+  const fullMonth = calendarMonths.find((candidate) => candidate.toLowerCase().startsWith(month.toLowerCase()));
+  return `${day} ${fullMonth ?? month}`;
+}
+
 export function getCalendarObservance(slug: string) {
   return calendarObservances.find((item) => item.slug === slug);
 }
@@ -499,6 +505,14 @@ export default function InternationalDaysPage() {
     }];
   });
 
+  function handlePlannerRemove(title: string) {
+    toggleSaved(title);
+    trackEvent(analyticsEvents.planningObservanceRemoved, {
+      observance_slug: slugifyObservance(title),
+      source_surface: 'planning_list',
+    });
+  }
+
   function handleDirectoryToggle(item: InternationalDay, isSaved: boolean) {
     toggleSaved(item.title);
     trackEvent(isSaved ? analyticsEvents.planningObservanceRemoved : analyticsEvents.planningObservanceSaved, {
@@ -658,7 +672,7 @@ export default function InternationalDaysPage() {
 
             {isPlannerOpen && (
               <aside className="international-days-planner" aria-label="My planning list">
-                <div>
+                <div className="international-days-planner__content">
                   <span className="international-days-section-kicker">Your planning list</span>
                   <h3>{savedDays.length ? 'Keep these moments close.' : 'Start building your year.'}</h3>
                   <p>
@@ -666,6 +680,26 @@ export default function InternationalDaysPage() {
                       ? 'Save the dates that could become a meaningful gathering, conversation, or campaign.'
                       : 'Select a day below to collect the moments that belong in your community calendar.'}
                   </p>
+                  {savedDays.length > 0 && (
+                    <ul className="international-days-planner__list" aria-label="Saved observances">
+                      {savedDays.map((item) => (
+                        <li key={item.title}>
+                          <a href={getCalendarObservanceHref(item.title)}>
+                            <time>{formatPlanningDate(item.date)}</time>
+                            <span>{item.title}</span>
+                            <ArrowUpRight size={15} aria-hidden="true" />
+                          </a>
+                          <button
+                            type="button"
+                            onClick={() => handlePlannerRemove(item.title)}
+                            aria-label={`Remove ${item.title} from planning list`}
+                          >
+                            <X size={15} aria-hidden="true" />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
                 <div className="international-days-planner__actions">
                   <button type="button" onClick={() => downloadPlanningBrief(savedDays)}>

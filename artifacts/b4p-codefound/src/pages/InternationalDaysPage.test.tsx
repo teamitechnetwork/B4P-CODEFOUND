@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import InternationalDayDetailPage from './InternationalDayDetailPage';
 import InternationalDaysPage from './InternationalDaysPage';
@@ -35,7 +35,9 @@ describe('international days planning list', () => {
   beforeEach(() => {
     window.localStorage.clear();
     analyticsTrack = vi.fn();
-    window.umami = { track: analyticsTrack };
+    window.umami = {
+      track: analyticsTrack as unknown as (name: string, data?: Record<string, string | number | boolean>) => void,
+    };
   });
 
   afterEach(() => {
@@ -60,6 +62,48 @@ describe('international days planning list', () => {
     expect(analyticsTrack).toHaveBeenCalledWith('planning_observance_saved', {
       observance_slug: 'international-day-of-education',
       source_surface: 'directory',
+    });
+  });
+
+  it('shows saved moments with dates and links, including full-calendar observances', async () => {
+    window.localStorage.setItem(storageKey, JSON.stringify([
+      'International Day of Education',
+      'International Day of Women in Multilateralism',
+    ]));
+
+    render(<InternationalDaysPage />);
+    openPlanningList();
+
+    const savedList = screen.getByRole('list', { name: 'Saved observances' });
+    expect(within(savedList).getByText('24 January')).toBeInTheDocument();
+    expect(within(savedList).getByRole('link', { name: /International Day of Education/i }))
+      .toHaveAttribute('href', '/international-days/international-day-of-education');
+    expect(within(savedList).getByText('25 January')).toBeInTheDocument();
+    expect(within(savedList).getByRole('link', { name: /International Day of Women in Multilateralism/i }))
+      .toHaveAttribute('href', '/international-days/international-day-of-women-in-multilateralism');
+  });
+
+  it('removes one saved moment from the planning list without removing the others', async () => {
+    window.localStorage.setItem(storageKey, JSON.stringify([
+      'International Day of Education',
+      'International Day of Women in Multilateralism',
+    ]));
+
+    render(<InternationalDaysPage />);
+    openPlanningList();
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Remove International Day of Education from planning list',
+    }));
+
+    await waitFor(() => {
+      expect(savedTitles()).toEqual(['International Day of Women in Multilateralism']);
+    });
+    const savedList = screen.getByRole('list', { name: 'Saved observances' });
+    expect(within(savedList).queryByRole('link', { name: /International Day of Education/i })).not.toBeInTheDocument();
+    expect(within(savedList).getByRole('link', { name: /International Day of Women in Multilateralism/i })).toBeInTheDocument();
+    expect(analyticsTrack).toHaveBeenLastCalledWith('planning_observance_removed', {
+      observance_slug: 'international-day-of-education',
+      source_surface: 'planning_list',
     });
   });
 

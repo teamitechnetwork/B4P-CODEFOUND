@@ -17,7 +17,7 @@ account data or free-form content.
 | Event name | When it fires | Properties |
 | --- | --- | --- |
 | `planning_observance_saved` | A visitor saves an observance for planning | `observance_slug`: title-derived safe identifier; `source_surface`: `directory` or `detail_page` |
-| `planning_observance_removed` | A visitor removes an observance from planning | `observance_slug`: title-derived safe identifier; `source_surface`: `directory` or `detail_page` |
+| `planning_observance_removed` | A visitor removes an observance from planning | `observance_slug`: title-derived safe identifier; `source_surface`: `directory`, `detail_page`, or `planning_list` |
 | `planning_list_cleared` | A visitor clears one or more saved observances | `saved_count`: number of observances removed |
 | `planning_brief_downloaded` | A visitor downloads the planning brief | `saved_count`: number of saved observances included; `brief_scope`: `saved_list` or `full_calendar` |
 
