@@ -1132,6 +1132,182 @@
   color: #016eb4;
 }
 
+.international-days-official {
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  background: #fbfaf5;
+}
+
+.international-days-official__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr);
+  gap: clamp(2.5rem, 9vw, 10rem);
+  align-items: end;
+  margin-bottom: 3.25rem;
+}
+
+.international-days-official h2 {
+  margin: 0.8rem 0 0;
+  color: #123f47;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.international-days-official h2 em {
+  color: #016eb4;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+.international-days-official__intro p {
+  max-width: 38rem;
+  margin: 0;
+  color: #47656b;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.international-days-official__intro a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.35rem;
+  color: #016eb4;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.international-days-official__intro a:hover,
+.international-days-official__intro a:focus-visible {
+  color: #123f47;
+}
+
+.international-days-official__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.international-days-month {
+  min-width: 0;
+  padding: 1.3rem 1.25rem 1.1rem;
+  border-top: 3px solid #016eb4;
+  background: #fff;
+  box-shadow: 0 0.8rem 2rem rgba(18, 63, 71, 0.05);
+}
+
+.international-days-month:nth-child(3n + 2) {
+  border-top-color: #118f9b;
+}
+
+.international-days-month:nth-child(3n + 3) {
+  border-top-color: #8ddfe6;
+}
+
+.international-days-month__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(18, 63, 71, 0.14);
+}
+
+.international-days-month__heading span {
+  color: #8bbecb;
+  font-size: 0.67rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.international-days-month h3 {
+  margin: 0;
+  color: #123f47;
+  font-size: 1.4rem;
+  font-weight: 850;
+  letter-spacing: -0.05em;
+}
+
+.international-days-month ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.international-days-month li {
+  display: grid;
+  grid-template-columns: 3.6rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: start;
+  padding: 0.78rem 0;
+  border-bottom: 1px solid rgba(18, 63, 71, 0.1);
+}
+
+.international-days-month li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.international-days-month time {
+  color: #118f9b;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+}
+
+.international-days-month li a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  color: #365960;
+  font-size: 0.77rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.international-days-month li a svg {
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+  color: #016eb4;
+}
+
+.international-days-month li a:hover,
+.international-days-month li a:focus-visible {
+  color: #016eb4;
+}
+
+.international-days-official__note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(18, 63, 71, 0.18);
+}
+
+.international-days-official__note span {
+  flex-shrink: 0;
+  color: #016eb4;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.international-days-official__note p {
+  margin: 0;
+  color: #6b8388;
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
 .international-days-cta {
   padding: clamp(4.5rem, 8vw, 7rem) 0;
   color: #fff;
@@ -1205,6 +1381,10 @@
   .international-days-list {
     grid-template-columns: 1fr;
   }
+
+  .international-days-official__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 620px) {
@@ -1261,13 +1441,23 @@
   }
 
   .international-days-planner,
-  .international-days-source {
+  .international-days-source,
+  .international-days-official__note {
     align-items: start;
     flex-direction: column;
   }
 
   .international-days-planner__actions {
     flex-wrap: wrap;
+  }
+
+  .international-days-official__header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .international-days-official__grid {
+    grid-template-columns: 1fr;
   }
 
   .international-day-card {
