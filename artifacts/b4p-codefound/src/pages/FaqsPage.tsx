@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { ArrowRight, ChevronDown, Mail, MessageCircleQuestion, Search } from 'lucide-react';
+import { ArrowRight, ChevronDown, Mail, Search } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -131,7 +131,6 @@ export default function FaqsPage() {
         <section className="faqs-hero" aria-labelledby="faqs-title">
           <div className="page-container faqs-hero__inner">
             <div className="faqs-hero__copy">
-              <span className="faqs-kicker"><MessageCircleQuestion size={15} aria-hidden="true" /> A clear place to start</span>
               <h1 id="faqs-title" data-testid="heading-faq-title">Questions are part of the work.</h1>
               <p data-testid="text-faq-intro">
                 Find straightforward answers about B4P CODEFOUND, our programs, the places we work,
@@ -140,12 +139,6 @@ export default function FaqsPage() {
               <a className="faqs-hero__link" href="#faq-list" data-testid="link-faq-browse">
                 Browse the answers <ArrowRight size={17} aria-hidden="true" />
               </a>
-            </div>
-            <div className="faqs-hero__index" aria-label="FAQ overview">
-              <span className="faqs-hero__index-number">09</span>
-              <span className="faqs-hero__index-label">questions,<br />kept useful</span>
-              <span className="faqs-hero__index-rule" aria-hidden="true" />
-              <p>About the work · Places · Participation</p>
             </div>
           </div>
         </section>
