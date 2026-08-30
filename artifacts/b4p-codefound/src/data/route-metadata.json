@@ -291,7 +291,7 @@
     "path": "/events-and-conferences",
     "title": "Events & Conferences | B4P CODEFOUND",
     "description": "Explore events, convenings, and conferences connected to B4P CODEFOUND’s mission.",
-    "indexable": true
+    "canonicalPath": "/events"
   },
   {
     "path": "/privacy-policy",

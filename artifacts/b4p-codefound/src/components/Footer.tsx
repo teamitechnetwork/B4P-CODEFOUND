@@ -46,7 +46,7 @@ export function Footer() {
               <li><a href="#what-we-do" className="text-sm hover:text-secondary transition-colors">What We Do</a></li>
               <li><a href="#work-with-us" className="text-sm hover:text-secondary transition-colors">Work With Us</a></li>
               <li><a href="#shop" className="text-sm hover:text-secondary transition-colors">Shop Now</a></li>
-              <li><a href="#partner" className="text-sm hover:text-secondary transition-colors">Become a Partner</a></li>
+              <li><a href="/partner-with-us" className="text-sm hover:text-secondary transition-colors">Become a Partner</a></li>
             </ul>
           </div>
 

@@ -96,7 +96,7 @@ export function WhatWeDo() {
               <p className="text-white/80 text-lg leading-relaxed mb-8">
                 We implement structured initiatives designed to transfer power, resources, and capacity directly to the communities that need them most.
               </p>
-              <a href="#partner" className="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded font-bold uppercase tracking-wider hover:bg-white hover:text-secondary transition-colors">
+              <a href="/partner-with-us" className="inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded font-bold uppercase tracking-wider hover:bg-white hover:text-secondary transition-colors">
                 Partner With Us
               </a>
             </div>

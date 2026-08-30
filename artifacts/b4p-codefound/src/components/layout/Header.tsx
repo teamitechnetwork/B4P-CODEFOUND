@@ -20,6 +20,7 @@ const searchItems = [
   { title: 'Volunteer with B4P', href: '/become-a-volunteer', description: 'Share your time and skills with B4P CODEFOUND.', keywords: 'volunteer volunteering help serve contribute community' },
   { title: 'Internships', href: '/internship', description: 'Learn alongside B4P through a mission-led internship.', keywords: 'internship student placement learning experience' },
   { title: 'Jobs at B4P', href: '/jobs', description: 'Explore current and future opportunities to join the team.', keywords: 'jobs careers work employment hiring opportunity' },
+  { title: 'Partner with B4P', href: '/partner-with-us', description: 'Explore partnership opportunities with B4P CODEFOUND.', keywords: 'partner partnership sponsorship collaboration organization support' },
   { title: 'Events & Gatherings', href: '/events', description: 'Explore past B4P CODEFOUND gatherings across Liberia and the diaspora.', keywords: 'events gatherings conference diaspora gala forum CSW Liberia' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
@@ -125,6 +126,7 @@ const navGroups: NavGroup[] = [
       { name: 'Become a Volunteer', href: '/become-a-volunteer' },
       { name: 'Internship', href: '/internship' },
       { name: 'Jobs', href: '/jobs' },
+      { name: 'Partner with us', href: '/partner-with-us' },
     ],
   },
   {
@@ -619,7 +621,7 @@ export function Header() {
         <div className="site-drawer__footer">
           <p>Support African-led peacebuilding and economic development.</p>
           <a href="/make-a-donation" onClick={() => closeMenu()}>Make a donation</a>
-          <a href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner" onClick={() => closeMenu()}>Become a partner</a>
+          <a href="/partner-with-us" onClick={() => closeMenu()}>Become a partner</a>
         </div>
       </aside>
     </>

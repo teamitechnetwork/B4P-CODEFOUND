@@ -4,7 +4,6 @@ import {
   CalendarDays,
   Clock3,
   Download,
-  Globe2,
   MapPin,
   Sparkles,
 } from 'lucide-react';
@@ -116,27 +115,43 @@ export default function EventsPage() {
                 Events &amp; gatherings
               </span>
               <h1>
-                Moments that <em>move</em> a community.
+                Where community <em>comes alive.</em>
               </h1>
               <p>
-                From Liberia to the diaspora, B4P CODEFOUND gathers people around
-                ideas that become action. This is a visual record of the rooms,
-                voices, and shared occasions that carry the work forward.
+                From Liberia to the diaspora, B4P CODEFOUND creates space for
+                dialogue, celebration, and ideas that become action. Step into the
+                moments that carry the work forward.
               </p>
-              <a className="events-hero__link" href="#featured-event">
-                Meet the feature event <ArrowDownRight size={18} aria-hidden="true" />
-              </a>
+              <div className="events-hero__actions">
+                <a className="events-hero__link" href="#featured-event">
+                  Meet the feature event <ArrowDownRight size={18} aria-hidden="true" />
+                </a>
+                <a className="events-hero__archive-link" href="#past-events">
+                  Browse the archive <ArrowUpRight size={17} aria-hidden="true" />
+                </a>
+              </div>
             </div>
 
-            <aside className="events-hero__aside" aria-label="Event archive summary">
-              <span className="events-hero__aside-label">Past event archive</span>
-              <strong>04</strong>
-              <span className="events-hero__aside-copy">event stories<br />across six flyers</span>
-              <span className="events-hero__aside-rule" aria-hidden="true" />
-              <span className="events-hero__aside-location">
-                <Globe2 size={16} aria-hidden="true" /> Liberia · diaspora
-              </span>
-            </aside>
+            <div className="events-hero__visual">
+              <img
+                src="/images/events/diaspora-farewell-program-2026.jpg"
+                alt="Diaspora Farewell Program event artwork for the Diaspora Annual 2025 Return"
+              />
+              <div className="events-hero__visual-shade" aria-hidden="true" />
+              <div className="events-hero__visual-topline">
+                <span>01 / Featured gathering</span>
+                <span>Archive</span>
+              </div>
+              <div className="events-hero__visual-caption">
+                <span>Diaspora Annual ’25 · Return</span>
+                <strong>Diaspora <em>Farewell</em></strong>
+                <small>January 9, 2026 · Executive Mansion</small>
+              </div>
+              <div className="events-hero__visual-count" aria-label="Four event stories across six flyers">
+                <strong>04</strong>
+                <span>event stories<br />across six flyers</span>
+              </div>
+            </div>
           </div>
         </section>
 

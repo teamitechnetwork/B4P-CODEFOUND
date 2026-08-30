@@ -34,7 +34,7 @@ export function CTA() {
             </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="h-16 px-10 text-xl font-bold rounded-sm border-white text-white hover:bg-white hover:text-primary transition-all w-full sm:w-auto hover:-translate-y-1 shadow-xl hover:shadow-2xl">
-            <a href="/contact">
+            <a href="/partner-with-us">
               Become A Partner
             </a>
           </Button>

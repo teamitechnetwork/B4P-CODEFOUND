@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react';
+import { type FormEvent, useRef, useState } from 'react';
 import {
   ArrowRight,
   Building2,
@@ -41,6 +41,7 @@ const timelineOptions = [
 export default function PartnershipPage() {
   const [status, setStatus] = useState<'idle' | 'ready' | 'error'>('idle');
   const [selectedPartnership, setSelectedPartnership] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -80,6 +81,7 @@ export default function PartnershipPage() {
   }
 
   function resetForm() {
+    formRef.current?.reset();
     setStatus('idle');
     setSelectedPartnership('');
   }
@@ -164,7 +166,7 @@ export default function PartnershipPage() {
               </div>
             </aside>
 
-            <form className="partnership-form" onSubmit={handleSubmit}>
+            <form ref={formRef} className="partnership-form" onSubmit={handleSubmit}>
               <div className="partnership-form__header">
                 <span className="section-heading__eyebrow">Partnership inquiry</span>
                 <h2>Tell us where you see a shared opportunity.</h2>

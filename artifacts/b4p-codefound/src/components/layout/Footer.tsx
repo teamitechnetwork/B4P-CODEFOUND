@@ -156,7 +156,7 @@ export function Footer() {
               <a href="/about-us">Our history</a>
               <a href="/the-management-team">Our leadership</a>
               <a href="/the-board">Our board</a>
-              <a href="/#partner">Our partners</a>
+              <a href="/partner-with-us">Our partners</a>
               <a href="/where-we-work">Where we work</a>
             </nav>
           </FooterAccordion>
@@ -191,7 +191,7 @@ export function Footer() {
               <a href="/internship">Internships</a>
               <a href="/jobs">Jobs &amp; open positions</a>
               <a href="/make-a-donation">Make a donation</a>
-              <a href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">Become a partner</a>
+              <a href="/partner-with-us">Become a partner</a>
             </nav>
           </FooterAccordion>
 

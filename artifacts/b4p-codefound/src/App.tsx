@@ -178,7 +178,7 @@ function Router() {
     return <InformationPage kind="news" />;
   }
 
-  if (location === '/events') {
+  if (location === '/events' || location === '/events-and-conferences') {
     return <EventsPage />;
   }
 

@@ -70,7 +70,7 @@ export function Navigation() {
             <a href="#donate" className="bg-secondary text-white px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-secondary/90 transition-colors shadow-sm hover:shadow">
               Donate Now
             </a>
-            <a href="#partner" className="bg-primary text-white px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-primary/90 transition-colors shadow-sm hover:shadow">
+            <a href="/partner-with-us" className="bg-primary text-white px-6 py-2.5 rounded text-sm font-bold uppercase tracking-wider hover:bg-primary/90 transition-colors shadow-sm hover:shadow">
               Become a Partner
             </a>
           </div>
@@ -120,7 +120,7 @@ export function Navigation() {
               Donate Now
             </a>
             <a 
-              href="#partner" 
+              href="/partner-with-us"
               className="bg-primary text-white px-4 py-3 rounded text-center font-bold uppercase tracking-wider"
               onClick={() => setIsMobileMenuOpen(false)}
             >

@@ -140,7 +140,7 @@ export default function DonationPage() {
                       Does your company match charitable contributions? We can help you set up a matching gift or discuss larger sponsorships.
                     </p>
                     <a 
-                      href="mailto:management@b4pcodefound.org?subject=Corporate%20Partnership%20Inquiry"
+                      href="/partner-with-us"
                       className="inline-flex items-center gap-2 text-[0.95rem] font-bold text-[#df5311] transition-colors hover:text-[#bd4007]"
                       data-testid="link-donation-corporate"
                     >
