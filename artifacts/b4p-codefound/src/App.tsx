@@ -26,6 +26,7 @@ import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
 import InformationPage from '@/pages/InformationPage';
+import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
@@ -173,15 +174,15 @@ function Router() {
   }
 
   if (location === '/privacy-policy') {
-    return <InformationPage kind="privacy" />;
+    return <LegalPage kind="privacy" />;
   }
 
   if (location === '/cookie-policy') {
-    return <InformationPage kind="cookies" />;
+    return <LegalPage kind="cookies" />;
   }
 
   if (location === '/terms-and-conditions') {
-    return <InformationPage kind="terms" />;
+    return <LegalPage kind="terms" />;
   }
 
   // All other routes fall back to the polished CMS/JSON renderer

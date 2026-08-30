@@ -111,7 +111,7 @@ function FooterAccountabilityMark() {
   return (
     <div className="site-footer__accountability" aria-label="B4P CODEFOUND accountability">
       <span className="site-footer__accountability-mark">
-        <img src="/brand/b4p-favicon.png" alt="" />
+        <img src="/brand/b4p-logo-clean.png" alt="" />
       </span>
       <span>
         <strong>Accountable</strong>
