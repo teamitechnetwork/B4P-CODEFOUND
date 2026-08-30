@@ -1,11 +1,12 @@
 import { type MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, Menu, Minus, Plus, Search, Sparkles, X } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Menu, Search, Sparkles, X } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { programRegions } from '@/data/programs';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
+type MobilePanel = { title: string; items: NavItem[] };
 
 const searchItems = [
   { title: 'About B4P CODEFOUND', href: '/about-us', description: 'Our mission, founder story, values, and where we work.', keywords: 'mission founder values history peace community development organization' },
@@ -146,8 +147,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [openGroup, setOpenGroup] = useState<string | null>(null);
-  const [openSubgroup, setOpenSubgroup] = useState<string | null>(null);
+  const [mobilePath, setMobilePath] = useState<MobilePanel[]>([]);
   const [desktopOpenGroup, setDesktopOpenGroup] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const searchButtonRef = useRef<HTMLButtonElement>(null);
@@ -175,11 +175,26 @@ export function Header() {
 
   const closeMenu = (restoreFocus = false) => {
     setIsMenuOpen(false);
-    setOpenGroup(null);
-    setOpenSubgroup(null);
+    setMobilePath([]);
     if (restoreFocus) {
       window.requestAnimationFrame(() => menuButtonRef.current?.focus());
     }
+  };
+
+  const enterMobilePanel = (title: string, items: NavItem[]) => {
+    setMobilePath((path) => [...path, { title, items }]);
+  };
+
+  const leaveMobilePanel = () => {
+    setMobilePath((path) => path.slice(0, -1));
+  };
+
+  const handleMobileLinkClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '/events') {
+      event.preventDefault();
+      setLocation('/events');
+    }
+    closeMenu();
   };
 
   const closeSearch = (restoreFocus = false) => {
@@ -538,70 +553,67 @@ export function Header() {
         </div>
 
         <div className="site-drawer__body">
-          <a href="/" className="site-drawer__home" onClick={() => closeMenu()}>Home</a>
-          <nav>
-            {navGroups.map((group) => (
-              <div className="site-drawer__group" key={group.name}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setOpenGroup(openGroup === group.name ? null : group.name);
-                    setOpenSubgroup(null);
-                  }}
-                  aria-expanded={openGroup === group.name}
-                >
-                  {group.name}
-                  {openGroup === group.name ? <Minus size={17} aria-hidden="true" /> : <Plus size={17} aria-hidden="true" />}
-                </button>
-                {openGroup === group.name && (
-                  <div className="site-drawer__submenu">
-                    {group.items.map((item, itemIndex) => {
-                      const subgroupKey = `${group.name}-${itemIndex}-${item.name}`;
-                      if (!item.children) {
-                        return (
-                          <a
-                            key={subgroupKey}
-                            href={item.href}
-                            onClick={(event: MouseEvent<HTMLAnchorElement>) => {
-                              if (item.href === '/events') {
-                                event.preventDefault();
-                                setLocation('/events');
-                              }
-                              closeMenu();
-                            }}
-                          >
-                            {item.name}
-                          </a>
-                        );
-                      }
-
-                      return (
-                        <div className="site-drawer__nested-group" key={subgroupKey}>
-                          <button
-                            type="button"
-                            className="site-drawer__nested-trigger"
-                            onClick={() => setOpenSubgroup(openSubgroup === subgroupKey ? null : subgroupKey)}
-                            aria-expanded={openSubgroup === subgroupKey}
-                          >
-                            {item.name}
-                            {openSubgroup === subgroupKey ? <Minus size={16} aria-hidden="true" /> : <Plus size={16} aria-hidden="true" />}
-                          </button>
-                          {openSubgroup === subgroupKey && (
-                            <div className="site-drawer__nested-submenu">
-                              {item.children.map((child) => (
-                                <a key={`${subgroupKey}-${child.name}`} href={child.href} onClick={() => closeMenu()}>{child.name}</a>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-          <a href="/contact" className="site-drawer__home" onClick={() => closeMenu()}>Contact</a>
+          {mobilePath.length === 0 ? (
+            <>
+              <a href="/" className="site-drawer__home" onClick={() => closeMenu()}>Home</a>
+              <nav className="site-drawer__top-level" aria-label="Mobile primary navigation">
+                {navGroups.map((group) => (
+                  <button
+                    type="button"
+                    className="site-drawer__menu-row"
+                    key={group.name}
+                    onClick={() => enterMobilePanel(group.name, group.items)}
+                  >
+                    <span>{group.name}</span>
+                    <ChevronRight size={23} aria-hidden="true" />
+                  </button>
+                ))}
+              </nav>
+              <a href="/contact" className="site-drawer__home" onClick={() => closeMenu()}>Contact</a>
+            </>
+          ) : (
+            (() => {
+              const panel = mobilePath[mobilePath.length - 1];
+              return (
+                <div className="site-drawer__panel-view">
+                  <button
+                    type="button"
+                    className="site-drawer__back"
+                    onClick={leaveMobilePanel}
+                    aria-label={`Back from ${panel.title}`}
+                  >
+                    <ChevronLeft size={22} aria-hidden="true" />
+                    <span>Back</span>
+                  </button>
+                  <h2 className="site-drawer__panel-title">{panel.title}</h2>
+                  <nav className="site-drawer__panel-nav" aria-label={`${panel.title} navigation`}>
+                    {panel.items.map((item) => (
+                      item.children ? (
+                        <button
+                          type="button"
+                          className="site-drawer__menu-row site-drawer__menu-row--child"
+                          key={item.name}
+                          onClick={() => enterMobilePanel(item.name, item.children ?? [])}
+                        >
+                          <span>{item.name}</span>
+                          <ChevronRight size={22} aria-hidden="true" />
+                        </button>
+                      ) : (
+                        <a
+                          className="site-drawer__panel-link"
+                          key={item.name}
+                          href={item.href}
+                          onClick={(event) => handleMobileLinkClick(event, item.href)}
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    ))}
+                  </nav>
+                </div>
+              );
+            })()
+          )}
         </div>
 
         <div className="site-drawer__footer">
