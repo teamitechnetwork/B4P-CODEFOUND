@@ -4082,7 +4082,7 @@
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  background: #d6a53a;
+  background: #016eb4;
   box-shadow: 0 12px 25px rgba(6, 46, 55, 0.12);
   transform: translate(-50%, -50%);
 }
@@ -4094,7 +4094,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: #159dd4;
+  background: #df5311;
   box-shadow: 0 5px 12px rgba(1, 110, 180, 0.22);
   animation: site-loader-drift 1.7s ease-in-out infinite;
 }
