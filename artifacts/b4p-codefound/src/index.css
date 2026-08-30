@@ -4117,6 +4117,114 @@
   text-align: center;
 }
 
+.about-purpose-card {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  padding: 32px;
+  border: 1px solid rgba(6, 46, 55, 0.1);
+  border-top: 5px solid #016eb4;
+  background: #f4f8f9;
+  box-shadow: 0 16px 35px rgba(6, 46, 55, 0.07);
+}
+
+.about-purpose-card::after {
+  position: absolute;
+  right: -55px;
+  bottom: -85px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgba(1, 110, 180, 0.14);
+  border-radius: 50%;
+  content: '';
+}
+
+.about-purpose-card--vision {
+  border-top-color: #d6a53a;
+  background: #fbf8f1;
+}
+
+.about-purpose-card--vision::after {
+  border-color: rgba(214, 165, 58, 0.2);
+}
+
+.about-purpose-card__topline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(6, 46, 55, 0.12);
+}
+
+.about-purpose-card__number {
+  color: #016eb4;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.about-purpose-card--vision .about-purpose-card__number {
+  color: #b48412;
+}
+
+.about-purpose-card__label {
+  color: #016eb4;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.about-purpose-card--vision .about-purpose-card__label {
+  color: #9a7417;
+}
+
+.about-purpose-card__statement {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  margin: 28px 0 0;
+  color: #062e37;
+  font-size: clamp(1.45rem, 2.4vw, 2.15rem);
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+.about-purpose-goal {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 32px;
+  border-left: 4px solid #159dd4;
+  background: #f8fbfc;
+}
+
+@media (min-width: 768px) {
+  .about-purpose-goal {
+    grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.8fr);
+    padding: 34px 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-purpose-card {
+    min-height: 0;
+    padding: 24px;
+  }
+
+  .about-purpose-card__statement {
+    font-size: 1.35rem;
+  }
+
+  .about-purpose-goal {
+    padding: 24px;
+  }
+}
+
 @keyframes site-loader-breathe {
   0%,
   100% {

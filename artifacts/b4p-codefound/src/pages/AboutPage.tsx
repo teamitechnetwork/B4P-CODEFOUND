@@ -71,36 +71,46 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Mission & Vision - Editorial layout */}
-        <section className="py-24 md:py-32 bg-white">
+        {/* Mission & Vision */}
+        <section className="about-purpose-section bg-white py-24 md:py-32">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
-              <div className="lg:col-span-4 flex flex-col justify-start">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-6" data-testid="text-mission-title">
-                  Our Purpose
-                </h2>
-                <div className="w-16 h-1 bg-primary mb-8"></div>
+            <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+              <span className="mb-4 block text-xs font-extrabold uppercase tracking-[0.2em] text-primary">What guides us</span>
+              <h2 className="mb-5 text-3xl font-extrabold text-foreground md:text-5xl" data-testid="text-mission-title">
+                Our Purpose
+              </h2>
+              <div className="mx-auto mb-6 h-1 w-16 bg-primary"></div>
+              <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
+                Two commitments shape how B4P CODEFOUND works with communities and partners around the world.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              <article className="about-purpose-card about-purpose-card--mission">
+                <div className="about-purpose-card__topline">
+                  <span className="about-purpose-card__number">01</span>
+                  <span className="about-purpose-card__label">The Mission</span>
+                </div>
+                <p className="about-purpose-card__statement">{mission}</p>
+              </article>
+
+              <article className="about-purpose-card about-purpose-card--vision">
+                <div className="about-purpose-card__topline">
+                  <span className="about-purpose-card__number">02</span>
+                  <span className="about-purpose-card__label">The Vision</span>
+                </div>
+                <p className="about-purpose-card__statement">{vision}</p>
+              </article>
+            </div>
+
+            <div className="about-purpose-goal mt-6">
+              <div>
+                <span className="about-purpose-card__label">The Goal</span>
+                <h3 className="mt-3 text-2xl font-extrabold text-foreground md:text-3xl">From shared purpose to shared prosperity.</h3>
               </div>
-              <div className="lg:col-span-8 space-y-20">
-                <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Mission</h3>
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
-                    {mission}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Vision</h3>
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
-                    {vision}
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold tracking-[0.2em] text-primary uppercase mb-6">The Goal</h3>
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-medium leading-normal text-foreground text-balance">
-                    Facilitate, accompany, and support community cooperation; enhance local community capacities for promoting and sustaining local peace initiatives and shared prosperity.
-                  </p>
-                </div>
-              </div>
+              <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
+                Facilitate, accompany, and support community cooperation; enhance local community capacities for promoting and sustaining local peace initiatives and shared prosperity.
+              </p>
             </div>
           </div>
         </section>
