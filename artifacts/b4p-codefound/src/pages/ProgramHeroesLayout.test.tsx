@@ -102,6 +102,9 @@ const heroCases = [
 
 const viewports = [
   { name: 'mobile', width: 375 },
+  { name: 'tablet below breakpoint', width: 859 },
+  { name: 'tablet at breakpoint', width: 860 },
+  { name: 'wide tablet', width: 1024 },
   { name: 'desktop', width: 1440 },
 ] as const;
 
@@ -148,12 +151,18 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
       expect(image).toHaveAttribute('alt', heroCase.imageAlt);
       expect(image).toHaveAttribute('src');
 
+      const visual = hero.querySelector<HTMLElement>('.program-hero__visual');
+      expect(visual).not.toBeNull();
+      expect(visual).toBeVisible();
+      expect(visual?.querySelector('.program-hero__badge')).not.toBeNull();
+
       if (heroCase.backLink) {
         const backLink = within(hero).getByRole('link', {
           name: heroCase.backLink.label,
         });
         expect(backLink).toHaveAttribute('href', heroCase.backLink.href);
         expect(backLink).toHaveClass('program-hero__back');
+        expect(backLink).toBeVisible();
       } else {
         expect(hero.querySelector('.program-hero__back')).toBeNull();
       }
@@ -164,6 +173,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
       expect(primaryAction).toHaveAttribute('href', heroCase.primaryAction.href);
       expect(primaryAction).toHaveClass('program-hero__action');
       expect(primaryAction).not.toHaveClass('program-hero__action--quiet');
+      expect(primaryAction).toBeVisible();
 
       unmount();
     },
@@ -171,7 +181,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
 });
 
 describe('program hero responsive layout safeguards', () => {
-  it('keeps the hero compact and uses the B4P blue system', () => {
+  it('clips offset visual layers and keeps the hero in the B4P blue system', () => {
     expect(stylesheet).toMatch(
       /\.program-hero\s*\{[^}]*overflow:\s*hidden\s*;/s,
     );
@@ -184,12 +194,38 @@ describe('program hero responsive layout safeguards', () => {
     expect(stylesheet).toMatch(
       /min-height:\s*clamp\(20rem,\s*45svh,\s*34rem\);/,
     );
-    expect(stylesheet).not.toMatch(/\.program-hero__visual/);
+    expect(stylesheet).toMatch(
+      /\.program-hero__visual\s*\{[^}]*width:\s*100%\s*;[^}]*max-width:\s*36rem\s*;[^}]*min-height:\s*25rem\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /\.program-hero__badge\s*\{[^}]*z-index:\s*2\s*;/s,
+    );
   });
 
-  it('uses a single contained column at every viewport size', () => {
+  it('uses a single contained column below the breakpoint and two bounded columns above it', () => {
     expect(stylesheet).toMatch(
       /\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /@media\s*\(min-width:\s*860px\)\s*\{[\s\S]*?\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1\.03fr\) minmax\(23rem, 0\.77fr\)\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual\s*\{[^}]*max-width:\s*33rem\s*;[^}]*min-height:\s*20rem\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual-card,\s*\.program-hero__visual-card img\s*\{[^}]*min-height:\s*20rem\s*;/s,
+    );
+  });
+
+  it('keeps the two-column tablet layout compact around the breakpoint', () => {
+    expect(stylesheet).toMatch(
+      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(20rem, 0\.9fr\)\s*;[^}]*gap:\s*clamp\(1\.75rem, 4vw, 3\.5rem\)\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__visual,\s*\.program-hero--detail \.program-hero__visual\s*\{[^}]*max-width:\s*30rem\s*;[^}]*min-height:\s*22rem\s*;/s,
+    );
+    expect(stylesheet).toMatch(
+      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__badge\s*\{[^}]*top:\s*-0\.7rem\s*;[^}]*right:\s*-0\.35rem\s*;/s,
     );
   });
 });

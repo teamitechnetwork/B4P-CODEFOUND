@@ -3073,6 +3073,7 @@
 
 .program-hero__copy {
   position: relative;
+  min-width: 0;
   max-width: 62rem;
 }
 
@@ -3212,6 +3213,102 @@
   text-transform: none;
 }
 
+.program-hero__visual {
+  position: relative;
+  min-width: 0;
+  width: 100%;
+  max-width: 36rem;
+  min-height: 25rem;
+  justify-self: end;
+}
+
+.program-hero__visual-frame {
+  position: absolute;
+  inset: 0.8rem 0 0 0.8rem;
+  border: 1px solid rgba(169, 234, 240, 0.42);
+  transform: translate(0.7rem, 0.7rem);
+}
+
+.program-hero__visual-card {
+  position: relative;
+  height: 100%;
+  min-height: 25rem;
+  overflow: hidden;
+  background: #0b647d;
+  box-shadow: 1.25rem 1.25rem 0 rgba(4, 61, 88, 0.42);
+}
+
+.program-hero__visual-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 25rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+.program-hero__visual-card::after {
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(0deg, rgba(3, 44, 65, 0.88), transparent);
+  content: '';
+}
+
+.program-hero__visual-label {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.2rem;
+  left: 1.25rem;
+  z-index: 1;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.program-hero__visual-label span {
+  max-width: 18ch;
+  color: #fff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.program-hero__visual-label svg {
+  flex-shrink: 0;
+  color: var(--hero-gold);
+}
+
+.program-hero__badge {
+  position: absolute;
+  top: -1.2rem;
+  right: -1.15rem;
+  z-index: 2;
+  display: grid;
+  width: 6rem;
+  height: 6rem;
+  place-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 50%;
+  color: #123f47;
+  background: var(--hero-cyan);
+  box-shadow: 0 1rem 2rem rgba(3, 44, 65, 0.22);
+  text-align: center;
+}
+
+.program-hero__badge svg {
+  margin: 0 auto 0.25rem;
+}
+
+.program-hero__badge span {
+  font-size: 0.54rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
 .program-hero--landing h1 {
   max-width: 12ch;
 }
@@ -3233,6 +3330,91 @@
 
 .program-hero--detail .program-hero__context {
   color: var(--hero-gold);
+}
+
+.program-hero--detail .program-hero__badge {
+  background: var(--hero-gold);
+}
+
+@media (min-width: 860px) {
+  .program-hero__grid {
+    grid-template-columns: minmax(0, 1.03fr) minmax(23rem, 0.77fr);
+  }
+
+  .program-hero--landing .program-hero__grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(25rem, 1.05fr);
+  }
+
+  .program-hero--detail .program-hero__grid {
+    grid-template-columns: minmax(0, 1.02fr) minmax(23rem, 0.98fr);
+  }
+}
+
+@media (max-width: 859px) {
+  .program-hero__visual {
+    max-width: 33rem;
+    min-height: 20rem;
+    justify-self: start;
+  }
+
+  .program-hero__visual-card,
+  .program-hero__visual-card img {
+    min-height: 20rem;
+  }
+
+  .program-hero__badge {
+    top: -0.7rem;
+    right: -0.35rem;
+  }
+}
+
+@media (min-width: 860px) and (max-width: 1199px) {
+  .program-hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    padding-block: clamp(4rem, 7vw, 5.5rem);
+  }
+
+  .program-hero--landing .program-hero__grid,
+  .program-hero--detail .program-hero__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.9fr);
+  }
+
+  .program-hero h1 {
+    font-size: clamp(3rem, 6.5vw, 5.2rem);
+  }
+
+  .program-hero--detail h1 {
+    font-size: clamp(2.7rem, 5.2vw, 4.8rem);
+  }
+
+  .program-hero__description {
+    margin-top: 1.5rem;
+    font-size: clamp(1rem, 1.45vw, 1.15rem);
+  }
+
+  .program-hero__signal {
+    gap: 1rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .program-hero__visual,
+  .program-hero--detail .program-hero__visual {
+    max-width: 30rem;
+    min-height: 22rem;
+  }
+
+  .program-hero__visual-card,
+  .program-hero__visual-card img,
+  .program-hero--detail .program-hero__visual-card,
+  .program-hero--detail .program-hero__visual-card img {
+    min-height: 22rem;
+  }
+
+  .program-hero__badge {
+    top: -0.7rem;
+    right: -0.35rem;
+  }
 }
 
 @media (max-width: 600px) {
