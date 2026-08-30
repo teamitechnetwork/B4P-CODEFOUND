@@ -1,28 +1,66 @@
-import { useState, type FormEvent } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useId, useState, type FormEvent, type ReactNode } from 'react';
+import { ArrowRight, ArrowUpRight, ChevronDown, Mail, MapPin, Phone } from 'lucide-react';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
-function FooterLinkGroup({
+function FooterAccordion({ title, children }: { title: string; children: ReactNode }) {
+  const panelId = useId();
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <section className="site-footer__accordion">
+      <button
+        type="button"
+        className="site-footer__accordion-trigger"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+      >
+        <span>{title}</span>
+        <ChevronDown className={isOpen ? 'is-open' : ''} size={24} aria-hidden="true" />
+      </button>
+      <div
+        id={panelId}
+        className={`site-footer__accordion-panel ${isOpen ? 'is-open' : ''}`}
+        data-section-title={title}
+      >
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function FooterNestedAccordion({
   title,
-  description,
   links,
 }: {
   title: string;
-  description: string;
   links: { label: string; href: string }[];
 }) {
+  const panelId = useId();
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <section className="site-footer__link-group">
-      <h2>{title}</h2>
-      <p className="site-footer__link-group-description">{description}</p>
-      <nav aria-label={title}>
-        {links.map((link) => (
-          <a href={link.href} key={`${link.href}-${link.label}`}>
-            {link.label}
-          </a>
-        ))}
-      </nav>
-    </section>
+    <div className="site-footer__nested">
+      <button
+        type="button"
+        className="site-footer__nested-trigger"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+      >
+        <span>{title}</span>
+        <ChevronDown className={isOpen ? 'is-open' : ''} size={18} aria-hidden="true" />
+      </button>
+      <div id={panelId} className={`site-footer__nested-panel ${isOpen ? 'is-open' : ''}`}>
+        <div className="site-footer__nested-links">
+          {links.map((link) => (
+            <a href={link.href} key={`${link.href}-${link.label}`}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -94,54 +132,80 @@ export function Footer() {
           <p className="site-footer__tagline">Connecting communities.<br />Building peace.</p>
         </div>
 
-        <div className="site-footer__link-groups">
-          <FooterLinkGroup
-            title="About Us"
-            description="B4P CODEFOUND promotes political, social, and economic justice globally, working with women and girls to foster gender equality and challenge violence."
-            links={[
-              { label: 'Our mission & vision', href: '/about-us' },
-              { label: 'Our history', href: '/about-us' },
-              { label: 'Our Leadership', href: '/the-management-team' },
-              { label: 'Our Board', href: '/the-board' },
-              { label: 'Our partners', href: '/#partner' },
-              { label: 'Where we work', href: '/where-we-work' },
-            ]}
-          />
-          <FooterLinkGroup
-            title="Our Approaches to Change"
-            description="We co-create evidence- and rights-based programs that connect peace, participation, economic opportunity, and community power."
-            links={[
-              { label: 'Peacebuilding', href: '/peacebuilding-program' },
-              { label: 'Economic development', href: '/economic-development-program' },
-              { label: 'Women & girls leadership', href: '/programs/global' },
-              { label: 'Youth & civic engagement', href: '/programs/global/global-youth-exchange-forum' },
-              { label: 'Governance & democracy', href: '/programs/global/peacebuilding-governance' },
-              { label: 'Diaspora engagement', href: '/programs/global' },
-            ]}
-          />
-          <FooterLinkGroup
-            title="Work with Us"
-            description="Join locally led work that builds confidence, strengthens livelihoods, and connects communities across Liberia and the diaspora."
-            links={[
-              { label: 'Volunteer with us', href: '/become-a-volunteer' },
-              { label: 'Internships', href: '/internship' },
-              { label: 'Jobs & open positions', href: '/jobs' },
-              { label: 'Make a donation', href: '/make-a-donation' },
-              { label: 'Become a partner', href: 'mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner' },
-            ]}
-          />
-          <section className="site-footer__link-group site-footer__connect">
-            <h2>Connect With Us</h2>
-            <p className="site-footer__link-group-description">Our relationships begin in community and grow through exchange between Liberia, Ohio, New York, and the wider world.</p>
-            <SocialLinks className="site-footer__social-links" />
-            <nav aria-label="Connect with B4P CODEFOUND">
-              <a href="/contact">Contact Us</a>
-              <a href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a>
-              <a href="tel:+13802061631">Ohio: +1 380-206-1631</a>
-              <a href="/where-we-work">Gbarnga, Bong County · Ohio · New York</a>
-              <a href="mailto:management@b4pcodefound.org?subject=Report%20a%20Concern">Report a concern</a>
+        <div className="site-footer__accordions">
+          <FooterAccordion title="ABOUT B4P CODEFOUND">
+            <p className="site-footer__accordion-description">
+              B4P CODEFOUND promotes political, social, and economic justice globally. We work with women and girls to foster gender equality and challenge violence.
+            </p>
+            <nav aria-label="About B4P CODEFOUND">
+              <a href="/about-us">Our mission &amp; vision</a>
+              <a href="/about-us">Our history</a>
+              <a href="/the-management-team">Our leadership</a>
+              <a href="/the-board">Our board</a>
+              <a href="/#partner">Our partners</a>
+              <a href="/where-we-work">Where we work</a>
             </nav>
-          </section>
+          </FooterAccordion>
+
+          <FooterAccordion title="WHAT WE DO">
+            <p className="site-footer__accordion-description">
+              Through evidence- and rights-based approaches, we co-create programs that connect peace, participation, economic opportunity, and community power.
+            </p>
+            <nav aria-label="B4P CODEFOUND approaches">
+              <a href="/peacebuilding-program">Peacebuilding</a>
+              <a href="/economic-development-program">Economic development</a>
+              <a href="/programs/global">Women &amp; girls leadership</a>
+              <a href="/programs/global/global-youth-exchange-forum">Youth &amp; civic engagement</a>
+              <a href="/programs/global/peacebuilding-governance">Governance &amp; democracy</a>
+              <FooterNestedAccordion
+                title="Services"
+                links={[
+                  { label: 'Fiscal sponsorship', href: '/services/fiscal-sponsorship' },
+                  { label: 'Nonprofit capacity building', href: '/services/nonprofit-capacity-building' },
+                  { label: 'Business development', href: '/services/business-development' },
+                ]}
+              />
+            </nav>
+          </FooterAccordion>
+
+          <FooterAccordion title="WORK WITH US">
+            <p className="site-footer__accordion-description">
+              Join locally led work that builds confidence, strengthens livelihoods, and connects communities across Liberia and the diaspora.
+            </p>
+            <nav aria-label="Work with B4P CODEFOUND">
+              <a href="/become-a-volunteer">Volunteer with us</a>
+              <a href="/internship">Internships</a>
+              <a href="/jobs">Jobs &amp; open positions</a>
+              <a href="/make-a-donation">Make a donation</a>
+              <a href="mailto:management@b4pcodefound.org?subject=Become%20a%20B4P%20partner">Become a partner</a>
+            </nav>
+          </FooterAccordion>
+
+          <FooterAccordion title="CONNECT WITH US">
+            <p className="site-footer__accordion-description">
+              Our relationships begin in community and grow through exchange between Liberia, Ohio, New York, and the wider world.
+            </p>
+            <SocialLinks className="site-footer__social-links" />
+            <address className="site-footer__contact">
+              <a href="/contact">Contact B4P CODEFOUND</a>
+              <a href="mailto:management@b4pcodefound.org">
+                <Mail size={16} aria-hidden="true" />
+                management@b4pcodefound.org
+              </a>
+              <a href="tel:+13802061631">
+                <Phone size={16} aria-hidden="true" />
+                Ohio: +1 380-206-1631
+              </a>
+              <p>
+                <MapPin size={16} aria-hidden="true" />
+                <span>Gbarnga, Bong County · Ohio · New York</span>
+              </p>
+              <a href="mailto:management@b4pcodefound.org?subject=Report%20a%20Concern">
+                <ArrowUpRight size={16} aria-hidden="true" />
+                Report a concern
+              </a>
+            </address>
+          </FooterAccordion>
         </div>
 
         <FooterNewsletter />
