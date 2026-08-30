@@ -390,21 +390,28 @@ const months = ['All months', ...Array.from(new Set(internationalDays.map((item)
 
 const SAVED_OBSERVANCES_STORAGE_KEY = 'b4p-international-days-planning-list';
 
-function readSavedTitles() {
-  if (typeof window === 'undefined') return [];
+function parseSavedTitles(stored: string | null): string[] | null {
+  if (!stored) return [];
 
   try {
-    const stored = window.localStorage.getItem(SAVED_OBSERVANCES_STORAGE_KEY);
-    if (!stored) return [];
-
     const parsed: unknown = JSON.parse(stored);
-    if (!Array.isArray(parsed)) return [];
+    if (!Array.isArray(parsed)) return null;
 
     const knownTitles = new Set([
       ...internationalDays.map((item) => item.title),
       ...calendarObservances.map((item) => item.title),
     ]);
     return [...new Set(parsed.filter((title): title is string => typeof title === 'string' && knownTitles.has(title)))];
+  } catch {
+    return null;
+  }
+}
+
+function readSavedTitles() {
+  if (typeof window === 'undefined') return [];
+
+  try {
+    return parseSavedTitles(window.localStorage.getItem(SAVED_OBSERVANCES_STORAGE_KEY)) ?? [];
   } catch {
     return [];
   }
@@ -423,9 +430,12 @@ export function useSavedObservances() {
 
   useEffect(() => {
     const handleStorageChange = (event: StorageEvent) => {
-      if (event.key === SAVED_OBSERVANCES_STORAGE_KEY) {
-        setSavedTitles(readSavedTitles());
-      }
+      if (event.key !== SAVED_OBSERVANCES_STORAGE_KEY) return;
+
+      // Use the event payload so a change from another tab is applied even
+      // when this document's localStorage has not been updated yet.
+      const nextSavedTitles = parseSavedTitles(event.newValue);
+      if (nextSavedTitles) setSavedTitles(nextSavedTitles);
     };
 
     window.addEventListener('storage', handleStorageChange);

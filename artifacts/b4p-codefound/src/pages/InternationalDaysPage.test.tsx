@@ -190,6 +190,50 @@ describe('international days planning list', () => {
     });
   });
 
+  it('syncs saves and removals from another document while ignoring malformed and unrelated events', async () => {
+    render(<InternationalDaysPage />);
+
+    const otherDocument = document.implementation.createHTMLDocument('planning tab');
+    const otherTabStorage = new Map<string, string>();
+    const dispatchOtherTabStorageEvent = () => {
+      window.dispatchEvent(new StorageEvent('storage', {
+        key: storageKey,
+        newValue: otherTabStorage.get(storageKey) ?? null,
+        url: otherDocument.URL,
+      }));
+    };
+
+    otherTabStorage.set(storageKey, JSON.stringify(['International Day of Education']));
+    dispatchOtherTabStorageEvent();
+
+    const educationCard = screen.getByRole('heading', { name: 'International Day of Education' }).closest('article');
+    if (!educationCard) throw new Error('Expected the education observance card to render');
+
+    await waitFor(() => {
+      expect(within(educationCard).getByRole('button', { name: 'Saved to list' })).toBeInTheDocument();
+    });
+
+    otherTabStorage.delete(storageKey);
+    dispatchOtherTabStorageEvent();
+
+    await waitFor(() => {
+      expect(within(educationCard).getByRole('button', { name: 'Save for planning' })).toBeInTheDocument();
+    });
+
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: storageKey,
+      newValue: '{not valid json',
+      url: otherDocument.URL,
+    }));
+    window.dispatchEvent(new StorageEvent('storage', {
+      key: 'unrelated-storage-key',
+      newValue: JSON.stringify(['International Day of Education']),
+      url: otherDocument.URL,
+    }));
+
+    expect(within(educationCard).getByRole('button', { name: 'Save for planning' })).toBeInTheDocument();
+  });
+
   it('tracks a full-calendar brief download when no moments are saved', () => {
     const createObjectURL = vi.fn<(blob: Blob) => string>(() => 'blob:planning-brief');
     Object.defineProperty(URL, 'createObjectURL', {

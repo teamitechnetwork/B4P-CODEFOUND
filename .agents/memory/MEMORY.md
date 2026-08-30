@@ -3,3 +3,4 @@
 - [Canvas preview domains](canvas-preview-domains.md) — the sandbox preview domain may be available to shell workflows even when the env helper cannot return it.
 - [Package install config drift](package-install-config-drift.md) — inspect `.replit` after dependency installs for unrelated generated changes.
 - [Planner review test scope](planner-review-test-scope.md) — scope repeated calendar/detail assertions to the labeled planner region.
+- [Cross-document storage events](cross-document-storage-events.md) — test tab-to-tab saves through StorageEvent.newValue and ignore malformed payloads without replacing valid state.
