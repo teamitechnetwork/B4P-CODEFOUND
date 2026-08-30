@@ -1279,7 +1279,8 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-section__photo,
   .hero-section__indicator.is-active::after,
-  .hero-section__typing-cursor {
+  .hero-section__typing-cursor,
+  .partner-logos__track {
     animation: none;
   }
 
