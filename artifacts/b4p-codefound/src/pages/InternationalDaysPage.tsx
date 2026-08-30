@@ -4,7 +4,6 @@ import {
   ArrowUpRight,
   CalendarDays,
   Check,
-  ExternalLink,
   Filter,
   Link2,
   ListFilter,
@@ -37,8 +36,6 @@ type UnescoObservance = {
 };
 
 type UnescoSeed = [month: string, date: string, title: string, url: string];
-
-const unescoCalendarUrl = 'https://www.unesco.org/en/days/list';
 
 const unescoObservanceSeed: UnescoSeed[] = [
   ['January', '14 Jan', 'World Logic Day', 'https://www.unesco.org/days/world-logic?hub=180536'],
@@ -128,6 +125,103 @@ const unescoObservances: UnescoObservance[] = unescoObservanceSeed.map(([month, 
   url,
 }));
 const unescoMonths = Array.from(new Set(unescoObservances.map((item) => item.month)));
+
+function slugifyObservance(title: string) {
+  return title
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+export type CalendarObservance = UnescoObservance & {
+  slug: string;
+};
+
+export const calendarObservances: CalendarObservance[] = unescoObservances.map((item) => ({
+  ...item,
+  slug: slugifyObservance(item.title),
+}));
+
+export const calendarMonths = unescoMonths;
+
+export function getCalendarObservance(slug: string) {
+  return calendarObservances.find((item) => item.slug === slug);
+}
+
+export function getCalendarObservanceHref(title: string) {
+  const normalizedTitle = title.toLowerCase().replace(/[’']/g, '');
+  const item = calendarObservances.find((observance) => {
+    const normalizedObservance = observance.title.toLowerCase().replace(/[’']/g, '');
+    return normalizedObservance === normalizedTitle
+      || normalizedObservance.includes(normalizedTitle)
+      || normalizedTitle.includes(normalizedObservance);
+  });
+  return item ? `/international-days/${item.slug}` : '/international-days';
+}
+
+export type CalendarCategory =
+  | 'Peace & dialogue'
+  | 'Women & girls'
+  | 'Youth & learning'
+  | 'Culture & belonging'
+  | 'Environment & future'
+  | 'Media & information'
+  | 'Rights & access';
+
+export function getCalendarCategory(title: string): CalendarCategory {
+  const lowerTitle = title.toLowerCase();
+  if (/(women|girl|gender|multilateralism)/.test(lowerTitle)) return 'Women & girls';
+  if (/(education|literacy|language|teacher|school|youth|university|coding|digital learning|mathematics|engineering|science)/.test(lowerTitle)) return 'Youth & learning';
+  if (/(environment|ocean|water|glacier|mangrove|biodiversity|desertification|geodiversity|biosphere|olive tree|tsunami)/.test(lowerTitle)) return 'Environment & future';
+  if (/(radio|press|journalist|information|audiovisual)/.test(lowerTitle)) return 'Media & information';
+  if (/(peace|tolerance|democracy|human rights|discrimination|violence|slavery|slave|holocaust|genocide|solidarity|conscience|living together)/.test(lowerTitle)) return 'Peace & dialogue';
+  if (/(disabilit|access|poverty|sport|metrology|future|migrants)/.test(lowerTitle)) return 'Rights & access';
+  return 'Culture & belonging';
+}
+
+export function getCalendarGuidance(title: string, category: CalendarCategory) {
+  const guidance: Record<CalendarCategory, { summary: string; prompt: string; nextStep: string }> = {
+    'Peace & dialogue': {
+      summary: 'Use this moment to make room for honest conversation, shared memory, and the everyday choices that help people live with dignity and peace.',
+      prompt: `Bring people together around one question raised by ${title}, then make space for different experiences before choosing a shared next step.`,
+      nextStep: 'Invite a listening circle',
+    },
+    'Women & girls': {
+      summary: 'Use this moment to recognize women’s leadership, make barriers visible, and turn a public commitment into practical support.',
+      prompt: `Ask women and girls closest to this theme what would make opportunity, safety, or leadership more real in your community.`,
+      nextStep: 'Center lived experience',
+    },
+    'Youth & learning': {
+      summary: 'Use this moment to connect learning with agency, imagination, and the skills people need to shape their own futures.',
+      prompt: `Give young people a real role in shaping a small response to ${title} — with the brief, the microphone, or the first draft in their hands.`,
+      nextStep: 'Put learners in the lead',
+    },
+    'Culture & belonging': {
+      summary: 'Use this moment to honor the stories, language, memory, and creative practices that help communities recognize one another.',
+      prompt: `Create a small public moment around the culture or memory held by people closest to ${title}, with room for exchange rather than performance alone.`,
+      nextStep: 'Make belonging visible',
+    },
+    'Environment & future': {
+      summary: 'Use this moment to connect the health of our shared environment with the choices, knowledge, and local leadership that protect the future.',
+      prompt: `Pair a local observation with one useful action related to ${title}, and let community knowledge guide what happens next.`,
+      nextStep: 'Turn attention into care',
+    },
+    'Media & information': {
+      summary: 'Use this moment to widen access to trusted information, public voice, and the stories communities need to understand themselves.',
+      prompt: `Work with local storytellers, educators, or media makers to open a conversation about the questions behind ${title}.`,
+      nextStep: 'Share a trusted story',
+    },
+    'Rights & access': {
+      summary: 'Use this moment to move beyond awareness toward access, accountability, and practical changes people can feel in daily life.',
+      prompt: `Ask who is most affected by the issue behind ${title}, then remove one barrier with them rather than designing a response from a distance.`,
+      nextStep: 'Remove one barrier',
+    },
+  };
+  return guidance[category];
+}
 
 const internationalDays: InternationalDay[] = [
   {
@@ -296,8 +390,7 @@ function downloadPlanningBrief(savedDays: InternationalDay[]) {
     '',
     ...selected.map((item) => `${item.date} — ${item.title}\nCategory: ${item.category}\nPlanning prompt: ${item.planningPrompt}`),
     '',
-    'Source calendar: UNESCO International Days',
-    unescoCalendarUrl,
+    'B4P CODEFOUND community programming calendar',
   ].join('\n\n');
   const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
   const url = URL.createObjectURL(blob);
@@ -349,9 +442,9 @@ export default function InternationalDaysPage() {
                 <em>matter.</em>
               </h1>
               <p>
-                A curated guide to UNESCO International Days that can help
-                African-led peacebuilding, education, inclusion, and collective
-                action find a moment in the calendar — and a place in community.
+                 A B4P guide to meaningful observances that can help African-led
+                 peacebuilding, education, inclusion, and collective action find a
+                 moment in the calendar — and a place in community.
               </p>
               <div className="international-days-hero__actions">
                 <a className="international-days-primary-link" href="#calendar">
@@ -522,8 +615,8 @@ export default function InternationalDaysPage() {
                           <p>{item.planningPrompt}</p>
                         </div>
                         <div className="international-day-card__footer">
-                          <a href={item.unescoUrl} target="_blank" rel="noreferrer">
-                            UNESCO calendar <ExternalLink size={14} aria-hidden="true" />
+                          <a href={getCalendarObservanceHref(item.title)}>
+                            Explore this day <ArrowDownRight size={14} aria-hidden="true" />
                           </a>
                           <button type="button" className={isSaved ? 'is-saved' : ''} onClick={() => toggleSaved(item.title)} aria-pressed={isSaved}>
                             {isSaved ? <Check size={15} aria-hidden="true" /> : <Star size={15} aria-hidden="true" />}
@@ -548,7 +641,7 @@ export default function InternationalDaysPage() {
 
             <div className="international-days-source">
               <Link2 size={16} aria-hidden="true" />
-              <p>Dates and observances are drawn from UNESCO’s International Days calendar. Always confirm current details before publishing a public programme.</p>
+              <p>Dates are presented as a planning reference. Always confirm timing and local context before publishing a public programme.</p>
               <a href="#official-list">Read the full list <ArrowDownRight size={14} aria-hidden="true" /></a>
             </div>
           </div>
@@ -558,18 +651,18 @@ export default function InternationalDaysPage() {
           <div className="page-container">
             <div className="international-days-official__header">
               <div>
-                <span className="international-days-section-kicker">Official source · built in</span>
-                <h2>The full UNESCO list,<br /><em>readable here.</em></h2>
+                <span className="international-days-section-kicker">The full calendar · built in</span>
+                <h2>Every day has<br /><em>a next step.</em></h2>
               </div>
               <div className="international-days-official__intro">
                 <p>
-                  Every observance currently listed by UNESCO is gathered below
-                  by month, with its date and official detail page. Use the
-                  curated cards above for B4P planning prompts, or scan the full
-                  source list when you are shaping your year.
+                  Every observance in the B4P calendar is gathered below by month,
+                  with its date and a dedicated page for context, reflection, and
+                  practical action. Use the curated cards above for ready-to-use
+                  planning prompts, or scan the full directory when shaping your year.
                 </p>
-                <a href={unescoCalendarUrl} target="_blank" rel="noreferrer">
-                  Open the live UNESCO calendar <ExternalLink size={14} aria-hidden="true" />
+                <a href="/partner-with-us">
+                  Build a moment with B4P <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -582,12 +675,12 @@ export default function InternationalDaysPage() {
                     <h3>{month}</h3>
                   </div>
                   <ul>
-                    {unescoObservances.filter((item) => item.month === month).map((item) => (
+                    {calendarObservances.filter((item) => item.month === month).map((item) => (
                       <li key={`${item.date}-${item.title}`}>
                         <time>{item.date}</time>
-                        <a href={item.url} target="_blank" rel="noreferrer">
+                        <a href={`/international-days/${slugifyObservance(item.title)}`}>
                           {item.title}
-                          <ExternalLink size={13} aria-hidden="true" />
+                          <ArrowUpRight size={13} aria-hidden="true" />
                         </a>
                       </li>
                     ))}
@@ -597,8 +690,8 @@ export default function InternationalDaysPage() {
             </div>
 
             <div className="international-days-official__note">
-              <span>{unescoObservances.length} observances</span>
-              <p>Source checked against UNESCO’s live list on August 30, 2026. UNESCO may update dates, names, or detail pages over time.</p>
+              <span>{calendarObservances.length} observances</span>
+              <p>Dates are presented as a planning reference and may change. Confirm timing and local context before publishing a public programme.</p>
             </div>
           </div>
         </section>
