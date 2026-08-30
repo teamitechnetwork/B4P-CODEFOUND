@@ -15910,19 +15910,21 @@ body.has-site-search-open {
 
 .site-footer.reference-footer .site-footer__legal {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   justify-content: center;
-  justify-items: center;
-  gap: 9px;
-  width: 100%;
+  justify-items: start;
+  gap: 10px 44px;
+  width: min(100%, 560px);
   margin-inline: auto;
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .site-footer.reference-footer .site-footer__legal a {
   display: inline-flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.55rem;
   min-height: 26px;
   color: #fff;
@@ -15937,8 +15939,9 @@ body.has-site-search-open {
 
 .site-footer.reference-footer .site-footer__legal button {
   display: inline-flex;
+  width: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.55rem;
 }
 
@@ -16192,7 +16195,11 @@ body.has-site-search-open {
   }
 
   .site-footer.reference-footer .site-footer__legal {
+    grid-template-columns: 1fr;
+    justify-items: start;
     gap: 8px;
+    width: 100%;
+    text-align: left;
   }
 
   .site-footer.reference-footer .site-footer__legal a + a::before {
