@@ -33,6 +33,7 @@ import InternationalDaysPage from '@/pages/InternationalDaysPage';
 import InternationalDayDetailPage from '@/pages/InternationalDayDetailPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import FaqsPage from '@/pages/FaqsPage';
+import { CookieConsent } from '@/components/layout/CookieConsent';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -231,6 +232,7 @@ function App() {
         </WouterRouter>
         <Toaster />
         <SiteUtilities />
+        <CookieConsent />
       </TooltipProvider>
     </QueryClientProvider>
   );

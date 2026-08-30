@@ -1,6 +1,7 @@
 import { useId, useState, type FormEvent, type ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight, ChevronDown, Mail, MapPin, Phone } from 'lucide-react';
 import { SocialLinks } from '@/components/layout/SocialLinks';
+import { openCookieSettings } from '@/components/layout/CookieConsent';
 
 function FooterAccordion({ title, children }: { title: string; children: ReactNode }) {
   const panelId = useId();
@@ -229,6 +230,7 @@ export function Footer() {
             <a href="/privacy-policy">B4P CODEFOUND Privacy</a>
             <a href="/terms-and-conditions">Terms &amp; Conditions</a>
             <a href="/cookie-policy">Cookies Policy</a>
+            <button type="button" onClick={openCookieSettings}>Cookie settings</button>
           </nav>
           <p>© 2015 - {currentYear} Business for Peace Community Development Foundation. All rights reserved.</p>
           <div className="site-footer__bottom-meta">
