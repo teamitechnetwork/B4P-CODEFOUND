@@ -34,6 +34,7 @@ import InternationalDayDetailPage from '@/pages/InternationalDayDetailPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import FaqsPage from '@/pages/FaqsPage';
 import { CookieConsent } from '@/components/layout/CookieConsent';
+import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -233,6 +234,7 @@ function App() {
         <Toaster />
         <SiteUtilities />
         <CookieConsent />
+        <LoadingScreen />
       </TooltipProvider>
     </QueryClientProvider>
   );
