@@ -1,23 +1,31 @@
-import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'wouter';
+import { useEffect, useState } from 'react';
 
 const LOADER_FADE_START_MS = 4650;
 const LOADER_REMOVE_MS = 5000;
+const LOADER_SESSION_KEY = 'b4p_loader_seen';
+
+function shouldShowLoader() {
+  if (typeof window === 'undefined') return true;
+
+  try {
+    if (window.sessionStorage.getItem(LOADER_SESSION_KEY) === 'true') return false;
+    window.sessionStorage.setItem(LOADER_SESSION_KEY, 'true');
+  } catch {
+    // If session storage is unavailable, keep the startup splash enabled.
+  }
+
+  return true;
+}
 
 export function LoadingScreen() {
-  const [location] = useLocation();
-  const [phase, setPhase] = useState<'visible' | 'leaving' | 'hidden'>('visible');
-  const [loaderCycle, setLoaderCycle] = useState(0);
-  const previousLocation = useRef(location);
+  const [showLoader] = useState(shouldShowLoader);
+  const [phase, setPhase] = useState<'visible' | 'leaving' | 'hidden'>(
+    showLoader ? 'visible' : 'hidden',
+  );
 
   useEffect(() => {
-    if (previousLocation.current === location) return;
+    if (!showLoader) return;
 
-    previousLocation.current = location;
-    setLoaderCycle((cycle) => cycle + 1);
-  }, [location]);
-
-  useEffect(() => {
     setPhase('visible');
     const fadeTimer = window.setTimeout(() => setPhase('leaving'), LOADER_FADE_START_MS);
     const removeTimer = window.setTimeout(() => setPhase('hidden'), LOADER_REMOVE_MS);
@@ -26,7 +34,7 @@ export function LoadingScreen() {
       window.clearTimeout(fadeTimer);
       window.clearTimeout(removeTimer);
     };
-  }, [loaderCycle]);
+  }, [showLoader]);
 
   if (phase === 'hidden') return null;
 
