@@ -29,7 +29,105 @@ type InternationalDay = {
   featured?: boolean;
 };
 
+type UnescoObservance = {
+  date: string;
+  month: string;
+  title: string;
+  url: string;
+};
+
+type UnescoSeed = [month: string, date: string, title: string, url: string];
+
 const unescoCalendarUrl = 'https://www.unesco.org/en/days/list';
+
+const unescoObservanceSeed: UnescoSeed[] = [
+  ['January', '14 Jan', 'World Logic Day', 'https://www.unesco.org/days/world-logic?hub=180536'],
+  ['January', '24 Jan', 'International Day of Education', 'https://www.unesco.org/days/education?hub=180536'],
+  ['January', '24 Jan', 'World Day for African and Afrodescendant Culture', 'https://www.unesco.org/days/african-culture?hub=180536'],
+  ['January', '25 Jan', 'International Day of Women in Multilateralism', 'https://www.unesco.org/days/women-multilateralism?hub=180536'],
+  ['January', '27 Jan', 'International Day of Commemoration in Memory of the Victims of the Holocaust', 'https://www.unesco.org/days/holocaust-remembrance?hub=180536'],
+  ['February', '11 Feb', 'International Day of Women and Girls in Science', 'https://www.unesco.org/days/women-girls-science?hub=180536'],
+  ['February', '13 Feb', 'World Radio Day', 'https://www.unesco.org/days/world-radio?hub=180536'],
+  ['February', '21 Feb', 'International Mother Language Day', 'https://www.unesco.org/days/mother-language?hub=180536'],
+  ['March', '04 Mar', 'World Engineering Day for Sustainable Development', 'https://www.unesco.org/days/engineering-sustainable-development?hub=180536'],
+  ['March', '08 Mar', 'International Women’s Day', 'https://www.unesco.org/days/women?hub=180536'],
+  ['March', '14 Mar', 'International Day of Mathematics', 'https://www.unesco.org/days/mathematics?hub=180536'],
+  ['March', '19 Mar', 'International Day for Digital Learning', 'https://www.unesco.org/days/digital-learning?hub=180536'],
+  ['March', '20 Mar', 'International Francophonie Day', 'https://www.unesco.org/days/francophonie?hub=180536'],
+  ['March', '21 Mar', 'International Day for the Elimination of Racial Discrimination', 'https://www.unesco.org/days/racial-discrimination-elimination?hub=180536'],
+  ['March', '21 Mar', 'World Day for Glaciers', 'https://www.unesco.org/days/world-glaciers?hub=180536'],
+  ['March', '21 Mar', 'International Day of Nowruz', 'https://www.unesco.org/international-day-nowruz?hub=180536'],
+  ['March', '21 Mar', 'World Poetry Day', 'https://www.unesco.org/days/poetry?hub=180536'],
+  ['March', '22 Mar', 'World Water Day', 'https://www.unesco.org/days/world-water?hub=180536'],
+  ['April', '05 Apr', 'International Day of Conscience', 'https://www.unesco.org/days/conscience-day?hub=180536'],
+  ['April', '06 Apr', 'International Day of Sport for Development and Peace', 'https://www.unesco.org/days/sport-development-and-peace?hub=180536'],
+  ['April', '07 Apr', 'International Day of Reflection on the 1994 Genocide against the Tutsi in Rwanda', 'https://www.unesco.org/days/tutsi-genocide?hub=180536'],
+  ['April', '15 Apr', 'World Art Day', 'https://www.unesco.org/days/world-art?hub=180536'],
+  ['April', '23 Apr', 'World Book and Copyright Day', 'https://www.unesco.org/days/world-book-and-copyright?hub=180536'],
+  ['April', '25 Apr', 'International Day for Small Island Developing States', 'https://www.unesco.org/days/sids?hub=180536'],
+  ['April', '30 Apr', 'International Jazz Day', 'https://www.unesco.org/international-jazz-day?hub=180536'],
+  ['May', '03 May', 'World Press Freedom Day', 'https://www.unesco.org/days/press-freedom?hub=180536'],
+  ['May', '05 May', 'World Portuguese Language Day', 'https://www.unesco.org/days/portuguese-language?hub=180536'],
+  ['May', '05 May', 'African World Heritage Day', 'https://www.unesco.org/days/african-world-heritage?hub=180536'],
+  ['May', '16 May', 'International Day of Living Together in Peace', 'https://www.unesco.org/days/living-together-peace?hub=180536'],
+  ['May', '16 May', 'International Day of Light', 'https://www.unesco.org/days/light?hub=180536'],
+  ['May', '20 May', 'World Metrology Day', 'https://www.unesco.org/days/metrology?hub=180536'],
+  ['May', '21 May', 'World Day for Cultural Diversity for Dialogue and Development', 'https://www.unesco.org/days/cultural-diversity-dialogue-development?hub=180536'],
+  ['May', '22 May', 'International Day for Biological Diversity', 'https://www.unesco.org/days/biological-diversity?hub=180536'],
+  ['June', '05 Jun', 'World Environment Day', 'https://www.unesco.org/days/environment?hub=180536'],
+  ['June', '08 Jun', 'World Oceans Day', 'https://www.unesco.org/days/oceans?hub=180536'],
+  ['June', '17 Jun', 'World Day to Combat Desertification and Drought', 'https://www.unesco.org/days/desertification-drought-combat?hub=180536'],
+  ['July', '07 Jul', 'Kiswahili Language Day', 'https://www.unesco.org/days/kiswahili-language?hub=180536'],
+  ['July', '18 Jul', 'Nelson Mandela International Day', 'https://www.unesco.org/days/nelson-mandela?hub=180536'],
+  ['July', '26 Jul', 'International Day for the Conservation of the Mangrove Ecosystem', 'https://www.unesco.org/days/mangrove-ecosystem-conservation?hub=180536'],
+  ['August', '09 Aug', 'International Day of the World’s Indigenous Peoples', 'https://www.unesco.org/international-day-worlds-indigenous-peoples?hub=180536'],
+  ['August', '12 Aug', 'International Youth Day', 'https://www.unesco.org/days/youth?hub=180536'],
+  ['August', '21 Aug', 'International Day for Underwater Cultural Heritage', 'https://www.unesco.org/days/underwater-cultural-heritage?hub=180536'],
+  ['August', '23 Aug', 'International Day for the Remembrance of the Slave Trade and its Abolition', 'https://www.unesco.org/days/slave-trade-remembrance?hub=180536'],
+  ['September', '08 Sep', 'International Literacy Day', 'https://www.unesco.org/days/literacy?hub=180536'],
+  ['September', '09 Sept', 'International Day to Protect Education from Attack', 'https://www.unesco.org/days/protect-education-attack?hub=180536'],
+  ['September', '13 Sept', 'International Day for Caves and Karst', 'https://www.unesco.org/days/caves-and-karst?hub=180536'],
+  ['September', '15 Sept', 'International Day of Democracy', 'https://www.unesco.org/days/democracy?hub=180536'],
+  ['September', '20 Sept', 'International Day of University Sport', 'https://www.unesco.org/days/university-sport?hub=180536'],
+  ['September', '21 Sept', 'International Day of Peace', 'https://www.unesco.org/days/peace?hub=180536'],
+  ['September', '28 Sept', 'International Day for Universal Access to Information', 'https://www.unesco.org/days/universal-access-information?hub=180536'],
+  ['October', '05 Oct', 'World Teachers’ Day', 'https://www.unesco.org/days/teachers?hub=180536'],
+  ['October', '06 Oct', 'International Geodiversity Day', 'https://www.unesco.org/days/geodiversity?hub=180536'],
+  ['October', '11 Oct', 'International Day of the Girl', 'https://www.unesco.org/days/girl-child?hub=180536'],
+  ['October', '13 Oct', 'International Day for Disaster Risk Reduction', 'https://www.unesco.org/days/disaster-risk-reduction?hub=180536'],
+  ['October', '17 Oct', 'International Day of the Intangible Cultural Heritage', 'https://www.unesco.org/days/intangible-heritage?hub=180536'],
+  ['October', '17 Oct', 'International Day for the Eradication of Poverty', 'https://www.unesco.org/days/poverty-eradication?hub=180536'],
+  ['October', '27 Oct', 'World Day for Audiovisual Heritage', 'https://www.unesco.org/days/audiovisual-heritage?hub=180536'],
+  ['October', '29 Oct', 'World Coding Day', 'https://www.unesco.org/days/coding?hub=180536'],
+  ['November', '02 Nov', 'International Day to End Impunity for Crimes against Journalists', 'https://www.unesco.org/days/end-impunity?hub=180536'],
+  ['November', '03 Nov', 'International Day for Biosphere Reserves', 'https://www.unesco.org/days/biosphere-reserves?hub=180536'],
+  ['November', '05 Nov', 'World Day of Romani Language', 'https://www.unesco.org/days/romani-language?hub=180536'],
+  ['November', '05 Nov', 'World Tsunami Awareness Day', 'https://www.unesco.org/days/tsunami-awareness?hub=180536'],
+  ['November', '06 Nov', 'International Day against Violence and Bullying at School, including Cyberbullying', 'https://www.unesco.org/days/against-school-violence-and-bullying?hub=180536'],
+  ['November', '10 Nov', 'World Science Day for Peace and Development', 'https://www.unesco.org/days/science-peace-development?hub=180536'],
+  ['November', '14 Nov', 'International Day against Illicit Trafficking in Cultural Property', 'https://www.unesco.org/days/against-illicit-trafficking?hub=180536'],
+  ['November', '16 Nov', 'International Day for Tolerance', 'https://www.unesco.org/days/tolerance?hub=180536'],
+  ['November', '18 Nov', 'International Day of Islamic Art', 'https://www.unesco.org/international-day-islamic-art?hub=180536'],
+  ['November', '20 Nov', 'World Philosophy Day', 'https://www.unesco.org/days/philosophy?hub=180536'],
+  ['November', '25 Nov', 'International Day for the Elimination of Violence against Women', 'https://www.unesco.org/days/elimination-violence-against-women?hub=180536'],
+  ['November', '26 Nov', 'World Olive Tree Day', 'https://www.unesco.org/days/world-olive-tree?hub=180536'],
+  ['November', '27 Nov', 'International Day of Engagement in Science for Sustainable Development', 'https://www.unesco.org/days/engagement-science-sustainable-development?hub=180536'],
+  ['November', '29 Nov', 'International Day of Solidarity with the Palestinian People', 'https://www.unesco.org/days/international-day-solidarity-palestinian-people?hub=180536'],
+  ['December', '01 Dec', 'World AIDS Day', 'https://www.unesco.org/days/world-aids?hub=180536'],
+  ['December', '02 Dec', 'World Futures Day', 'https://www.unesco.org/days/world-futures?hub=180536'],
+  ['December', '03 Dec', 'International Day of Persons with Disabilities', 'https://www.unesco.org/days/international-day-persons-disabilities?hub=180536'],
+  ['December', '10 Dec', 'Human Rights Day', 'https://www.unesco.org/days/human-rights?hub=180536'],
+  ['December', '18 Dec', 'International Migrants Day', 'https://www.unesco.org/days/international-migrants?hub=180536'],
+  ['December', '18 Dec', 'World Arabic Language Day', 'https://www.unesco.org/world-arabic-language-day?hub=180536'],
+];
+
+const unescoObservances: UnescoObservance[] = unescoObservanceSeed.map(([month, date, title, url]) => ({
+  month,
+  date,
+  title,
+  url,
+}));
+const unescoMonths = Array.from(new Set(unescoObservances.map((item) => item.month)));
 
 const internationalDays: InternationalDay[] = [
   {
@@ -451,7 +549,56 @@ export default function InternationalDaysPage() {
             <div className="international-days-source">
               <Link2 size={16} aria-hidden="true" />
               <p>Dates and observances are drawn from UNESCO’s International Days calendar. Always confirm current details before publishing a public programme.</p>
-              <a href={unescoCalendarUrl} target="_blank" rel="noreferrer">Visit UNESCO <ExternalLink size={14} aria-hidden="true" /></a>
+              <a href="#official-list">Read the full list <ArrowDownRight size={14} aria-hidden="true" /></a>
+            </div>
+          </div>
+        </section>
+
+        <section id="official-list" className="international-days-official">
+          <div className="page-container">
+            <div className="international-days-official__header">
+              <div>
+                <span className="international-days-section-kicker">Official source · built in</span>
+                <h2>The full UNESCO list,<br /><em>readable here.</em></h2>
+              </div>
+              <div className="international-days-official__intro">
+                <p>
+                  Every observance currently listed by UNESCO is gathered below
+                  by month, with its date and official detail page. Use the
+                  curated cards above for B4P planning prompts, or scan the full
+                  source list when you are shaping your year.
+                </p>
+                <a href={unescoCalendarUrl} target="_blank" rel="noreferrer">
+                  Open the live UNESCO calendar <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+
+            <div className="international-days-official__grid">
+              {unescoMonths.map((month, index) => (
+                <article className="international-days-month" key={month}>
+                  <div className="international-days-month__heading">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{month}</h3>
+                  </div>
+                  <ul>
+                    {unescoObservances.filter((item) => item.month === month).map((item) => (
+                      <li key={`${item.date}-${item.title}`}>
+                        <time>{item.date}</time>
+                        <a href={item.url} target="_blank" rel="noreferrer">
+                          {item.title}
+                          <ExternalLink size={13} aria-hidden="true" />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+
+            <div className="international-days-official__note">
+              <span>{unescoObservances.length} observances</span>
+              <p>Source checked against UNESCO’s live list on August 30, 2026. UNESCO may update dates, names, or detail pages over time.</p>
             </div>
           </div>
         </section>

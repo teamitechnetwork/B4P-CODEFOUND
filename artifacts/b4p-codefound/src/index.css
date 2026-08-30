@@ -335,14 +335,14 @@
   position: relative;
   overflow: hidden;
   min-height: min(740px, 92svh);
-  background: #075466;
+  background: linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
   color: #fff;
 }
 
 .international-days-hero::before {
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, rgba(1, 73, 91, 0.92), rgba(1, 73, 91, 0.24) 62%, rgba(214, 165, 58, 0.2));
+  background: linear-gradient(115deg, rgba(0, 54, 92, 0.76), rgba(1, 110, 180, 0.18) 62%, rgba(141, 223, 230, 0.2));
   content: '';
   pointer-events: none;
 }
@@ -367,7 +367,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  color: #f0cf69;
+  color: #8ddfe6;
   font-size: 0.7rem;
   font-weight: 850;
   letter-spacing: 0.16em;
@@ -396,7 +396,7 @@
 .international-days-intro h2 em,
 .international-days-calendar h2 em,
 .international-days-cta h2 em {
-  color: #f0cf69;
+  color: #8ddfe6;
   font-family: Georgia, serif;
   font-weight: 400;
   letter-spacing: -0.065em;
@@ -454,14 +454,14 @@
 
 .international-days-text-link:hover,
 .international-days-text-link:focus-visible {
-  color: #f0cf69;
+  color: #8ddfe6;
 }
 
 .international-days-hero__art {
   position: relative;
   min-height: min(540px, 50vw);
   overflow: hidden;
-  background: #df5311;
+  background: #016eb4;
   isolation: isolate;
 }
 
@@ -531,8 +531,8 @@
   padding: 1.3rem;
   border-radius: 50%;
   color: #123f47;
-  background: #f0cf69;
-  box-shadow: 0 1.5rem 3rem rgba(74, 36, 14, 0.22);
+  background: #8ddfe6;
+  box-shadow: 0 1.5rem 3rem rgba(0, 54, 92, 0.22);
   text-align: center;
   transform: translate(-50%, -50%);
 }
@@ -552,7 +552,7 @@
 }
 
 .international-days-hero__art-center em {
-  color: #df5311;
+  color: #016eb4;
   font-family: Georgia, serif;
   font-size: 1.2rem;
   font-weight: 400;
@@ -629,7 +629,7 @@
 
 .international-days-intro h2 em,
 .international-days-calendar h2 em {
-  color: #df5311;
+  color: #016eb4;
 }
 
 .international-days-intro__copy > p {
@@ -685,7 +685,7 @@
 }
 
 .international-days-calendar__count {
-  color: #df5311;
+  color: #016eb4;
   font-size: 4rem;
   font-weight: 850;
   letter-spacing: -0.08em;
@@ -772,7 +772,7 @@
   gap: 0.5rem;
   padding: 0 1rem;
   color: #123f47;
-  border: 1px solid #df5311;
+  border: 1px solid #016eb4;
   background: transparent;
   font: inherit;
   font-size: 0.72rem;
@@ -782,14 +782,14 @@
   cursor: pointer;
 }
 
-.international-days-planner-button svg { color: #df5311; }
+.international-days-planner-button svg { color: #016eb4; }
 .international-days-planner-button span {
   display: grid;
   min-width: 1.65rem;
   height: 1.65rem;
   place-items: center;
   color: #fff;
-  background: #df5311;
+  background: #016eb4;
   font-size: 0.66rem;
 }
 
@@ -797,7 +797,7 @@
 .international-days-planner-button:hover,
 .international-days-planner-button:focus-visible {
   color: #fff;
-  background: #df5311;
+  background: #016eb4;
 }
 
 .international-days-planner-button.is-active svg { color: #f0cf69; }
@@ -836,8 +836,8 @@
   align-items: end;
   margin-bottom: 2.25rem;
   padding: 1.5rem;
-  border-left: 4px solid #df5311;
-  background: #fff8e9;
+  border-left: 4px solid #016eb4;
+  background: #e8f6fb;
 }
 
 .international-days-planner h3 {
@@ -878,12 +878,12 @@
 
 .international-days-planner__actions button:hover,
 .international-days-planner__actions button:focus-visible {
-  background: #df5311;
+  background: #016eb4;
 }
 
 .international-days-planner__actions .international-days-planner__clear {
   padding: 0;
-  color: #df5311;
+  color: #016eb4;
   background: transparent;
 }
 
@@ -908,8 +908,8 @@
 }
 
 .international-day-card--featured {
-  border-color: #df5311;
-  background: #fff8e9;
+  border-color: #016eb4;
+  background: #f3faff;
 }
 
 .international-day-card__date {
@@ -923,7 +923,7 @@
 }
 
 .international-day-card--featured .international-day-card__date {
-  background: #df5311;
+  background: #016eb4;
 }
 
 .international-day-card__date span {
@@ -964,7 +964,7 @@
 }
 
 .international-day-card__topline b {
-  color: #df5311;
+  color: #016eb4;
   font-size: 0.58rem;
   text-align: right;
 }
@@ -994,7 +994,7 @@
 }
 
 .international-day-card__prompt span {
-  color: #df5311;
+  color: #016eb4;
   font-size: 0.62rem;
   font-weight: 850;
   letter-spacing: 0.13em;
@@ -1027,7 +1027,7 @@
 
 .international-day-card__footer a:hover,
 .international-day-card__footer a:focus-visible {
-  color: #df5311;
+  color: #016eb4;
 }
 
 .international-day-card__footer button {
@@ -1047,7 +1047,7 @@
 .international-day-card__footer button:hover,
 .international-day-card__footer button:focus-visible,
 .international-day-card__footer button.is-saved {
-  color: #df5311;
+  color: #016eb4;
 }
 
 .international-days-empty {
@@ -1088,7 +1088,7 @@
   padding: 0.7rem 0.85rem;
   color: #fff;
   border: 0;
-  background: #df5311;
+  background: #016eb4;
   font: inherit;
   font-size: 0.72rem;
   font-weight: 850;
@@ -1129,7 +1129,7 @@
 
 .international-days-source a:hover,
 .international-days-source a:focus-visible {
-  color: #df5311;
+  color: #016eb4;
 }
 
 .international-days-cta {
