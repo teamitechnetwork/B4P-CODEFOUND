@@ -109,13 +109,13 @@ function FooterNewsletter() {
 
 function FooterAccountabilityMark() {
   return (
-    <div className="site-footer__accountability" aria-label="B4P CODEFOUND accountability">
+    <div className="site-footer__accountability" aria-label="B4P CODEFOUND EIN 813170921">
       <span className="site-footer__accountability-mark">
         <img src="/brand/b4p-logo-clean.png" alt="" />
       </span>
       <span>
-        <strong>Accountable</strong>
-        <small>with care</small>
+        <strong>EIN</strong>
+        <small>813170921</small>
       </span>
     </div>
   );
