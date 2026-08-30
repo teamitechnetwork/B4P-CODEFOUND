@@ -58,7 +58,10 @@ export default function TheoryOfChangePage() {
                 alt="Community members gathered together at a B4P CODEFOUND event"
                 data-testid="img-theory-hero"
               />
-              <span>People at the center</span>
+              <div className="theory-hero__overlay">
+                <span>Our approach</span>
+                <strong>People at the center.</strong>
+              </div>
             </div>
           </div>
         </section>

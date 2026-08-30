@@ -55,6 +55,10 @@ export default function CoreValuesPage() {
                 alt="A community leader reviewing materials at a B4P CODEFOUND gathering"
                 data-testid="img-values-hero"
               />
+              <div className="values-hero__overlay">
+                <span>Our commitments</span>
+                <strong>Five principles behind the work.</strong>
+              </div>
             </div>
           </div>
         </section>

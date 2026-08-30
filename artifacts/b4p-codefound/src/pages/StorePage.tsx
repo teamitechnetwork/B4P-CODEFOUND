@@ -44,7 +44,10 @@ function StoreHomeView({ isListing = false }: { isListing?: boolean }) {
               alt="Women gathered together in a community space"
               data-testid="img-store-hero"
             />
-            <span>Commerce with a conscience</span>
+            <div className="store-hero__overlay">
+              <span>Our approach</span>
+              <strong>Commerce with a conscience.</strong>
+            </div>
           </div>
         </div>
       </section>
