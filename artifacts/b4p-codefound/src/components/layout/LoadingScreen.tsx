@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'wouter';
 
-const LOADER_FADE_START_MS = 280;
-const LOADER_REMOVE_MS = 500;
+const LOADER_FADE_START_MS = 1650;
+const LOADER_REMOVE_MS = 2000;
 
 export function LoadingScreen() {
   const [location] = useLocation();

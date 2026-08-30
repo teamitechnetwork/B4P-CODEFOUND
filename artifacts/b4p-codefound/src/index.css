@@ -4102,11 +4102,11 @@
 @keyframes site-loader-breathe {
   0%,
   100% {
-    transform: scale(0.94);
+    transform: translate(-50%, -50%) scale(0.94);
   }
 
   50% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 
