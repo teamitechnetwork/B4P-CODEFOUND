@@ -229,3 +229,14 @@ describe('program hero responsive layout safeguards', () => {
     );
   });
 });
+
+describe('regional program card imagery', () => {
+  it('keeps regional program cards text-first below the hero', () => {
+    const { container, unmount } = render(<ProgramDirectoryPage kind="usa" />);
+
+    expect(container.querySelectorAll('#regional-programs img')).toHaveLength(0);
+    expect(container.querySelectorAll('#regional-programs a').length).toBeGreaterThan(0);
+
+    unmount();
+  });
+});

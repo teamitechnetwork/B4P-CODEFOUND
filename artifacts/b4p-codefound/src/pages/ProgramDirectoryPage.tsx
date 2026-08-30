@@ -76,11 +76,8 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
 
             <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
               {directory.items.map((item, index) => (
-                <Link key={item.title} href={item.href} className="group block overflow-hidden bg-white border border-border rounded-xl hover:border-[#1b9ed9]/40 hover:shadow-xl transition-all">
-                  <div className="aspect-[16/9] overflow-hidden">
-                    <img src={item.image} alt={item.imageAlt} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  </div>
-                  <div className="flex flex-col p-8">
+                <Link key={item.title} href={item.href} className="group block min-h-[230px] bg-white border border-border rounded-xl hover:border-[#1b9ed9]/40 hover:shadow-xl transition-all">
+                  <div className="flex h-full flex-col p-8 md:p-10">
                     <span className="text-sm font-bold text-[#1b9ed9] mb-4 block tracking-widest">
                       {String(index + 1).padStart(2, '0')}
                     </span>
