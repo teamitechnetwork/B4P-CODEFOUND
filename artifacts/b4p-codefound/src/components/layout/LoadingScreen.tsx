@@ -2,23 +2,9 @@ import { useEffect, useState } from 'react';
 
 const LOADER_FADE_START_MS = 4650;
 const LOADER_REMOVE_MS = 5000;
-const LOADER_SESSION_KEY = 'b4p_loader_seen';
-
-function shouldShowLoader() {
-  if (typeof window === 'undefined') return true;
-
-  try {
-    if (window.sessionStorage.getItem(LOADER_SESSION_KEY) === 'true') return false;
-    window.sessionStorage.setItem(LOADER_SESSION_KEY, 'true');
-  } catch {
-    // If session storage is unavailable, keep the startup splash enabled.
-  }
-
-  return true;
-}
 
 export function LoadingScreen() {
-  const [showLoader] = useState(shouldShowLoader);
+  const [showLoader] = useState(true);
   const [phase, setPhase] = useState<'visible' | 'leaving' | 'hidden'>(
     showLoader ? 'visible' : 'hidden',
   );
