@@ -3552,6 +3552,71 @@
   text-transform: uppercase;
 }
 
+.partner-logos {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 2.2fr);
+  gap: 46px;
+  align-items: center;
+  margin-top: 70px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.partner-logos__intro {
+  max-width: 250px;
+}
+
+.partner-logos__eyebrow {
+  margin: 0 0 10px;
+  color: #f0cf69;
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.partner-logos__intro h3 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.partner-logos__grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.partner-logo {
+  display: flex;
+  min-height: 134px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  background: #fff;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.partner-logo:hover {
+  box-shadow: 0 14px 28px rgba(3, 47, 75, 0.2);
+  transform: translateY(-3px);
+}
+
+.partner-logo img {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+  height: 108px;
+  object-fit: contain;
+}
+
 /* ED story: a focused blue feature card with a magazine-like story caption. */
 .refined-ed {
   background: var(--refined-paper);
@@ -3760,6 +3825,19 @@
     font-size: 1.12rem;
   }
 
+  .partner-logos {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .partner-logos__intro {
+    max-width: 550px;
+  }
+
+  .partner-logos__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .ed-story {
     min-height: 360px;
   }
@@ -3876,6 +3954,20 @@
 
   .partner-group ul {
     margin-bottom: 28px;
+  }
+
+  .partner-logos {
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  .partner-logos__intro h3 {
+    font-size: 1.45rem;
+  }
+
+  .partner-logos__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
   .ed-header {

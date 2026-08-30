@@ -1,5 +1,15 @@
 import { ArrowUpRight, ExternalLink, Globe2, MapPin, Users2 } from 'lucide-react';
 
+const partnerLogos = [
+  { name: 'Global Network of Women Peacebuilders', src: '/brand/partners/gnwp.png' },
+  { name: 'NDLC', src: '/brand/partners/ndlc.png' },
+  { name: 'Lisle — Building Global Citizens', src: '/brand/partners/lisle.png' },
+  { name: 'Women’s NGO Secretariat of Liberia', src: '/brand/partners/womens-ngo-secretariat-liberia.png' },
+  { name: 'Platform for Dialogue and Peace', src: '/brand/partners/p4d.png' },
+  { name: 'aCIO Hatch', src: '/brand/partners/acio-hatch.png' },
+  { name: 'WANEP', src: '/brand/partners/wanep.png' },
+];
+
 const partnerGroups = [
   {
     title: 'International frameworks',
@@ -96,6 +106,20 @@ export function News() {
                 </article>
               );
             })}
+          </div>
+        </div>
+
+        <div className="partner-logos" aria-labelledby="partner-logos-title">
+          <div className="partner-logos__intro">
+            <p className="partner-logos__eyebrow">In community with</p>
+            <h3 id="partner-logos-title">Partners who help move the work forward.</h3>
+          </div>
+          <div className="partner-logos__grid">
+            {partnerLogos.map((partner) => (
+              <div className="partner-logo" key={partner.name}>
+                <img src={partner.src} alt={partner.name} loading="lazy" />
+              </div>
+            ))}
           </div>
         </div>
       </div>
