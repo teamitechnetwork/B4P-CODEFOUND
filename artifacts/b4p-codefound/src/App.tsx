@@ -32,6 +32,7 @@ import PartnershipPage from '@/pages/PartnershipPage';
 import InternationalDaysPage from '@/pages/InternationalDaysPage';
 import InternationalDayDetailPage from '@/pages/InternationalDayDetailPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
+import FaqsPage from '@/pages/FaqsPage';
 import type { ProgramRegion } from '@/data/programs';
 import {
   useLocation,
@@ -67,6 +68,10 @@ function Router() {
 
   if (location === '/site-directory') {
     return <SiteDirectoryPage />;
+  }
+
+  if (location === '/faqs') {
+    return <FaqsPage />;
   }
 
   const storeViews: Record<string, Parameters<typeof StorePage>[0]['view']> = {

@@ -25,6 +25,7 @@ const searchItems = [
   { title: 'International Days', href: '/international-days', description: 'Use meaningful observances as openings for community-led action.', keywords: 'international days calendar peace education women youth culture community' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
+  { title: 'FAQs', href: '/faqs', description: 'Find clear answers about B4P CODEFOUND, our work, and ways to connect.', keywords: 'faq frequently asked questions answers information support' },
 ];
 
 const programNavItems: NavItem[] = [
@@ -67,6 +68,7 @@ const navGroups: NavGroup[] = [
       { name: 'Our Core Values', href: '/our-core-values' },
       { name: 'Where We Work', href: '/where-we-work' },
       { name: 'Theory of Change', href: '/theory-of-change' },
+      { name: 'FAQs', href: '/faqs' },
       { name: 'Events & Gatherings', href: '/events' },
       { name: 'International Days', href: '/international-days' },
     ],

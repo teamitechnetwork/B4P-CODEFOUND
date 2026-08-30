@@ -158,6 +158,7 @@ export function Footer() {
               <a href="/the-board">Our board</a>
               <a href="/partner-with-us">Our partners</a>
               <a href="/where-we-work">Where we work</a>
+              <a href="/faqs">Frequently asked questions</a>
             </nav>
           </FooterAccordion>
 

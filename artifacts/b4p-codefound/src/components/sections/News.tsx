@@ -53,10 +53,10 @@ export function News() {
         <div className="partners-topline">
           <div className="section-kicker section-kicker-light">
             <span className="kicker-line" aria-hidden="true" />
-            Partners &amp; Donors
+            News &amp; updates
           </div>
           <span className="partners-location">
-            <MapPin size={14} aria-hidden="true" /> Monrovia · Liberia
+             <MapPin size={14} aria-hidden="true" /> Liberia · United States · beyond
           </span>
         </div>
 
@@ -64,17 +64,20 @@ export function News() {
           <div className="partners-statement">
             <p className="statement-mark" aria-hidden="true">↗</p>
             <h2 id="partners-title">
-              Connected work
+              Follow the work
               <em>across borders.</em>
             </h2>
             <p className="partners-lede">
-              We are grateful for the international frameworks, diaspora networks, and
-              local advocacy connections that help keep this work grounded and moving.
+              A short, considered list of stories, resources, and public conversations
+              that connect B4P CODEFOUND’s work to the wider movement for peace and justice.
             </p>
             <div className="partners-note">
               <span className="note-dot" aria-hidden="true" />
-              <span>Shared work. Local leadership.</span>
+              <span>Read widely. Act locally.</span>
             </div>
+            <a className="partners-updates-link" href="/news-blogs" data-testid="link-home-news-stories">
+              Open news &amp; stories <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
           </div>
 
           <div className="partner-groups" aria-label="Partner and donor resources">

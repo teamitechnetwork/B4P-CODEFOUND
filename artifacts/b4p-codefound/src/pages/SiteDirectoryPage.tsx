@@ -40,7 +40,7 @@ export default function SiteDirectoryPage() {
 
   const visiblePages = useMemo(
     () =>
-      pages
+      [{ id: -1, slug: 'faqs', path: '/faqs', title: 'Frequently Asked Questions' }, ...pages]
         .filter((page) => page.path !== '/' && page.title.trim())
         .filter((page, index, all) => all.findIndex((candidate) => candidate.path === page.path) === index)
         .sort((a, b) => a.title.localeCompare(b.title)),
