@@ -66,6 +66,7 @@ export function openCookieSettings() {
 export function CookieConsent() {
   const [view, setView] = useState<'hidden' | 'banner' | 'settings'>('hidden');
   const [preferences, setPreferences] = useState<CookiePreferences>(defaultPreferences);
+  const [settingsOrigin, setSettingsOrigin] = useState<'banner' | 'hidden'>('hidden');
 
   useEffect(() => {
     const existingPreferences = readConsentCookie();
@@ -74,6 +75,7 @@ export function CookieConsent() {
 
     const handleOpenSettings = () => {
       setPreferences(readConsentCookie() ?? defaultPreferences);
+      setSettingsOrigin('hidden');
       setView('settings');
     };
 
@@ -90,6 +92,19 @@ export function CookieConsent() {
       document.body.style.overflow = previousOverflow;
     };
   }, [view]);
+
+  useEffect(() => {
+    if (view !== 'settings') return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setView(settingsOrigin === 'banner' ? 'banner' : 'hidden');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [settingsOrigin, view]);
 
   function closeWithPreferences(nextPreferences: CookiePreferences) {
     saveConsentCookie(nextPreferences);
@@ -114,17 +129,22 @@ export function CookieConsent() {
     closeWithPreferences(preferences);
   }
 
+  function closeSettings() {
+    setView(settingsOrigin === 'banner' ? 'banner' : 'hidden');
+  }
+
   if (view === 'hidden') return null;
 
   if (view === 'settings') {
     return (
       <div className="cookie-consent" aria-label="Cookie preferences">
-        <div className="cookie-consent__backdrop" aria-hidden="true" onMouseDown={() => setView('hidden')} />
+        <div className="cookie-consent__backdrop" aria-hidden="true" onMouseDown={closeSettings} />
         <section
           className="cookie-consent__dialog"
           role="dialog"
           aria-modal="true"
           aria-labelledby="cookie-settings-title"
+          aria-describedby="cookie-settings-description"
         >
           <div className="cookie-consent__dialog-header">
             <div className="cookie-consent__icon" aria-hidden="true">
@@ -137,14 +157,14 @@ export function CookieConsent() {
             <button
               type="button"
               className="cookie-consent__close"
-              onClick={() => setView('hidden')}
+              onClick={closeSettings}
               aria-label="Close cookie preferences"
             >
               <X size={20} aria-hidden="true" />
             </button>
           </div>
 
-          <p className="cookie-consent__dialog-copy">
+          <p id="cookie-settings-description" className="cookie-consent__dialog-copy">
             Choose which optional cookies you’re comfortable with. Essential cookies are always on because they help the website work safely.
           </p>
 
@@ -209,9 +229,17 @@ export function CookieConsent() {
         <p>
           We use essential cookies to keep B4P CODEFOUND working and optional cookies to improve the experience. You choose what to allow.
         </p>
+        <a className="cookie-consent__banner-link" href="/cookie-policy">Learn more in our Cookie Policy</a>
       </div>
       <div className="cookie-consent__actions">
-        <button type="button" className="cookie-consent__text-button" onClick={() => setView('settings')}>
+        <button
+          type="button"
+          className="cookie-consent__text-button"
+          onClick={() => {
+            setSettingsOrigin('banner');
+            setView('settings');
+          }}
+        >
           Manage choices
         </button>
         <button type="button" className="cookie-consent__secondary" onClick={rejectOptional}>
