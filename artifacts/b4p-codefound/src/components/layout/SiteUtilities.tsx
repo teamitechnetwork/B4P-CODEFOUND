@@ -25,7 +25,7 @@ export function SiteUtilities() {
         aria-label="Chat with B4P CODEFOUND on WhatsApp, 1 unread message"
       >
         <FaWhatsapp size={25} aria-hidden="true" />
-        <span>Chat on WhatsApp</span>
+        <span className="site-utilities__whatsapp-label">Chat on WhatsApp</span>
         <span className="site-utilities__whatsapp-unread" aria-hidden="true" />
       </a>
 

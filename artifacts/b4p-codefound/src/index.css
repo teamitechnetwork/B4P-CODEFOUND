@@ -13702,10 +13702,11 @@ body.has-site-search-open {
 
 .site-utilities__whatsapp-unread {
   position: absolute;
-  top: 2px;
-  right: 4px;
-  width: 11px;
-  height: 11px;
+  z-index: 1;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
   border: 2px solid #fff;
   border-radius: 50%;
   background: #df5311;
@@ -13767,7 +13768,7 @@ body.has-site-search-open {
     padding: 0;
   }
 
-  .site-utilities__whatsapp span {
+  .site-utilities__whatsapp-label {
     position: absolute;
     width: 1px;
     height: 1px;
