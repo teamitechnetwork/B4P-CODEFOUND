@@ -7646,6 +7646,15 @@
 
 .cwc-hero__art {
   position: relative;
+  padding: 0 0 27px 27px;
+}
+
+.cwc-hero__art::before {
+  position: absolute;
+  inset: 35px auto 0 0;
+  width: 58%;
+  content: '';
+  background: var(--cwc-gold);
 }
 
 .cwc-hero__art img {
@@ -7655,6 +7664,7 @@
   width: 100%;
   min-height: 370px;
   object-fit: cover;
+  box-shadow: 22px 22px 0 var(--cwc-blue);
 }
 
 .cwc-hero__badge {
