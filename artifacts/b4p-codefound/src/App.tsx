@@ -230,11 +230,11 @@ function App() {
           <RoutedErrorBoundary>
             <Router />
           </RoutedErrorBoundary>
+          <LoadingScreen />
         </WouterRouter>
         <Toaster />
         <SiteUtilities />
         <CookieConsent />
-        <LoadingScreen />
       </TooltipProvider>
     </QueryClientProvider>
   );
