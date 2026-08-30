@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowUpRight, Globe2, LandPlot, UsersRound } from 'lucide-react';
+import { ArrowUpRight, Globe2, LandPlot, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { getProgram, programRegions, type ProgramRegion } from '@/data/programs';
 import { Link } from 'wouter';
+import { ProgramHero } from '@/components/programs/ProgramHero';
 
 const regionIcons = {
   global: Globe2,
@@ -39,39 +40,30 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 pt-[104px]">
-        {/* HERO */}
-        <section className="relative overflow-hidden bg-[#016EB4] text-white">
-          <div className="container max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-            <div className="grid min-h-[650px] items-stretch lg:grid-cols-[1.05fr_0.95fr]">
-              <div className="flex flex-col justify-center py-20 pr-0 lg:py-24 lg:pr-16">
-                <Link href={`/programs/${region}`} className="inline-flex w-fit items-center gap-2 text-[#8bd9fb] hover:text-white font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
-                  <ArrowLeft className="w-4 h-4" /> Back to {regionData.title}
-                </Link>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center border border-white/15">
-                    <Icon className="w-8 h-8 text-[#8bd9fb]" />
-                  </div>
-                  <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase">
-                    {regionData.title}
-                  </span>
-                </div>
-                <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-[1.03] mb-8">
-                  {program.title}
-                </h1>
-                <p className="text-xl md:text-2xl text-white/75 leading-relaxed font-medium">
-                  {program.description}
-                </p>
-              </div>
-              <div className="relative min-h-[390px] lg:min-h-full">
-                <img src={program.image} alt={program.imageAlt} className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#004b7c]/35 to-transparent" />
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProgramHero
+          variant="detail"
+          eyebrow={regionData.title}
+          title={program.title}
+          description={program.description}
+          image={program.image}
+          imageAlt={program.imageAlt}
+          backHref={`/programs/${region}`}
+          backLabel={`Back to ${regionData.title}`}
+          icon={Icon}
+          actions={[
+            { href: `/programs/${region}`, label: `View all ${regionData.title}` },
+            { href: `mailto:management@b4pcodefound.org?subject=${inquirySubject}`, label: 'Contact the team', external: true, quiet: true },
+          ]}
+          signals={[
+            { value: regionData.title.replace(' Programs', ''), label: 'program region' },
+            { value: '01', label: 'community-led focus' },
+          ]}
+          visualLabel="A program shaped with local partners"
+          badgeLabel="Program focus"
+        />
 
         {/* CONTENT */}
-        <section className="py-24 bg-white">
+        <section id="program-focus" className="py-24 bg-white">
           <div className="container max-w-7xl mx-auto px-6 lg:px-12">
             <div className="grid lg:grid-cols-12 gap-16">
               <div className="lg:col-span-8">

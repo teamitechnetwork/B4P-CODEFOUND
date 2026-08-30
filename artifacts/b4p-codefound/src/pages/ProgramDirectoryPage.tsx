@@ -1,8 +1,9 @@
-import { ArrowLeft, ArrowUpRight, Globe2, LandPlot, UsersRound } from 'lucide-react';
+import { ArrowUpRight, Globe2, LandPlot, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { programRegions, type ProgramRegion } from '@/data/programs';
 import { Link } from 'wouter';
+import { ProgramHero } from '@/components/programs/ProgramHero';
 
 const regionIcons = {
   global: Globe2,
@@ -30,38 +31,30 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 pt-[104px]">
-        {/* HERO */}
-        <section className="relative bg-[#016EB4] text-white py-24 md:py-32 overflow-hidden">
-          <div className="absolute inset-0">
-            <img src={regionImage.src} alt="" className="h-full w-full object-cover opacity-20 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c] via-[#004b7c]/90 to-[#004b7c]/45" />
-          </div>
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#1b9ed9]/10 blur-[100px] rounded-full pointer-events-none" />
-          <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
-            <Link href="/what-we-do" className="inline-flex items-center gap-2 text-[#8bd9fb] hover:text-white font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back to What We Do
-            </Link>
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur flex items-center justify-center border border-white/20">
-                  <Icon className="w-8 h-8 text-[#8bd9fb]" />
-                </div>
-                <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase">
-                  {directory.eyebrow}
-                </span>
-              </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-                {directory.title}
-              </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium">
-                {directory.intro}
-              </p>
-            </div>
-          </div>
-        </section>
+        <ProgramHero
+          variant="regional"
+          eyebrow={directory.eyebrow}
+          title={directory.title}
+          description={directory.intro}
+          image={regionImage.src}
+          imageAlt={regionImage.alt}
+          backHref="/what-we-do"
+          backLabel="Back to What We Do"
+          icon={Icon}
+          actions={[
+            { href: '#regional-programs', label: 'Browse programs' },
+            { href: '/partner-with-us', label: 'Partner with B4P', quiet: true },
+          ]}
+          signals={[
+            { value: String(directory.items.length).padStart(2, '0'), label: 'program pathways' },
+            { value: 'B4P', label: 'community network' },
+          ]}
+          visualLabel={`${directory.title} · people, place, possibility`}
+          badgeLabel="Regional work"
+        />
 
         {/* REGION NAV & CONTENT */}
-        <section className="py-24 bg-[#f8fbfe] border-b border-border">
+        <section id="regional-programs" className="py-24 bg-[#f8fbfe] border-b border-border">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
             <nav className="flex flex-wrap gap-4 mb-20" aria-label="Program regions">
               {(Object.keys(programRegions) as ProgramRegion[]).map((regionKey) => (

@@ -1,39 +1,34 @@
-import { ArrowLeft, CheckCircle2, Sprout, HandCoins, MonitorSmartphone, GraduationCap } from 'lucide-react';
+import { CheckCircle2, Sprout, HandCoins, MonitorSmartphone, GraduationCap, TrendingUp } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Link } from 'wouter';
+import { ProgramHero } from '@/components/programs/ProgramHero';
 
 export default function EconomicDevelopmentProgramPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 pt-[104px]">
-        {/* HERO */}
-        <section className="relative overflow-hidden bg-[#016EB4] text-white">
-          <div className="absolute inset-0">
-            <img src="/images/uploaded/economic-development-group.webp" alt="Women leaders gathered during a B4P CODEFOUND event" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c] via-[#004b7c]/90 to-transparent" />
-          </div>
-          
-          <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 md:py-32">
-            <Link href="/what-we-do" className="inline-flex items-center gap-2 text-[#8bd9fb] hover:text-white font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back to What We Do
-            </Link>
-            
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase mb-6">
-                <span className="w-8 h-[2px] bg-[#df5311]" />
-                Operational Pillar 02
-              </span>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-                Economic Development & Empowerment
-              </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium mb-12">
-                Driving prosperity, expanding opportunity, and building economic independence for women and girls.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ProgramHero
+          variant="pillar"
+          eyebrow="Operational pillar 02"
+          title="Economic Development & Empowerment"
+          description="Driving prosperity, expanding opportunity, and building economic independence for women and girls."
+          image="/images/uploaded/economic-development-group.webp"
+          imageAlt="Women leaders gathered during a B4P CODEFOUND event"
+          backHref="/what-we-do"
+          backLabel="Back to What We Do"
+          icon={TrendingUp}
+          actions={[
+            { href: '/programs/liberia', label: 'See related programs' },
+            { href: '/partner-with-us', label: 'Build opportunity', quiet: true },
+          ]}
+          signals={[
+            { value: '02', label: 'operational pillar' },
+            { value: 'WOMEN', label: 'and youth-led growth' },
+          ]}
+          visualLabel="Tools, networks, and confidence for the next step"
+          badgeLabel="Growth in action"
+        />
 
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">

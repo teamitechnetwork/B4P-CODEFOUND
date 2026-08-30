@@ -1,39 +1,34 @@
-import { ArrowLeft, CheckCircle2, ShieldCheck, HeartHandshake, BookOpenCheck } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, HeartHandshake, BookOpenCheck, Handshake } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Link } from 'wouter';
+import { ProgramHero } from '@/components/programs/ProgramHero';
 
 export default function PeacebuildingProgramPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1 pt-[104px]">
-        {/* HERO */}
-        <section className="relative overflow-hidden bg-[#016EB4] text-white">
-          <div className="absolute inset-0">
-            <img src="/images/uploaded/hero-community-outdoors.webp" alt="Community gathering for peacebuilding in Liberia" className="w-full h-full object-cover opacity-20 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#004b7c] via-[#004b7c]/90 to-transparent" />
-          </div>
-          
-          <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-24 md:py-32">
-            <Link href="/what-we-do" className="inline-flex items-center gap-2 text-[#8bd9fb] hover:text-white font-bold text-sm uppercase tracking-wider mb-12 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> Back to What We Do
-            </Link>
-            
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#df5311] uppercase mb-6">
-                <span className="w-8 h-[2px] bg-[#df5311]" />
-                Operational Pillar 01
-              </span>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-                Peacebuilding
-              </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium mb-12">
-                Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post-conflict communities.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ProgramHero
+          variant="pillar"
+          eyebrow="Operational pillar 01"
+          title="Peacebuilding"
+          description="Cultivating harmony, reducing conflict, and building lasting trust across diverse, conflict and post-conflict communities."
+          image="/images/uploaded/hero-community-outdoors.webp"
+          imageAlt="Community gathering for peacebuilding in Liberia"
+          backHref="/what-we-do"
+          backLabel="Back to What We Do"
+          icon={Handshake}
+          actions={[
+            { href: '/programs/global', label: 'See related programs' },
+            { href: '/partner-with-us', label: 'Partner for peace', quiet: true },
+          ]}
+          signals={[
+            { value: '01', label: 'operational pillar' },
+            { value: 'LOCAL', label: 'knowledge in action' },
+          ]}
+          visualLabel="Trust grows through dialogue and practice"
+          badgeLabel="Peace in action"
+        />
 
         <section className="py-24 bg-white">
           <div className="container mx-auto px-6 lg:px-12 max-w-7xl">

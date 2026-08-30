@@ -3,6 +3,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Link } from 'wouter';
 import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
+import { ProgramHero } from '@/components/programs/ProgramHero';
 
 const pillars = [
   {
@@ -107,27 +108,24 @@ export default function WhatWeDoPage() {
     <div className="what-we-do-page flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
-        {/* HERO */}
-        <section className="relative pt-[180px] pb-32 md:pt-[240px] md:pb-48 px-6 lg:px-12 overflow-hidden bg-[#016EB4] text-white">
-          <div className="absolute inset-0">
-            <img src="/images/uploaded/programs-community-exterior.webp" alt="B4P CODEFOUND participants gathered outside a community venue" className="w-full h-full object-cover opacity-20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#004b7c] to-transparent" />
-          </div>
-          <div className="container relative z-10 max-w-7xl mx-auto">
-            <div className="max-w-3xl">
-              <span className="inline-flex items-center gap-3 text-sm font-bold tracking-[0.2em] text-[#8bd9fb] uppercase mb-8">
-                <span className="w-8 h-[2px] bg-[#df5311]" />
-                What We Do
-              </span>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-8">
-                 From shared purpose to <span className="text-[#f0cf69]">practical progress.</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium mb-12">
-                Through evidence and rights-based approaches, we co-create programs, projects, and activities with subsidiaries and community partners.
-              </p>
-            </div>
-          </div>
-        </section>
+        <ProgramHero
+          variant="landing"
+          eyebrow="What we do"
+          title={<>From shared purpose to <em>practical progress.</em></>}
+          description="Through evidence and rights-based approaches, we co-create programs, projects, and activities with subsidiaries and community partners."
+          image="/images/uploaded/programs-community-exterior.webp"
+          imageAlt="B4P CODEFOUND participants gathered outside a community venue"
+          actions={[
+            { href: '/programs/global', label: 'Explore program regions' },
+            { href: '/partner-with-us', label: 'Work with B4P', quiet: true },
+          ]}
+          signals={[
+            { value: '05', label: 'operational pillars' },
+            { value: '03', label: 'connected regions' },
+          ]}
+          visualLabel="Relationships that carry progress forward"
+          badgeLabel="Our network"
+        />
 
         {/* PILLARS */}
         <section className="py-24 md:py-32 bg-white">
