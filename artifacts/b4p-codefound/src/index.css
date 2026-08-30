@@ -1359,6 +1359,558 @@
   color: #fff;
 }
 
+.international-day-detail-page {
+  background: #f8f5ed;
+  color: #123f47;
+}
+
+.international-day-detail-hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(141, 223, 230, 0.26), transparent 26rem),
+    linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
+}
+
+.international-day-detail-hero::before {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  content: '';
+  mask-image: linear-gradient(125deg, black, transparent 73%);
+  pointer-events: none;
+}
+
+.international-day-detail-hero--women-girls {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(240, 207, 105, 0.26), transparent 26rem),
+    linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
+}
+
+.international-day-detail-hero--environment-future {
+  background:
+    radial-gradient(circle at 88% 18%, rgba(141, 223, 230, 0.3), transparent 26rem),
+    linear-gradient(122deg, #064e62 0%, #087ca0 58%, #118f9b 100%);
+}
+
+.international-day-detail-back {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 8rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.international-day-detail-back:hover,
+.international-day-detail-back:focus-visible {
+  color: #fff;
+}
+
+.international-day-detail-hero__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.72fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: center;
+  min-height: min(620px, 72svh);
+  padding-block: 3rem 6.5rem;
+}
+
+.international-day-detail-hero__copy {
+  max-width: 52rem;
+}
+
+.international-day-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  color: #8ddfe6;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.international-day-detail-meta span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.international-day-detail-meta i {
+  color: rgba(255, 255, 255, 0.38);
+  font-style: normal;
+}
+
+.international-day-detail-hero h1 {
+  max-width: 12ch;
+  margin: 1.5rem 0 1.5rem;
+  color: #fff;
+  font-size: clamp(3.2rem, 7vw, 7.5rem);
+  font-weight: 850;
+  letter-spacing: -0.085em;
+  line-height: 0.87;
+  text-wrap: balance;
+}
+
+.international-day-detail-hero__copy > p {
+  max-width: 38rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1.05rem, 1.65vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.international-day-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.4rem;
+}
+
+.international-day-detail-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.95rem 1.1rem;
+  color: #123f47;
+  background: #f0cf69;
+  font-size: 0.79rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.international-day-detail-button:hover,
+.international-day-detail-button:focus-visible {
+  background: #fff2ba;
+  transform: translateY(-2px);
+}
+
+.international-day-detail-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.international-day-detail-text-link:hover,
+.international-day-detail-text-link:focus-visible {
+  color: #8ddfe6;
+}
+
+.international-day-detail-mark {
+  position: relative;
+  display: grid;
+  min-height: 23rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(0, 63, 108, 0.26);
+  isolation: isolate;
+}
+
+.international-day-detail-mark__rings,
+.international-day-detail-mark__rings::before,
+.international-day-detail-mark__rings::after {
+  position: absolute;
+  width: 82%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.36);
+  border-radius: 50%;
+  content: '';
+  transform: rotate(-28deg) scaleX(1.45);
+}
+
+.international-day-detail-mark__rings::before {
+  inset: 8% auto auto -12%;
+  width: 100%;
+  border-color: rgba(141, 223, 230, 0.5);
+  transform: rotate(34deg) scaleX(1.2);
+}
+
+.international-day-detail-mark__rings::after {
+  inset: auto -15% -28%;
+  width: 64%;
+  border-color: rgba(240, 207, 105, 0.45);
+  transform: rotate(40deg) scaleX(1.25);
+}
+
+.international-day-detail-mark__index {
+  position: absolute;
+  top: 1.15rem;
+  left: 1.25rem;
+  color: #8ddfe6;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.international-day-detail-mark__date {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 12rem;
+  height: 12rem;
+  place-content: center;
+  border-radius: 50%;
+  color: #123f47;
+  background: #8ddfe6;
+  text-align: center;
+}
+
+.international-day-detail-mark__date strong {
+  font-size: 5.2rem;
+  font-weight: 850;
+  letter-spacing: -0.1em;
+  line-height: 0.82;
+}
+
+.international-day-detail-mark__date span {
+  margin-top: 0.65rem;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.international-day-detail-mark__label {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.1rem;
+  z-index: 1;
+  display: grid;
+  gap: 0.25rem;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.international-day-detail-mark__label span {
+  color: #f0cf69;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+}
+
+.international-day-detail-mark__label small {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.international-day-detail-practice {
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  background: #f8f5ed;
+}
+
+.international-day-detail-practice__intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.7fr);
+  gap: clamp(2rem, 8vw, 9rem);
+  align-items: end;
+}
+
+.international-day-detail-practice h2,
+.international-day-detail-related h2 {
+  margin: 0.8rem 0 0;
+  color: #123f47;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.international-day-detail-practice h2 em,
+.international-day-detail-related h2 em,
+.international-day-detail-cta h2 em {
+  color: #016eb4;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+.international-day-detail-practice__intro > p {
+  max-width: 38rem;
+  margin: 0;
+  color: #47656b;
+  font-size: 1.03rem;
+  line-height: 1.7;
+}
+
+.international-day-detail-practice__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.international-day-detail-practice__grid article {
+  min-height: 14rem;
+  padding: 1.45rem;
+  border-top: 3px solid #016eb4;
+  background: #e9f2f3;
+}
+
+.international-day-detail-practice__grid article:nth-child(2) {
+  border-top-color: #118f9b;
+}
+
+.international-day-detail-practice__grid article:nth-child(3) {
+  border-top-color: #8ddfe6;
+}
+
+.international-day-detail-practice__grid article > span {
+  display: block;
+  margin-bottom: 2.4rem;
+  color: #016eb4;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.international-day-detail-practice__grid article > svg {
+  color: #118f9b;
+}
+
+.international-day-detail-practice h3 {
+  margin: 0.65rem 0 0.5rem;
+  color: #123f47;
+  font-size: 1.15rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.international-day-detail-practice__grid p {
+  margin: 0;
+  color: #47656b;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.international-day-detail-prompt {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1.45rem;
+  border-left: 4px solid #f0cf69;
+  background: #123f47;
+  color: #fff;
+}
+
+.international-day-detail-prompt__icon {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #123f47;
+  background: #8ddfe6;
+}
+
+.international-day-detail-prompt > div:nth-child(2) > span {
+  color: #8ddfe6;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.international-day-detail-prompt h3 {
+  max-width: 54rem;
+  margin: 0.45rem 0 0;
+  color: #fff;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.4;
+}
+
+.international-day-detail-prompt > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f0cf69;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.international-day-detail-prompt > a:hover,
+.international-day-detail-prompt > a:focus-visible {
+  color: #fff;
+}
+
+.international-day-detail-related {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  background: #e8f3f4;
+}
+
+.international-day-detail-related__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.international-day-detail-related__heading > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.45rem;
+  color: #016eb4;
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.international-day-detail-related__heading > a:hover,
+.international-day-detail-related__heading > a:focus-visible {
+  color: #123f47;
+}
+
+.international-day-detail-related__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3.25rem;
+}
+
+.international-day-detail-related-card {
+  position: relative;
+  display: flex;
+  min-height: 12rem;
+  flex-direction: column;
+  padding: 1.35rem;
+  border: 1px solid rgba(18, 63, 71, 0.16);
+  color: #123f47;
+  background: #fff;
+  text-decoration: none;
+  transition: border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.international-day-detail-related-card:hover,
+.international-day-detail-related-card:focus-visible {
+  border-color: #016eb4;
+  box-shadow: 0 0.85rem 2rem rgba(18, 63, 71, 0.08);
+  transform: translateY(-3px);
+}
+
+.international-day-detail-related-card > span {
+  color: #118f9b;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.international-day-detail-related-card h3 {
+  max-width: 15ch;
+  margin: 1.5rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+}
+
+.international-day-detail-related-card > svg {
+  position: absolute;
+  right: 1.35rem;
+  bottom: 1.35rem;
+  color: #016eb4;
+}
+
+.international-day-detail-cta {
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  color: #fff;
+  background: #123f47;
+}
+
+.international-day-detail-cta .international-days-section-kicker {
+  color: #f0cf69;
+}
+
+.international-day-detail-cta h2 {
+  max-width: 17ch;
+  margin: 0.8rem 0 2rem;
+  color: #fff;
+  font-size: clamp(2.8rem, 5.5vw, 5.8rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.international-day-detail-cta h2 em {
+  color: #f0cf69;
+}
+
+.international-day-detail-cta > .page-container > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #f0cf69;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.international-day-detail-cta > .page-container > a:hover,
+.international-day-detail-cta > .page-container > a:focus-visible {
+  color: #fff;
+}
+
+.international-day-detail-not-found {
+  padding: 11rem 0 8rem;
+}
+
+.international-day-detail-not-found h1 {
+  margin: 1rem 0 1.25rem;
+  color: #123f47;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+
+.international-day-detail-not-found h1 em {
+  color: #016eb4;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.international-day-detail-not-found p {
+  max-width: 34rem;
+  margin: 0 0 2rem;
+  color: #47656b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .international-days-hero__inner {
     grid-template-columns: 1fr;
@@ -1384,6 +1936,29 @@
 
   .international-days-official__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .international-day-detail-hero__layout {
+    grid-template-columns: 1fr;
+    padding-bottom: 5rem;
+  }
+
+  .international-day-detail-mark {
+    min-height: 20rem;
+  }
+
+  .international-day-detail-practice__intro {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .international-day-detail-prompt {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .international-day-detail-prompt > a {
+    grid-column: 2;
+    justify-self: start;
   }
 }
 
@@ -1458,6 +2033,63 @@
 
   .international-days-official__grid {
     grid-template-columns: 1fr;
+  }
+
+  .international-day-detail-back {
+    padding-top: 7.5rem;
+  }
+
+  .international-day-detail-hero__layout {
+    min-height: auto;
+    padding-block: 2.5rem 4.5rem;
+  }
+
+  .international-day-detail-hero h1 {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
+  .international-day-detail-mark {
+    min-height: 18rem;
+  }
+
+  .international-day-detail-mark__date {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .international-day-detail-mark__date strong {
+    font-size: 4.3rem;
+  }
+
+  .international-day-detail-practice__grid,
+  .international-day-detail-related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .international-day-detail-practice__grid {
+    margin-top: 2.5rem;
+  }
+
+  .international-day-detail-practice__grid article {
+    min-height: 12rem;
+  }
+
+  .international-day-detail-practice__grid article > span {
+    margin-bottom: 1.25rem;
+  }
+
+  .international-day-detail-prompt {
+    grid-template-columns: 1fr;
+  }
+
+  .international-day-detail-prompt > a {
+    grid-column: auto;
+  }
+
+  .international-day-detail-related__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .international-day-card {

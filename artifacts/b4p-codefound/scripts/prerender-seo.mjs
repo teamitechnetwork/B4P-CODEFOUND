@@ -75,6 +75,27 @@ for (const match of programSource.matchAll(programPattern)) {
   });
 }
 
+const observanceSource = await readFile(path.join(projectRoot, 'src', 'pages', 'InternationalDaysPage.tsx'), 'utf8');
+const observancePattern = /\['([^']+)', '([^']+)', '([^']+)', 'https:\/\/www\.unesco\.org[^']+'\]/g;
+for (const match of observanceSource.matchAll(observancePattern)) {
+  const [, month, date, title] = match;
+  const slug = title
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+  const routePath = `/international-days/${slug}`;
+  routes.set(routePath, {
+    path: routePath,
+    title: `${title} | B4P CODEFOUND`,
+    description: `Explore ${title}, observed on ${date} in ${month}, and find a practical B4P starting point for community-led action.`,
+    type: 'article',
+    indexable: true,
+  });
+}
+
 const legacyIndex = JSON.parse(
   await readFile(path.join(projectRoot, 'public', 'content', 'legacy-page-index.json'), 'utf8'),
 );

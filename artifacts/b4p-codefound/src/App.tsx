@@ -30,6 +30,7 @@ import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
 import PartnershipPage from '@/pages/PartnershipPage';
 import InternationalDaysPage from '@/pages/InternationalDaysPage';
+import InternationalDayDetailPage from '@/pages/InternationalDayDetailPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
@@ -181,6 +182,11 @@ function Router() {
 
   if (location === '/events' || location === '/events-and-conferences') {
     return <EventsPage />;
+  }
+
+  const internationalDayMatch = location.match(/^\/international-days\/([^/]+)$/);
+  if (internationalDayMatch) {
+    return <InternationalDayDetailPage slug={internationalDayMatch[1]} />;
   }
 
   if (location === '/international-days') {

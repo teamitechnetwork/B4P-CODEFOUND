@@ -3,6 +3,11 @@ import { useLocation } from 'wouter';
 import routeRegistry from '@/data/route-metadata.json';
 import { getProgram } from '@/data/programs';
 import type { ProgramRegion } from '@/data/programs';
+import {
+  getCalendarCategory,
+  getCalendarGuidance,
+  getCalendarObservance,
+} from '@/pages/InternationalDaysPage';
 
 const SITE_URL = 'https://b4pcodefound.org';
 const DEFAULT_IMAGE = `${SITE_URL}/brand/b4p-og-source.png`;
@@ -34,6 +39,21 @@ function getMetadata(pathname: string): PageMetadata {
         title: `${program.title} | B4P CODEFOUND`,
         description: program.description,
         image: program.image,
+      };
+    }
+  }
+
+  const observanceMatch = pathname.match(/^\/international-days\/([^/]+)$/);
+  if (observanceMatch) {
+    const observance = getCalendarObservance(observanceMatch[1]);
+    if (observance) {
+      const category = getCalendarCategory(observance.title);
+      const guidance = getCalendarGuidance(observance.title, category);
+      return {
+        path: pathname,
+        title: `${observance.title} | B4P CODEFOUND`,
+        description: guidance.summary,
+        type: 'article',
       };
     }
   }
