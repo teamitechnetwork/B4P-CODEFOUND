@@ -4441,9 +4441,18 @@
 }
 
 .team-page--management .team-card__portrait {
-  aspect-ratio: 1.18 / 1;
+  display: flex;
+  aspect-ratio: auto;
+  flex-direction: column;
   padding: 0 22px;
   background: #fff;
+}
+
+.team-card__photo-frame {
+  position: relative;
+  height: clamp(15rem, 21vw, 20rem);
+  overflow: hidden;
+  background: #eef5f6;
 }
 
 .team-page--management .team-card__portrait::after {
@@ -4453,21 +4462,24 @@
 }
 
 .team-page--management .team-card__image {
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
+  background: #eef5f6;
 }
 
 .team-card__role-band {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  position: relative;
+  right: auto;
+  bottom: auto;
+  left: auto;
   z-index: 2;
   display: flex;
-  min-height: 34%;
+  min-height: 7.25rem;
   align-items: center;
   padding: 1rem 1.45rem;
   color: #fff;
   background: #016eb4;
+  margin: 0 -22px;
 }
 
 .team-card__role-band::after {
@@ -4492,6 +4504,12 @@
 .team-page--management .team-card__content {
   min-height: 11rem;
   padding: 1.65rem 1.45rem 1.8rem;
+}
+
+.team-page--management .team-card__linkedin {
+  color: #016eb4;
+  background: #edf7f9;
+  border-color: #8ddfe6;
 }
 
 .team-page--management .team-card h3 {
@@ -7675,7 +7693,7 @@
 
 /* Reference-aligned team cards and compact accordion footer */
 .team-page--management .team-card__portrait {
-  aspect-ratio: 4 / 4.15;
+  aspect-ratio: auto;
 }
 
 .team-page--management .team-page__hero {

@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Linkedin } from 'lucide-react';
 
 type TeamMember = {
   name: string;
@@ -142,20 +143,22 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
               >
                 {type === 'management' && (
                   <div className="team-card__portrait">
-                    {member.image ? (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="team-card__image"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="team-card__monogram" aria-label={`${member.name} portrait unavailable`}>
-                        <span>
-                          {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
-                        </span>
-                      </div>
-                    )}
+                    <div className="team-card__photo-frame">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="team-card__image"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="team-card__monogram" aria-label={`${member.name} portrait unavailable`}>
+                          <span>
+                            {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                     <div className="team-card__role-band">
                       <span>{member.role}</span>
                     </div>
@@ -164,6 +167,15 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                 <div className="team-card__content">
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
+                    {type === 'management' && (
+                      <span
+                        className="team-card__linkedin"
+                        role="img"
+                        aria-label={`LinkedIn profile for ${member.name}`}
+                      >
+                        <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
+                      </span>
+                    )}
                   </div>
                   {type === 'management' ? (
                     <span className="team-card__meet">Meet {member.name.split(' ')[0]}</span>
