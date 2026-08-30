@@ -7,6 +7,7 @@ import {
   MapPin,
   Sparkles,
 } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -16,8 +17,9 @@ type EventImage = {
   label?: string;
 };
 
-type PastEvent = {
+type EventStory = {
   label: string;
+  category: 'Celebrations' | 'Conferences' | 'Forums & dialogue';
   title: string;
   description: string;
   date: string;
@@ -26,9 +28,10 @@ type PastEvent = {
   images: EventImage[];
 };
 
-const pastEvents: PastEvent[] = [
+const eventStories: EventStory[] = [
   {
     label: '10th anniversary gala',
+    category: 'Celebrations',
     title: 'Rooted & Rising',
     description: 'B4P CODEFOUND’s 10th Anniversary Gala, presented with Columbus Women Connect.',
     date: 'September 13, 2025',
@@ -43,6 +46,7 @@ const pastEvents: PastEvent[] = [
   },
   {
     label: 'Conference 2025',
+    category: 'Conferences',
     title: 'Liberia Conference ’25',
     description: 'Sustaining women and youth empowerment through agriculture, health, and educational investments.',
     date: 'December 11–13, 2025',
@@ -61,6 +65,7 @@ const pastEvents: PastEvent[] = [
   },
   {
     label: 'CSW70 side event · 2026',
+    category: 'Forums & dialogue',
     title: 'LDDWYF 2026',
     description: 'Liberia Diaspora Dialogue Women & Youth Forum focused on equal access to justice for all women and girls globally.',
     date: 'March 12, 2026',
@@ -81,7 +86,9 @@ const pastEvents: PastEvent[] = [
   },
 ];
 
-function EventMeta({ event }: { event: PastEvent }) {
+const eventCategories = ['All stories', 'Celebrations', 'Conferences', 'Forums & dialogue'] as const;
+
+function EventMeta({ event }: { event: EventStory }) {
   return (
     <dl className="event-card__meta">
       <div>
@@ -103,6 +110,12 @@ function EventMeta({ event }: { event: PastEvent }) {
 }
 
 export default function EventsPage() {
+  const [activeCategory, setActiveCategory] = useState<(typeof eventCategories)[number]>('All stories');
+  const filteredStories = useMemo(
+    () => eventStories.filter((event) => activeCategory === 'All stories' || event.category === activeCategory),
+    [activeCategory],
+  );
+
   return (
     <div className="events-page flex min-h-screen flex-col">
       <Header />
@@ -118,17 +131,21 @@ export default function EventsPage() {
                 Where community <em>comes alive.</em>
               </h1>
               <p>
-                From Liberia to the diaspora, B4P CODEFOUND creates space for
-                dialogue, celebration, and ideas that become action. Step into the
-                moments that carry the work forward.
+                From future invitations to past stories, B4P CODEFOUND creates
+                space for dialogue, celebration, and ideas that become action.
+                Find a way to gather, or revisit the moments that carry the work forward.
               </p>
               <div className="events-hero__actions">
                 <a className="events-hero__link" href="#featured-event">
-                  Meet the feature event <ArrowDownRight size={18} aria-hidden="true" />
+                  Explore the feature story <ArrowDownRight size={18} aria-hidden="true" />
                 </a>
-                <a className="events-hero__archive-link" href="#past-events">
-                  Browse the archive <ArrowUpRight size={17} aria-hidden="true" />
+                <a className="events-hero__archive-link" href="#event-stories">
+                  Browse all gatherings <ArrowUpRight size={17} aria-hidden="true" />
                 </a>
+              </div>
+              <div className="events-hero__status" aria-label="This page includes future invitations and past stories">
+                <span><strong>Next</strong> Make a plan</span>
+                <span><strong>Archive</strong> See what happened</span>
               </div>
             </div>
 
@@ -140,10 +157,10 @@ export default function EventsPage() {
               <div className="events-hero__visual-shade" aria-hidden="true" />
               <div className="events-hero__visual-topline">
                 <span>01 / Featured gathering</span>
-                <span>Archive</span>
+                <span>Past story</span>
               </div>
               <div className="events-hero__visual-caption">
-                <span>Diaspora Annual ’25 · Return</span>
+                 <span>Diaspora Annual ’25 · Return · Past story</span>
                 <strong>Diaspora <em>Farewell</em></strong>
                 <small>January 9, 2026 · Executive Mansion</small>
               </div>
@@ -211,8 +228,8 @@ export default function EventsPage() {
                     >
                       <Download size={14} aria-hidden="true" /> Download flyer
                     </a>
-                    <a href="#past-events">
-                      Explore the archive <ArrowUpRight size={15} aria-hidden="true" />
+                    <a href="#event-stories">
+                      Explore all stories <ArrowUpRight size={15} aria-hidden="true" />
                     </a>
                   </div>
                 </div>
