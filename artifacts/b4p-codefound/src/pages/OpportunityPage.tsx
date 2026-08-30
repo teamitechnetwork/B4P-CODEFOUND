@@ -137,16 +137,16 @@ export default function OpportunityPage({ kind }: { kind: OpportunityKind }) {
     <div className="opportunity-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="opportunity-hero">
+        <section className="opportunity-hero offset-image-section" data-overflow-route={`opportunity-${kind}`}>
           <div className="page-container opportunity-hero__inner">
             <div className="opportunity-hero__copy">
               <span className="page-kicker">{content.eyebrow}</span>
               <h1>{content.title}</h1>
               <p>{content.description}</p>
             </div>
-            <div className="opportunity-hero__visual">
+            <div className="opportunity-hero__visual offset-image-section__visual">
               <img src={content.image} alt="" />
-              <div><Icon size={30} strokeWidth={1.6} aria-hidden="true" /><span>Make your contribution count.</span></div>
+              <div data-image-overlay="caption"><Icon size={30} strokeWidth={1.6} aria-hidden="true" /><span>Make your contribution count.</span></div>
             </div>
           </div>
         </section>

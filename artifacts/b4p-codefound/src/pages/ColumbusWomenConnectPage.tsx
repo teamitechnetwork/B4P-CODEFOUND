@@ -22,7 +22,7 @@ export default function ColumbusWomenConnectPage() {
     <div className="cwc-page flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="cwc-hero">
+        <section className="cwc-hero offset-image-section" data-overflow-route="columbus-women-connect">
           <div className="container mx-auto px-6">
             <div className="cwc-hero__copy">
               <span className="cwc-kicker">A subsidiary of B4P CODEFOUND | Columbus, Ohio</span>
@@ -30,9 +30,9 @@ export default function ColumbusWomenConnectPage() {
               <p>Empowering women through leadership, advocacy &amp; community — across cultures, across generations.</p>
               <a href="#join">Join the movement <ArrowUpRight size={17} aria-hidden="true" /></a>
             </div>
-            <div className="cwc-hero__art">
+            <div className="cwc-hero__art offset-image-section__visual">
               <img src="/images/cwc/community-photo.png" alt="Women leaders gathered at a Columbus Women Connect event" />
-              <div className="cwc-hero__badge"><span>CWC</span><small>Women leading together</small></div>
+              <div className="cwc-hero__badge" data-image-overlay="badge"><span>CWC</span><small>Women leading together</small></div>
             </div>
           </div>
         </section>

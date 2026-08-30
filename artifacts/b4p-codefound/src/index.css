@@ -11300,6 +11300,19 @@ main p.text-xl {
   background: #1b9ed9;
 }
 
+/* Shared containment for image-led sections with intentionally offset layers */
+.offset-image-section {
+  overflow: clip;
+}
+
+.offset-image-section__visual {
+  box-sizing: border-box;
+}
+
+.offset-image-section [data-image-overlay] {
+  z-index: 2;
+}
+
 /* Volunteer, internship, and jobs pages */
 .opportunity-page {
   background: #f4f8f9;
