@@ -29,7 +29,44 @@ function FooterAccordion({ title, children }: { title: string; children: ReactNo
   );
 }
 
+function FooterNestedAccordion({
+  title,
+  links,
+}: {
+  title: string;
+  links: { label: string; href: string }[];
+}) {
+  const panelId = useId();
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="site-footer__nested">
+      <button
+        type="button"
+        className="site-footer__nested-trigger"
+        onClick={() => setIsOpen((open) => !open)}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+      >
+        <span>{title}</span>
+        <ChevronDown className={isOpen ? 'is-open' : ''} size={18} aria-hidden="true" />
+      </button>
+      <div id={panelId} className={`site-footer__nested-panel ${isOpen ? 'is-open' : ''}`}>
+        <div className="site-footer__nested-links">
+          {links.map((link) => (
+            <a href={link.href} key={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer id="contact" className="site-footer reference-footer">
       <div className="reference-footer__shape reference-footer__shape--blue" aria-hidden="true" />
@@ -64,7 +101,14 @@ export function Footer() {
               <a href="/programs/global">Global Programs</a>
               <a href="/programs/usa">USA Programs</a>
               <a href="/programs/liberia">Liberia Programs</a>
-              <a href="/services">Services</a>
+              <FooterNestedAccordion
+                title="Services"
+                links={[
+                  { label: 'Fiscal Sponsorship', href: '/services/fiscal-sponsorship' },
+                  { label: 'Nonprofit Capacity Building', href: '/services/nonprofit-capacity-building' },
+                  { label: 'Business Development', href: '/services/business-development' },
+                ]}
+              />
             </nav>
           </FooterAccordion>
 
@@ -144,7 +188,7 @@ export function Footer() {
         </nav>
 
         <div className="site-footer__bottom">
-          <p>© {new Date().getFullYear()} Business for Peace Community Development Foundation. All rights reserved.</p>
+          <p>© 2015 - {currentYear} Business for Peace Community Development Foundation. All rights reserved.</p>
           <p>B4P CODEFOUND is a 501(c)(3) nonprofit and social enterprise established in 2015.</p>
           <p className="site-footer__developer">
             Developed by:{' '}
