@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { analyticsEvents, trackEvent } from '@/lib/analytics';
 
 const partnershipTypes = [
   'Program co-design',
@@ -77,6 +78,10 @@ export default function PartnershipPage() {
     ].join('\n\n');
 
     setStatus('ready');
+    trackEvent(analyticsEvents.partnershipEmailDraftOpened, {
+      partnership_category: String(data.get('partnership')),
+      page_location: 'partnership_page',
+    });
     window.location.href = `mailto:management@b4pcodefound.org?subject=${encodeURIComponent(`Partnership inquiry: ${selectedPartnership || 'B4P CODEFOUND'}`)}&body=${encodeURIComponent(body)}`;
   }
 
@@ -208,8 +213,15 @@ export default function PartnershipPage() {
                     required
                     value={selectedPartnership}
                     onChange={(event) => {
-                      setSelectedPartnership(event.target.value);
+                      const partnershipCategory = event.target.value;
+                      setSelectedPartnership(partnershipCategory);
                       setStatus('idle');
+                      if (partnershipCategory) {
+                        trackEvent(analyticsEvents.partnershipInterestSelected, {
+                          partnership_category: partnershipCategory,
+                          page_location: 'partnership_page',
+                        });
+                      }
                     }}
                   >
                     <option value="" disabled>Select an option</option>
