@@ -10634,6 +10634,34 @@ body.has-site-search-open {
   line-height: 1.55;
 }
 
+.site-footer.reference-footer .site-footer__accordion-description {
+  max-width: 32rem;
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.site-footer.reference-footer .site-footer__contact {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.site-footer.reference-footer .site-footer__contact > a,
+.site-footer.reference-footer .site-footer__contact > p {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+}
+
+.site-footer.reference-footer .site-footer__contact svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: #d6a53a;
+}
+
 .site-footer.reference-footer .site-footer__link-group nav {
   display: grid;
   gap: 14px;
