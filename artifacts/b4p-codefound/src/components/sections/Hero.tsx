@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Pause, Play } from 'lucide-react';
 
+const heroTypingPhrases = ['peaceful communities.', 'women leaders.', 'shared prosperity.'];
+
 const heroSlides = [
   {
     src: '/images/uploaded/hero-induction-stage.webp',
@@ -27,6 +29,9 @@ export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [typingText, setTypingText] = useState('');
+  const [typingPhraseIndex, setTypingPhraseIndex] = useState(0);
+  const [isDeletingText, setIsDeletingText] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -43,6 +48,35 @@ export function Hero() {
     }, 5600);
     return () => window.clearInterval(timer);
   }, [isPaused, reduceMotion]);
+
+  useEffect(() => {
+    if (reduceMotion) {
+      setTypingText(heroTypingPhrases[0]);
+      setTypingPhraseIndex(0);
+      setIsDeletingText(false);
+      return;
+    }
+
+    const phrase = heroTypingPhrases[typingPhraseIndex];
+    const isPhraseComplete = typingText === phrase;
+    const timer = window.setTimeout(() => {
+      if (isDeletingText) {
+        const nextText = typingText.slice(0, -1);
+        setTypingText(nextText);
+        if (!nextText) {
+          setIsDeletingText(false);
+          setTypingPhraseIndex((current) => (current + 1) % heroTypingPhrases.length);
+        }
+        return;
+      }
+
+      const nextText = phrase.slice(0, typingText.length + 1);
+      setTypingText(nextText);
+      if (nextText === phrase) setIsDeletingText(true);
+    }, isDeletingText ? 42 : isPhraseComplete ? 1700 : 72);
+
+    return () => window.clearTimeout(timer);
+  }, [isDeletingText, reduceMotion, typingPhraseIndex, typingText]);
 
   const slide = heroSlides[activeSlide];
 
@@ -66,6 +100,15 @@ export function Hero() {
               <span />
               Established 2015
             </div>
+
+            <div className="hero-section__typing" aria-hidden="true">
+              <span>Building </span>
+              <strong>{typingText}</strong>
+              <i className="hero-section__typing-cursor" />
+            </div>
+            <span className="sr-only">
+              Building peaceful communities, supporting women leaders, and creating shared prosperity.
+            </span>
 
             <h1>
               African-led leadership for <em>peace</em> and <strong>development.</strong>
