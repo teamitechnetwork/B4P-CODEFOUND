@@ -4505,7 +4505,9 @@
   display: flex;
   align-items: center;
   gap: 0.24em;
-  background: linear-gradient(100deg, #016eb4 0%, #159dd4 42%, #df5311 72%, #d6a53a 100%);
+  background: linear-gradient(100deg, #016eb4 0%, #159dd4 28%, #df5311 55%, #d6a53a 76%, #016eb4 100%);
+  background-position: 0% 50%;
+  background-size: 240% 100%;
   background-clip: text;
   color: transparent;
   font-size: clamp(2.25rem, 10vw, 4.6rem);
@@ -4513,6 +4515,7 @@
   letter-spacing: -0.065em;
   line-height: 0.95;
   -webkit-background-clip: text;
+  animation: site-loader-wordmark-gradient 3.2s ease-in-out infinite alternate;
 }
 
 .site-loader__wordmark strong {
@@ -4706,14 +4709,30 @@
   }
 }
 
+@keyframes site-loader-wordmark-gradient {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .site-loader {
     transition: none;
   }
 
   .site-loader__halo,
-  .site-loader__dot {
+  .site-loader__dot,
+  .site-loader__wordmark {
     animation: none;
+  }
+
+  .site-loader__wordmark {
+    background-position: 50% 50%;
+    background-size: 100% 100%;
   }
 
   .site-loader__dot {
