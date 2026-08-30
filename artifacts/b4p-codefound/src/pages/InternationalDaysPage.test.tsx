@@ -22,6 +22,14 @@ function openPlanningList() {
   fireEvent.click(screen.getByRole('button', { name: /my planning list/i }));
 }
 
+function setViewport(width: number) {
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    value: width,
+  });
+  window.dispatchEvent(new Event('resize'));
+}
+
 function readBlob(blob: Blob) {
   return new Promise<string>((resolve, reject) => {
     const reader = new FileReader();
@@ -81,6 +89,53 @@ describe('international days planning list', () => {
     expect(within(savedList).getByText('25 January')).toBeInTheDocument();
     expect(within(savedList).getByRole('link', { name: /International Day of Women in Multilateralism/i }))
       .toHaveAttribute('href', '/international-days/international-day-of-women-in-multilateralism');
+  });
+
+  it('keeps several long saved moments reviewable at a narrow viewport', async () => {
+    setViewport(375);
+    window.localStorage.setItem(storageKey, JSON.stringify([
+      'International Day of Education',
+      'International Day of Women in Multilateralism',
+      'International Day of Commemoration in Memory of the Victims of the Holocaust',
+    ]));
+
+    render(<InternationalDaysPage />);
+    openPlanningList();
+
+    const planner = screen.getByRole('complementary', { name: 'My planning list' });
+    const savedList = within(planner).getByRole('list', { name: 'Saved observances' });
+    const savedItems = within(savedList).getAllByRole('listitem');
+    const expectedMoments = [
+      {
+        date: '24 January',
+        title: 'International Day of Education',
+        href: '/international-days/international-day-of-education',
+      },
+      {
+        date: '25 January',
+        title: 'International Day of Women in Multilateralism',
+        href: '/international-days/international-day-of-women-in-multilateralism',
+      },
+      {
+        date: '27 January',
+        title: 'International Day of Commemoration in Memory of the Victims of the Holocaust',
+        href: '/international-days/international-day-of-commemoration-in-memory-of-the-victims-of-the-holocaust',
+      },
+    ];
+
+    expect(savedItems).toHaveLength(expectedMoments.length);
+    expectedMoments.forEach(({ date, title, href }, index) => {
+      const savedItem = savedItems[index];
+      expect(within(savedItem).getByText(date)).toBeVisible();
+      expect(within(savedItem).getByRole('link', { name: new RegExp(title) }))
+        .toHaveAttribute('href', href);
+      expect(within(savedItem).getByRole('button', {
+        name: `Remove ${title} from planning list`,
+      })).toBeEnabled();
+    });
+
+    expect(within(planner).getByRole('button', { name: /download planning brief/i })).toBeEnabled();
+    expect(within(planner).getByRole('button', { name: 'Clear list' })).toBeEnabled();
   });
 
   it('removes one saved moment from the planning list without removing the others', async () => {
