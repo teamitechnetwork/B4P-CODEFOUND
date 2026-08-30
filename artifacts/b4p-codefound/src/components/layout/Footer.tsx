@@ -129,7 +129,19 @@ export function Footer() {
           <a href="/" className="site-footer__brand" aria-label="B4P CODEFOUND home">
             <img src="/brand/b4p-logo-clean.png" alt="B4P CODEFOUND" />
           </a>
-          <p className="site-footer__tagline">Connecting communities.<br />Building peace.</p>
+          <div className="site-footer__brand-copy">
+            <strong>B4P CODEFOUND</strong>
+            <p>Global-local peacebuilding and economic development through collective action.</p>
+            <small>Established 2015 · Liberia · United States</small>
+          </div>
+        </div>
+
+        <div className="site-footer__social-row">
+          <div className="site-footer__social-intro">
+            <strong>Connect with B4P CODEFOUND</strong>
+            <span>Follow the work and stay connected to our community.</span>
+          </div>
+          <SocialLinks className="site-footer__social-links" />
         </div>
 
         <div className="site-footer__accordions">
@@ -185,7 +197,6 @@ export function Footer() {
             <p className="site-footer__accordion-description">
               Our relationships begin in community and grow through exchange between Liberia, Ohio, New York, and the wider world.
             </p>
-            <SocialLinks className="site-footer__social-links" />
             <address className="site-footer__contact">
               <a href="/contact">Contact B4P CODEFOUND</a>
               <a href="mailto:management@b4pcodefound.org">
