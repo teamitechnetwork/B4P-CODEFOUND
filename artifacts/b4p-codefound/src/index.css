@@ -11030,13 +11030,52 @@ body.has-site-search-open {
   }
 
   .site-footer.reference-footer .site-footer__brand-block {
-    min-height: 222px;
-    padding: 48px 0 38px;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+    min-height: 176px;
+    padding: 34px 0 28px;
   }
 
   .site-footer.reference-footer .site-footer__brand img {
-    width: 146px;
-    height: 146px;
+    width: 104px;
+    height: 104px;
+  }
+
+  .site-footer.reference-footer .site-footer__brand-copy {
+    max-width: 220px;
+    margin-left: 16px;
+  }
+
+  .site-footer.reference-footer .site-footer__brand-copy strong {
+    font-size: 1.15rem;
+  }
+
+  .site-footer.reference-footer .site-footer__brand-copy p {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .site-footer.reference-footer .site-footer__brand-copy small {
+    font-size: 0.56rem;
+    letter-spacing: 0.09em;
+  }
+
+  .site-footer.reference-footer .site-footer__social-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    padding: 25px 0;
+  }
+
+  .site-footer.reference-footer .site-footer__social-links {
+    flex-wrap: wrap;
+    gap: 11px;
+  }
+
+  .site-footer.reference-footer .site-footer__social-links a {
+    width: 52px;
+    height: 52px;
   }
 
   .site-footer.reference-footer .site-footer__link-groups {
