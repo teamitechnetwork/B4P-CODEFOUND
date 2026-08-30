@@ -10,7 +10,14 @@ export default function NotFound() {
       <main className="not-found-page__main flex-1">
         <div className="page-container not-found-page__layout">
           <section className="not-found-page__copy" aria-labelledby="not-found-title">
-            <div className="not-found-page__code" aria-hidden="true">404</div>
+            <div className="not-found-page__code" role="img" aria-label="404">
+              <span className="not-found-page__digit">4</span>
+              <span className="not-found-page__zero">
+                <span className="sr-only">0</span>
+                <img src="/brand/b4p-favicon.png" alt="" />
+              </span>
+              <span className="not-found-page__digit">4</span>
+            </div>
             <h1 id="not-found-title">
               Page not found
             </h1>

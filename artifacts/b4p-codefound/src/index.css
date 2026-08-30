@@ -16406,11 +16406,38 @@ body.has-site-search-open {
 }
 
 .not-found-page__code {
-  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.03em;
+  margin: 0 0 1.25rem;
   color: #016eb4;
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(8rem, 24vw, 18rem);
   font-weight: 850;
-  letter-spacing: 0.2em;
+  letter-spacing: -0.1em;
+  line-height: 0.76;
+}
+
+.not-found-page__digit {
+  display: block;
+}
+
+.not-found-page__zero {
+  display: inline-grid;
+  width: 0.62em;
+  height: 0.88em;
+  place-items: center;
+  border: 0.055em solid #016eb4;
+  border-radius: 50%;
+  background: #e6f5f7;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.not-found-page__zero img {
+  width: 0.38em;
+  height: 0.38em;
+  object-fit: contain;
 }
 
 .not-found-page__copy h1 {
