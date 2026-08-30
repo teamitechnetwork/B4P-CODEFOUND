@@ -123,8 +123,6 @@ export default function WhatWeDoPage() {
             { value: '05', label: 'operational pillars' },
             { value: '03', label: 'connected regions' },
           ]}
-          visualLabel="Relationships that carry progress forward"
-          badgeLabel="Our network"
         />
 
         {/* PILLARS */}

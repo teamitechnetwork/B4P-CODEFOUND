@@ -1,4 +1,4 @@
-import { CheckCircle2, Sprout, HandCoins, MonitorSmartphone, GraduationCap, TrendingUp } from 'lucide-react';
+import { CheckCircle2, Sprout, HandCoins, MonitorSmartphone, GraduationCap } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ProgramHero } from '@/components/programs/ProgramHero';
@@ -17,7 +17,6 @@ export default function EconomicDevelopmentProgramPage() {
           imageAlt="Women leaders gathered during a B4P CODEFOUND event"
           backHref="/what-we-do"
           backLabel="Back to What We Do"
-          icon={TrendingUp}
           actions={[
             { href: '/programs/liberia', label: 'See related programs' },
             { href: '/partner-with-us', label: 'Build opportunity', quiet: true },
@@ -26,8 +25,6 @@ export default function EconomicDevelopmentProgramPage() {
             { value: '02', label: 'operational pillar' },
             { value: 'WOMEN', label: 'and youth-led growth' },
           ]}
-          visualLabel="Tools, networks, and confidence for the next step"
-          badgeLabel="Growth in action"
         />
 
         <section className="py-24 bg-white">

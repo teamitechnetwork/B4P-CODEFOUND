@@ -49,7 +49,6 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
           imageAlt={program.imageAlt}
           backHref={`/programs/${region}`}
           backLabel={`Back to ${regionData.title}`}
-          icon={Icon}
           actions={[
             { href: `/programs/${region}`, label: `View all ${regionData.title}` },
             { href: `mailto:management@b4pcodefound.org?subject=${inquirySubject}`, label: 'Contact the team', external: true, quiet: true },
@@ -58,8 +57,6 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
             { value: regionData.title.replace(' Programs', ''), label: 'program region' },
             { value: '01', label: 'community-led focus' },
           ]}
-          visualLabel="A program shaped with local partners"
-          badgeLabel="Program focus"
         />
 
         {/* CONTENT */}

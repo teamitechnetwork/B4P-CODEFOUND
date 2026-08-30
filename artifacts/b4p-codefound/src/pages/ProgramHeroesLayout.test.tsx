@@ -171,7 +171,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
 });
 
 describe('program hero responsive layout safeguards', () => {
-  it('clips offset visual layers and sizes the visual before applying responsive offsets', () => {
+  it('keeps the hero compact and uses the B4P blue system', () => {
     expect(stylesheet).toMatch(
       /\.program-hero\s*\{[^}]*overflow:\s*hidden\s*;/s,
     );
@@ -179,25 +179,17 @@ describe('program hero responsive layout safeguards', () => {
       /\.program-hero__grid\s*\{[^}]*width:\s*min\(100% - 3rem, 90rem\)\s*;/s,
     );
     expect(stylesheet).toMatch(
-      /\.program-hero__visual\s*\{[^}]*width:\s*100%\s*;[^}]*max-width:\s*36rem\s*;[^}]*min-height:\s*25rem\s*;/s,
+      /--hero-blue:\s*#016eb4;[\s\S]*?--hero-deep:\s*#016eb4;/s,
     );
     expect(stylesheet).toMatch(
-      /\.program-hero__badge\s*\{[^}]*z-index:\s*2\s*;/s,
+      /min-height:\s*clamp\(20rem,\s*45svh,\s*34rem\);/,
     );
+    expect(stylesheet).not.toMatch(/\.program-hero__visual/);
   });
 
-  it('uses a single contained column on mobile and two bounded columns on desktop', () => {
+  it('uses a single contained column at every viewport size', () => {
     expect(stylesheet).toMatch(
       /\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(min-width:\s*860px\)\s*\{[\s\S]*?\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1\.03fr\) minmax\(23rem, 0\.77fr\)\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual\s*\{[^}]*max-width:\s*33rem\s*;[^}]*min-height:\s*20rem\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual-card,\s*\.program-hero__visual-card img\s*\{[^}]*min-height:\s*20rem\s*;/s,
     );
   });
 });

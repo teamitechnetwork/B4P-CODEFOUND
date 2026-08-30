@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowUpRight, Globe2, type LucideIcon } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Link } from 'wouter';
 
@@ -25,11 +25,8 @@ type ProgramHeroProps = {
   imageAlt: string;
   backHref?: string;
   backLabel?: string;
-  icon?: LucideIcon;
   actions?: ProgramHeroAction[];
   signals?: ProgramHeroSignal[];
-  visualLabel?: string;
-  badgeLabel?: string;
 };
 
 function HeroAction({ action }: { action: ProgramHeroAction }) {
@@ -65,16 +62,13 @@ export function ProgramHero({
   imageAlt,
   backHref,
   backLabel,
-  icon: Icon = Globe2,
   actions = [],
   signals = [],
-  visualLabel = 'Local knowledge, global connection',
-  badgeLabel = 'In action',
 }: ProgramHeroProps) {
   return (
     <section className={`program-hero program-hero--${variant}`} aria-label={`${eyebrow} hero`}>
-      <div className="program-hero__backdrop" aria-hidden="true">
-        <img src={image} alt="" />
+      <div className="program-hero__backdrop">
+        <img src={image} alt={imageAlt} />
       </div>
 
       <div className="program-hero__grid">
@@ -112,20 +106,6 @@ export function ProgramHero({
           ) : null}
         </div>
 
-        <div className="program-hero__visual" aria-label={imageAlt}>
-          <div className="program-hero__visual-frame" aria-hidden="true" />
-          <div className="program-hero__visual-card">
-            <img src={image} alt={imageAlt} />
-            <div className="program-hero__visual-label">
-              <span>{visualLabel}</span>
-              <ArrowUpRight aria-hidden="true" size={23} strokeWidth={2} />
-            </div>
-          </div>
-          <div className="program-hero__badge">
-            <Icon aria-hidden="true" size={20} strokeWidth={1.8} />
-            <span>{badgeLabel}</span>
-          </div>
-        </div>
       </div>
     </section>
   );

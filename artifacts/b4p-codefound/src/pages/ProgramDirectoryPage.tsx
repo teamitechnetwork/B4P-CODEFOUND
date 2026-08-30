@@ -1,15 +1,9 @@
-import { ArrowUpRight, Globe2, LandPlot, UsersRound } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { programRegions, type ProgramRegion } from '@/data/programs';
 import { Link } from 'wouter';
 import { ProgramHero } from '@/components/programs/ProgramHero';
-
-const regionIcons = {
-  global: Globe2,
-  usa: UsersRound,
-  liberia: LandPlot,
-} satisfies Record<ProgramRegion, typeof Globe2>;
 
 const regionImages: Record<ProgramRegion, { src: string; alt: string }> = {
   global: { src: '/images/conference/day-3-community-01.jpg', alt: 'B4P CODEFOUND participants building global connections' },
@@ -24,7 +18,6 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
     intro: programRegions[kind].intro,
     items: programRegions[kind].programs.map((program) => ({ ...program, href: `/programs/${kind}/${program.slug}` })),
   };
-  const Icon = regionIcons[kind];
   const regionImage = regionImages[kind];
 
   return (
@@ -40,7 +33,6 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
           imageAlt={regionImage.alt}
           backHref="/what-we-do"
           backLabel="Back to What We Do"
-          icon={Icon}
           actions={[
             { href: '#regional-programs', label: 'Browse programs' },
             { href: '/partner-with-us', label: 'Partner with B4P', quiet: true },
@@ -49,8 +41,6 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
             { value: String(directory.items.length).padStart(2, '0'), label: 'program pathways' },
             { value: 'B4P', label: 'community network' },
           ]}
-          visualLabel={`${directory.title} · people, place, possibility`}
-          badgeLabel="Regional work"
         />
 
         {/* REGION NAV & CONTENT */}

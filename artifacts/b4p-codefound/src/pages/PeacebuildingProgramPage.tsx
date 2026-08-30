@@ -1,4 +1,4 @@
-import { CheckCircle2, ShieldCheck, HeartHandshake, BookOpenCheck, Handshake } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, HeartHandshake, BookOpenCheck } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ProgramHero } from '@/components/programs/ProgramHero';
@@ -17,7 +17,6 @@ export default function PeacebuildingProgramPage() {
           imageAlt="Community gathering for peacebuilding in Liberia"
           backHref="/what-we-do"
           backLabel="Back to What We Do"
-          icon={Handshake}
           actions={[
             { href: '/programs/global', label: 'See related programs' },
             { href: '/partner-with-us', label: 'Partner for peace', quiet: true },
@@ -26,8 +25,6 @@ export default function PeacebuildingProgramPage() {
             { value: '01', label: 'operational pillar' },
             { value: 'LOCAL', label: 'knowledge in action' },
           ]}
-          visualLabel="Trust grows through dialogue and practice"
-          badgeLabel="Peace in action"
         />
 
         <section className="py-24 bg-white">
