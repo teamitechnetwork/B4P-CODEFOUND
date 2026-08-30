@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { analyticsEvents, trackEvent } from '@/lib/analytics';
 
 type DayCategory = 'Peacebuilding' | 'Women & girls' | 'Youth & education' | 'Culture & inclusion' | 'Collective action';
 
@@ -442,6 +443,10 @@ type PlanningBriefMoment = Pick<InternationalDay, 'date' | 'title' | 'planningPr
 
 function downloadPlanningBrief(savedDays: PlanningBriefMoment[]) {
   const selected = savedDays.length ? savedDays : internationalDays;
+  trackEvent(analyticsEvents.planningBriefDownloaded, {
+    saved_count: savedDays.length,
+    brief_scope: savedDays.length ? 'saved_list' : 'full_calendar',
+  });
   const content = [
     'B4P CODEFOUND · INTERNATIONAL DAYS PLANNING BRIEF',
     '',
@@ -493,6 +498,22 @@ export default function InternationalDaysPage() {
       planningPrompt: getCalendarGuidance(fullCalendarDay.title, category).prompt,
     }];
   });
+
+  function handleDirectoryToggle(item: InternationalDay, isSaved: boolean) {
+    toggleSaved(item.title);
+    trackEvent(isSaved ? analyticsEvents.planningObservanceRemoved : analyticsEvents.planningObservanceSaved, {
+      observance_slug: slugifyObservance(item.title),
+      source_surface: 'directory',
+    });
+  }
+
+  function handleClearSaved() {
+    trackEvent(analyticsEvents.planningListCleared, {
+      saved_count: savedTitles.length,
+    });
+    clearSaved();
+  }
+
   return (
     <div className="international-days-page flex min-h-screen flex-col">
       <Header />
@@ -651,7 +672,7 @@ export default function InternationalDaysPage() {
                     Download planning brief <ArrowDownRight size={16} aria-hidden="true" />
                   </button>
                   {savedDays.length > 0 && (
-                    <button type="button" className="international-days-planner__clear" onClick={clearSaved}>
+                    <button type="button" className="international-days-planner__clear" onClick={handleClearSaved}>
                       Clear list
                     </button>
                   )}
@@ -685,7 +706,7 @@ export default function InternationalDaysPage() {
                           <a href={getCalendarObservanceHref(item.title)}>
                             Explore this day <ArrowDownRight size={14} aria-hidden="true" />
                           </a>
-                          <button type="button" className={isSaved ? 'is-saved' : ''} onClick={() => toggleSaved(item.title)} aria-pressed={isSaved}>
+                          <button type="button" className={isSaved ? 'is-saved' : ''} onClick={() => handleDirectoryToggle(item, isSaved)} aria-pressed={isSaved}>
                             {isSaved ? <Check size={15} aria-hidden="true" /> : <Star size={15} aria-hidden="true" />}
                             {isSaved ? 'Saved to list' : 'Save for planning'}
                           </button>

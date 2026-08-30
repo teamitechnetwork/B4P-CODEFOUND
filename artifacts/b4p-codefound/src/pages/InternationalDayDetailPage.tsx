@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { analyticsEvents, trackEvent } from '@/lib/analytics';
 import {
   calendarObservances,
   calendarMonths,
@@ -50,6 +51,8 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
 
   if (!observance) return <NotFoundPage />;
 
+  const observanceTitle = observance.title;
+  const observanceSlug = observance.slug;
   const isSaved = savedTitles.includes(observance.title);
   const category = getCalendarCategory(observance.title);
   const guidance = getCalendarGuidance(observance.title, category);
@@ -58,6 +61,14 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
   const related = calendarObservances
     .filter((item) => item.slug !== observance.slug && getCalendarCategory(item.title) === category)
     .slice(0, 3);
+
+  function handleDetailToggle() {
+    toggleSaved(observanceTitle);
+    trackEvent(isSaved ? analyticsEvents.planningObservanceRemoved : analyticsEvents.planningObservanceSaved, {
+      observance_slug: observanceSlug,
+      source_surface: 'detail_page',
+    });
+  }
 
   return (
     <div className="international-day-detail-page flex min-h-screen flex-col">
@@ -85,7 +96,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                   <button
                     type="button"
                     className={`international-day-detail-save ${isSaved ? 'is-saved' : ''}`}
-                    onClick={() => toggleSaved(observance.title)}
+                    onClick={handleDetailToggle}
                     aria-pressed={isSaved}
                   >
                     {isSaved ? <CheckCircle2 size={16} aria-hidden="true" /> : <Star size={16} aria-hidden="true" />}

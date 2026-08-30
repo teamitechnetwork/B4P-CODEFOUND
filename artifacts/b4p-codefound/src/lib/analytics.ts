@@ -11,6 +11,10 @@ declare global {
 export const analyticsEvents = {
   partnershipInterestSelected: 'partnership_interest_selected',
   partnershipEmailDraftOpened: 'partnership_email_draft_opened',
+  planningObservanceSaved: 'planning_observance_saved',
+  planningObservanceRemoved: 'planning_observance_removed',
+  planningListCleared: 'planning_list_cleared',
+  planningBriefDownloaded: 'planning_brief_downloaded',
 } as const;
 
 export function trackEvent(name: string, data?: AnalyticsData): void {
