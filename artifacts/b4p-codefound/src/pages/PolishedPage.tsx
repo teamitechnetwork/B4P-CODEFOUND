@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 import { featuredDrivePhotos } from '@/data/drivePhotos';
+import NotFound from '@/pages/not-found';
 
 type PageMeta = {
   id: number;
@@ -177,6 +178,10 @@ export default function PolishedPage({ path }: { path: string }) {
     void loadPage();
     return () => { cancelled = true; };
   }, [targetPath]);
+
+  if (status === 'missing') {
+    return <NotFound />;
+  }
 
   const title = page?.title
     .replace(/&#8217;|&#039;/g, "'")

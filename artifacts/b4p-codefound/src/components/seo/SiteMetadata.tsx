@@ -60,8 +60,9 @@ function getMetadata(pathname: string): PageMetadata {
 
   return {
     path: pathname,
-    title: 'B4P CODEFOUND | African-Led Peacebuilding & Development',
-    description: 'B4P CODEFOUND connects peacebuilding, community development, and inclusive leadership across Liberia, the United States, and beyond.',
+    title: 'Page not found | B4P CODEFOUND',
+    description: 'The B4P CODEFOUND page you are looking for could not be found. Continue exploring our work, community, and ways to connect.',
+    indexable: false,
   };
 }
 
