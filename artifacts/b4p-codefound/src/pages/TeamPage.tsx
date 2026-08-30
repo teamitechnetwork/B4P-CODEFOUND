@@ -1,6 +1,5 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Linkedin } from 'lucide-react';
 
 type TeamMember = {
   name: string;
@@ -157,25 +156,20 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                         </span>
                       </div>
                     )}
+                    <div className="team-card__role-band">
+                      <span>{member.role}</span>
+                    </div>
                   </div>
                 )}
                 <div className="team-card__content">
-                  {type === 'management' && (
-                    <span className="team-card__role-label">B4P CODEFOUND team</span>
-                  )}
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
-                    {type === 'management' && (
-                      <span
-                        className="team-card__linkedin"
-                        role="img"
-                        aria-label={`LinkedIn profile for ${member.name}`}
-                      >
-                        <Linkedin size={17} strokeWidth={2.2} aria-hidden="true" />
-                      </span>
-                    )}
                   </div>
-                  <p>{member.role}</p>
+                  {type === 'management' ? (
+                    <span className="team-card__meet">Meet {member.name.split(' ')[0]}</span>
+                  ) : (
+                    <p>{member.role}</p>
+                  )}
                 </div>
               </article>
             ))}

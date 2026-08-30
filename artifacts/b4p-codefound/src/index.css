@@ -4427,6 +4427,110 @@
   color: #cbb9ad;
 }
 
+/* Reference-style management profiles */
+.team-page--management .team-card {
+  border: 1px solid #d9e1e4;
+  border-radius: 0;
+  box-shadow: 0 10px 24px rgba(18, 63, 71, 0.05);
+}
+
+.team-page--management .team-card:hover {
+  border-color: #8ddfe6;
+  box-shadow: 0 20px 34px rgba(18, 63, 71, 0.13);
+  transform: translateY(-4px);
+}
+
+.team-page--management .team-card__portrait {
+  aspect-ratio: 1.18 / 1;
+  padding: 0 22px;
+  background: #fff;
+}
+
+.team-page--management .team-card__portrait::after {
+  inset: 0 22px 0;
+  border: 1px solid #e4ecee;
+  border-bottom: 0;
+}
+
+.team-page--management .team-card__image {
+  object-position: center top;
+}
+
+.team-card__role-band {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  min-height: 34%;
+  align-items: center;
+  padding: 1rem 1.45rem;
+  color: #fff;
+  background: #016eb4;
+}
+
+.team-card__role-band::after {
+  position: absolute;
+  right: 1.45rem;
+  bottom: 0.8rem;
+  width: 2rem;
+  height: 2px;
+  background: #f0cf69;
+  content: '';
+}
+
+.team-card__role-band span {
+  max-width: 23ch;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.team-page--management .team-card__content {
+  min-height: 11rem;
+  padding: 1.65rem 1.45rem 1.8rem;
+}
+
+.team-page--management .team-card h3 {
+  max-width: 100%;
+  margin-bottom: 0;
+  color: #123f47;
+  font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+  line-height: 1.12;
+}
+
+.team-card__meet {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1.25rem;
+  color: #118f9b;
+  font-size: 1rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.team-card__meet::after {
+  width: 0;
+  height: 1px;
+  margin-left: 0.5rem;
+  background: currentColor;
+  content: '';
+  transition: width 180ms ease;
+}
+
+.team-card:hover .team-card__meet,
+.team-card:focus-within .team-card__meet {
+  color: #016eb4;
+}
+
+.team-card:hover .team-card__meet::after,
+.team-card:focus-within .team-card__meet::after {
+  width: 1.35rem;
+}
+
 /* Modern footer */
 .site-footer {
   padding: 74px 0 26px;
