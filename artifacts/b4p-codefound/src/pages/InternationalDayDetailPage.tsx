@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Compass,
   Sparkles,
+  Star,
   Users,
 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
@@ -16,6 +17,7 @@ import {
   getCalendarCategory,
   getCalendarGuidance,
   getCalendarObservance,
+  useSavedObservances,
   type CalendarCategory,
 } from '@/pages/InternationalDaysPage';
 
@@ -44,9 +46,11 @@ function categoryClass(category: CalendarCategory) {
 
 export default function InternationalDayDetailPage({ slug }: { slug: string }) {
   const observance = getCalendarObservance(slug);
+  const { savedTitles, toggleSaved } = useSavedObservances();
 
   if (!observance) return <NotFoundPage />;
 
+  const isSaved = savedTitles.includes(observance.title);
   const category = getCalendarCategory(observance.title);
   const guidance = getCalendarGuidance(observance.title, category);
   const monthIndex = calendarMonths.indexOf(observance.month);
@@ -78,6 +82,15 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                   <a href="#make-it-matter" className="international-day-detail-button">
                     Make the moment matter <ArrowDownRight size={17} aria-hidden="true" />
                   </a>
+                  <button
+                    type="button"
+                    className={`international-day-detail-save ${isSaved ? 'is-saved' : ''}`}
+                    onClick={() => toggleSaved(observance.title)}
+                    aria-pressed={isSaved}
+                  >
+                    {isSaved ? <CheckCircle2 size={16} aria-hidden="true" /> : <Star size={16} aria-hidden="true" />}
+                    {isSaved ? 'Saved to planning list' : 'Save for planning'}
+                  </button>
                   <a href="/partner-with-us" className="international-day-detail-text-link">
                     Plan with B4P <ArrowUpRight size={16} aria-hidden="true" />
                   </a>

@@ -1517,6 +1517,30 @@
   transform: translateY(-2px);
 }
 
+.international-day-detail-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.9rem 0;
+  color: rgba(255, 255, 255, 0.82);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.79rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.international-day-detail-save:hover,
+.international-day-detail-save:focus-visible,
+.international-day-detail-save.is-saved {
+  color: #f0cf69;
+  transform: translateY(-2px);
+}
+
 .international-day-detail-text-link {
   display: inline-flex;
   align-items: center;

@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -381,7 +381,66 @@ const categories: Array<'All moments' | DayCategory> = [
 
 const months = ['All months', ...Array.from(new Set(internationalDays.map((item) => item.month)))];
 
-function downloadPlanningBrief(savedDays: InternationalDay[]) {
+const SAVED_OBSERVANCES_STORAGE_KEY = 'b4p-international-days-planning-list';
+
+function readSavedTitles() {
+  if (typeof window === 'undefined') return [];
+
+  try {
+    const stored = window.localStorage.getItem(SAVED_OBSERVANCES_STORAGE_KEY);
+    if (!stored) return [];
+
+    const parsed: unknown = JSON.parse(stored);
+    if (!Array.isArray(parsed)) return [];
+
+    const knownTitles = new Set([
+      ...internationalDays.map((item) => item.title),
+      ...calendarObservances.map((item) => item.title),
+    ]);
+    return [...new Set(parsed.filter((title): title is string => typeof title === 'string' && knownTitles.has(title)))];
+  } catch {
+    return [];
+  }
+}
+
+export function useSavedObservances() {
+  const [savedTitles, setSavedTitles] = useState<string[]>(readSavedTitles);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(SAVED_OBSERVANCES_STORAGE_KEY, JSON.stringify(savedTitles));
+    } catch {
+      // Browser storage can be unavailable in private or restricted contexts.
+    }
+  }, [savedTitles]);
+
+  useEffect(() => {
+    const handleStorageChange = (event: StorageEvent) => {
+      if (event.key === SAVED_OBSERVANCES_STORAGE_KEY) {
+        setSavedTitles(readSavedTitles());
+      }
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
+  const toggleSaved = (title: string) => {
+    setSavedTitles((current) => current.includes(title)
+      ? current.filter((savedTitle) => savedTitle !== title)
+      : [...current, title]);
+  };
+
+  const clearSaved = () => setSavedTitles([]);
+
+  return { savedTitles, toggleSaved, clearSaved };
+}
+
+type PlanningBriefMoment = Pick<InternationalDay, 'date' | 'title' | 'planningPrompt'> & {
+  category: string;
+};
+
+function downloadPlanningBrief(savedDays: PlanningBriefMoment[]) {
   const selected = savedDays.length ? savedDays : internationalDays;
   const content = [
     'B4P CODEFOUND · INTERNATIONAL DAYS PLANNING BRIEF',
@@ -405,7 +464,7 @@ export default function InternationalDaysPage() {
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>('All moments');
   const [activeMonth, setActiveMonth] = useState('All months');
   const [query, setQuery] = useState('');
-  const [savedTitles, setSavedTitles] = useState<string[]>([]);
+  const { savedTitles, toggleSaved, clearSaved } = useSavedObservances();
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
 
   const filteredDays = useMemo(() => {
@@ -419,13 +478,21 @@ export default function InternationalDaysPage() {
     });
   }, [activeCategory, activeMonth, query]);
 
-  const savedDays = internationalDays.filter((item) => savedTitles.includes(item.title));
-  const toggleSaved = (title: string) => {
-    setSavedTitles((current) => current.includes(title)
-      ? current.filter((savedTitle) => savedTitle !== title)
-      : [...current, title]);
-  };
+  const savedDays: PlanningBriefMoment[] = savedTitles.flatMap((title): PlanningBriefMoment[] => {
+    const curatedDay = internationalDays.find((item) => item.title === title);
+    if (curatedDay) return [curatedDay];
 
+    const fullCalendarDay = calendarObservances.find((item) => item.title === title);
+    if (!fullCalendarDay) return [];
+
+    const category = getCalendarCategory(fullCalendarDay.title);
+    return [{
+      date: fullCalendarDay.date,
+      title: fullCalendarDay.title,
+      category,
+      planningPrompt: getCalendarGuidance(fullCalendarDay.title, category).prompt,
+    }];
+  });
   return (
     <div className="international-days-page flex min-h-screen flex-col">
       <Header />
@@ -584,7 +651,7 @@ export default function InternationalDaysPage() {
                     Download planning brief <ArrowDownRight size={16} aria-hidden="true" />
                   </button>
                   {savedDays.length > 0 && (
-                    <button type="button" className="international-days-planner__clear" onClick={() => setSavedTitles([])}>
+                    <button type="button" className="international-days-planner__clear" onClick={clearSaved}>
                       Clear list
                     </button>
                   )}
