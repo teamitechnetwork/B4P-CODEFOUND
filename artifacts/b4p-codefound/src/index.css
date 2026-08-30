@@ -10570,7 +10570,7 @@ body.has-site-search-open {
   overflow: hidden;
   padding: 0 0 36px;
   color: #fff;
-  background: #062e37;
+  background: #016eb4;
 }
 
 .site-footer.reference-footer .reference-footer__content {
@@ -10596,8 +10596,10 @@ body.has-site-search-open {
   width: 156px;
   height: 156px;
   padding: 0;
-  border: 4px solid #016eb4;
-  background: #2d708d;
+  border: 0;
+  background: transparent;
+  filter: grayscale(1) contrast(2.4) brightness(1.55);
+  mix-blend-mode: screen;
   object-fit: contain;
 }
 
@@ -10625,6 +10627,13 @@ body.has-site-search-open {
   line-height: 1.15;
 }
 
+.site-footer.reference-footer .site-footer__link-group-description {
+  margin: 0 0 22px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.87rem;
+  line-height: 1.55;
+}
+
 .site-footer.reference-footer .site-footer__link-group nav {
   display: grid;
   gap: 14px;
@@ -10635,6 +10644,7 @@ body.has-site-search-open {
   font-size: 0.97rem;
   font-weight: 500;
   line-height: 1.4;
+  overflow-wrap: anywhere;
   text-decoration: none;
   transition: color 180ms ease;
 }
@@ -10659,7 +10669,7 @@ body.has-site-search-open {
   place-items: center;
   border: 0;
   border-radius: 50%;
-  color: #062e37 !important;
+  color: #fff !important;
   background: #d6a53a;
   text-decoration: none;
   transition: color 180ms ease, background 180ms ease, transform 180ms ease;
@@ -10730,7 +10740,7 @@ body.has-site-search-open {
   place-items: center;
   border: 0;
   border-left: 2px solid #d6a53a;
-  color: #062e37;
+  color: #016eb4;
   background: #d6a53a;
   cursor: pointer;
   transition: color 180ms ease, background 180ms ease;
