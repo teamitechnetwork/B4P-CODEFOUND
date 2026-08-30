@@ -73,7 +73,7 @@ export function Hero() {
       const nextText = phrase.slice(0, typingText.length + 1);
       setTypingText(nextText);
       if (nextText === phrase) setIsDeletingText(true);
-    }, isDeletingText ? 42 : isPhraseComplete ? 1700 : 72);
+    }, isDeletingText ? 78 : isPhraseComplete ? 2600 : 118);
 
     return () => window.clearTimeout(timer);
   }, [isDeletingText, reduceMotion, typingPhraseIndex, typingText]);

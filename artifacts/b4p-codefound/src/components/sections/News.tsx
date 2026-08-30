@@ -114,12 +114,18 @@ export function News() {
             <p className="partner-logos__eyebrow">In community with</p>
             <h3 id="partner-logos-title">Partners who help move the work forward.</h3>
           </div>
-          <div className="partner-logos__grid">
-            {partnerLogos.map((partner) => (
-              <div className="partner-logo" key={partner.name}>
-                <img src={partner.src} alt={partner.name} loading="lazy" />
-              </div>
-            ))}
+          <div className="partner-logos__viewport">
+            <div className="partner-logos__track">
+              {[0, 1].map((setIndex) => (
+                <div className="partner-logos__set" key={setIndex} aria-hidden={setIndex === 1}>
+                  {partnerLogos.map((partner) => (
+                    <div className="partner-logo" key={`${setIndex}-${partner.name}`}>
+                      <img src={partner.src} alt={setIndex === 0 ? partner.name : ''} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
