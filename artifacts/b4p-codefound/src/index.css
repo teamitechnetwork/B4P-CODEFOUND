@@ -8674,14 +8674,25 @@ main p.text-xl {
 .impact-hero__visual {
   position: relative;
   min-height: 560px;
+  padding: 0 0 27px 27px;
+}
+
+.impact-hero__visual::before {
+  position: absolute;
+  inset: 35px auto 0 0;
+  width: 58%;
+  content: '';
+  background: #f0cf69;
 }
 
 .impact-hero__visual img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 560px;
   object-fit: cover;
   border-radius: 2px;
-  box-shadow: 0 28px 70px rgba(18, 63, 71, 0.17);
+  box-shadow: 22px 22px 0 #159dd4, 0 28px 70px rgba(18, 63, 71, 0.17);
 }
 
 .impact-hero__badge {
@@ -9036,6 +9047,16 @@ main p.text-xl {
 }
 
 .values-hero__image {
+  position: relative;
+  padding: 0 0 22px 22px;
+}
+
+.values-hero__image::before {
+  position: absolute;
+  inset: 24px auto 0 0;
+  width: 58%;
+  content: '';
+  background: #f0cf69;
 }
 
 .values-hero__image img {
@@ -9044,6 +9065,7 @@ main p.text-xl {
   width: 100%;
   height: 500px;
   object-fit: cover;
+  box-shadow: 18px 18px 0 #159dd4;
 }
 
 .values-intro {
@@ -9529,19 +9551,31 @@ main p.text-xl {
 
 .store-hero__visual {
   position: relative;
+  padding: 0 0 27px 27px;
+}
+
+.store-hero__visual::before {
+  position: absolute;
+  inset: 35px auto 0 0;
+  width: 58%;
+  content: '';
+  background: #f0cf69;
 }
 
 .store-hero__visual img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 500px;
   object-fit: cover;
   opacity: 0.9;
+  box-shadow: 22px 22px 0 #159dd4;
 }
 
 .store-hero__visual span {
   position: absolute;
   right: 18px;
-  bottom: 18px;
+  bottom: 45px;
   padding: 11px 13px;
   color: #fff;
   background: #1b9ed9;
@@ -10038,19 +10072,30 @@ main p.text-xl {
 
 .where-hero__visual {
   position: relative;
+  padding: 0 0 27px 27px;
+}
+
+.where-hero__visual::before {
+  position: absolute;
+  inset: 35px auto 0 0;
+  width: 58%;
+  content: '';
+  background: #f0cf69;
 }
 
 .where-hero__visual img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 520px;
   object-fit: cover;
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.22);
+  box-shadow: 22px 22px 0 #159dd4, 0 25px 65px rgba(0, 0, 0, 0.22);
 }
 
 .where-hero__caption {
   position: absolute;
   right: -22px;
-  bottom: 24px;
+  bottom: 51px;
   width: min(300px, 78%);
   padding: 20px 22px;
   color: #fff;
@@ -10372,7 +10417,7 @@ main p.text-xl {
 
   .where-hero__caption {
     right: -8px;
-    bottom: 17px;
+    bottom: 44px;
     padding: 16px;
   }
 
@@ -10496,19 +10541,30 @@ main p.text-xl {
 
 .theory-hero__visual {
   position: relative;
+  padding: 0 0 27px 27px;
+}
+
+.theory-hero__visual::before {
+  position: absolute;
+  inset: 35px auto 0 0;
+  width: 58%;
+  content: '';
+  background: #f0cf69;
 }
 
 .theory-hero__visual img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 520px;
   object-fit: cover;
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.22);
+  box-shadow: 22px 22px 0 #159dd4, 0 25px 65px rgba(0, 0, 0, 0.22);
 }
 
 .theory-hero__visual > span {
   position: absolute;
   right: 18px;
-  bottom: 18px;
+  bottom: 45px;
   padding: 11px 13px;
   color: #fff;
   background: #1b9ed9;
@@ -11151,7 +11207,7 @@ main p.text-xl {
 
   .theory-hero__visual > span {
     right: 10px;
-    bottom: 10px;
+    bottom: 37px;
   }
 
   .theory-statement blockquote {
