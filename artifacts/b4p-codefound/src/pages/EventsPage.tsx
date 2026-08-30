@@ -5,7 +5,6 @@ import {
   Clock3,
   Download,
   MapPin,
-  Sparkles,
 } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Header } from '@/components/layout/Header';
@@ -124,7 +123,6 @@ export default function EventsPage() {
           <div className="page-container events-hero__inner">
             <div className="events-hero__copy">
               <span className="events-kicker">
-                <Sparkles size={15} aria-hidden="true" />
                 Events &amp; gatherings
               </span>
               <h1>

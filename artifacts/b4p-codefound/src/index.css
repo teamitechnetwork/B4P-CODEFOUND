@@ -332,24 +332,12 @@
 }
 
 .international-days-hero {
-  position: relative;
-  overflow: hidden;
   min-height: min(740px, 92svh);
   background: linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
   color: #fff;
 }
 
-.international-days-hero::before {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, rgba(0, 54, 92, 0.76), rgba(1, 110, 180, 0.18) 62%, rgba(141, 223, 230, 0.2));
-  content: '';
-  pointer-events: none;
-}
-
 .international-days-hero__inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(26rem, 1.08fr);
   min-height: min(740px, 92svh);
@@ -372,13 +360,6 @@
   font-weight: 850;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
-.international-days-kicker::before {
-  width: 2.2rem;
-  height: 2px;
-  background: currentColor;
-  content: '';
 }
 
 .international-days-hero h1 {
@@ -463,60 +444,6 @@
   overflow: hidden;
   background: #016eb4;
   isolation: isolate;
-}
-
-.international-days-hero__art::before,
-.international-days-hero__art::after {
-  position: absolute;
-  border: 1px solid rgba(255, 243, 211, 0.32);
-  border-radius: 50%;
-  content: '';
-}
-
-.international-days-hero__art::before {
-  width: 85%;
-  aspect-ratio: 1;
-  top: -42%;
-  right: -22%;
-}
-
-.international-days-hero__art::after {
-  width: 48%;
-  aspect-ratio: 1;
-  bottom: -18%;
-  left: -10%;
-}
-
-.international-days-hero__art-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.34;
-  background-image: linear-gradient(rgba(255, 243, 211, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 243, 211, 0.18) 1px, transparent 1px);
-  background-size: 3rem 3rem;
-  mask-image: linear-gradient(135deg, black, transparent 70%);
-}
-
-.international-days-hero__art-orbit {
-  position: absolute;
-  z-index: 1;
-  border: 1px solid rgba(255, 243, 211, 0.5);
-  border-radius: 50%;
-  transform: rotate(-28deg);
-}
-
-.international-days-hero__art-orbit--one {
-  width: 75%;
-  height: 45%;
-  top: 29%;
-  left: 13%;
-}
-
-.international-days-hero__art-orbit--two {
-  width: 53%;
-  height: 84%;
-  top: 7%;
-  left: 27%;
-  transform: rotate(56deg);
 }
 
 .international-days-hero__art-center {
@@ -1437,50 +1364,16 @@
 }
 
 .international-day-detail-hero {
-  position: relative;
-  overflow: hidden;
   color: #fff;
-  background:
-    radial-gradient(circle at 76% 42%, rgba(141, 223, 230, 0.22), transparent 24rem),
-    radial-gradient(circle at 8% 100%, rgba(240, 207, 105, 0.12), transparent 22rem),
-    linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
-}
-
-.international-day-detail-hero::before {
-  position: absolute;
-  top: -16rem;
-  right: 8%;
-  width: min(48vw, 42rem);
-  height: min(48vw, 42rem);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-  opacity: 0.7;
-  background: radial-gradient(circle, rgba(141, 223, 230, 0.16), transparent 66%);
-  content: '';
-  pointer-events: none;
-}
-
-.international-day-detail-hero::after {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
-  content: '';
-  pointer-events: none;
+  background: linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
 }
 
 .international-day-detail-hero--women-girls {
-  background:
-    radial-gradient(circle at 88% 18%, rgba(240, 207, 105, 0.26), transparent 26rem),
-    linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
+  background: linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
 }
 
 .international-day-detail-hero--environment-future {
-  background:
-    radial-gradient(circle at 88% 18%, rgba(141, 223, 230, 0.3), transparent 26rem),
-    linear-gradient(122deg, #064e62 0%, #087ca0 58%, #118f9b 100%);
+  background: linear-gradient(122deg, #064e62 0%, #087ca0 58%, #118f9b 100%);
 }
 
 .international-day-detail-back {
@@ -3920,23 +3813,10 @@
 }
 
 .team-page__hero {
-  position: relative;
-  overflow: hidden;
   padding: clamp(68px, 9vw, 118px) 0 clamp(60px, 7vw, 96px);
   background:
     linear-gradient(118deg, rgba(1, 110, 180, 0.96), rgba(1, 110, 180, 0.79)),
     url('/images/conference/day-1-community.jpg') center/cover;
-}
-
-.team-page__hero::after {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, transparent 49.75%, rgba(255, 255, 255, 0.13) 50%, transparent 50.25%),
-    linear-gradient(transparent 49.75%, rgba(255, 255, 255, 0.13) 50%, transparent 50.25%);
-  background-size: 90px 90px;
-  content: '';
-  opacity: 0.22;
 }
 
 .team-page__hero-inner {
@@ -6819,14 +6699,6 @@
   text-transform: uppercase;
 }
 
-.page-kicker::before,
-.section-heading__eyebrow::before {
-  width: 29px;
-  height: 2px;
-  content: '';
-  background: currentColor;
-}
-
 .what-we-do-hero {
   padding: 94px 0 88px;
   color: #fff;
@@ -7774,15 +7646,6 @@
 
 .cwc-hero__art {
   position: relative;
-  padding: 0 0 27px 27px;
-}
-
-.cwc-hero__art::before {
-  position: absolute;
-  inset: 35px auto 0 0;
-  width: 58%;
-  content: '';
-  background: var(--cwc-gold);
 }
 
 .cwc-hero__art img {
@@ -7792,7 +7655,6 @@
   width: 100%;
   min-height: 370px;
   object-fit: cover;
-  box-shadow: 22px 22px 0 var(--cwc-blue);
 }
 
 .cwc-hero__badge {
@@ -9165,14 +9027,6 @@ main p.text-xl {
 }
 
 .values-hero__image {
-  position: relative;
-}
-
-.values-hero__image::before {
-  position: absolute;
-  inset: 22px -22px -22px 22px;
-  border: 1px solid rgba(131, 214, 245, 0.45);
-  content: '';
 }
 
 .values-hero__image img {
@@ -12303,10 +12157,8 @@ body.has-site-search-open {
 }
 
 .partnership-hero {
-  overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(circle at 8% 15%, rgba(141, 223, 230, 0.16), transparent 24rem),
     linear-gradient(116deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
 }
 
@@ -12836,29 +12688,12 @@ body.has-site-search-open {
 }
 
 .events-hero {
-  position: relative;
-  overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(circle at 80% 10%, rgba(141, 223, 230, 0.15), transparent 22rem),
     linear-gradient(122deg, #004b7c 0%, #016eb4 58%, #057c9d 100%);
 }
 
-.events-hero::after {
-  position: absolute;
-  right: -9rem;
-  bottom: -13rem;
-  width: 38rem;
-  height: 38rem;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
-  content: '';
-  pointer-events: none;
-}
-
 .events-hero__inner {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 0.96fr) minmax(340px, 0.74fr);
   gap: clamp(48px, 8vw, 120px);
@@ -12881,13 +12716,6 @@ body.has-site-search-open {
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-}
-
-.events-kicker::before {
-  width: 30px;
-  height: 2px;
-  background: #d6a53a;
-  content: '';
 }
 
 .events-hero h1 {

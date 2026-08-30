@@ -7,7 +7,6 @@ import {
   Filter,
   Link2,
   ListFilter,
-  Sparkles,
   Star,
   X,
 } from 'lucide-react';
@@ -546,7 +545,6 @@ export default function InternationalDaysPage() {
           <div className="page-container international-days-hero__inner">
             <div className="international-days-hero__copy">
               <span className="international-days-kicker">
-                <Sparkles size={15} aria-hidden="true" />
                 A community programming calendar
               </span>
               <h1>
@@ -568,9 +566,6 @@ export default function InternationalDaysPage() {
               </div>
             </div>
             <div className="international-days-hero__art" aria-label="A visual timeline showing selected months and community themes">
-              <div className="international-days-hero__art-grid" aria-hidden="true" />
-              <div className="international-days-hero__art-orbit international-days-hero__art-orbit--one" aria-hidden="true" />
-              <div className="international-days-hero__art-orbit international-days-hero__art-orbit--two" aria-hidden="true" />
               <div className="international-days-hero__art-center">
                 <span>01</span>
                 <strong>the year<br /><em>is full of openings</em></strong>
