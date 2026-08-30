@@ -5,7 +5,6 @@ import {
   CalendarDays,
   CheckCircle2,
   Compass,
-  Sparkles,
   Star,
   Users,
 } from 'lucide-react';
@@ -83,7 +82,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
             <div className="international-day-detail-hero__layout">
               <div className="international-day-detail-hero__copy">
                 <div className="international-day-detail-meta">
-                  <span><Sparkles size={14} aria-hidden="true" /> Community observance</span>
+                  <span>Community observance</span>
                   <i aria-hidden="true">·</i>
                   <span>{category}</span>
                 </div>
