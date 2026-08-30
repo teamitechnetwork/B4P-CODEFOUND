@@ -1,39 +1,45 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Linkedin } from 'lucide-react';
+import { ArrowUpRight, Linkedin } from 'lucide-react';
 
 type TeamMember = {
   name: string;
   role: string;
   image?: string;
   bio?: string;
+  linkedin?: string;
 };
 
 const MANAGEMENT_TEAM: TeamMember[] = [
   {
     name: 'Lindora Kolu Howard-Diawara',
     role: 'Founder & Executive Director / Acting Country Director',
-    image: '/images/team/team-lindora-management.png'
+    image: '/images/team/team-lindora-management.png',
+    linkedin: 'https://www.linkedin.com/in/lindora-diawara?utm_source=share_via&utm_content=profile&utm_medium=member_android'
   },
   {
     name: 'Awanah F. Shatamon',
     role: 'Program Associate',
-    image: '/images/team/team-awanah.jpg'
+    image: '/images/team/team-awanah.jpg',
+    linkedin: 'https://www.linkedin.com/in/lewanah-flee?utm_source=share_via&utm_content=profile&utm_medium=member_android'
   },
   {
     name: 'Albert F. Wilson',
     role: 'Program Associate',
-    image: '/images/team/team-albert.jpg'
+    image: '/images/team/team-albert.jpg',
+    linkedin: 'https://www.linkedin.com/in/albert-wilson-9806a829?utm_source=share_via&utm_content=profile&utm_medium=member_android'
   },
   {
     name: 'Wilmot Kerkulah',
     role: 'Social Media, Marketing & Operations Associate',
-    image: '/images/team/team-wilmot.png'
+    image: '/images/team/team-wilmot.png',
+    linkedin: 'https://www.linkedin.com/in/cto-wilmot-kerkulah-984531337?utm_source=share_via&utm_content=profile&utm_medium=member_android'
   },
   {
     name: 'Darlington W. Vangehn',
     role: 'Director of Monitoring, Evaluation & Learning',
-    image: '/images/team/team-darlington.png'
+    image: '/images/team/team-darlington.png',
+    linkedin: 'https://www.linkedin.com/in/darlington-w-vangehn-3b952310?utm_source=share_via&utm_content=profile&utm_medium=member_android'
   },
   {
     name: 'Fatumata Sheriffa Diawara',
@@ -168,17 +174,35 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
                     {type === 'management' && (
-                      <span
-                        className="team-card__linkedin"
-                        role="img"
-                        aria-label={`LinkedIn profile for ${member.name}`}
-                      >
-                        <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
-                      </span>
+                      member.linkedin ? (
+                        <a
+                          className="team-card__linkedin"
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Open LinkedIn profile for ${member.name}`}
+                        >
+                          <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
+                        </a>
+                      ) : (
+                        <span
+                          className="team-card__linkedin team-card__linkedin--pending"
+                          role="img"
+                          aria-label={`LinkedIn profile for ${member.name} coming soon`}
+                        >
+                          <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
+                        </span>
+                      )
                     )}
                   </div>
                   {type === 'management' ? (
-                    <span className="team-card__meet">Meet {member.name.split(' ')[0]}</span>
+                    member.linkedin ? (
+                      <a className="team-card__meet" href={member.linkedin} target="_blank" rel="noreferrer">
+                        Meet {member.name.split(' ')[0]} <ArrowUpRight size={16} strokeWidth={2.2} aria-hidden="true" />
+                      </a>
+                    ) : (
+                      <span className="team-card__meet">Meet {member.name.split(' ')[0]}</span>
+                    )
                   ) : (
                     <p>{member.role}</p>
                   )}

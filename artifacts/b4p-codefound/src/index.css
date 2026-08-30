@@ -4510,6 +4510,20 @@
   color: #016eb4;
   background: #edf7f9;
   border-color: #8ddfe6;
+  text-decoration: none;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.team-page--management .team-card__linkedin[href]:hover,
+.team-page--management .team-card__linkedin[href]:focus-visible {
+  color: #fff;
+  border-color: #016eb4;
+  background: #016eb4;
+  transform: translateY(-2px);
+}
+
+.team-page--management .team-card__linkedin--pending {
+  opacity: 0.46;
 }
 
 .team-page--management .team-card h3 {
@@ -4523,6 +4537,7 @@
 .team-card__meet {
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   margin-top: 1.25rem;
   color: #118f9b;
   font-size: 1rem;
