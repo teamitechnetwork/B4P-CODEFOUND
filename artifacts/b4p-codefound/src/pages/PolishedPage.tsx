@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight, Loader2 } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { DrivePhotoGallery } from '@/components/sections/DrivePhotoGallery';
 import { featuredDrivePhotos } from '@/data/drivePhotos';
@@ -222,18 +221,6 @@ export default function PolishedPage({ path }: { path: string }) {
               {status === 'error' && (
                 <div className="py-20 px-8 bg-red-50 text-red-900 rounded-2xl border border-red-100 text-center font-bold text-lg">
                   This page could not be loaded right now. Please try again.
-                </div>
-              )}
-
-              {status === 'missing' && (
-                <div className="py-24 px-8 bg-white rounded-2xl border border-border text-center shadow-sm">
-                  <h2 className="text-3xl font-extrabold text-foreground mb-4">Page not found</h2>
-                  <p className="text-lg text-muted-foreground font-medium max-w-md mx-auto mb-8">
-                    We couldn't find the page you're looking for. Please select an option from the site directory to continue exploring.
-                  </p>
-                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-bold">
-                    <Link href="/">Return Home</Link>
-                  </Button>
                 </div>
               )}
 
