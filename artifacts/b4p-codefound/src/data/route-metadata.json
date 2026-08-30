@@ -282,6 +282,12 @@
     "indexable": true
   },
   {
+    "path": "/international-days",
+    "title": "International Days | B4P CODEFOUND",
+    "description": "Use UNESCO International Days as openings for community-led peacebuilding, education, inclusion, and collective action.",
+    "indexable": true
+  },
+  {
     "path": "/resources",
     "title": "Resources | B4P CODEFOUND",
     "description": "Explore public resources and learning materials from B4P CODEFOUND.",

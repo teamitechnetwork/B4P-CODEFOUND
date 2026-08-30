@@ -322,6 +322,969 @@
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/* International days · editorial calendar                                    */
+/* -------------------------------------------------------------------------- */
+
+.international-days-page {
+  background: #f8f5ed;
+  color: #123f47;
+}
+
+.international-days-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: min(740px, 92svh);
+  background: #075466;
+  color: #fff;
+}
+
+.international-days-hero::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(1, 73, 91, 0.92), rgba(1, 73, 91, 0.24) 62%, rgba(214, 165, 58, 0.2));
+  content: '';
+  pointer-events: none;
+}
+
+.international-days-hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(26rem, 1.08fr);
+  min-height: min(740px, 92svh);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 7rem);
+  padding-block: 8.5rem 5rem;
+}
+
+.international-days-hero__copy {
+  max-width: 42rem;
+}
+
+.international-days-kicker,
+.international-days-section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: #f0cf69;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.international-days-kicker::before {
+  width: 2.2rem;
+  height: 2px;
+  background: currentColor;
+  content: '';
+}
+
+.international-days-hero h1 {
+  max-width: 9ch;
+  margin: 1.6rem 0 1.65rem;
+  color: #fff;
+  font-size: clamp(4rem, 8.3vw, 8rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.84;
+  text-wrap: balance;
+}
+
+.international-days-hero h1 em,
+.international-days-intro h2 em,
+.international-days-calendar h2 em,
+.international-days-cta h2 em {
+  color: #f0cf69;
+  font-family: Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.065em;
+}
+
+.international-days-hero__copy > p {
+  max-width: 37rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1.05rem, 1.65vw, 1.25rem);
+  line-height: 1.65;
+}
+
+.international-days-hero__actions,
+.international-days-cta__copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.4rem;
+}
+
+.international-days-primary-link,
+.international-days-text-link,
+.international-days-cta a,
+.international-day-card__footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.international-days-primary-link {
+  padding: 0.88rem 1rem;
+  color: #123f47;
+  background: #f0cf69;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.international-days-primary-link:hover,
+.international-days-primary-link:focus-visible {
+  background: #fff2ba;
+  transform: translateY(-2px);
+}
+
+.international-days-text-link {
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 750;
+}
+
+.international-days-text-link:hover,
+.international-days-text-link:focus-visible {
+  color: #f0cf69;
+}
+
+.international-days-hero__art {
+  position: relative;
+  min-height: min(540px, 50vw);
+  overflow: hidden;
+  background: #df5311;
+  isolation: isolate;
+}
+
+.international-days-hero__art::before,
+.international-days-hero__art::after {
+  position: absolute;
+  border: 1px solid rgba(255, 243, 211, 0.32);
+  border-radius: 50%;
+  content: '';
+}
+
+.international-days-hero__art::before {
+  width: 85%;
+  aspect-ratio: 1;
+  top: -42%;
+  right: -22%;
+}
+
+.international-days-hero__art::after {
+  width: 48%;
+  aspect-ratio: 1;
+  bottom: -18%;
+  left: -10%;
+}
+
+.international-days-hero__art-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  background-image: linear-gradient(rgba(255, 243, 211, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 243, 211, 0.18) 1px, transparent 1px);
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(135deg, black, transparent 70%);
+}
+
+.international-days-hero__art-orbit {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid rgba(255, 243, 211, 0.5);
+  border-radius: 50%;
+  transform: rotate(-28deg);
+}
+
+.international-days-hero__art-orbit--one {
+  width: 75%;
+  height: 45%;
+  top: 29%;
+  left: 13%;
+}
+
+.international-days-hero__art-orbit--two {
+  width: 53%;
+  height: 84%;
+  top: 7%;
+  left: 27%;
+  transform: rotate(56deg);
+}
+
+.international-days-hero__art-center {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 12rem;
+  height: 12rem;
+  display: grid;
+  place-content: center;
+  padding: 1.3rem;
+  border-radius: 50%;
+  color: #123f47;
+  background: #f0cf69;
+  box-shadow: 0 1.5rem 3rem rgba(74, 36, 14, 0.22);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.international-days-hero__art-center span {
+  margin-bottom: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+}
+
+.international-days-hero__art-center strong {
+  font-size: 1.12rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.international-days-hero__art-center em {
+  color: #df5311;
+  font-family: Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.international-days-hero__art-note {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  border: 1px solid rgba(255, 243, 211, 0.62);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(18, 63, 71, 0.22);
+  line-height: 0.9;
+}
+
+.international-days-hero__art-note span {
+  font-size: 1.35rem;
+  font-weight: 850;
+}
+
+.international-days-hero__art-note small {
+  margin-top: -0.8rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.international-days-hero__art-note--top { top: 11%; left: 11%; }
+.international-days-hero__art-note--right { top: 39%; right: 8%; }
+.international-days-hero__art-note--bottom { right: 17%; bottom: 9%; }
+
+.international-days-hero__art-caption {
+  position: absolute;
+  right: 1.3rem;
+  bottom: 1.15rem;
+  left: 1.3rem;
+  z-index: 3;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.international-days-intro {
+  padding: clamp(5.5rem, 10vw, 9rem) 0;
+  background: #f8f5ed;
+}
+
+.international-days-intro__layout,
+.international-days-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 9vw, 10rem);
+  align-items: end;
+}
+
+.international-days-intro h2,
+.international-days-calendar h2 {
+  margin: 0.8rem 0 0;
+  color: #123f47;
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 850;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.international-days-intro h2 em,
+.international-days-calendar h2 em {
+  color: #df5311;
+}
+
+.international-days-intro__copy > p {
+  max-width: 39rem;
+  margin: 0;
+  color: #47656b;
+  font-size: clamp(1.05rem, 1.7vw, 1.27rem);
+  line-height: 1.7;
+}
+
+.international-days-intro__steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(18, 63, 71, 0.2);
+}
+
+.international-days-intro__steps span {
+  display: grid;
+  gap: 0.5rem;
+  color: #123f47;
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.international-days-intro__steps strong {
+  color: #118f9b;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+.international-days-calendar {
+  padding: clamp(5rem, 9vw, 8.5rem) 0;
+  background: #e8f0ed;
+}
+
+.international-days-calendar__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 3rem;
+}
+
+.international-days-calendar__header-note {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding-bottom: 0.3rem;
+}
+
+.international-days-calendar__count {
+  color: #df5311;
+  font-size: 4rem;
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+}
+
+.international-days-calendar__header-note p {
+  margin: 0;
+  color: #557178;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.international-days-controls {
+  display: grid;
+  grid-template-columns: minmax(15rem, 1.5fr) minmax(13rem, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+  padding: 1.1rem;
+  border: 1px solid rgba(18, 63, 71, 0.13);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.international-days-search,
+.international-days-select {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.international-days-search label,
+.international-days-select label {
+  color: #557178;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.international-days-search > div,
+.international-days-select > div {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.8rem;
+  color: #118f9b;
+  border: 1px solid rgba(18, 63, 71, 0.16);
+  background: #fbfaf5;
+}
+
+.international-days-search input,
+.international-days-select select {
+  width: 100%;
+  min-width: 0;
+  color: #123f47;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.international-days-select select {
+  cursor: pointer;
+}
+
+.international-days-search button {
+  display: grid;
+  place-items: center;
+  padding: 0.25rem;
+  color: #557178;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.international-days-planner-button {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  color: #123f47;
+  border: 1px solid #df5311;
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.international-days-planner-button svg { color: #df5311; }
+.international-days-planner-button span {
+  display: grid;
+  min-width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  color: #fff;
+  background: #df5311;
+  font-size: 0.66rem;
+}
+
+.international-days-planner-button.is-active,
+.international-days-planner-button:hover,
+.international-days-planner-button:focus-visible {
+  color: #fff;
+  background: #df5311;
+}
+
+.international-days-planner-button.is-active svg { color: #f0cf69; }
+
+.international-days-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 1.15rem 0 2.4rem;
+  color: #557178;
+}
+
+.international-days-filter-row > button {
+  padding: 0.48rem 0.7rem;
+  color: #557178;
+  border: 1px solid transparent;
+  background: transparent;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.international-days-filter-row > button:hover,
+.international-days-filter-row > button.is-active {
+  color: #123f47;
+  border-color: rgba(18, 63, 71, 0.25);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.international-days-planner {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2.25rem;
+  padding: 1.5rem;
+  border-left: 4px solid #df5311;
+  background: #fff8e9;
+}
+
+.international-days-planner h3 {
+  margin: 0.45rem 0 0;
+  color: #123f47;
+  font-size: 1.55rem;
+  letter-spacing: -0.045em;
+}
+
+.international-days-planner p {
+  max-width: 35rem;
+  margin: 0.55rem 0 0;
+  color: #557178;
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.international-days-planner__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 1rem;
+}
+
+.international-days-planner__actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.7rem 0.8rem;
+  color: #fff;
+  border: 0;
+  background: #123f47;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.international-days-planner__actions button:hover,
+.international-days-planner__actions button:focus-visible {
+  background: #df5311;
+}
+
+.international-days-planner__actions .international-days-planner__clear {
+  padding: 0;
+  color: #df5311;
+  background: transparent;
+}
+
+.international-days-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.international-day-card {
+  display: grid;
+  grid-template-columns: 5.4rem minmax(0, 1fr);
+  min-width: 0;
+  border: 1px solid rgba(18, 63, 71, 0.13);
+  background: #fbfaf5;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.international-day-card:hover {
+  box-shadow: 0 1rem 2.5rem rgba(18, 63, 71, 0.09);
+  transform: translateY(-3px);
+}
+
+.international-day-card--featured {
+  border-color: #df5311;
+  background: #fff8e9;
+}
+
+.international-day-card__date {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 0.2rem;
+  padding: 1.2rem 0.5rem;
+  color: #fff;
+  background: #123f47;
+}
+
+.international-day-card--featured .international-day-card__date {
+  background: #df5311;
+}
+
+.international-day-card__date span {
+  font-size: 0.63rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.international-day-card__date strong {
+  font-size: 2.4rem;
+  font-weight: 850;
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+.international-day-card__date small {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.international-day-card__body {
+  min-width: 0;
+  padding: 1.35rem 1.35rem 1.2rem;
+}
+
+.international-day-card__topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: #118f9b;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.international-day-card__topline b {
+  color: #df5311;
+  font-size: 0.58rem;
+  text-align: right;
+}
+
+.international-day-card h3 {
+  max-width: 18ch;
+  margin: 0.75rem 0 0.55rem;
+  color: #123f47;
+  font-size: clamp(1.18rem, 1.8vw, 1.55rem);
+  font-weight: 850;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.international-day-card__body > p {
+  margin: 0;
+  color: #557178;
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.international-day-card__prompt {
+  margin-top: 1.1rem;
+  padding: 0.8rem 0.85rem;
+  border-left: 2px solid #f0cf69;
+  background: rgba(232, 240, 237, 0.72);
+}
+
+.international-day-card__prompt span {
+  color: #df5311;
+  font-size: 0.62rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.international-day-card__prompt p {
+  margin: 0.3rem 0 0;
+  color: #123f47;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.international-day-card__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(18, 63, 71, 0.12);
+}
+
+.international-day-card__footer a {
+  color: #123f47;
+  font-size: 0.68rem;
+  font-weight: 850;
+}
+
+.international-day-card__footer a:hover,
+.international-day-card__footer a:focus-visible {
+  color: #df5311;
+}
+
+.international-day-card__footer button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  color: #557178;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.international-day-card__footer button:hover,
+.international-day-card__footer button:focus-visible,
+.international-day-card__footer button.is-saved {
+  color: #df5311;
+}
+
+.international-days-empty {
+  display: grid;
+  justify-items: center;
+  padding: 5rem 1.5rem;
+  border: 1px dashed rgba(18, 63, 71, 0.3);
+  text-align: center;
+}
+
+.international-days-empty > span {
+  display: grid;
+  width: 3.3rem;
+  height: 3.3rem;
+  place-items: center;
+  color: #fff;
+  background: #118f9b;
+}
+
+.international-days-empty h3 {
+  margin: 1.15rem 0 0.35rem;
+  color: #123f47;
+  font-size: 1.45rem;
+  letter-spacing: -0.04em;
+}
+
+.international-days-empty p {
+  margin: 0;
+  color: #557178;
+  font-size: 0.9rem;
+}
+
+.international-days-empty button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+  padding: 0.7rem 0.85rem;
+  color: #fff;
+  border: 0;
+  background: #df5311;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.international-days-source {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  color: #557178;
+  border-top: 1px solid rgba(18, 63, 71, 0.13);
+}
+
+.international-days-source > svg {
+  flex-shrink: 0;
+  color: #118f9b;
+}
+
+.international-days-source p {
+  margin: 0;
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.international-days-source a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.35rem;
+  color: #123f47;
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.international-days-source a:hover,
+.international-days-source a:focus-visible {
+  color: #df5311;
+}
+
+.international-days-cta {
+  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  color: #fff;
+  background: #123f47;
+}
+
+.international-days-cta .international-days-section-kicker {
+  color: #f0cf69;
+}
+
+.international-days-cta h2 {
+  max-width: 16ch;
+  margin: 0.8rem 0 0;
+  color: #fff;
+  font-size: clamp(2.2rem, 4.4vw, 4.6rem);
+  font-weight: 850;
+  letter-spacing: -0.07em;
+  line-height: 0.94;
+}
+
+.international-days-cta h2 em {
+  color: #f0cf69;
+}
+
+.international-days-cta__copy {
+  display: block;
+  margin: 0;
+}
+
+.international-days-cta__copy p {
+  max-width: 32rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.international-days-cta a {
+  margin-top: 1.75rem;
+  color: #f0cf69;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.international-days-cta a:hover,
+.international-days-cta a:focus-visible {
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .international-days-hero__inner {
+    grid-template-columns: 1fr;
+    padding-block: 8rem 3.5rem;
+  }
+
+  .international-days-hero__art {
+    min-height: min(500px, 70vw);
+  }
+
+  .international-days-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .international-days-planner-button {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .international-days-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .international-days-hero__inner {
+    padding-block: 7.5rem 2.5rem;
+  }
+
+  .international-days-hero h1 {
+    font-size: clamp(3.8rem, 18vw, 6rem);
+  }
+
+  .international-days-hero__art {
+    min-height: 25rem;
+  }
+
+  .international-days-hero__art-center {
+    width: 9.5rem;
+    height: 9.5rem;
+  }
+
+  .international-days-hero__art-center strong,
+  .international-days-hero__art-center em {
+    font-size: 0.95rem;
+  }
+
+  .international-days-hero__art-note {
+    width: 4.6rem;
+    height: 4.6rem;
+  }
+
+  .international-days-intro__layout,
+  .international-days-cta__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .international-days-intro__steps {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .international-days-calendar__header {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .international-days-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .international-days-planner-button {
+    grid-column: auto;
+  }
+
+  .international-days-planner,
+  .international-days-source {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .international-days-planner__actions {
+    flex-wrap: wrap;
+  }
+
+  .international-day-card {
+    grid-template-columns: 4.6rem minmax(0, 1fr);
+  }
+
+  .international-day-card__body {
+    padding: 1.1rem 0.95rem 1rem;
+  }
+
+  .international-day-card__footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .drive-photo-card img {
     transition: none;

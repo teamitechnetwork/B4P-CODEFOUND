@@ -22,6 +22,7 @@ const searchItems = [
   { title: 'Jobs at B4P', href: '/jobs', description: 'Explore current and future opportunities to join the team.', keywords: 'jobs careers work employment hiring opportunity' },
   { title: 'Partner with B4P', href: '/partner-with-us', description: 'Explore partnership opportunities with B4P CODEFOUND.', keywords: 'partner partnership sponsorship collaboration organization support' },
   { title: 'Events & Gatherings', href: '/events', description: 'Explore past B4P CODEFOUND gatherings across Liberia and the diaspora.', keywords: 'events gatherings conference diaspora gala forum CSW Liberia' },
+  { title: 'International Days', href: '/international-days', description: 'Use UNESCO International Days as openings for community-led action.', keywords: 'unesco international days calendar peace education women youth culture community' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
 ];
@@ -67,6 +68,7 @@ const navGroups: NavGroup[] = [
       { name: 'Where We Work', href: '/where-we-work' },
       { name: 'Theory of Change', href: '/theory-of-change' },
       { name: 'Events & Gatherings', href: '/events' },
+      { name: 'International Days', href: '/international-days' },
     ],
   },
   {

@@ -29,6 +29,7 @@ import InformationPage from '@/pages/InformationPage';
 import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
 import PartnershipPage from '@/pages/PartnershipPage';
+import InternationalDaysPage from '@/pages/InternationalDaysPage';
 import SiteMetadata from '@/components/seo/SiteMetadata';
 import type { ProgramRegion } from '@/data/programs';
 import {
@@ -180,6 +181,10 @@ function Router() {
 
   if (location === '/events' || location === '/events-and-conferences') {
     return <EventsPage />;
+  }
+
+  if (location === '/international-days') {
+    return <InternationalDaysPage />;
   }
 
   if (location === '/privacy-policy') {
