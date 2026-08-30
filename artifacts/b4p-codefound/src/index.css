@@ -15479,6 +15479,7 @@ body.has-site-search-open {
 
 .site-footer.reference-footer .site-footer__legal {
   display: grid;
+  justify-content: center;
   justify-items: center;
   gap: 9px;
   width: 100%;
@@ -15490,6 +15491,8 @@ body.has-site-search-open {
 .site-footer.reference-footer .site-footer__legal a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
   min-height: 26px;
   color: #fff;
   font-size: 0.92rem;
@@ -15499,6 +15502,25 @@ body.has-site-search-open {
 
 .site-footer.reference-footer .site-footer__legal a + a::before {
   display: none;
+}
+
+.site-footer.reference-footer .site-footer__legal button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.site-footer.reference-footer .site-footer__legal-arrow {
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.site-footer.reference-footer .site-footer__legal a:hover .site-footer__legal-arrow,
+.site-footer.reference-footer .site-footer__legal a:focus-visible .site-footer__legal-arrow,
+.site-footer.reference-footer .site-footer__legal button:hover .site-footer__legal-arrow,
+.site-footer.reference-footer .site-footer__legal button:focus-visible .site-footer__legal-arrow {
+  transform: translate(2px, -2px);
 }
 
 .site-footer.reference-footer .site-footer__bottom p {

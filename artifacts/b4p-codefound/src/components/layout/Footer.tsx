@@ -227,10 +227,22 @@ export function Footer() {
 
         <div className="site-footer__bottom">
           <nav className="site-footer__legal" aria-label="Legal">
-            <a href="/privacy-policy">B4P CODEFOUND Privacy</a>
-            <a href="/terms-and-conditions">Terms &amp; Conditions</a>
-            <a href="/cookie-policy">Cookies Policy</a>
-            <button type="button" onClick={openCookieSettings}>Cookie settings</button>
+            <a href="/privacy-policy">
+              B4P CODEFOUND Privacy
+              <ArrowUpRight className="site-footer__legal-arrow" size={19} strokeWidth={1.8} aria-hidden="true" />
+            </a>
+            <a href="/terms-and-conditions">
+              Terms &amp; Conditions
+              <ArrowUpRight className="site-footer__legal-arrow" size={19} strokeWidth={1.8} aria-hidden="true" />
+            </a>
+            <a href="/cookie-policy">
+              Cookies Policy
+              <ArrowUpRight className="site-footer__legal-arrow" size={19} strokeWidth={1.8} aria-hidden="true" />
+            </a>
+            <button type="button" onClick={openCookieSettings}>
+              Cookie settings
+              <ArrowUpRight className="site-footer__legal-arrow" size={19} strokeWidth={1.8} aria-hidden="true" />
+            </button>
           </nav>
           <p>© 2015 - {currentYear} Business for Peace Community Development Foundation. All rights reserved.</p>
           <div className="site-footer__bottom-meta">
