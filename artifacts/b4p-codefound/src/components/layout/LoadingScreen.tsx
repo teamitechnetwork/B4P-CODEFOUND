@@ -47,6 +47,7 @@ export function LoadingScreen() {
           <span className="site-loader__core" />
           <span className="site-loader__dot" />
         </div>
+        <p className="site-loader__developed-by">Developed by: iTech Network Africa</p>
         <span className="sr-only">Loading the B4P CODEFOUND website</span>
       </div>
     </div>
