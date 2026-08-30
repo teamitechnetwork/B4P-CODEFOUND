@@ -160,7 +160,7 @@ export default function EventsPage() {
                 <span>Past story</span>
               </div>
               <div className="events-hero__visual-caption">
-                 <span>Diaspora Annual ’25 · Return · Past story</span>
+                  <span>Diaspora Annual ’25 · Return · Past story</span>
                 <strong>Diaspora <em>Farewell</em></strong>
                 <small>January 9, 2026 · Executive Mansion</small>
               </div>
@@ -238,21 +238,65 @@ export default function EventsPage() {
           </div>
         </section>
 
-        <section id="past-events" className="events-archive-section">
+        <section className="events-invitation-section">
+          <div className="page-container events-invitation-section__inner">
+            <div>
+              <span className="events-section-kicker">The next invitation</span>
+              <h2>Gather around<br /><em>what matters next.</em></h2>
+            </div>
+            <div className="events-invitation-section__copy">
+              <p>
+                Events are not only records of what happened. They are openings
+                for the next conversation, classroom, campaign, and community
+                connection.
+              </p>
+              <div className="events-invitation-section__links">
+                <a href="/international-days">
+                  Plan around an International Day <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+                <a href="/partner-with-us">
+                  Bring B4P into your next gathering <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="event-stories" className="events-archive-section">
           <div className="page-container">
             <div className="events-section-heading events-section-heading--archive">
               <div>
-                <span className="events-section-kicker">Past events</span>
+                <span className="events-section-kicker">Event stories &amp; archive</span>
                 <h2>A record of<br /><em>showing up.</em></h2>
               </div>
               <p>
-                Each gathering appears once. When one event has more than one flyer,
-                the artwork stays together in the same story.
+                Each gathering appears once. Browse by the kind of connection it
+                created, then keep an eye out for the next invitation to show up.
               </p>
             </div>
 
+            <div className="events-category-toolbar">
+              <div>
+                <span>Browse by focus</span>
+                <p>{filteredStories.length} {filteredStories.length === 1 ? 'story' : 'stories'} in view</p>
+              </div>
+              <div className="events-category-filters" role="group" aria-label="Filter event stories by category">
+                {eventCategories.map((category) => (
+                  <button
+                    key={category}
+                    type="button"
+                    className={activeCategory === category ? 'is-active' : ''}
+                    onClick={() => setActiveCategory(category)}
+                    aria-pressed={activeCategory === category}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className="events-grid">
-              {pastEvents.map((event, index) => (
+              {filteredStories.map((event, index) => (
                 <article className="event-card" key={event.title}>
                   <div className={`event-card__image ${event.images.length > 1 ? 'event-card__image--multiple' : ''}`}>
                     {event.images.map((image, imageIndex) => (
@@ -266,7 +310,10 @@ export default function EventsPage() {
                     <span>{String(index + 2).padStart(2, '0')}</span>
                   </div>
                   <div className="event-card__body">
-                    <span className="event-card__label">{event.label}</span>
+                    <div className="event-card__labels">
+                      <span className="event-card__label">{event.category}</span>
+                      <span className="event-card__type">{event.label}</span>
+                    </div>
                     <h3>{event.title}</h3>
                     <p>{event.description}</p>
                     <EventMeta event={event} />
