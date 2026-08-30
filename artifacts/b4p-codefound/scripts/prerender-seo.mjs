@@ -131,4 +131,15 @@ for (const metadata of routes.values()) {
   }
 }
 
+const notFoundHtml = renderHead(shell, {
+  title: 'Page not found | B4P CODEFOUND',
+  description:
+    'The page you requested could not be found. Return to B4P CODEFOUND to explore our work and community-led action.',
+  canonical: siteUrl,
+  image: defaultImage,
+  type: 'website',
+  indexable: false,
+});
+await writeFile(path.join(outputRoot, '404.html'), notFoundHtml);
+
 console.log(`Prerendered crawler metadata for ${routes.size} supported routes.`);
