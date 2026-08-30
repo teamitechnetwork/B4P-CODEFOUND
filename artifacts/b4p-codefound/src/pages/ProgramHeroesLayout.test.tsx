@@ -135,7 +135,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
   });
 
   it.each(heroCases)(
-    '$name preserves its title, image, navigation, and primary next step',
+    '$name preserves its title, background image, navigation, and primary next step',
     (heroCase) => {
       const { container, unmount } = render(heroCase.render());
       const hero = getProgramHero(container, heroCase.name);
@@ -151,10 +151,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
       expect(image).toHaveAttribute('alt', heroCase.imageAlt);
       expect(image).toHaveAttribute('src');
 
-      const visual = hero.querySelector<HTMLElement>('.program-hero__visual');
-      expect(visual).not.toBeNull();
-      expect(visual).toBeVisible();
-      expect(visual?.querySelector('.program-hero__badge')).not.toBeNull();
+      expect(hero.querySelector('.program-hero__visual')).toBeNull();
 
       if (heroCase.backLink) {
         const backLink = within(hero).getByRole('link', {
@@ -181,7 +178,7 @@ describe.each(viewports)('program hero at $name width', ({ width }) => {
 });
 
 describe('program hero responsive layout safeguards', () => {
-  it('clips offset visual layers and keeps the hero in the B4P blue system', () => {
+  it('keeps the hero compact and in the B4P blue system', () => {
     expect(stylesheet).toMatch(
       /\.program-hero\s*\{[^}]*overflow:\s*hidden\s*;/s,
     );
@@ -194,38 +191,21 @@ describe('program hero responsive layout safeguards', () => {
     expect(stylesheet).toMatch(
       /min-height:\s*clamp\(20rem,\s*45svh,\s*34rem\);/,
     );
-    expect(stylesheet).toMatch(
-      /\.program-hero__visual\s*\{[^}]*width:\s*100%\s*;[^}]*max-width:\s*36rem\s*;[^}]*min-height:\s*25rem\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /\.program-hero__badge\s*\{[^}]*z-index:\s*2\s*;/s,
-    );
+    expect(stylesheet).not.toMatch(/\.program-hero__visual/);
   });
 
-  it('uses a single contained column below the breakpoint and two bounded columns above it', () => {
+  it('uses a single contained column at every viewport size', () => {
     expect(stylesheet).toMatch(
       /\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\)\s*;/s,
     );
-    expect(stylesheet).toMatch(
-      /@media\s*\(min-width:\s*860px\)\s*\{[\s\S]*?\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1\.03fr\) minmax\(23rem, 0\.77fr\)\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual\s*\{[^}]*max-width:\s*33rem\s*;[^}]*min-height:\s*20rem\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(max-width:\s*859px\)\s*\{[\s\S]*?\.program-hero__visual-card,\s*\.program-hero__visual-card img\s*\{[^}]*min-height:\s*20rem\s*;/s,
-    );
   });
 
-  it('keeps the two-column tablet layout compact around the breakpoint', () => {
+  it('gives regional and detail pages a shorter hero treatment', () => {
     expect(stylesheet).toMatch(
-      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__grid\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1fr\) minmax\(20rem, 0\.9fr\)\s*;[^}]*gap:\s*clamp\(1\.75rem, 4vw, 3\.5rem\)\s*;/s,
+      /\.program-hero--regional \.program-hero__grid,\s*\.program-hero--detail \.program-hero__grid\s*\{[^}]*min-height:\s*clamp\(16rem,\s*31svh,\s*24rem\);/s,
     );
     expect(stylesheet).toMatch(
-      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__visual,\s*\.program-hero--detail \.program-hero__visual\s*\{[^}]*max-width:\s*30rem\s*;[^}]*min-height:\s*22rem\s*;/s,
-    );
-    expect(stylesheet).toMatch(
-      /@media\s*\(min-width:\s*860px\)\s*and\s*\(max-width:\s*1199px\)\s*\{[\s\S]*?\.program-hero__badge\s*\{[^}]*top:\s*-0\.7rem\s*;[^}]*right:\s*-0\.35rem\s*;/s,
+      /\.program-hero--regional \.program-hero__description,\s*\.program-hero--detail \.program-hero__description\s*\{[^}]*max-width:\s*52rem;[^}]*margin-top:\s*1rem;/s,
     );
   });
 });
