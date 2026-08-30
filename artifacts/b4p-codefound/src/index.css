@@ -8697,8 +8697,9 @@ main p.text-xl {
 
 .impact-hero__badge {
   position: absolute;
-  right: -24px;
-  bottom: 34px;
+  right: 18px;
+  bottom: 55px;
+  z-index: 3;
   display: flex;
   width: min(285px, 75%);
   padding: 24px;
@@ -8707,6 +8708,14 @@ main p.text-xl {
   box-shadow: 0 18px 42px rgba(18, 63, 71, 0.25);
   flex-direction: column;
   gap: 7px;
+}
+
+.impact-hero__badge small {
+  color: #83d6f5;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
 }
 
 .impact-hero__badge strong {
@@ -9068,6 +9077,38 @@ main p.text-xl {
   box-shadow: 18px 18px 0 #159dd4;
 }
 
+.values-hero__overlay {
+  position: absolute;
+  right: -10px;
+  bottom: 42px;
+  z-index: 2;
+  display: grid;
+  width: min(270px, 70%);
+  gap: 7px;
+  padding: 18px 20px;
+  color: #fff;
+  background: #123f47;
+  box-shadow: 0 16px 34px rgba(18, 63, 71, 0.24);
+}
+
+.values-hero__overlay span,
+.store-hero__overlay span,
+.theory-hero__overlay span {
+  color: #83d6f5;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.values-hero__overlay strong,
+.store-hero__overlay strong,
+.theory-hero__overlay strong {
+  font-family: Georgia, serif;
+  font-size: 1.12rem;
+  line-height: 1.35;
+}
+
 .values-intro {
   padding: clamp(72px, 8vw, 108px) 0;
   background: #fff;
@@ -9377,7 +9418,7 @@ main p.text-xl {
 
   .impact-hero__badge {
     right: -8px;
-    bottom: 18px;
+    bottom: 36px;
     padding: 19px;
   }
 
@@ -9572,17 +9613,23 @@ main p.text-xl {
   box-shadow: 22px 22px 0 #159dd4;
 }
 
-.store-hero__visual span {
+.store-hero__overlay {
   position: absolute;
   right: 18px;
   bottom: 45px;
+  z-index: 2;
+  display: grid;
+  gap: 7px;
+  max-width: min(285px, 78%);
   padding: 11px 13px;
   color: #fff;
   background: #1b9ed9;
-  font-size: 0.67rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  box-shadow: 0 15px 36px rgba(18, 63, 71, 0.2);
+}
+
+.store-hero__overlay strong,
+.theory-hero__overlay strong {
+  font-size: 1.04rem;
 }
 
 .store-section {
@@ -10096,6 +10143,7 @@ main p.text-xl {
   position: absolute;
   right: -22px;
   bottom: 51px;
+  z-index: 2;
   width: min(300px, 78%);
   padding: 20px 22px;
   color: #fff;
@@ -10561,17 +10609,17 @@ main p.text-xl {
   box-shadow: 22px 22px 0 #159dd4, 0 25px 65px rgba(0, 0, 0, 0.22);
 }
 
-.theory-hero__visual > span {
+.theory-hero__overlay {
   position: absolute;
   right: 18px;
   bottom: 45px;
+  z-index: 2;
+  display: grid;
+  gap: 7px;
   padding: 11px 13px;
   color: #fff;
   background: #1b9ed9;
-  font-size: 0.67rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  box-shadow: 0 15px 36px rgba(18, 63, 71, 0.2);
 }
 
 .theory-statement {
@@ -11205,7 +11253,7 @@ main p.text-xl {
     height: 330px;
   }
 
-  .theory-hero__visual > span {
+  .theory-hero__overlay {
     right: 10px;
     bottom: 37px;
   }
@@ -11890,13 +11938,13 @@ main p.text-xl {
 .values-cta__links a:first-child,
 .values-intro__mark,
 .store-button:hover,
-.store-hero__visual span,
+  .store-hero__overlay,
 .store-callout-page__links a:first-child,
 .where-button:hover,
 .where-hero__caption,
 .where-network__links a:first-child,
 .theory-button:hover,
-.theory-hero__visual > span,
+  .theory-hero__overlay,
 .theory-cta__links a:first-child,
 .opportunity-hero__visual > div {
   background: hsl(var(--primary));

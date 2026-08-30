@@ -81,6 +81,7 @@ export default function ImpactPage() {
                 data-testid="img-impact-hero"
               />
               <div className="impact-hero__badge">
+                <small>Our story</small>
                 <strong>2015</strong>
                 <span>Founded with a commitment to local leadership</span>
               </div>
