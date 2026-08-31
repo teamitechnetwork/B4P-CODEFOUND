@@ -32,6 +32,26 @@ export default function DirectorCornerPage() {
           </div>
         </section>
 
+        <section className="director-video-section" aria-labelledby="director-video-title">
+          <div className="director-video-section__inner">
+            <div className="director-video-section__intro">
+              <span className="director-video-section__eyebrow">Watch the message</span>
+              <h2 id="director-video-title">A welcome from our founder.</h2>
+              <p>
+                Hear directly from Lindora Kolu Howard-Diawara about the purpose, people, and partnerships behind B4P CODEFOUND.
+              </p>
+            </div>
+            <div className="director-video-frame">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/jtRb8wGlyAQ?rel=0&modestbranding=1"
+                title="A message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Editorial Content Section */}
         <section className="px-6 py-16 md:py-32 relative z-20 -mt-10 md:-mt-20">
           <div className="container mx-auto max-w-6xl">
