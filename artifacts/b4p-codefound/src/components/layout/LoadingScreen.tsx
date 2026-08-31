@@ -2,9 +2,30 @@ import { useEffect, useState } from 'react';
 
 const LOADER_FADE_START_MS = 4650;
 const LOADER_REMOVE_MS = 5000;
+const LOADER_SESSION_KEY = 'b4p_codefound_loader_seen';
+
+let hasShownLoaderInMemory = false;
+
+function shouldShowLoader() {
+  if (hasShownLoaderInMemory) return false;
+
+  try {
+    if (window.sessionStorage.getItem(LOADER_SESSION_KEY) === 'true') {
+      hasShownLoaderInMemory = true;
+      return false;
+    }
+
+    window.sessionStorage.setItem(LOADER_SESSION_KEY, 'true');
+  } catch {
+    // Keep the first-entry behavior even when browser storage is unavailable.
+  }
+
+  hasShownLoaderInMemory = true;
+  return true;
+}
 
 export function LoadingScreen() {
-  const [showLoader] = useState(true);
+  const [showLoader] = useState(shouldShowLoader);
   const [phase, setPhase] = useState<'visible' | 'leaving' | 'hidden'>(
     showLoader ? 'visible' : 'hidden',
   );
