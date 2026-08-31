@@ -128,6 +128,17 @@ function sanitizeContent(html: string) {
     image.removeAttribute('sizes');
   });
 
+  const textWalker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const textNodes: Text[] = [];
+  let textNode = textWalker.nextNode();
+  while (textNode) {
+    textNodes.push(textNode as Text);
+    textNode = textWalker.nextNode();
+  }
+  textNodes.forEach((node) => {
+    node.nodeValue = node.nodeValue?.replace(/\bB4P\b/g, 'B4P CODEFOUND') ?? '';
+  });
+
   return document.body.innerHTML;
 }
 
@@ -233,7 +244,7 @@ export default function PolishedPage({ path }: { path: string }) {
                     <span className="section-heading__eyebrow">Continue exploring</span>
                     <h2>Connect this page to the wider mission.</h2>
                     <nav>
-                      <Link href="/about-us">About B4P <ArrowUpRight size={16} aria-hidden="true" /></Link>
+                       <Link href="/about-us">About B4P CODEFOUND <ArrowUpRight size={16} aria-hidden="true" /></Link>
                       <Link href="/what-we-do">Explore our work <ArrowUpRight size={16} aria-hidden="true" /></Link>
                       <Link href="/where-we-work">Where we work <ArrowUpRight size={16} aria-hidden="true" /></Link>
                       <Link href="/contact">Contact the team <ArrowUpRight size={16} aria-hidden="true" /></Link>

@@ -54,8 +54,7 @@ export function LoadingScreen() {
     >
       <div className="site-loader__content">
         <div className="site-loader__wordmark" aria-hidden="true">
-          <span>B4P</span>
-          <strong>CODEFOUND</strong>
+           <span>B4P CODEFOUND</span>
         </div>
         <div className="site-loader__art" aria-hidden="true">
           <span className="site-loader__halo" />

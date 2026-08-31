@@ -28,7 +28,7 @@ const impactAreas = [
     number: '03',
     title: 'Communities move together',
     description:
-      'By working with families, local leaders, and partners, B4P helps turn dialogue into collective action around equality, education, health, and community responsibility.',
+      'By working with families, local leaders, and partners, B4P CODEFOUND helps turn dialogue into collective action around equality, education, health, and community responsibility.',
     icon: HeartHandshake,
   },
 ];
@@ -153,7 +153,7 @@ export default function ImpactPage() {
               <span className="section-heading__eyebrow">Beyond the numbers</span>
               <h2>Renewed hope is part of the result.</h2>
               <p>
-                Through partnerships and collaboration, B4P continues to extend meaningful support to underserved communities. The true measure of this work is visible in transformed lives, renewed hope, and communities better prepared for a brighter future.
+                Through partnerships and collaboration, B4P CODEFOUND continues to extend meaningful support to underserved communities. The true measure of this work is visible in transformed lives, renewed hope, and communities better prepared for a brighter future.
               </p>
               <a className="text-link text-link--dark" href="/what-we-do">
                 See how we work <ArrowUpRight size={17} aria-hidden="true" />

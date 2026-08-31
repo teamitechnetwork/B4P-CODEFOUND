@@ -552,7 +552,7 @@ export default function InternationalDaysPage() {
                 <em>matter.</em>
               </h1>
               <p>
-                 A B4P guide to meaningful observances that can help African-led
+                  A B4P CODEFOUND guide to meaningful observances that can help African-led
                  peacebuilding, education, inclusion, and collective action find a
                  moment in the calendar — and a place in community.
               </p>
@@ -783,13 +783,13 @@ export default function InternationalDaysPage() {
               </div>
               <div className="international-days-official__intro">
                 <p>
-                  Every observance in the B4P calendar is gathered below by month,
+                  Every observance in the B4P CODEFOUND calendar is gathered below by month,
                   with its date and a dedicated page for context, reflection, and
                   practical action. Use the curated cards above for ready-to-use
                   planning prompts, or scan the full directory when shaping your year.
                 </p>
                 <a href="/partner-with-us">
-                  Build a moment with B4P <ArrowUpRight size={14} aria-hidden="true" />
+                  Build a moment with B4P CODEFOUND <ArrowUpRight size={14} aria-hidden="true" />
                 </a>
               </div>
             </div>

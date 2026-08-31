@@ -149,9 +149,6 @@ export function Footer() {
 
         <div className="site-footer__accordions">
           <FooterAccordion title="ABOUT B4P CODEFOUND">
-            <p className="site-footer__accordion-description">
-              B4P CODEFOUND promotes political, social, and economic justice globally. We work with women and girls to foster gender equality and challenge violence.
-            </p>
             <nav aria-label="About B4P CODEFOUND">
               <a href="/about-us">Our mission &amp; vision</a>
               <a href="/about-us">Our history</a>
@@ -164,9 +161,6 @@ export function Footer() {
           </FooterAccordion>
 
           <FooterAccordion title="WHAT WE DO">
-            <p className="site-footer__accordion-description">
-              Through evidence- and rights-based approaches, we co-create programs that connect peace, participation, economic opportunity, and community power.
-            </p>
             <nav aria-label="B4P CODEFOUND approaches">
               <a href="/peacebuilding-program">Peacebuilding</a>
               <a href="/economic-development-program">Economic development</a>
@@ -185,9 +179,6 @@ export function Footer() {
           </FooterAccordion>
 
           <FooterAccordion title="WORK WITH US">
-            <p className="site-footer__accordion-description">
-              Join locally led work that builds confidence, strengthens livelihoods, and connects communities across Liberia and the diaspora.
-            </p>
             <nav aria-label="Work with B4P CODEFOUND">
               <a href="/become-a-volunteer">Volunteer with us</a>
               <a href="/internship">Internships</a>
@@ -198,9 +189,6 @@ export function Footer() {
           </FooterAccordion>
 
           <FooterAccordion title="CONNECT WITH US">
-            <p className="site-footer__accordion-description">
-              Our relationships begin in community and grow through exchange between Liberia, Ohio, New York, and the wider world.
-            </p>
             <address className="site-footer__contact">
               <a href="/contact">Contact B4P CODEFOUND</a>
               <a href="mailto:management@b4pcodefound.org">

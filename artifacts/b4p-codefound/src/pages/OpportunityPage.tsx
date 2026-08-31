@@ -45,7 +45,7 @@ const opportunities: Record<OpportunityKind, {
   },
   jobs: {
     eyebrow: 'Work With Us',
-    title: 'Explore jobs at B4P',
+          title: 'Explore jobs at B4P CODEFOUND',
     description: 'Tell us about the kind of mission-led work you are looking for and the experience you bring.',
     icon: BriefcaseBusiness,
     focusLabel: 'Area of interest',

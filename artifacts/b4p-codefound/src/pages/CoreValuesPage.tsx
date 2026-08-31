@@ -65,7 +65,7 @@ export default function CoreValuesPage() {
 
         <section className="values-intro">
           <div className="page-container values-intro__inner">
-            <div className="values-intro__mark">B4P</div>
+          <div className="values-intro__mark">B4P CODEFOUND</div>
             <div>
               <span className="section-heading__eyebrow">Our promise</span>
               <h2>Respect the person. Strengthen the community.</h2>
@@ -110,7 +110,7 @@ export default function CoreValuesPage() {
                 Explore our work <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
-            <div className="values-practice__steps" aria-label="How B4P applies its values">
+              <div className="values-practice__steps" aria-label="How B4P CODEFOUND applies its values">
               <div><strong>Listen</strong><span>Start with lived experience.</span></div>
               <div><strong>Build</strong><span>Share skills, resources, and power.</span></div>
               <div><strong>Grow</strong><span>Measure progress and keep learning.</span></div>
@@ -120,7 +120,7 @@ export default function CoreValuesPage() {
 
         <section className="values-cta">
           <div className="page-container">
-            <span className="section-heading__eyebrow">Stand with B4P</span>
+              <span className="section-heading__eyebrow">Stand with B4P CODEFOUND</span>
             <h2>Peace grows when people choose to participate.</h2>
             <p>Bring your time, resources, or partnership to work that is rooted in dignity and collective action.</p>
             <div className="values-cta__links">

@@ -11,10 +11,10 @@ export function Footer() {
           <div className="flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-3">
               <div className="bg-white p-2 rounded w-14 h-14 flex items-center justify-center">
-                <img src="/brand/b4p-favicon.png" alt="B4P Logo" className="w-full h-full object-contain" />
+          <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-xl leading-none text-white tracking-tight">B4P</span>
+        <span className="font-bold text-xl leading-none text-white tracking-tight">B4P CODEFOUND</span>
                 <span className="font-bold text-sm leading-none text-white tracking-tight">CODEFOUND</span>
               </div>
             </Link>

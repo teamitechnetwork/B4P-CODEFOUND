@@ -117,7 +117,7 @@ export default function WhatWeDoPage() {
           imageAlt="B4P CODEFOUND participants gathered outside a community venue"
           actions={[
             { href: '/programs/global', label: 'Explore program regions' },
-            { href: '/partner-with-us', label: 'Work with B4P', quiet: true },
+          { href: '/partner-with-us', label: 'Work with B4P CODEFOUND', quiet: true },
           ]}
           signals={[
             { value: '05', label: 'operational pillars' },

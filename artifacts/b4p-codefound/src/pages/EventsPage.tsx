@@ -253,7 +253,7 @@ export default function EventsPage() {
                   Plan around an International Day <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
                 <a href="/partner-with-us">
-                  Bring B4P into your next gathering <ArrowUpRight size={16} aria-hidden="true" />
+                  Bring B4P CODEFOUND into your next gathering <ArrowUpRight size={16} aria-hidden="true" />
                 </a>
               </div>
             </div>

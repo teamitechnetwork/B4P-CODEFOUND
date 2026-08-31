@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown, Mail, Search } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
-type FaqCategory = 'About B4P' | 'Programs & places' | 'Get involved';
+type FaqCategory = 'About B4P CODEFOUND' | 'Programs & places' | 'Get involved';
 
 type FaqItem = {
   id: string;
@@ -16,7 +16,7 @@ type FaqItem = {
 const faqItems: FaqItem[] = [
   {
     id: 'what-is-b4p',
-    category: 'About B4P',
+    category: 'About B4P CODEFOUND',
     question: 'What is B4P CODEFOUND?',
     answer:
       'B4P CODEFOUND is an African-led nonprofit and social enterprise advancing peacebuilding, community development, women’s leadership, and collective action. Our work connects local leadership with relationships and learning across Liberia, the United States, and beyond.',
@@ -24,7 +24,7 @@ const faqItems: FaqItem[] = [
   },
   {
     id: 'what-we-do',
-    category: 'About B4P',
+    category: 'About B4P CODEFOUND',
     question: 'What does B4P CODEFOUND work on?',
     answer:
       'Our work brings together peacebuilding, economic development, women and girls’ leadership, youth and civic engagement, governance, and community-led opportunity. We also offer fiscal sponsorship, nonprofit capacity building, and business development services for mission-aligned work.',
@@ -98,7 +98,7 @@ const faqItems: FaqItem[] = [
   },
 ];
 
-const categories: Array<'All' | FaqCategory> = ['All', 'About B4P', 'Programs & places', 'Get involved'];
+const categories: Array<'All' | FaqCategory> = ['All', 'About B4P CODEFOUND', 'Programs & places', 'Get involved'];
 
 export default function FaqsPage() {
   const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>('All');

@@ -8,7 +8,7 @@ const inquiryOptions = [
   'Programs and partnerships',
   'Volunteer or internship',
   'Donation support',
-  'B4P store',
+  'B4P CODEFOUND store',
   'Media and speaking',
 ];
 

@@ -29,7 +29,7 @@ function NotFoundPage() {
         <div className="page-container">
           <span className="international-days-section-kicker">Calendar moment</span>
           <h1>That page is<br /><em>not on our calendar.</em></h1>
-          <p>Return to the full B4P community programming calendar to find another moment to make matter.</p>
+        <p>Return to the full B4P CODEFOUND community programming calendar to find another moment to make matter.</p>
           <a href="/international-days" className="international-day-detail-button">
             Browse the calendar <ArrowLeft size={17} aria-hidden="true" />
           </a>
@@ -102,7 +102,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                     {isSaved ? 'Saved to planning list' : 'Save for planning'}
                   </button>
                   <a href="/partner-with-us" className="international-day-detail-text-link">
-                    Plan with B4P <ArrowUpRight size={16} aria-hidden="true" />
+                  Plan with B4P CODEFOUND <ArrowUpRight size={16} aria-hidden="true" />
                   </a>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                   <span>{observance.month}</span>
                 </div>
                 <div className="international-day-detail-mark__label">
-                  <span>B4P</span>
+                <span>B4P CODEFOUND</span>
                   <small>notice · invite · act</small>
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                 <h2>A date is only<br /><em>the beginning.</em></h2>
               </div>
               <p>
-                B4P treats a public observance as an opening: a reason to listen
+                  B4P CODEFOUND treats a public observance as an opening: a reason to listen
                 more closely, invite people in, and choose one useful action that
                 can continue after the date has passed.
               </p>
@@ -164,7 +164,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
                 <span>Try this · {guidance.nextStep}</span>
                 <h3>{guidance.prompt}</h3>
               </div>
-              <a href="/partner-with-us" aria-label={`Plan a ${observance.title} moment with B4P`}>
+                  <a href="/partner-with-us" aria-label={`Plan a ${observance.title} moment with B4P CODEFOUND`}>
                 Start a conversation <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </aside>
@@ -196,7 +196,7 @@ export default function InternationalDayDetailPage({ slug }: { slug: string }) {
           <div className="page-container">
             <span className="international-days-section-kicker">Make room for the work</span>
             <h2>What could this day<br /><em>open in your community?</em></h2>
-            <a href="/partner-with-us">Bring an idea to B4P <ArrowUpRight size={17} aria-hidden="true" /></a>
+                  <a href="/partner-with-us">Bring an idea to B4P CODEFOUND <ArrowUpRight size={17} aria-hidden="true" /></a>
           </div>
         </section>
       </main>

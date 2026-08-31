@@ -54,7 +54,7 @@ export function CoreValues() {
             <div className="absolute w-[60%] h-[60%] rounded-full border border-secondary/30 animate-[spin_30s_linear_infinite_reverse]" />
             {/* Center Logo */}
             <div className="relative z-10 w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center p-6 border-4 border-primary">
-              <img src="/brand/b4p-favicon.png" alt="B4P Logo" className="w-full h-full object-contain" />
+          <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND logo" className="w-full h-full object-contain" />
             </div>
             
             {/* Floating Value Nodes */}

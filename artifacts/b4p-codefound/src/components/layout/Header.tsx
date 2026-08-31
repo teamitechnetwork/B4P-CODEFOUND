@@ -15,16 +15,16 @@ const searchItems = [
   { title: 'Global Programs', href: '/programs/global', description: 'Programs advancing African-led leadership and collective action.', keywords: 'global international africa leadership advocacy women youth programs' },
   { title: 'USA Programs', href: '/programs/usa', description: 'Local programs and diaspora-facing initiatives in the United States.', keywords: 'usa united states ohio columbus diaspora community programs' },
   { title: 'Liberia Programs', href: '/programs/liberia', description: 'Peacebuilding and community-development programs across Liberia.', keywords: 'liberia gbarnga bong county women youth development programs' },
-  { title: 'B4P Services', href: '/services', description: 'Fiscal sponsorship, nonprofit capacity building, and business development.', keywords: 'services fiscal sponsorship nonprofit capacity building business consulting' },
+  { title: 'B4P CODEFOUND Services', href: '/services', description: 'Fiscal sponsorship, nonprofit capacity building, and business development.', keywords: 'services fiscal sponsorship nonprofit capacity building business consulting' },
   { title: 'Columbus Women Connect', href: '/columbus-women-connect', description: 'A multicultural network where women connect, learn, and lead.', keywords: 'columbus women connect cwc ohio women network leadership' },
   { title: 'Volunteer with B4P', href: '/become-a-volunteer', description: 'Share your time and skills with B4P CODEFOUND.', keywords: 'volunteer volunteering help serve contribute community' },
-  { title: 'Internships', href: '/internship', description: 'Learn alongside B4P through a mission-led internship.', keywords: 'internship student placement learning experience' },
-  { title: 'Jobs at B4P', href: '/jobs', description: 'Explore current and future opportunities to join the team.', keywords: 'jobs careers work employment hiring opportunity' },
+  { title: 'Internships', href: '/internship', description: 'Learn alongside B4P CODEFOUND through a mission-led internship.', keywords: 'internship student placement learning experience' },
+  { title: 'Jobs at B4P CODEFOUND', href: '/jobs', description: 'Explore current and future opportunities to join the team.', keywords: 'jobs careers work employment hiring opportunity' },
   { title: 'Partner with B4P', href: '/partner-with-us', description: 'Explore partnership opportunities with B4P CODEFOUND.', keywords: 'partner partnership sponsorship collaboration organization support' },
   { title: 'Events & Gatherings', href: '/events', description: 'Find upcoming invitations and explore B4P CODEFOUND event stories across Liberia and the diaspora.', keywords: 'events gatherings conference diaspora gala forum CSW Liberia upcoming planning' },
   { title: 'International Days', href: '/international-days', description: 'Use meaningful observances as openings for community-led action.', keywords: 'international days calendar peace education women youth culture community' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
-  { title: 'Contact B4P', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
+  { title: 'Contact B4P CODEFOUND', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
   { title: 'FAQs', href: '/faqs', description: 'Find clear answers about B4P CODEFOUND, our work, and ways to connect.', keywords: 'faq frequently asked questions answers information support' },
 ];
 
@@ -80,6 +80,11 @@ const navGroups: NavGroup[] = [
       { name: 'Peacebuilding', href: '/peacebuilding-program' },
       { name: 'Economic Development & Empowerment', href: '/economic-development-program' },
       {
+        name: 'Programs',
+        href: '/programs',
+        children: programNavItems,
+      },
+      {
         name: 'Services',
         href: '/services',
         children: [
@@ -90,10 +95,6 @@ const navGroups: NavGroup[] = [
       },
       { name: 'Columbus Women Connect', href: '/columbus-women-connect' },
     ],
-  },
-  {
-    name: 'Programs',
-    items: programNavItems,
   },
   {
     name: 'Subsidiaries',
@@ -136,13 +137,9 @@ const navGroups: NavGroup[] = [
   {
     name: 'Shop Now',
     items: [
-      { name: 'Shop', href: '/shop' },
-      { name: 'Store Listing', href: '/store-listing' },
+      { name: 'Store', href: '/shop' },
       { name: 'Cart', href: '/cart' },
-      { name: 'Checkout', href: '/checkout' },
       { name: 'My Account', href: '/my-account' },
-      { name: 'My Orders', href: '/my-orders' },
-      { name: 'Product Subscription', href: '/dashboard/product-subscription' },
     ],
   },
 ];
@@ -339,7 +336,7 @@ export function Header() {
       <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
         <div className="site-topbar">
           <div className="container site-topbar__inner">
-              <span className="site-topbar__message">Peacebuilding · Community Development · Collective Action</span>
+              <span className="site-topbar__message">Peacebuilding · Economic Development · Collective Action</span>
               <div className="site-topbar__right">
                 <a className="site-topbar__email" href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a>
                 <SocialLinks className="site-topbar__socials" />
@@ -480,7 +477,7 @@ export function Header() {
             <div className="site-search__heading">
               <div>
                 <span><Sparkles size={15} aria-hidden="true" /> AI site search</span>
-                <h2 id="site-search-title">Ask B4P</h2>
+                 <h2 id="site-search-title">Ask B4P CODEFOUND</h2>
                 <p>Use your own words to find the page, program, or opportunity you need.</p>
               </div>
               <button

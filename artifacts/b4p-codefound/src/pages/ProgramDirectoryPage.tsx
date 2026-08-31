@@ -35,11 +35,11 @@ export default function ProgramDirectoryPage({ kind }: { kind: ProgramRegion }) 
           backLabel="Back to What We Do"
           actions={[
             { href: '#regional-programs', label: 'Browse programs' },
-            { href: '/partner-with-us', label: 'Partner with B4P', quiet: true },
+          { href: '/partner-with-us', label: 'Partner with B4P CODEFOUND', quiet: true },
           ]}
           signals={[
             { value: String(directory.items.length).padStart(2, '0'), label: 'program pathways' },
-            { value: 'B4P', label: 'community network' },
+            { value: 'B4P CODEFOUND', label: 'community network' },
           ]}
         />
 

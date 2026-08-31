@@ -44,7 +44,7 @@ export function Navigation() {
         <Link href="/" className="flex items-center gap-3 group">
           <img src="/brand/b4p-favicon.png" alt="B4P CODEFOUND Logo" className="h-12 w-12 object-contain group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
-            <span className="font-bold text-xl leading-none text-primary tracking-tight">B4P</span>
+          <span className="font-bold text-xl leading-none text-primary tracking-tight">B4P CODEFOUND</span>
             <span className="font-bold text-sm leading-none text-primary tracking-tight">CODEFOUND</span>
           </div>
         </Link>

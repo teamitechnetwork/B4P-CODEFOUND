@@ -34,7 +34,7 @@ const offices = [
     number: 'US · 02',
     label: 'Columbus, Ohio',
     title: 'Columbus office',
-    description: '3341 South 3rd Street, Suite 100-483, Columbus, OH 43004',
+    description: '341 South 3rd Street, Suite 100-483, Columbus, OH 43004',
   },
   {
     number: 'US · 03',
