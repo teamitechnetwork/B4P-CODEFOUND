@@ -1,9 +1,12 @@
-import { ArrowUpRight, Quote } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowUpRight, Play, Quote } from 'lucide-react';
 import { Link } from 'wouter';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
 export default function DirectorCornerPage() {
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-[#fcfdfd] font-sans selection:bg-primary/20 selection:text-primary">
       <Header />
@@ -41,13 +44,36 @@ export default function DirectorCornerPage() {
                 Hear directly from Lindora Kolu Howard-Diawara about the purpose, people, and partnerships behind B4P CODEFOUND.
               </p>
             </div>
-            <div className="director-video-frame">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/jtRb8wGlyAQ?rel=0&modestbranding=1"
-                title="A message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <div className={`director-video-frame ${isVideoPlaying ? 'is-playing' : ''}`}>
+              {isVideoPlaying ? (
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/jtRb8wGlyAQ?autoplay=1&rel=0&modestbranding=1"
+                  title="A message from Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ) : (
+                <div className="director-video-poster">
+                  <img
+                    src="https://i.ytimg.com/vi/jtRb8wGlyAQ/maxresdefault.jpg"
+                    alt="Preview of Lindora Kolu Howard-Diawara speaking in the Director's Corner"
+                    loading="lazy"
+                  />
+                  <div className="director-video-poster__wash" aria-hidden="true"></div>
+                  <div className="director-video-poster__content">
+                    <span className="director-video-poster__kicker">B4P CODEFOUND · DIRECTOR’S CORNER</span>
+                    <button
+                      type="button"
+                      className="director-video-play"
+                      onClick={() => setIsVideoPlaying(true)}
+                      aria-label="Play the Director's Corner video"
+                    >
+                      <Play size={28} fill="currentColor" strokeWidth={1.5} aria-hidden="true" />
+                    </button>
+                    <span className="director-video-poster__label">Play founder’s message</span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
