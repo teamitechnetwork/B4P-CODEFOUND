@@ -6262,6 +6262,37 @@
   text-transform: uppercase;
 }
 
+/* Keep every desktop dropdown in the same blue navigation family. */
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #016eb4;
+  box-shadow: 0 18px 38px rgba(1, 52, 87, 0.26);
+}
+
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item.is-link > a,
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item-title {
+  color: rgba(255, 255, 255, 0.96);
+  background: transparent;
+}
+
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item.is-link > a:hover,
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item.is-link > a:focus-visible,
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item-title:hover,
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__item-title:focus-visible {
+  color: #f0cf69;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__children a {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__children a:hover,
+.site-desktop-nav__panel:not(.site-desktop-nav__panel--what-we-do) .site-desktop-nav__children a:focus-visible {
+  color: #f0cf69;
+  background: rgba(255, 255, 255, 0.12);
+}
+
 @media (max-width: 1180px) and (min-width: 1025px) {
   .site-desktop-nav__panel--what-we-do {
     padding-inline: 1.35rem;
