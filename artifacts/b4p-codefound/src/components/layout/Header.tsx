@@ -391,7 +391,10 @@ export function Header() {
                         className={`site-desktop-nav__panel site-desktop-nav__panel--${group.name.toLowerCase().replaceAll(' ', '-')}`}
                       >
                         {group.items.map((item) => (
-                          <div className="site-desktop-nav__item" key={item.name}>
+                            <div
+                              className={`site-desktop-nav__item ${item.children ? 'has-children' : 'is-link'}`}
+                              key={item.name}
+                            >
                             <a
                               href={item.href}
                               className={item.children ? 'site-desktop-nav__item-title' : undefined}

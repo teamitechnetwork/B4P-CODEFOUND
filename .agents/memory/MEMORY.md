@@ -1,3 +1,4 @@
+- [Artifact imports](artifact-import.md) — register copied artifacts and reconcile dependencies after restoring their source.
 - [Vite stale module checks](vite-stale-module-checks.md) — restart the web workflow after component deletion or relocation before browser verification.
 - [Modal backdrop focus](modal-backdrop-focus.md) — keep click-to-dismiss backdrops outside the keyboard/accessibility tree when a dialog has its own close control.
 - [Canvas preview domains](canvas-preview-domains.md) — the sandbox preview domain may be available to shell workflows even when the env helper cannot return it.
