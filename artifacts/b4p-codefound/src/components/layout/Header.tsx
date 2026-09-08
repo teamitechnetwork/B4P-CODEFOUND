@@ -9,12 +9,16 @@ import {
   X,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
-import { programRegions } from '@/data/programs';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
 type MobilePanel = { title: string; items: NavItem[] };
+type WhatWeDoMenuSection = {
+  title: string;
+  items?: NavItem[];
+  groups?: NavItem[];
+};
 
 const searchItems = [
   { title: 'About B4P CODEFOUND', href: '/about-us', description: 'Our mission, founder story, values, and where we work.', keywords: 'mission founder values history peace community development organization' },
@@ -36,31 +40,59 @@ const searchItems = [
   { title: 'FAQs', href: '/faqs', description: 'Find clear answers about B4P CODEFOUND, our work, and ways to connect.', keywords: 'faq frequently asked questions answers information support' },
 ];
 
-const programNavItems: NavItem[] = [
+const whatWeDoProgramGroups: NavItem[] = [
   {
-    name: 'Global',
+    name: 'GLOBAL',
     href: '/programs/global',
     children: [
-      { name: 'Explore Global Programs', href: '/programs/global' },
-      ...programRegions.global.programs.map((program) => ({ name: program.title, href: `/programs/global/${program.slug}` })),
+      { name: 'Global Youth Exchange Forum (GYRF)', href: '/programs/global/global-youth-exchange-forum' },
+      { name: 'LDDWYF / CSW', href: '/programs/global/lddwyf-csw' },
+      { name: 'Leadership Development', href: '/programs/global/leadership-development' },
+      { name: 'Business Development & Entrepreneurship', href: '/programs/global/business-development-entrepreneurship' },
+      { name: 'Peace & Governance', href: '/programs/global/peacebuilding-governance' },
+      { name: 'Research & Advocacy', href: '/programs/global/research-policy-advocacy' },
+      { name: 'Art & Culture', href: '/programs/global/arts-culture' },
+      { name: 'Events', href: '/programs/global/global-events' },
     ],
   },
   {
     name: 'USA',
     href: '/programs/usa',
     children: [
-      { name: 'Explore USA Programs', href: '/programs/usa' },
-      ...programRegions.usa.programs.map((program) => ({ name: program.title, href: `/programs/usa/${program.slug}` })),
+      { name: 'Community Navigation & Dialogue', href: '/programs/usa/community-navigation-dialogues' },
+      { name: 'Networking & Professional Development', href: '/programs/usa/networking-professional-development' },
+      { name: 'Mentorship & Leadership Development', href: '/programs/usa/mentorship-leadership-development' },
+      { name: 'Events', href: '/programs/usa/usa-events' },
     ],
   },
   {
     name: 'Liberia',
     href: '/programs/liberia',
     children: [
-      { name: 'Explore Liberia Programs', href: '/programs/liberia' },
-      ...programRegions.liberia.programs.map((program) => ({ name: program.title, href: `/programs/liberia/${program.slug}` })),
+      { name: 'Business Development Services', href: '/programs/liberia/business-development-services' },
+      { name: 'Health Education & Sensitization', href: '/programs/liberia/health-education-sensitization' },
+      { name: 'Youth & Education', href: '/programs/liberia/youth-education' },
+      { name: 'Events & Conferences', href: '/programs/liberia/events-conference' },
     ],
   },
+];
+
+const whatWeDoMainAreas: NavItem[] = [
+  { name: 'What We Do', href: '/what-we-do' },
+  { name: 'Peacebuilding', href: '/peacebuilding-program' },
+  { name: 'Economic Development & Empowerment', href: '/economic-development-program' },
+];
+
+const whatWeDoServices: NavItem[] = [
+  { name: 'Sponsorship', href: '/services/fiscal-sponsorship' },
+  { name: 'Capacity Building', href: '/services/nonprofit-capacity-building' },
+  { name: 'Business Development', href: '/services/business-development' },
+];
+
+const whatWeDoMenuSections: WhatWeDoMenuSection[] = [
+  { title: 'WHAT WE DO', items: whatWeDoMainAreas },
+  { title: 'SERVICES', items: whatWeDoServices },
+  { title: 'PROGRAMS', groups: whatWeDoProgramGroups },
 ];
 
 const navGroups: NavGroup[] = [
@@ -84,24 +116,9 @@ const navGroups: NavGroup[] = [
   {
     name: 'What We Do',
     items: [
-      { name: 'What We Do', href: '/what-we-do' },
-      { name: 'Peacebuilding', href: '/peacebuilding-program' },
-      { name: 'Economic Development & Empowerment', href: '/economic-development-program' },
-      {
-        name: 'Programs',
-        href: '/programs',
-        children: programNavItems,
-      },
-      {
-        name: 'Services',
-        href: '/services',
-        children: [
-          { name: 'Fiscal Sponsorship', href: '/services/fiscal-sponsorship' },
-          { name: 'Nonprofit Capacity Building', href: '/services/nonprofit-capacity-building' },
-          { name: 'Business Development', href: '/services/business-development' },
-        ],
-      },
-      { name: 'Columbus Women Connect', href: '/columbus-women-connect' },
+      ...whatWeDoMainAreas,
+      { name: 'Services', href: '/services', children: whatWeDoServices },
+      { name: 'Programs', href: '/programs', children: whatWeDoProgramGroups },
     ],
   },
   {
@@ -418,47 +435,102 @@ export function Header() {
                         className={`site-desktop-nav__panel site-desktop-nav__panel--${group.name.toLowerCase().replaceAll(' ', '-')}`}
                         aria-label={`${group.name} menu`}
                       >
-                        <div className="site-desktop-nav__links">
-                          {group.items.map((item) => (
-                            <div
-                              className={`site-desktop-nav__item ${item.children ? 'has-children' : 'is-link'}`}
-                              key={item.name}
-                            >
-                              <a
-                                href={item.href}
-                                className={item.children ? 'site-desktop-nav__item-title' : undefined}
-                                onClick={(event) => {
-                                  if (item.href === '/events') {
-                                    event.preventDefault();
-                                    setLocation('/events');
-                                  }
-                                  setDesktopOpenGroup(null);
-                                }}
+                        {group.name === 'What We Do' ? (
+                          <div className="site-desktop-nav__what-we-do-layout">
+                            {whatWeDoMenuSections.map((section) => (
+                              <div className="site-desktop-nav__what-we-do-section" key={section.title}>
+                                <h3>{section.title}</h3>
+                                {section.items && (
+                                  <div className="site-desktop-nav__what-we-do-links">
+                                    {section.items.map((item) => (
+                                      <a
+                                        href={item.href}
+                                        key={item.name}
+                                        onClick={(event) => {
+                                          if (item.href === '/events') {
+                                            event.preventDefault();
+                                            setLocation('/events');
+                                          }
+                                          setDesktopOpenGroup(null);
+                                        }}
+                                      >
+                                        {item.name}
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                                {section.groups && (
+                                  <div className="site-desktop-nav__what-we-do-programs">
+                                    {section.groups.map((region) => (
+                                      <div className="site-desktop-nav__what-we-do-region" key={region.name}>
+                                        <h4>{region.name}</h4>
+                                        <div className="site-desktop-nav__what-we-do-links">
+                                          {region.children?.map((program) => (
+                                            <a
+                                              href={program.href}
+                                              key={program.name}
+                                              onClick={(event) => {
+                                                if (program.href === '/events') {
+                                                  event.preventDefault();
+                                                  setLocation('/events');
+                                                }
+                                                setDesktopOpenGroup(null);
+                                              }}
+                                            >
+                                              {program.name}
+                                            </a>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="site-desktop-nav__links">
+                            {group.items.map((item) => (
+                              <div
+                                className={`site-desktop-nav__item ${item.children ? 'has-children' : 'is-link'}`}
+                                key={item.name}
                               >
-                                {item.name}
-                              </a>
-                              {item.children && (
-                                <div className="site-desktop-nav__children">
-                                  {item.children.map((child) => (
-                                    <a
-                                      href={child.href}
-                                      key={child.name}
-                                      onClick={(event) => {
-                                        if (child.href === '/events') {
-                                          event.preventDefault();
-                                          setLocation('/events');
-                                        }
-                                        setDesktopOpenGroup(null);
-                                      }}
-                                    >
-                                      {child.name}
-                                    </a>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
-                          ))}
-                        </div>
+                                <a
+                                  href={item.href}
+                                  className={item.children ? 'site-desktop-nav__item-title' : undefined}
+                                  onClick={(event) => {
+                                    if (item.href === '/events') {
+                                      event.preventDefault();
+                                      setLocation('/events');
+                                    }
+                                    setDesktopOpenGroup(null);
+                                  }}
+                                >
+                                  {item.name}
+                                </a>
+                                {item.children && (
+                                  <div className="site-desktop-nav__children">
+                                    {item.children.map((child) => (
+                                      <a
+                                        href={child.href}
+                                        key={child.name}
+                                        onClick={(event) => {
+                                          if (child.href === '/events') {
+                                            event.preventDefault();
+                                            setLocation('/events');
+                                          }
+                                          setDesktopOpenGroup(null);
+                                        }}
+                                      >
+                                        {child.name}
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
                       </section>
                     )}
                   </div>

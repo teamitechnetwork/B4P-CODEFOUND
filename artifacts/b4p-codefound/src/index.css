@@ -6188,6 +6188,99 @@
   background: transparent;
 }
 
+.site-desktop-nav__panel--what-we-do {
+  padding: 1.7rem 2rem 1.9rem;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: #016eb4;
+  color: #fff;
+  box-shadow: 0 18px 38px rgba(1, 52, 87, 0.26);
+}
+
+.site-desktop-nav__what-we-do-layout {
+  display: grid;
+  grid-template-columns: minmax(10rem, 0.85fr) minmax(10rem, 0.85fr) minmax(0, 2.3fr);
+  gap: 2.4rem;
+}
+
+.site-desktop-nav__what-we-do-section {
+  min-width: 0;
+}
+
+.site-desktop-nav__what-we-do-section > h3 {
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.34);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.site-desktop-nav__what-we-do-links {
+  display: grid;
+  gap: 0.12rem;
+}
+
+.site-desktop-nav__what-we-do-links a {
+  display: block;
+  padding: 0.29rem 0.35rem;
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease, padding-left 160ms ease;
+}
+
+.site-desktop-nav__what-we-do-links a:hover,
+.site-desktop-nav__what-we-do-links a:focus-visible {
+  padding-left: 0.6rem;
+  color: #f0cf69;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.site-desktop-nav__what-we-do-programs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.site-desktop-nav__what-we-do-region {
+  min-width: 0;
+}
+
+.site-desktop-nav__what-we-do-region > h4 {
+  margin: 0 0 0.5rem;
+  color: #bcecff;
+  font-size: 0.67rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1180px) and (min-width: 1025px) {
+  .site-desktop-nav__panel--what-we-do {
+    padding-inline: 1.35rem;
+  }
+
+  .site-desktop-nav__what-we-do-layout {
+    gap: 1.35rem;
+  }
+
+  .site-desktop-nav__what-we-do-programs {
+    gap: 0.65rem;
+  }
+
+  .site-desktop-nav__what-we-do-links a {
+    padding-inline: 0.2rem;
+    font-size: 0.66rem;
+  }
+}
+
 @media (min-width: 1025px) {
   .site-desktop-nav {
     display: flex;
