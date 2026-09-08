@@ -1,5 +1,21 @@
 import { type MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronLeft, ChevronRight, Menu, Search, Sparkles, X } from 'lucide-react';
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Building2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Globe2,
+  Handshake,
+  Menu,
+  Search,
+  ShoppingBag,
+  Sparkles,
+  UsersRound,
+  X,
+  type LucideIcon,
+} from 'lucide-react';
 import { useLocation } from 'wouter';
 import { programRegions } from '@/data/programs';
 import { SocialLinks } from '@/components/layout/SocialLinks';
@@ -7,6 +23,12 @@ import { SocialLinks } from '@/components/layout/SocialLinks';
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
 type MobilePanel = { title: string; items: NavItem[] };
+type NavGroupMeta = {
+  eyebrow: string;
+  description: string;
+  highlight: string;
+  icon: LucideIcon;
+};
 
 const searchItems = [
   { title: 'About B4P CODEFOUND', href: '/about-us', description: 'Our mission, founder story, values, and where we work.', keywords: 'mission founder values history peace community development organization' },
@@ -144,6 +166,46 @@ const navGroups: NavGroup[] = [
   },
 ];
 
+const navGroupMeta: Record<string, NavGroupMeta> = {
+  'About Us': {
+    eyebrow: 'The people behind the work',
+    description: 'Meet the leaders, values, and stories shaping B4P CODEFOUND.',
+    highlight: 'A people-first organization rooted in African-led action.',
+    icon: UsersRound,
+  },
+  'What We Do': {
+    eyebrow: 'Our work in motion',
+    description: 'Discover the programs and services turning collective action into progress.',
+    highlight: 'Peacebuilding, empowerment, and practical support for communities.',
+    icon: Globe2,
+  },
+  Subsidiaries: {
+    eyebrow: 'Our wider network',
+    description: 'Explore the initiatives and community networks growing alongside B4P.',
+    highlight: 'Local roots with a global view.',
+    icon: Building2,
+  },
+  'Work With Us': {
+    eyebrow: 'Move the mission forward',
+    description: 'Bring your time, talent, or partnership to work that lasts.',
+    highlight: 'There is more than one way to make an impact.',
+    icon: Handshake,
+  },
+  'Shop Now': {
+    eyebrow: 'Carry the mission with you',
+    description: 'Support B4P CODEFOUND through our store and member experiences.',
+    highlight: 'Every purchase helps keep the work moving.',
+    icon: ShoppingBag,
+  },
+};
+
+const fallbackNavGroupMeta: NavGroupMeta = {
+  eyebrow: 'B4P CODEFOUND',
+  description: 'Explore more ways to connect with our work.',
+  highlight: 'Together, we build what communities need next.',
+  icon: BriefcaseBusiness,
+};
+
 export function Header() {
   const [location, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -240,6 +302,18 @@ export function Header() {
     };
     document.addEventListener('pointerdown', handlePointerDown);
     return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [desktopOpenGroup]);
+
+  useEffect(() => {
+    if (!desktopOpenGroup) return;
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setDesktopOpenGroup(null);
+      }
+    };
+    document.addEventListener('keydown', handleKeydown);
+    return () => document.removeEventListener('keydown', handleKeydown);
   }, [desktopOpenGroup]);
 
   useEffect(() => {
@@ -360,9 +434,11 @@ export function Header() {
               <img src="/brand/b4p-logo-clean.png" alt="B4P CODEFOUND" />
             </a>
             <nav className="site-desktop-nav" aria-label="Primary navigation" ref={desktopNavRef}>
-              {navGroups.map((group) => {
+              {navGroups.map((group, groupIndex) => {
                 const isOpen = desktopOpenGroup === group.name;
                 const panelId = `desktop-nav-${group.name.toLowerCase().replaceAll(' ', '-')}`;
+                const meta = navGroupMeta[group.name] ?? fallbackNavGroupMeta;
+                const GroupIcon = meta.icon;
                 return (
                   <div
                     className={`site-desktop-nav__group ${isOpen ? 'is-open' : ''}`}
@@ -380,56 +456,100 @@ export function Header() {
                       type="button"
                       aria-expanded={isOpen}
                       aria-controls={panelId}
+                      aria-haspopup="true"
                       onClick={() => setDesktopOpenGroup(isOpen ? null : group.name)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'ArrowDown' && !isOpen) {
+                          event.preventDefault();
+                          setDesktopOpenGroup(group.name);
+                        }
+                      }}
                     >
                       <span>{group.name}</span>
                       <ChevronDown size={14} aria-hidden="true" />
                     </button>
                     {isOpen && (
-                      <div
+                      <section
                         id={panelId}
                         className={`site-desktop-nav__panel site-desktop-nav__panel--${group.name.toLowerCase().replaceAll(' ', '-')}`}
+                        aria-label={`${group.name} menu`}
                       >
-                        {group.items.map((item) => (
-                            <div
-                              className={`site-desktop-nav__item ${item.children ? 'has-children' : 'is-link'}`}
-                              key={item.name}
-                            >
+                        <div className="site-desktop-nav__panel-head">
+                          <div className="site-desktop-nav__panel-mark">
+                            <GroupIcon size={18} aria-hidden="true" />
+                          </div>
+                          <div className="site-desktop-nav__panel-heading">
+                            <span>{meta.eyebrow}</span>
+                            <h2>{group.name}</h2>
+                            <p>{meta.description}</p>
+                          </div>
+                          <span className="site-desktop-nav__panel-index" aria-hidden="true">
+                            {String(groupIndex + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+                        <div className="site-desktop-nav__panel-body">
+                          <div className="site-desktop-nav__panel-feature">
+                            <span>Good to know</span>
+                            <strong>{meta.highlight}</strong>
                             <a
-                              href={item.href}
-                              className={item.children ? 'site-desktop-nav__item-title' : undefined}
+                              href={group.items[0].href}
                               onClick={(event) => {
-                                if (item.href === '/events') {
+                                if (group.items[0].href === '/events') {
                                   event.preventDefault();
                                   setLocation('/events');
                                 }
                                 setDesktopOpenGroup(null);
                               }}
                             >
-                              {item.name}
+                              Start with {group.items[0].name}
+                              <ArrowUpRight size={16} aria-hidden="true" />
                             </a>
-                            {item.children && (
-                              <div className="site-desktop-nav__children">
-                                {item.children.map((child) => (
-                                  <a
-                                    href={child.href}
-                                    key={child.name}
-                                    onClick={(event) => {
-                                      if (child.href === '/events') {
-                                        event.preventDefault();
-                                        setLocation('/events');
-                                      }
-                                      setDesktopOpenGroup(null);
-                                    }}
-                                  >
-                                    {child.name}
-                                  </a>
-                                ))}
-                              </div>
-                            )}
                           </div>
-                        ))}
-                      </div>
+                          <div className="site-desktop-nav__links">
+                            {group.items.map((item) => (
+                              <div
+                                className={`site-desktop-nav__item ${item.children ? 'has-children' : 'is-link'}`}
+                                key={item.name}
+                              >
+                                <a
+                                  href={item.href}
+                                  className={item.children ? 'site-desktop-nav__item-title' : undefined}
+                                  onClick={(event) => {
+                                    if (item.href === '/events') {
+                                      event.preventDefault();
+                                      setLocation('/events');
+                                    }
+                                    setDesktopOpenGroup(null);
+                                  }}
+                                >
+                                  <span>{item.name}</span>
+                                  {!item.children && <ArrowUpRight size={15} aria-hidden="true" />}
+                                </a>
+                                {item.children && (
+                                  <div className="site-desktop-nav__children">
+                                    {item.children.map((child) => (
+                                      <a
+                                        href={child.href}
+                                        key={child.name}
+                                        onClick={(event) => {
+                                          if (child.href === '/events') {
+                                            event.preventDefault();
+                                            setLocation('/events');
+                                          }
+                                          setDesktopOpenGroup(null);
+                                        }}
+                                      >
+                                        <span>{child.name}</span>
+                                        <ArrowUpRight size={13} aria-hidden="true" />
+                                      </a>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </section>
                     )}
                   </div>
                 );
