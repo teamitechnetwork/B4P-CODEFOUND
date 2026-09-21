@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputRoot = path.join(projectRoot, 'dist', 'public');
 const siteUrl = 'https://b4pcodefound.org';
-const defaultImage = `${siteUrl}/brand/b4p-og-source.png`;
+const defaultImage = `${siteUrl}/brand/b4p-social-preview.png`;
 
 function escapeHtml(value) {
   return value
@@ -38,6 +38,9 @@ function renderHead(shell, metadata) {
   html = replaceMeta(html, 'property', 'og:url', metadata.canonical);
   html = replaceMeta(html, 'property', 'og:image', metadata.image);
   html = replaceMeta(html, 'property', 'og:image:alt', metadata.title);
+  html = replaceMeta(html, 'property', 'og:image:type', 'image/png');
+  html = replaceMeta(html, 'property', 'og:image:width', '1200');
+  html = replaceMeta(html, 'property', 'og:image:height', '630');
   html = replaceMeta(html, 'name', 'twitter:title', metadata.title);
   html = replaceMeta(html, 'name', 'twitter:description', metadata.description);
   html = replaceMeta(html, 'name', 'twitter:image', metadata.image);

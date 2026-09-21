@@ -10,7 +10,7 @@ import {
 } from '@/pages/InternationalDaysPage';
 
 const SITE_URL = 'https://b4pcodefound.org';
-const DEFAULT_IMAGE = `${SITE_URL}/brand/b4p-og-source.png`;
+const DEFAULT_IMAGE = `${SITE_URL}/brand/b4p-social-preview.png`;
 
 type PageMetadata = {
   path: string;
@@ -95,8 +95,9 @@ export default function SiteMetadata() {
     upsertMeta('property', 'og:url', canonicalUrl);
     upsertMeta('property', 'og:image', image);
     upsertMeta('property', 'og:image:alt', metadata.title);
-    upsertMeta('property', 'og:image:width', '433');
-    upsertMeta('property', 'og:image:height', '406');
+    upsertMeta('property', 'og:image:type', 'image/png');
+    upsertMeta('property', 'og:image:width', '1200');
+    upsertMeta('property', 'og:image:height', '630');
     upsertMeta('property', 'og:site_name', 'B4P CODEFOUND');
     upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', metadata.title);
