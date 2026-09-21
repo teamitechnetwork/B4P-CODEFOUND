@@ -25,7 +25,7 @@ import OpportunityPage from '@/pages/OpportunityPage';
 import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
-import InformationPage from '@/pages/InformationPage';
+import NewsPage, { NewsArticlePage } from '@/pages/NewsPage';
 import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
 import PartnershipPage from '@/pages/PartnershipPage';
@@ -184,7 +184,11 @@ function Router() {
   }
 
   if (location === '/news-blogs') {
-    return <InformationPage kind="news" />;
+    return <NewsPage />;
+  }
+
+  if (location === '/news-blogs/cerue-liyean-mcgill-women-peace-security') {
+    return <NewsArticlePage />;
   }
 
   if (location === '/events' || location === '/events-and-conferences') {

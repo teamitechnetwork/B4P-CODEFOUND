@@ -35,6 +35,7 @@ const searchItems = [
   { title: 'Partner with B4P', href: '/partner-with-us', description: 'Explore partnership opportunities with B4P CODEFOUND.', keywords: 'partner partnership sponsorship collaboration organization support' },
   { title: 'Events & Gatherings', href: '/events', description: 'Find upcoming invitations and explore B4P CODEFOUND event stories across Liberia and the diaspora.', keywords: 'events gatherings conference diaspora gala forum CSW Liberia upcoming planning' },
   { title: 'International Days', href: '/international-days', description: 'Use meaningful observances as openings for community-led action.', keywords: 'international days calendar peace education women youth culture community' },
+  { title: 'News & Stories', href: '/news-blogs', description: 'Read B4P CODEFOUND updates, field stories, and perspectives from the work.', keywords: 'news stories updates field Liberia women peace security articles' },
   { title: 'Make a Donation', href: '/make-a-donation', description: 'Support African-led peacebuilding and community development.', keywords: 'donate donation give support fundraising mission' },
   { title: 'Contact B4P CODEFOUND', href: '/contact', description: 'Contact the team, offices, and support channels.', keywords: 'contact email phone address office support' },
   { title: 'FAQs', href: '/faqs', description: 'Find clear answers about B4P CODEFOUND, our work, and ways to connect.', keywords: 'faq frequently asked questions answers information support' },
