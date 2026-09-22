@@ -17,7 +17,7 @@ const story = {
   imageAlt:
     'Madam Cerue M. Liyean speaking at a high-level side event on Women, Peace and Security',
   deck:
-    'Liberia’s longstanding commitment to advancing women’s participation in peacebuilding and national development is receiving renewed international attention as stakeholders gather in New York for a high-level event focused on Women, Peace and Security.',
+    'At a high-level event in New York, Madam Cerue Liyean McGill highlighted Liberia’s Third National Action Plan on Women, Peace and Security and traced the women-led peacebuilding movement that helped carry Liberia from conflict toward peace.',
   intro: [
     'Liberia’s longstanding commitment to advancing women’s participation in peacebuilding and national development is receiving renewed international attention as stakeholders gather in New York for a high-level event focused on Women, Peace and Security.',
     'Among those highlighting Liberia’s continued work in this area is Madam Cerue Liyean McGill, a Liberian peacebuilding and women’s rights advocate whose work has been connected to community-based peacebuilding and women’s participation in peace and security processes.',
@@ -49,6 +49,30 @@ const story = {
       ],
       closing:
         'The plan is expected to provide a framework for coordinated action by government, civil society, development partners and other stakeholders over the 2026–2031 implementation period.',
+    },
+    {
+      heading: 'From the Event: WIPNET’s Peacebuilding Legacy',
+      paragraphs: [
+        'In her remarks, Madam Cerue expressed profound appreciation to His Excellency Joseph Nyuma Boakai, Sr., President of the Republic of Liberia, for his continued leadership in sustaining Liberia’s hard-won peace and advancing national development.',
+        'She also recognized Hon. Gbeme Horace-Kollie, Minister of Gender, Children and Social Protection, for her leadership in promoting women’s empowerment, gender equality and women’s meaningful participation in peace and security processes. She acknowledged the contributions of civil society organizations, development partners, faith-based and traditional leaders, youth and communities.',
+        'Madam Cerue traced the roots of Liberia’s women-led peace movement to WIPNET, established in Liberia in 2002 under the West Africa Network for Peacebuilding (WANEP-Liberia) to strengthen women’s participation in conflict prevention, peacebuilding, dialogue and social cohesion.',
+        'In 2003, WIPNET led the Liberian Women Mass Action for Peace, bringing together more than 45,000 women and girls from Christian and Muslim communities. United at the Fish Market in Monrovia and in other locations across Liberia, the women demanded an immediate end to the civil war.',
+        'The movement used non-violent sit-ins, prayer, advocacy, public demonstrations and dialogue. Christian and Muslim women prayed together, showing how faith could become a bridge for peaceful coexistence rather than a source of division. The women’s call — “Enough is Enough” and “No Peace, No Sex” — became part of a powerful national demand for peace.',
+        'Women from Bong and other counties travelled to Monrovia to understand and join the national movement. They returned home and mobilized women for disarmament-related activities in Totota, Bong County, where women worked with conflict-affected communities, ex-combatants and other stakeholders between 2004 and 2006.',
+        'Madam Cerue also highlighted support from UN Women, which strengthened WIPNET’s ability to reach communities, promote peace and encourage citizens to participate in Liberia’s transition from war to peace. WIPNET’s Voices of Women Radio Program further extended peace messaging, public education and dialogue to communities across Liberia.',
+        'She connected women’s calls for dialogue with Liberia’s Truth and Reconciliation Commission and with continuing transitional-justice initiatives, including work with communities and organizations around the country.',
+      ],
+    },
+    {
+      heading: 'Recommendations Shared in New York',
+      paragraphs: [
+        'The recommendations shared during the event emphasized the need to connect national commitments with the women and community-based structures that make peacebuilding possible:',
+      ],
+      bullets: [
+        'Mobilize sustainable funding for the full implementation of NAP III.',
+        'Strengthen grassroots women’s participation and leadership by resourcing Peace Hut women, women peacebuilders and community-based structures at national, county and community levels.',
+        'Strengthen government ownership and coordination among government institutions, civil society organizations, grassroots women’s movements, women’s organizations and peacebuilding actors.',
+      ],
     },
     {
       heading: 'Recognizing Women Peacebuilders',
