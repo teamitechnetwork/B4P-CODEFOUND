@@ -5507,15 +5507,28 @@
   z-index: 70;
 }
 
+.site-header-shell--announcement-hidden .site-announcement {
+  min-height: 0;
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
 .site-announcement {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(130px, 11vw, 168px);
-  height: 56px;
+  min-height: 58px;
+  max-height: 90px;
   overflow: hidden;
   color: #fff;
-  background: #abefc6;
+  background: #062e37;
   font-family: 'Manrope', sans-serif;
   text-transform: uppercase;
+  transition:
+    max-height 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 180ms ease,
+    visibility 280ms ease;
 }
 
 .site-announcement__main {
@@ -5523,9 +5536,22 @@
   display: grid;
   min-width: 0;
   place-items: center;
-  padding: 0 clamp(1rem, 3vw, 3.5rem);
-  background: #fc4c1f;
-  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 100%, 0 100%);
+  padding: 0.65rem clamp(1rem, 3vw, 3.5rem);
+  background:
+    linear-gradient(110deg, rgba(1, 110, 180, 0.98), rgba(17, 143, 155, 0.98)),
+    #016eb4;
+  isolation: isolate;
+}
+
+.site-announcement__main::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 12% 50%, rgba(214, 165, 58, 0.22), transparent 7rem),
+    linear-gradient(90deg, transparent 65%, rgba(255, 255, 255, 0.08));
+  content: '';
+  pointer-events: none;
 }
 
 .site-announcement__message {
@@ -5534,10 +5560,10 @@
   justify-content: center;
   gap: clamp(0.7rem, 1.35vw, 1.35rem);
   min-width: 0;
-  font-size: clamp(0.68rem, 0.94vw, 0.94rem);
+  font-size: clamp(0.68rem, 0.86vw, 0.88rem);
   font-weight: 800;
-  letter-spacing: 0.055em;
-  line-height: 1;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
@@ -5547,16 +5573,31 @@
 }
 
 .site-announcement__highlight {
-  letter-spacing: 0.075em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.085em;
+}
+
+.site-announcement__highlight::before {
+  width: 0.48rem;
+  height: 0.48rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #d6a53a;
+  box-shadow: 0 0 0 4px rgba(214, 165, 58, 0.18);
+  content: '';
 }
 
 .site-announcement__date {
+  color: #dffaf0;
   letter-spacing: 0.09em;
 }
 
 .site-announcement__title {
   font-weight: 750;
-  letter-spacing: 0.045em;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.055em;
 }
 
 .site-announcement__separator {
@@ -5570,21 +5611,24 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  padding: 0.5rem 0.65rem 0.5rem 0.25rem;
-  color: #123f47;
+  min-width: 0;
+  padding: 0.5rem clamp(0.65rem, 1.4vw, 1.25rem);
+  color: #062e37;
+  background: #d6a53a;
   font-size: clamp(0.58rem, 0.76vw, 0.75rem);
   font-weight: 850;
   letter-spacing: 0.055em;
   line-height: 1.1;
   text-align: center;
   text-decoration: none;
-  transition: color 160ms ease, background-color 160ms ease;
+  transition: color 160ms ease, background-color 160ms ease, box-shadow 160ms ease;
 }
 
 .site-announcement__link:hover,
 .site-announcement__link:focus-visible {
   color: #062e37;
-  background: #9de6ba;
+  background: #f0c95d;
+  box-shadow: inset 0 -3px 0 rgba(6, 46, 55, 0.2);
 }
 
 .site-announcement__link > span:last-child {
@@ -7537,31 +7581,47 @@
 
 @media (max-width: 720px) {
   .site-announcement {
-    grid-template-columns: minmax(0, 1fr) 104px;
+    grid-template-columns: minmax(0, 1fr) 92px;
+    min-height: 62px;
   }
 
   .site-announcement__main {
-    padding-inline: 0.55rem 1.25rem;
+    padding: 0.65rem 1rem;
   }
 
   .site-announcement__message {
-    gap: 0.35rem;
-    font-size: 0.52rem;
-    letter-spacing: 0.025em;
+    justify-content: flex-start;
+    gap: 0.25rem 0.55rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.045em;
     white-space: normal;
-    text-align: center;
+    text-align: left;
   }
 
   .site-announcement__highlight,
   .site-announcement__date,
   .site-announcement__title {
-    letter-spacing: 0.025em;
+    letter-spacing: 0.04em;
+  }
+
+  .site-announcement__title {
+    flex-basis: 100%;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.5rem;
+  }
+
+  .site-announcement__separator {
+    display: none;
+  }
+
+  .site-announcement__highlight {
+    gap: 0.42rem;
   }
 
   .site-announcement__link {
-    padding-inline: 0.35rem;
+    padding-inline: 0.45rem;
     font-size: 0.56rem;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.04em;
   }
 
   .site-topbar {
@@ -7787,6 +7847,29 @@
   .program-detail-page main,
   .cwc-page main {
     padding-top: 108px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-announcement {
+    grid-template-columns: minmax(0, 1fr) 80px;
+  }
+
+  .site-announcement__main {
+    padding-inline: 0.75rem;
+  }
+
+  .site-announcement__message {
+    gap: 0.2rem 0.45rem;
+    font-size: 0.54rem;
+  }
+
+  .site-announcement__title {
+    font-size: 0.46rem;
+  }
+
+  .site-announcement__link {
+    font-size: 0.52rem;
   }
 }
 

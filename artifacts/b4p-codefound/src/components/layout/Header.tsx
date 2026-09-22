@@ -173,6 +173,7 @@ const navGroups: NavGroup[] = [
 export function Header() {
   const [location, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -184,6 +185,7 @@ export function Header() {
   const searchDialogRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
+  const previousScrollYRef = useRef(0);
   const isHome = location === '/';
   const isHeroHeader = isHome && !isScrolled;
   const searchResults = useMemo(() => {
@@ -245,9 +247,25 @@ export function Header() {
   };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    previousScrollYRef.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDelta = currentScrollY - previousScrollYRef.current;
+
+      setIsScrolled(currentScrollY > 20);
+
+      if (currentScrollY <= 12 || scrollDelta < -4) {
+        setIsAnnouncementVisible(true);
+      } else if (scrollDelta > 4) {
+        setIsAnnouncementVisible(false);
+      }
+
+      previousScrollYRef.current = currentScrollY;
+    };
+
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -371,15 +389,20 @@ export function Header() {
 
   return (
     <>
-      <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
-        <div className="site-announcement" role="region" aria-label="Upcoming conference">
+      <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''} ${isAnnouncementVisible ? '' : 'site-header-shell--announcement-hidden'}`}>
+        <div
+          className="site-announcement"
+          role="region"
+          aria-label="Upcoming conference"
+          aria-hidden={!isAnnouncementVisible}
+        >
           <div className="site-announcement__main">
             <div className="site-announcement__message">
-              <span className="site-announcement__highlight">✨ SAVE THE DATE!</span>
+              <span className="site-announcement__highlight">SAVE THE DATE</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
               <span className="site-announcement__date">NOVEMBER 2026</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span className="site-announcement__title">GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
+              <span className="site-announcement__title">B4P CODEFOUND CONFERENCE</span>
             </div>
           </div>
           <a className="site-announcement__link" href="/events" onClick={() => closeMenu()}>
