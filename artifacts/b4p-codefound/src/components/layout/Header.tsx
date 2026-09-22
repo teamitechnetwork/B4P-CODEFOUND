@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
+import { SaveTheDatePopup } from '@/components/layout/SaveTheDatePopup';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -173,7 +174,6 @@ const navGroups: NavGroup[] = [
 export function Header() {
   const [location, setLocation] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isAnnouncementVisible, setIsAnnouncementVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -185,7 +185,6 @@ export function Header() {
   const searchDialogRef = useRef<HTMLElement>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const desktopNavRef = useRef<HTMLElement>(null);
-  const previousScrollYRef = useRef(0);
   const isHome = location === '/';
   const isHeroHeader = isHome && !isScrolled;
   const searchResults = useMemo(() => {
@@ -247,23 +246,7 @@ export function Header() {
   };
 
   useEffect(() => {
-    previousScrollYRef.current = window.scrollY;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const scrollDelta = currentScrollY - previousScrollYRef.current;
-
-      setIsScrolled(currentScrollY > 20);
-
-      if (currentScrollY <= 12 || scrollDelta < -4) {
-        setIsAnnouncementVisible(true);
-      } else if (scrollDelta > 4) {
-        setIsAnnouncementVisible(false);
-      }
-
-      previousScrollYRef.current = currentScrollY;
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -389,27 +372,7 @@ export function Header() {
 
   return (
     <>
-      <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''} ${isAnnouncementVisible ? '' : 'site-header-shell--announcement-hidden'}`}>
-        <div
-          className="site-announcement"
-          role="region"
-          aria-label="Upcoming conference"
-          aria-hidden={!isAnnouncementVisible}
-        >
-          <div className="site-announcement__main">
-            <div className="site-announcement__message">
-              <span className="site-announcement__highlight">SAVE THE DATE!</span>
-              <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span className="site-announcement__date">NOVEMBER 2026</span>
-              <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span className="site-announcement__title">GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
-            </div>
-          </div>
-          <a className="site-announcement__link" href="/events" onClick={() => closeMenu()}>
-            <span className="site-announcement__link-label">LEARN MORE</span>
-            <span className="site-announcement__link-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
+      <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
         <div className="site-topbar">
           <div className="container site-topbar__inner">
               <span className="site-topbar__message">Peacebuilding · Economic Development · Collective Action</span>
@@ -594,6 +557,7 @@ export function Header() {
           </div>
         </header>
       </div>
+      <SaveTheDatePopup />
 
       {isSearchOpen && (
         <div className="site-search-layer" role="presentation">
