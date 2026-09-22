@@ -10,7 +10,6 @@ import {
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
-import { SaveTheDatePopup } from '@/components/layout/SaveTheDatePopup';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -557,7 +556,6 @@ export function Header() {
           </div>
         </header>
       </div>
-      <SaveTheDatePopup />
 
       {isSearchOpen && (
         <div className="site-search-layer" role="presentation">
