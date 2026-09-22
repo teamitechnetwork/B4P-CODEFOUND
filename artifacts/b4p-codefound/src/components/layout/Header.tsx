@@ -375,11 +375,11 @@ export function Header() {
         <div className="site-announcement" role="region" aria-label="Upcoming conference">
           <div className="site-announcement__main">
             <div className="site-announcement__message">
-              <span>✨ SAVE THE DATE!</span>
+              <span className="site-announcement__highlight">✨ SAVE THE DATE!</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span>NOVEMBER 26</span>
+              <span className="site-announcement__date">NOVEMBER 2026</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span>GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
+              <span className="site-announcement__title">GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
             </div>
           </div>
           <a className="site-announcement__link" href="/events" onClick={() => closeMenu()}>
