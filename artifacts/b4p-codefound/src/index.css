@@ -5507,6 +5507,72 @@
   z-index: 70;
 }
 
+.site-announcement {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(130px, 11vw, 168px);
+  height: 56px;
+  overflow: hidden;
+  color: #fff;
+  background: #abefc6;
+  font-family: 'Manrope', sans-serif;
+  text-transform: uppercase;
+}
+
+.site-announcement__main {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  padding: 0 clamp(1rem, 3vw, 3.5rem);
+  background: #fc4c1f;
+  clip-path: polygon(0 0, calc(100% - 34px) 0, 100% 100%, 0 100%);
+}
+
+.site-announcement__message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.55rem, 1.25vw, 1.25rem);
+  min-width: 0;
+  font-size: clamp(0.58rem, 0.86vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.site-announcement__separator {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.site-announcement__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.65rem 0.5rem 0.25rem;
+  color: #123f47;
+  font-size: clamp(0.58rem, 0.76vw, 0.75rem);
+  font-weight: 850;
+  letter-spacing: 0.055em;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  transition: color 160ms ease, background-color 160ms ease;
+}
+
+.site-announcement__link:hover,
+.site-announcement__link:focus-visible {
+  color: #062e37;
+  background: #9de6ba;
+}
+
+.site-announcement__link > span:last-child {
+  font-size: 1.2em;
+  line-height: 0;
+}
+
 .site-topbar {
   height: 32px;
   color: rgba(255, 255, 255, 0.82);
@@ -7451,6 +7517,28 @@
 }
 
 @media (max-width: 720px) {
+  .site-announcement {
+    grid-template-columns: minmax(0, 1fr) 104px;
+  }
+
+  .site-announcement__main {
+    padding-inline: 0.55rem 1.25rem;
+  }
+
+  .site-announcement__message {
+    gap: 0.35rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.025em;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .site-announcement__link {
+    padding-inline: 0.35rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.025em;
+  }
+
   .site-topbar {
     display: block;
     height: 38px;

@@ -20,7 +20,7 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
     return (
       <div className="flex min-h-screen flex-col bg-background">
         <Header />
-        <main className="flex-1 pt-[78px] flex items-center justify-center">
+        <main className="flex-1 pt-[134px] flex items-center justify-center">
           <div className="text-center max-w-lg px-6">
             <h1 className="text-4xl font-extrabold text-[#062e37] mb-4">Program not found</h1>
             <p className="text-muted-foreground mb-8">We could not find that program. Explore the regional program directory to continue.</p>
@@ -40,7 +40,7 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1 pt-[104px]">
+      <main className="flex-1 pt-[160px]">
         <ProgramHero
           variant="detail"
            eyebrow={regionData.title}

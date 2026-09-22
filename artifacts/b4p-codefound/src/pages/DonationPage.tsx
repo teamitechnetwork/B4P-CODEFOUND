@@ -9,7 +9,7 @@ export default function DonationPage() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex min-h-[50vh] items-end overflow-hidden bg-[#016EB4] pt-[104px]">
+        <section className="relative flex min-h-[50vh] items-end overflow-hidden bg-[#016EB4] pt-[160px]">
           <div className="absolute inset-0 z-0">
             <img 
               src="/images/conference/day-1-community-gathering.jpg" 

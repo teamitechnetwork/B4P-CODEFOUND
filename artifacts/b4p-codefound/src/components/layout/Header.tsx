@@ -372,6 +372,21 @@ export function Header() {
   return (
     <>
       <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
+        <div className="site-announcement" role="region" aria-label="Upcoming conference">
+          <div className="site-announcement__main">
+            <div className="site-announcement__message">
+              <span>✨ SAVE THE DATE!</span>
+              <span className="site-announcement__separator" aria-hidden="true">|</span>
+              <span>NOVEMBER 26</span>
+              <span className="site-announcement__separator" aria-hidden="true">|</span>
+              <span>GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
+            </div>
+          </div>
+          <a className="site-announcement__link" href="/events" onClick={() => closeMenu()}>
+            <span>LEARN MORE</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
         <div className="site-topbar">
           <div className="container site-topbar__inner">
               <span className="site-topbar__message">Peacebuilding · Economic Development · Collective Action</span>

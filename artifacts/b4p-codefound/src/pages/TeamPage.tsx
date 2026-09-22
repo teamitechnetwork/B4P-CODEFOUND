@@ -125,7 +125,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
   return (
     <div className={`team-page team-page--${type} flex flex-col min-h-screen font-sans`}>
       <Header />
-      <main className="flex-1 pt-[72px] md:pt-[108px]">
+      <main className="flex-1 pt-[128px] md:pt-[164px]">
         <div className="team-page__hero">
           <div className="team-page__hero-inner container mx-auto px-6 relative z-10 text-center text-white">
             <span className="team-page__eyebrow">

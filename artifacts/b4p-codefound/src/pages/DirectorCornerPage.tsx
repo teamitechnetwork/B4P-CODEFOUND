@@ -11,7 +11,7 @@ export default function DirectorCornerPage() {
     <div className="flex flex-col min-h-screen bg-[#fcfdfd] font-sans selection:bg-primary/20 selection:text-primary">
       <Header />
       
-      <main className="flex-1 pt-[104px]">
+      <main className="flex-1 pt-[160px]">
         {/* Intro/Hero Section */}
         <section className="bg-[#016EB4] text-white pt-20 pb-28 md:pt-32 md:pb-40 px-6 relative overflow-hidden">
           {/* Subtle background texture/pattern */}

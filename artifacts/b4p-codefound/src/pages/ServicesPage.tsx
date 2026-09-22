@@ -53,7 +53,7 @@ export default function ServicesPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1 pt-[104px]">
+      <main className="flex-1 pt-[160px]">
         {/* HERO */}
         <section className="relative bg-[#016EB4] text-white border-b border-white/20 py-24 md:py-32">
           <div className="container max-w-7xl mx-auto px-6 lg:px-12 relative z-10">

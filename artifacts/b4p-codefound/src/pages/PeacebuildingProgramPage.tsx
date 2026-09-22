@@ -7,7 +7,7 @@ export default function PeacebuildingProgramPage() {
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1 pt-[104px]">
+      <main className="flex-1 pt-[160px]">
         <ProgramHero
           variant="pillar"
           eyebrow="Operational pillar 01"
