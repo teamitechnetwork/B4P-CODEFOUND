@@ -187,8 +187,12 @@ function Router() {
     return <NewsPage />;
   }
 
+  if (location === '/news-blogs/b4p-codefound-launches-in-liberia') {
+    return <NewsArticlePage slug="b4p-codefound-launches-in-liberia" />;
+  }
+
   if (location === '/news-blogs/cerue-liyean-mcgill-women-peace-security') {
-    return <NewsArticlePage />;
+    return <NewsArticlePage slug="cerue-liyean-mcgill-women-peace-security" />;
   }
 
   if (location === '/events' || location === '/events-and-conferences') {

@@ -46,6 +46,7 @@ export const programRegions: Record<ProgramRegion, {
       { slug: 'health-education-sensitization', title: 'Health Education & Sensitization', description: 'Sharing accessible information and strengthening community awareness around health.', region: 'liberia', image: '/images/conference/day-2-community-02.jpg', imageAlt: 'Community members learning together at a B4P CODEFOUND gathering' },
       { slug: 'youth-education', title: 'Youth & Education (Civic; Vocational & Skills Training, Financial & Digital Literacy)', description: 'Civic, vocational, skills training, financial literacy, and digital literacy opportunities for youth.', region: 'liberia', image: '/images/stories/day-three-0114.jpg', imageAlt: 'Young participants taking part in a B4P CODEFOUND learning session' },
       { slug: 'events-conference', title: 'Events & Conference', description: 'Convening people around learning, dialogue, and community-led action.', region: 'liberia', image: '/images/story-conference.jpg', imageAlt: 'A B4P CODEFOUND community conference in Liberia' },
+      { slug: 'bong-county-women-youth-development-cooperation', title: 'Bong County Women and Youth Development Cooperation (BWYDC)', description: 'A locally rooted cooperation platform connecting women and youth empowerment, agriculture, health, education, and shared development across Bong County.', region: 'liberia', image: '/images/projects/bwydc-community-team.png', imageAlt: 'Women and community partners working together through BWYDC in Liberia' },
     ],
   },
 };

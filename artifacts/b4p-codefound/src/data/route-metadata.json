@@ -288,6 +288,38 @@
     "indexable": true
   },
   {
+    "path": "/news-blogs/b4p-codefound-launches-in-liberia",
+    "title": "B4P CODEFOUND Launches Its Liberian Operations | B4P CODEFOUND",
+    "description": "Read the press release announcing B4P CODEFOUND’s launch in Gbarnga, Bong County, and its commitment to women, girls, youth, and community development in Liberia.",
+    "image": "/images/news/b4p-codefound-liberia-launch.png",
+    "type": "article",
+    "indexable": true
+  },
+  {
+    "path": "/news-blogs/b4p-codefound-women-empowerment-liberia-united-states",
+    "title": "B4P CODEFOUND Wants Women Empowerment in Liberia and the United States | B4P CODEFOUND",
+    "description": "Read coverage of Lindora Howard-Diawara’s women’s empowerment presentation at a ULAA Northern Region virtual community town hall.",
+    "image": "/images/news/b4p-women-empowerment-town-hall.png",
+    "type": "article",
+    "indexable": true
+  },
+  {
+    "path": "/news-blogs/lddwyf-csw66-women-climate-change-liberia",
+    "title": "Liberia-Diaspora Women and Youth Forum on Climate Change | B4P CODEFOUND",
+    "description": "Read the event report from WONGOSOL and B4P CODEFOUND’s second Liberia-Diaspora Women and Youth Forum connected to CSW66.",
+    "image": "/images/news/lddwyf-csw66-forum.png",
+    "type": "article",
+    "indexable": true
+  },
+  {
+    "path": "/news-blogs/conference-2025-sustaining-women-youth-empowerment",
+    "title": "2025 Conference Concept Note | B4P CODEFOUND",
+    "description": "Explore B4P CODEFOUND and BWYDC’s concept note for the 2025 conference on women and youth empowerment through agriculture, health, and education.",
+    "image": "/images/story-conference.jpg",
+    "type": "article",
+    "indexable": true
+  },
+  {
     "path": "/events",
     "title": "Events & Gatherings | B4P CODEFOUND",
     "description": "Find upcoming invitations and explore B4P CODEFOUND event stories and flyer artwork from Liberia, the United States, and the diaspora.",

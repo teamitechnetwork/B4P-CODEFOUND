@@ -36,6 +36,10 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
 
   const inquirySubject = encodeURIComponent(`Inquiry about ${program.title}`);
   const isComingSoon = program.slug === 'global-youth-exchange-forum';
+  const isBwydcProject = program.slug === 'bong-county-women-youth-development-cooperation';
+  const detailDescription = isBwydcProject
+    ? 'BWYDC brings women and youth together around agriculture, health, education, peacebuilding, and locally led development across Bong County.'
+    : program.description;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -47,7 +51,7 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
           title={program.title}
            description={isComingSoon
              ? 'The Global Youth Exchange Forum is being prepared as a future space for young people to learn, connect, and exchange ideas across communities.'
-             : program.description}
+              : detailDescription}
           image={program.image}
           imageAlt={program.imageAlt}
           backHref={`/programs/${region}`}
@@ -71,20 +75,28 @@ export default function ProgramDetailPage({ region, slug }: { region: ProgramReg
                    {isComingSoon ? 'Coming soon' : 'Program Focus'}
                 </span>
                 <h2 className="text-3xl md:text-4xl font-extrabold text-[#062e37] tracking-tight mb-8">
-                   {isComingSoon ? 'A youth exchange space is on the way.' : 'Work shaped with communities.'}
+                    {isComingSoon
+                      ? 'A youth exchange space is on the way.'
+                      : isBwydcProject
+                        ? 'Building a cooperation communities can carry.'
+                        : 'Work shaped with communities.'}
                 </h2>
                 <div className="prose prose-lg text-muted-foreground prose-p:leading-relaxed">
                   <p className="text-2xl text-[#062e37]/90 font-medium mb-8">
-                     {isComingSoon
-                       ? 'We are developing this forum with young people and partners so that its first gathering is useful, welcoming, and grounded in the realities of the communities it will connect.'
-                       : program.description}
+                      {isComingSoon
+                        ? 'We are developing this forum with young people and partners so that its first gathering is useful, welcoming, and grounded in the realities of the communities it will connect.'
+                        : detailDescription}
                   </p>
                    <p>{isComingSoon
                      ? 'Details about the first exchange, participation, and dates will be shared here when planning is complete.'
-                     : 'B4P CODEFOUND approaches this work with local leaders, organizational partners, and community members. The program area is grounded in collaboration, practical learning, and the knowledge people bring from their own communities.'}</p>
+                      : isBwydcProject
+                        ? 'The cooperation grows from the experience of women and youth in Bong County and from partnerships that make local learning, resource sharing, and practical development possible.'
+                        : 'B4P CODEFOUND approaches this work with local leaders, organizational partners, and community members. The program area is grounded in collaboration, practical learning, and the knowledge people bring from their own communities.'}</p>
                    <p>{isComingSoon
                      ? 'Want to hear when the forum opens? Contact the team and we will keep your interest in view as the program takes shape.'
-                     : 'Activities are shaped around local context and the opportunities available within each region. The aim is to strengthen people’s ability to participate, connect, and carry progress forward.'}</p>
+                      : isBwydcProject
+                        ? 'The 2025 conference concept note builds on this work through agriculture, health, education, movement building, and a multi-county plan for accountable results.'
+                        : 'Activities are shaped around local context and the opportunities available within each region. The aim is to strengthen people’s ability to participate, connect, and carry progress forward.'}</p>
                 </div>
 
                 <div className="mt-16 bg-[#eaf7fb] p-8 md:p-12 rounded-2xl flex flex-col md:flex-row gap-8 items-center justify-between">

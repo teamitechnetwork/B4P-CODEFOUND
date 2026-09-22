@@ -135,9 +135,9 @@ const navGroups: NavGroup[] = [
       },
       {
         name: 'Bong County Women and Youth Development Cooperation (BWYDC)',
-        href: '/#field-stories',
+        href: '/programs/liberia/bong-county-women-youth-development-cooperation',
         children: [
-          { name: 'Building Young Women, Driving Change', href: '/#field-stories' },
+          { name: 'Explore the BWYDC project', href: '/programs/liberia/bong-county-women-youth-development-cooperation' },
           { name: 'Contact B4P CODEFOUND', href: '/contact' },
         ],
       },
