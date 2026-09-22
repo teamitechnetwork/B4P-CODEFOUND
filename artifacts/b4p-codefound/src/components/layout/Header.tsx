@@ -398,16 +398,16 @@ export function Header() {
         >
           <div className="site-announcement__main">
             <div className="site-announcement__message">
-              <span className="site-announcement__highlight">SAVE THE DATE</span>
+              <span className="site-announcement__highlight">SAVE THE DATE!</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
               <span className="site-announcement__date">NOVEMBER 2026</span>
               <span className="site-announcement__separator" aria-hidden="true">|</span>
-              <span className="site-announcement__title">B4P CODEFOUND CONFERENCE</span>
+              <span className="site-announcement__title">GET READY FOR AN UNFORGETTABLE CONFERENCE</span>
             </div>
           </div>
           <a className="site-announcement__link" href="/events" onClick={() => closeMenu()}>
-            <span>LEARN MORE</span>
-            <span aria-hidden="true">→</span>
+            <span className="site-announcement__link-label">LEARN MORE</span>
+            <span className="site-announcement__link-arrow" aria-hidden="true">→</span>
           </a>
         </div>
         <div className="site-topbar">
