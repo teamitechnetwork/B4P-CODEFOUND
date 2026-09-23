@@ -573,7 +573,10 @@ function NewsArchiveCard({ article, index }: { article: NewsStory; index: number
     <article className="news-archive-card">
       <div className="news-archive-card__image">
         <img src={article.image} alt={article.imageAlt} />
-        <span>{String(index).padStart(2, '0')} · {article.category}</span>
+        <div className="news-card-badges">
+          <span className="news-pasted-badge">Pasted source</span>
+          <span>{String(index).padStart(2, '0')} · {article.category}</span>
+        </div>
       </div>
       <div className="news-archive-card__body">
         <div className="news-feature-card__category">{article.category}</div>
@@ -669,7 +672,10 @@ export default function NewsPage() {
             <article className="news-feature-card">
               <div className="news-feature-card__image">
                 <img src={story.image} alt={story.imageAlt} />
-                <span>01 · News &amp; updates</span>
+                <div className="news-card-badges">
+                  <span className="news-pasted-badge">Pasted source</span>
+                  <span>01 · News &amp; updates</span>
+                </div>
               </div>
               <div className="news-feature-card__body">
                 <div className="news-feature-card__category">{story.category}</div>
@@ -704,7 +710,10 @@ export default function NewsPage() {
             <article className="news-release-card">
               <div className="news-release-card__image">
                 <img src={launchStory.image} alt={launchStory.imageAlt} />
-                <span>02 · Press release</span>
+                <div className="news-card-badges">
+                  <span className="news-pasted-badge">Pasted source</span>
+                  <span>02 · Press release</span>
+                </div>
               </div>
               <div className="news-release-card__body">
                 <div className="news-feature-card__category">{launchStory.category}</div>
@@ -787,7 +796,10 @@ export default function NewsPage() {
           <div className="page-container news-project-section__inner">
             <div className="news-project-section__image">
               <img src={projectPage.image} alt={projectPage.imageAlt} />
-              <span>Project page</span>
+              <div className="news-card-badges">
+                <span className="news-pasted-badge">Pasted source</span>
+                <span>Project page</span>
+              </div>
             </div>
             <div className="news-project-section__body">
               <span className="news-section-kicker">Project pages</span>
@@ -874,7 +886,10 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
                 <ArrowLeft size={16} aria-hidden="true" />
                 Back to news
               </a>
-               <span className="news-kicker">{article.category}</span>
+                <div className="news-article-hero__badges">
+                  <span className="news-pasted-badge">Pasted source</span>
+                  <span className="news-kicker">{article.category}</span>
+                </div>
                <h1>{article.title}</h1>
                <StoryMeta article={article} />
             </div>
