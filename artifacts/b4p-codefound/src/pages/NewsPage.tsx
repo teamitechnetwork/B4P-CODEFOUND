@@ -449,48 +449,6 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
     ],
   },
   {
-    title: 'B4P CODEFOUND official publications',
-    description: 'Earlier official pages and publications preserved as part of the organization’s public record.',
-    badge: 'Official publication',
-    references: [
-      {
-        title: 'Strategic planning overview · 2022',
-        description: 'B4P CODEFOUND’s strategic planning overview.',
-        href: 'https://b4pcodefound.org/wp-content/uploads/2022/08/Strategic_Planning_overview-2022.pdf',
-      },
-      {
-        title: 'Conference concept note · Liberia 2025',
-        description: 'The official conference concept note hosted on the former site.',
-        href: 'https://newsite.b4pcodefound.org/wp-content/uploads/2025/11/Conference-Concept-Note-Liberia-2025-7.14.2025-1.pdf',
-      },
-      {
-        title: '2015: The beginning',
-        description: 'A B4P CODEFOUND history page about the organization’s beginnings.',
-        href: 'https://b4pcodefound.org/building-the-village/2015-the-beginning/',
-      },
-      {
-        title: 'Organic food export can transform economy',
-        description: 'An official publication about agriculture and economic opportunity.',
-        href: 'https://b4pcodefound.org/expanding-beyond-borders/organic-food-export-can-transform-economy/',
-      },
-      {
-        title: 'About B4P CODEFOUND',
-        description: 'The organization’s official public profile and background page.',
-        href: 'https://b4pcodefound.org/about/',
-      },
-      {
-        title: 'Peacebuilding program',
-        description: 'The official peacebuilding program page.',
-        href: 'https://b4pcodefound.org/peacebuilding-program/',
-      },
-      {
-        title: 'Economic development program',
-        description: 'The official economic development program page.',
-        href: 'https://b4pcodefound.org/economic-development-program/',
-      },
-    ],
-  },
-  {
     title: 'Public fundraising / project pages',
     description: 'Public pages where supporters can learn about or support women’s peace and development work.',
     badge: 'Fundraising / project',
