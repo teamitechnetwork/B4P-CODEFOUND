@@ -3,18 +3,14 @@ import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
-  FaBluesky,
   FaWhatsapp,
   FaYoutube,
-  FaXTwitter,
 } from 'react-icons/fa6';
 
 export const socialLinks: { name: string; href: string; icon: IconType }[] = [
   { name: 'Facebook', href: 'https://www.facebook.com/b4pcodefound.cause', icon: FaFacebookF },
   { name: 'Instagram', href: 'https://www.instagram.com/b4pcodefound', icon: FaInstagram },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/company/b4pcodefound/', icon: FaLinkedinIn },
-  { name: 'X', href: 'https://x.com/B4PCODEFOUND', icon: FaXTwitter },
-  { name: 'Bluesky', href: 'https://bsky.app/profile/b4p-codefound.bsky.social', icon: FaBluesky },
   { name: 'YouTube', href: 'https://www.youtube.com/channel/UCag6wU4HaGZlBqbcG6kWThg', icon: FaYoutube },
   { name: 'WhatsApp', href: 'https://whatsapp.com/channel/0029VbBYo7T7dmeaJIfdBT1b', icon: FaWhatsapp },
 ];
