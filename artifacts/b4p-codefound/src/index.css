@@ -4342,6 +4342,738 @@
 }
 
 /* -------------------------------------------------------------------------- */
+/* Peacebuilding pillar · a blue-led program story                             */
+/* -------------------------------------------------------------------------- */
+
+.peacebuilding-page {
+  color: #123f47;
+  background: #f5f9fc;
+}
+
+.peacebuilding-hero {
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 10%, rgba(141, 223, 230, 0.18), transparent 20rem),
+    linear-gradient(118deg, #003c67 0%, #00558c 56%, #016eb4 100%);
+}
+
+.peacebuilding-hero__inner {
+  display: grid;
+  min-height: min(760px, 88svh);
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 0.8fr);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
+  padding-block: 8.5rem 5.5rem;
+}
+
+.peacebuilding-hero__copy {
+  max-width: 42rem;
+}
+
+.peacebuilding-back,
+.peacebuilding-text-link,
+.peacebuilding-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  text-decoration: none;
+}
+
+.peacebuilding-back {
+  gap: 0.4rem;
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+  color: #b9f1f5;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.peacebuilding-back:hover,
+.peacebuilding-back:focus-visible {
+  color: #fff;
+}
+
+.peacebuilding-kicker,
+.peacebuilding-section-kicker {
+  display: inline-flex;
+  color: #b9f1f5;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.peacebuilding-hero h1 {
+  max-width: 10ch;
+  margin: 1.2rem 0 1.5rem;
+  color: #fff;
+  font-size: clamp(3.3rem, 7.3vw, 7rem);
+  font-weight: 850;
+  letter-spacing: -0.085em;
+  line-height: 0.88;
+  text-wrap: balance;
+}
+
+.peacebuilding-hero__copy > p {
+  max-width: 35rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(1.06rem, 1.7vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.peacebuilding-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  margin-top: 2.25rem;
+}
+
+.peacebuilding-button {
+  min-height: 3.2rem;
+  padding: 0.85rem 1.15rem;
+  color: #003c67;
+  background: #b9f1f5;
+  font-size: 0.83rem;
+  font-weight: 850;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.peacebuilding-button:hover,
+.peacebuilding-button:focus-visible {
+  color: #003c67;
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.peacebuilding-text-link {
+  color: #b9f1f5;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+}
+
+.peacebuilding-text-link:hover,
+.peacebuilding-text-link:focus-visible {
+  color: #fff;
+}
+
+.peacebuilding-hero__visual {
+  position: relative;
+  min-height: 34rem;
+}
+
+.peacebuilding-hero__image {
+  position: absolute;
+  inset: 0 1.8rem 2.4rem 0;
+  overflow: hidden;
+  border: 0.65rem solid rgba(255, 255, 255, 0.95);
+  background: #0a3654;
+  box-shadow: 1.25rem 1.25rem 0 rgba(185, 241, 245, 0.28);
+}
+
+.peacebuilding-hero__image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 42, 72, 0.05), rgba(0, 42, 72, 0.45));
+  content: '';
+}
+
+.peacebuilding-hero__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.peacebuilding-hero__stamp {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  width: 9rem;
+  min-height: 9rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #003c67;
+  background: #b9f1f5;
+}
+
+.peacebuilding-hero__stamp span {
+  font-size: 0.73rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.peacebuilding-hero__stamp strong {
+  font-size: 1.05rem;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+}
+
+.peacebuilding-hero__note {
+  position: absolute;
+  right: 2.2rem;
+  top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.7rem;
+  color: #fff;
+  background: rgba(0, 52, 88, 0.78);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.peacebuilding-intro {
+  padding: clamp(5rem, 10vw, 9rem) 0 0;
+  background: #fff;
+}
+
+.peacebuilding-intro__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.85fr);
+  gap: clamp(3rem, 8vw, 9rem);
+  align-items: start;
+}
+
+.peacebuilding-intro h2,
+.peacebuilding-section-heading h2,
+.peacebuilding-movement h2,
+.peacebuilding-priorities h2,
+.peacebuilding-cta h2 {
+  margin: 0.85rem 0 0;
+  color: #003c67;
+  font-size: clamp(2.7rem, 5.3vw, 5.7rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.91;
+  text-wrap: balance;
+}
+
+.peacebuilding-intro__copy {
+  max-width: 38rem;
+}
+
+.peacebuilding-intro__copy p,
+.peacebuilding-movement__lead > p,
+.peacebuilding-priorities__grid > div > p,
+.peacebuilding-cta__inner p {
+  margin: 0 0 1rem;
+  color: #4a6974;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.peacebuilding-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid rgba(0, 75, 124, 0.18);
+}
+
+.peacebuilding-stats > div {
+  display: flex;
+  min-height: 10rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1rem 1.5rem 0;
+  border-right: 1px solid rgba(0, 75, 124, 0.18);
+}
+
+.peacebuilding-stats > div:last-child {
+  border-right: 0;
+}
+
+.peacebuilding-stats strong {
+  color: #016eb4;
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.peacebuilding-stats span {
+  color: #4a6974;
+  font-size: 0.77rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.peacebuilding-approach {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  background: #f1f8fc;
+}
+
+.peacebuilding-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 0.7fr);
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.peacebuilding-section-heading h2 em {
+  display: block;
+  color: #016eb4;
+  font-style: normal;
+}
+
+.peacebuilding-section-heading > p {
+  max-width: 34rem;
+  margin: 0 0 0.25rem;
+  color: #4a6974;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.peacebuilding-approach__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.peacebuilding-approach-card {
+  display: flex;
+  min-height: 20rem;
+  flex-direction: column;
+  padding: 1.35rem;
+  border: 1px solid rgba(0, 75, 124, 0.15);
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.peacebuilding-approach-card:hover {
+  border-color: #016eb4;
+  box-shadow: 0 1.25rem 2.5rem rgba(0, 75, 124, 0.1);
+  transform: translateY(-4px);
+}
+
+.peacebuilding-approach-card__top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  color: #016eb4;
+}
+
+.peacebuilding-approach-card__top span {
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.peacebuilding-approach-card__top svg {
+  color: #00a1b4;
+}
+
+.peacebuilding-approach-card h3 {
+  margin: auto 0 0.85rem;
+  color: #003c67;
+  font-size: 1.45rem;
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 1;
+}
+
+.peacebuilding-approach-card p {
+  margin: 0;
+  color: #56717b;
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+.peacebuilding-movement {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  color: #fff;
+  background: #003c67;
+}
+
+.peacebuilding-movement .peacebuilding-section-kicker,
+.peacebuilding-cta .peacebuilding-section-kicker {
+  color: #b9f1f5;
+}
+
+.peacebuilding-movement__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(20rem, 0.9fr);
+  gap: clamp(3rem, 9vw, 9rem);
+  align-items: start;
+}
+
+.peacebuilding-movement h2,
+.peacebuilding-cta h2 {
+  max-width: 11ch;
+  color: #fff;
+}
+
+.peacebuilding-movement__lead > p {
+  max-width: 31rem;
+  margin-top: 1.6rem;
+  color: rgba(255, 255, 255, 0.73);
+}
+
+.peacebuilding-text-link--light {
+  margin-top: 1.35rem;
+}
+
+.peacebuilding-movement__steps {
+  border-top: 1px solid rgba(185, 241, 245, 0.35);
+}
+
+.peacebuilding-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.5rem 0 2rem;
+  border-bottom: 1px solid rgba(185, 241, 245, 0.35);
+}
+
+.peacebuilding-step__number {
+  color: #b9f1f5;
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+}
+
+.peacebuilding-step h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 850;
+  letter-spacing: -0.055em;
+}
+
+.peacebuilding-step p {
+  max-width: 28rem;
+  margin: 0.6rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.65;
+}
+
+.peacebuilding-step__arrow {
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+  color: #00a1b4;
+}
+
+.peacebuilding-priorities {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  background: #fff;
+}
+
+.peacebuilding-priorities__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(20rem, 1fr);
+  gap: clamp(3rem, 9vw, 9rem);
+  align-items: start;
+}
+
+.peacebuilding-priorities h2 {
+  max-width: 9ch;
+}
+
+.peacebuilding-priorities__grid > div > p {
+  max-width: 25rem;
+  margin-top: 1.5rem;
+}
+
+.peacebuilding-priorities ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(0, 75, 124, 0.2);
+}
+
+.peacebuilding-priorities li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 5rem;
+  border-bottom: 1px solid rgba(0, 75, 124, 0.2);
+  color: #003c67;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+}
+
+.peacebuilding-priorities li svg {
+  flex: 0 0 auto;
+  color: #016eb4;
+}
+
+.peacebuilding-cta {
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  color: #fff;
+  background: linear-gradient(118deg, #00558c, #016eb4);
+}
+
+.peacebuilding-cta__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.65fr);
+  gap: 3rem;
+  align-items: end;
+}
+
+.peacebuilding-cta h2 {
+  max-width: 10ch;
+}
+
+.peacebuilding-cta__inner p {
+  max-width: 31rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.peacebuilding-button--light {
+  margin-top: 1rem;
+  color: #00558c;
+  background: #fff;
+}
+
+.peacebuilding-button--light:hover,
+.peacebuilding-button--light:focus-visible {
+  color: #003c67;
+}
+
+/* On-platform resource reading pages */
+
+.news-resource-page {
+  color: #123f47;
+  background: #f5f9fc;
+}
+
+.news-resource-hero {
+  color: #fff;
+  background:
+    radial-gradient(circle at 84% 15%, rgba(141, 223, 230, 0.18), transparent 18rem),
+    linear-gradient(118deg, #003c67, #016eb4);
+}
+
+.news-resource-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.35fr);
+  align-items: center;
+  gap: 3rem;
+  padding-block: 8.5rem 5.5rem;
+}
+
+.news-resource-hero h1 {
+  max-width: 13ch;
+  margin: 1.4rem 0 1.75rem;
+  color: #fff;
+  font-size: clamp(2.7rem, 6vw, 6rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.91;
+}
+
+.news-resource-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.news-resource-hero__meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.news-resource-hero__meta svg {
+  color: #b9f1f5;
+}
+
+.news-resource-hero__index {
+  display: flex;
+  min-height: 16rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.3rem;
+  border: 1px solid rgba(185, 241, 245, 0.4);
+  background: rgba(0, 52, 88, 0.28);
+}
+
+.news-resource-hero__index span {
+  color: #b9f1f5;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.news-resource-hero__index strong {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+}
+
+.news-resource-hero__index i {
+  display: block;
+  width: 4rem;
+  height: 0.35rem;
+  background: #b9f1f5;
+}
+
+.news-resource-content {
+  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  background: #f5f9fc;
+}
+
+.news-resource-content__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.news-resource-content .news-article {
+  max-width: 48rem;
+}
+
+.news-resource-content .news-article strong {
+  color: #003c67;
+}
+
+.news-resource-not-found {
+  padding: 11rem 0 8rem;
+}
+
+.news-resource-not-found h1 {
+  margin: 1rem 0;
+  color: #003c67;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 850;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.news-resource-not-found p {
+  max-width: 35rem;
+  margin: 0 0 2rem;
+  color: #4a6974;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .peacebuilding-hero__inner,
+  .peacebuilding-movement__grid,
+  .peacebuilding-priorities__grid,
+  .peacebuilding-cta__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .peacebuilding-hero__visual {
+    min-height: min(34rem, 75vw);
+  }
+
+  .peacebuilding-approach__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .peacebuilding-intro__grid,
+  .peacebuilding-section-heading {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .peacebuilding-movement__grid {
+    gap: 4rem;
+  }
+
+  .news-resource-hero__inner,
+  .news-resource-content__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .news-resource-hero__index {
+    min-height: 12rem;
+    max-width: 18rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .peacebuilding-hero__inner {
+    padding-block: 7.5rem 4rem;
+  }
+
+  .peacebuilding-hero h1 {
+    font-size: clamp(3.25rem, 16vw, 5.3rem);
+  }
+
+  .peacebuilding-hero__visual {
+    min-height: 25rem;
+  }
+
+  .peacebuilding-hero__image {
+    right: 1rem;
+    bottom: 1.5rem;
+    border-width: 0.45rem;
+  }
+
+  .peacebuilding-hero__stamp {
+    width: 7.5rem;
+    min-height: 7.5rem;
+    padding: 0.8rem;
+  }
+
+  .peacebuilding-hero__stamp strong {
+    font-size: 0.88rem;
+  }
+
+  .peacebuilding-hero__note {
+    right: 1rem;
+    font-size: 0.56rem;
+  }
+
+  .peacebuilding-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .peacebuilding-stats > div {
+    min-height: 7rem;
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 75, 124, 0.18);
+  }
+
+  .peacebuilding-stats > div:last-child {
+    border-bottom: 0;
+  }
+
+  .peacebuilding-approach__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .peacebuilding-approach-card {
+    min-height: 15rem;
+  }
+
+  .peacebuilding-priorities li {
+    min-height: 5.5rem;
+  }
+
+  .news-resource-hero__inner {
+    padding-block: 7rem 4rem;
+  }
+
+  .news-resource-hero h1 {
+    font-size: clamp(2.5rem, 13vw, 4.25rem);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /* Custom not-found experience                                                 */
 /* -------------------------------------------------------------------------- */
 

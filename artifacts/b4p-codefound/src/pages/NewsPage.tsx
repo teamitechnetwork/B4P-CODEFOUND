@@ -1,7 +1,9 @@
 import {
   ArrowLeft,
   ArrowUpRight,
+  BookOpen,
   CalendarDays,
+  Clock3,
   Download,
   MapPin,
 } from 'lucide-react';
@@ -385,20 +387,20 @@ const projectPage = {
     'A locally rooted cooperation platform connecting women and youth empowerment, agriculture, health, education, and shared development across Bong County.',
 };
 
-type ExternalReference = {
+type NewsResource = {
   title: string;
   description: string;
-  href: string;
+  source: string;
 };
 
-type ExternalReferenceGroup = {
+type NewsResourceGroup = {
   title: string;
   description: string;
   badge: string;
-  references: ExternalReference[];
+  references: NewsResource[];
 };
 
-const externalReferenceGroups: ExternalReferenceGroup[] = [
+const newsResourceGroups: NewsResourceGroup[] = [
   {
     title: 'Press / media',
     description: 'Independent coverage of B4P CODEFOUND’s launch, women’s empowerment work, and Liberia-Diaspora programming.',
@@ -407,17 +409,17 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
       {
         title: 'B4P CODEFOUND launches in Liberia',
         description: 'Africa-Press coverage of the foundation’s Liberian launch.',
-        href: 'https://www.africa-press.net/liberia/all-news/liberia-business-for-peace-community-development-foundation-launches-in-liberia',
+        source: 'Africa-Press · Liberia',
       },
       {
         title: 'B4P CODEFOUND wants women empowerment',
         description: 'The Analyst coverage of women’s empowerment in Liberia and the United States.',
-        href: 'https://analystliberiaonline.com/amp/b4p-codefound-wants-women-empowerment-both-in-liberia-and-the-united-states/',
+        source: 'The Analyst News · Liberia',
       },
       {
         title: 'Women NGO Secretariat hosts 2nd CSW side event',
         description: 'Africa-Press coverage of the Liberia-Diaspora Women and Youth Forum.',
-        href: 'https://www.africa-press.net/liberia/all-news/women-ngo-secretariat-hosts-2nd-csw-side-event',
+        source: 'Africa-Press · Liberia',
       },
     ],
   },
@@ -429,22 +431,22 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
       {
         title: '2019 Global Seed Fund grantees',
         description: 'Lisle International’s public grant recipient page.',
-        href: 'https://lisleinternational.org/global-seed-grants/global-seed-fund-grantees/2019-grants/',
+        source: 'Lisle International',
       },
       {
         title: '2019 Global Seed Fund report',
         description: 'Lisle International’s 2019 grants publication in PDF form.',
-        href: 'https://lisleinternational.org/wp-content/uploads/2019/05/2019interactionFINALweb.pdf',
+        source: 'Lisle International · 2019 publication',
       },
       {
         title: 'NGO CSW66 parallel events list',
         description: 'The public list of civil-society parallel events connected to CSW66.',
-        href: 'https://www.ngocsw.org/wp-content/uploads/2022/05/Final-NGO-CSW66-Parallel-Events-List-Sheet2.pdf',
+        source: 'NGO CSW Forum',
       },
       {
         title: 'Women’s peacebuilding discussion',
         description: 'A public mailing-list record connected to women’s peace and development work.',
-        href: 'https://lists.pacificdisability.org/pipermail/pdf-women_lists.pacificdisability.org/2020-February/000560.html',
+        source: 'Public mailing-list archive',
       },
     ],
   },
@@ -456,12 +458,12 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
       {
         title: 'Empowering women and girls beyond borders',
         description: 'The public GoFundMe campaign page.',
-        href: 'https://www.gofundme.com/f/empowering-women-and-girls-beyond-borders',
+        source: 'GoFundMe · public campaign record',
       },
       {
         title: 'Liberian Women Peace and Development Bridge',
         description: 'The GlobalGiving project page for the Liberia-focused initiative.',
-        href: 'https://www.globalgiving.org/projects/liberian-women-peace-and-development-bridge/',
+        source: 'GlobalGiving · public project record',
       },
     ],
   },
@@ -473,22 +475,22 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
       {
         title: 'Lindora Diawara on LinkedIn',
         description: 'The founder’s public LinkedIn profile.',
-        href: 'https://www.linkedin.com/in/lindora-diawara',
+        source: 'LinkedIn · public profile',
       },
       {
         title: 'B4P CODEFOUND on LinkedIn',
         description: 'The organization’s public LinkedIn page.',
-        href: 'https://www.linkedin.com/company/b4p-codefound/',
+        source: 'LinkedIn · public organization page',
       },
       {
         title: 'B4P CODEFOUND on X',
         description: 'The organization’s public X profile.',
-        href: 'https://x.com/B4PCODEFOUND',
+        source: 'X · public organization profile',
       },
       {
         title: 'B4P CODEFOUND on Bluesky',
         description: 'The organization’s public Bluesky profile.',
-        href: 'https://bsky.app/profile/b4p-codefound.bsky.social',
+        source: 'Bluesky · public organization profile',
       },
     ],
   },
@@ -500,16 +502,32 @@ const externalReferenceGroups: ExternalReferenceGroup[] = [
       {
         title: 'B4P CODEFOUND nonprofit record',
         description: 'The organization’s ProPublica Nonprofit Explorer record.',
-        href: 'https://projects.propublica.org/nonprofits/organizations/813170921',
+        source: 'ProPublica Nonprofit Explorer',
       },
       {
         title: 'Somweil',
         description: 'A public organization and partner reference.',
-        href: 'https://www.somweil.org/',
+        source: 'Somweil · public organization page',
       },
     ],
   },
 ];
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
+function findResource(slug: string) {
+  for (const group of newsResourceGroups) {
+    const reference = group.references.find((item) => slugify(item.title) === slug);
+    if (reference) return { reference, group };
+  }
+  return null;
+}
 
 function StoryMeta({ article = story }: { article?: NewsStory }) {
   return (
@@ -532,7 +550,7 @@ function NewsArchiveCard({ article, index }: { article: NewsStory; index: number
       <div className="news-archive-card__image">
         <img src={article.image} alt={article.imageAlt} />
         <div className="news-card-badges">
-          <span className="news-pasted-badge">Pasted source</span>
+          <span className="news-pasted-badge">On-platform story</span>
           <span>{String(index).padStart(2, '0')} · {article.category}</span>
         </div>
       </div>
@@ -562,26 +580,24 @@ function NewsArchiveCard({ article, index }: { article: NewsStory; index: number
   );
 }
 
-function ExternalReferenceCard({
+function NewsResourceCard({
   reference,
   badge,
 }: {
-  reference: ExternalReference;
+  reference: NewsResource;
   badge: string;
 }) {
   return (
     <a
       className="news-reference-card"
-      href={reference.href}
-      target="_blank"
-      rel="noreferrer"
+      href={`/news-blogs/resources/${slugify(reference.title)}`}
     >
-      <span className="news-reference-card__badge">Pasted source</span>
+      <span className="news-reference-card__badge">On-platform resource</span>
       <span className="news-reference-card__type">{badge}</span>
       <h4>{reference.title}</h4>
       <p>{reference.description}</p>
       <span className="news-reference-card__link">
-        Open external source
+        Read on B4P CODEFOUND
         <ArrowUpRight size={16} aria-hidden="true" />
       </span>
     </a>
@@ -631,7 +647,7 @@ export default function NewsPage() {
               <div className="news-feature-card__image">
                 <img src={story.image} alt={story.imageAlt} />
                 <div className="news-card-badges">
-                  <span className="news-pasted-badge">Pasted source</span>
+                    <span className="news-pasted-badge">On-platform story</span>
                   <span>01 · News &amp; updates</span>
                 </div>
               </div>
@@ -669,7 +685,7 @@ export default function NewsPage() {
               <div className="news-release-card__image">
                 <img src={launchStory.image} alt={launchStory.imageAlt} />
                 <div className="news-card-badges">
-                  <span className="news-pasted-badge">Pasted source</span>
+                  <span className="news-pasted-badge">On-platform story</span>
                   <span>02 · Press release</span>
                 </div>
               </div>
@@ -755,7 +771,7 @@ export default function NewsPage() {
             <div className="news-project-section__image">
               <img src={projectPage.image} alt={projectPage.imageAlt} />
               <div className="news-card-badges">
-                <span className="news-pasted-badge">Pasted source</span>
+                 <span className="news-pasted-badge">On-platform story</span>
                 <span>Project page</span>
               </div>
             </div>
@@ -782,25 +798,25 @@ export default function NewsPage() {
                 </h2>
               </div>
               <p>
-                These are pasted public references from media, partners, official
-                publications, fundraising platforms, and social channels. Each
-                badge tells visitors what kind of source they are opening.
+                These public references are now presented as on-platform reading pages.
+                Each page gives the resource context, explains why it matters, and keeps
+                the next step inside B4P CODEFOUND.
               </p>
             </div>
             <div className="news-reference-groups">
-              {externalReferenceGroups.map((group) => (
+              {newsResourceGroups.map((group) => (
                 <section className="news-reference-group" key={group.title}>
                   <div className="news-reference-group__heading">
                     <div>
-                      <span className="news-reference-group__badge">{group.badge}</span>
+                  <span className="news-reference-group__badge">{group.badge}</span>
                       <h3>{group.title}</h3>
                     </div>
                     <p>{group.description}</p>
                   </div>
                   <div className="news-reference-grid">
                     {group.references.map((reference) => (
-                      <ExternalReferenceCard
-                        key={reference.href}
+                      <NewsResourceCard
+                        key={reference.title}
                         reference={reference}
                         badge={group.badge}
                       />
@@ -845,7 +861,7 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
                 Back to news
               </a>
                 <div className="news-article-hero__badges">
-                  <span className="news-pasted-badge">Pasted source</span>
+       <span className="news-pasted-badge">On-platform story</span>
                   <span className="news-kicker">{article.category}</span>
                 </div>
                <h1>{article.title}</h1>
@@ -925,6 +941,112 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
               <a className="news-read-more news-read-more--dark" href="/news-blogs">
                 Back to news
                 <ArrowLeft size={16} aria-hidden="true" />
+              </a>
+            </aside>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export function NewsResourcePage({ slug }: { slug: string }) {
+  const resource = findResource(slug);
+
+  if (!resource) {
+    return (
+      <div className="news-article-page flex min-h-screen flex-col">
+        <Header />
+        <main className="news-resource-not-found flex-1">
+          <div className="page-container">
+            <span className="news-section-kicker">News &amp; updates</span>
+            <h1>Resource not found.</h1>
+            <p>That reading page may have moved, but the full resource library is still available.</p>
+            <a className="news-read-more" href="/news-blogs">
+              Back to news <ArrowLeft size={16} aria-hidden="true" />
+            </a>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  const { reference, group } = resource;
+
+  return (
+    <div className="news-resource-page flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">
+        <section className="news-resource-hero">
+          <div className="page-container news-resource-hero__inner">
+            <div>
+              <a className="news-back-link" href="/news-blogs">
+                <ArrowLeft size={16} aria-hidden="true" />
+                Back to news &amp; updates
+              </a>
+              <div className="news-article-hero__badges">
+                <span className="news-pasted-badge">On-platform resource</span>
+                <span className="news-kicker">{group.badge}</span>
+              </div>
+              <h1>{reference.title}</h1>
+              <div className="news-resource-hero__meta">
+                <span><BookOpen size={16} aria-hidden="true" /> Resource briefing</span>
+                <span><Clock3 size={16} aria-hidden="true" /> 3 min read</span>
+              </div>
+            </div>
+            <div className="news-resource-hero__index" aria-hidden="true">
+              <span>RESOURCE</span>
+              <strong>Read<br />the wider<br />record.</strong>
+              <i />
+            </div>
+          </div>
+        </section>
+
+        <section className="news-resource-content">
+          <div className="page-container news-resource-content__layout">
+            <article className="news-article">
+              <p className="news-article__standfirst">{reference.description}</p>
+              <p>
+                This resource is part of B4P CODEFOUND’s public reading library. We keep the
+                context here so visitors can understand how the wider record connects to
+                peacebuilding, women’s leadership, youth opportunity, and community development.
+              </p>
+              <section>
+                <h2>Why this resource is here</h2>
+                <p>
+                  Public work is stronger when people can follow the ideas, partnerships, and
+                  records around it. This page makes that connection easier to read without
+                  sending you away from the B4P CODEFOUND platform.
+                </p>
+                <p>
+                  The resource sits within our <strong>{group.title.toLowerCase()}</strong> shelf,
+                  where it can be read alongside related stories and organizational updates.
+                </p>
+              </section>
+              <section>
+                <h2>What to look for</h2>
+                <ul>
+                  <li>The people, communities, or institutions named in the resource.</li>
+                  <li>The questions it raises about participation, opportunity, and lasting change.</li>
+                  <li>The ways it helps place B4P CODEFOUND’s work in a wider public record.</li>
+                </ul>
+              </section>
+              <p className="news-article__source">
+                Resource note: {reference.source}. {reference.description}
+              </p>
+            </article>
+
+            <aside className="news-article-aside">
+              <span className="news-section-kicker">Inside the library</span>
+              <strong>Context<br />before<br />clicks.</strong>
+              <p>
+                Every resource has a place in the story. Start here, then explore the wider
+                updates from B4P CODEFOUND.
+              </p>
+              <a className="news-read-more news-read-more--dark" href="/news-blogs">
+                Explore all updates <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </aside>
           </div>

@@ -25,7 +25,7 @@ import OpportunityPage from '@/pages/OpportunityPage';
 import PeacebuildingProgramPage from '@/pages/PeacebuildingProgramPage';
 import EconomicDevelopmentProgramPage from '@/pages/EconomicDevelopmentProgramPage';
 import ServicesPage from '@/pages/ServicesPage';
-import NewsPage, { NewsArticlePage } from '@/pages/NewsPage';
+import NewsPage, { NewsArticlePage, NewsResourcePage } from '@/pages/NewsPage';
 import LegalPage from '@/pages/LegalPage';
 import EventsPage from '@/pages/EventsPage';
 import PartnershipPage from '@/pages/PartnershipPage';
@@ -185,6 +185,11 @@ function Router() {
 
   if (location === '/news-blogs') {
     return <NewsPage />;
+  }
+
+  const newsResourceMatch = location.match(/^\/news-blogs\/resources\/([^/]+)$/);
+  if (newsResourceMatch) {
+    return <NewsResourcePage slug={newsResourceMatch[1]} />;
   }
 
   if (location === '/news-blogs/b4p-codefound-launches-in-liberia') {
