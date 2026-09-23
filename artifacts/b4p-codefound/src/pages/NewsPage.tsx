@@ -385,6 +385,174 @@ const projectPage = {
     'A locally rooted cooperation platform connecting women and youth empowerment, agriculture, health, education, and shared development across Bong County.',
 };
 
+type ExternalReference = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+type ExternalReferenceGroup = {
+  title: string;
+  description: string;
+  badge: string;
+  references: ExternalReference[];
+};
+
+const externalReferenceGroups: ExternalReferenceGroup[] = [
+  {
+    title: 'Press / media',
+    description: 'Independent coverage of B4P CODEFOUND’s launch, women’s empowerment work, and Liberia-Diaspora programming.',
+    badge: 'Press / media',
+    references: [
+      {
+        title: 'B4P CODEFOUND launches in Liberia',
+        description: 'Africa-Press coverage of the foundation’s Liberian launch.',
+        href: 'https://www.africa-press.net/liberia/all-news/liberia-business-for-peace-community-development-foundation-launches-in-liberia',
+      },
+      {
+        title: 'B4P CODEFOUND wants women empowerment',
+        description: 'The Analyst coverage of women’s empowerment in Liberia and the United States.',
+        href: 'https://analystliberiaonline.com/amp/b4p-codefound-wants-women-empowerment-both-in-liberia-and-the-united-states/',
+      },
+      {
+        title: 'Women NGO Secretariat hosts 2nd CSW side event',
+        description: 'Africa-Press coverage of the Liberia-Diaspora Women and Youth Forum.',
+        href: 'https://www.africa-press.net/liberia/all-news/women-ngo-secretariat-hosts-2nd-csw-side-event',
+      },
+    ],
+  },
+  {
+    title: 'Independent organizations / public records',
+    description: 'Public records and partner pages that document grants, civil-society participation, and community impact.',
+    badge: 'Public record',
+    references: [
+      {
+        title: '2019 Global Seed Fund grantees',
+        description: 'Lisle International’s public grant recipient page.',
+        href: 'https://lisleinternational.org/global-seed-grants/global-seed-fund-grantees/2019-grants/',
+      },
+      {
+        title: '2019 Global Seed Fund report',
+        description: 'Lisle International’s 2019 grants publication in PDF form.',
+        href: 'https://lisleinternational.org/wp-content/uploads/2019/05/2019interactionFINALweb.pdf',
+      },
+      {
+        title: 'NGO CSW66 parallel events list',
+        description: 'The public list of civil-society parallel events connected to CSW66.',
+        href: 'https://www.ngocsw.org/wp-content/uploads/2022/05/Final-NGO-CSW66-Parallel-Events-List-Sheet2.pdf',
+      },
+      {
+        title: 'Women’s peacebuilding discussion',
+        description: 'A public mailing-list record connected to women’s peace and development work.',
+        href: 'https://lists.pacificdisability.org/pipermail/pdf-women_lists.pacificdisability.org/2020-February/000560.html',
+      },
+    ],
+  },
+  {
+    title: 'B4P CODEFOUND official publications',
+    description: 'Earlier official pages and publications preserved as part of the organization’s public record.',
+    badge: 'Official publication',
+    references: [
+      {
+        title: 'Strategic planning overview · 2022',
+        description: 'B4P CODEFOUND’s strategic planning overview.',
+        href: 'https://b4pcodefound.org/wp-content/uploads/2022/08/Strategic_Planning_overview-2022.pdf',
+      },
+      {
+        title: 'Conference concept note · Liberia 2025',
+        description: 'The official conference concept note hosted on the former site.',
+        href: 'https://newsite.b4pcodefound.org/wp-content/uploads/2025/11/Conference-Concept-Note-Liberia-2025-7.14.2025-1.pdf',
+      },
+      {
+        title: '2015: The beginning',
+        description: 'A B4P CODEFOUND history page about the organization’s beginnings.',
+        href: 'https://b4pcodefound.org/building-the-village/2015-the-beginning/',
+      },
+      {
+        title: 'Organic food export can transform economy',
+        description: 'An official publication about agriculture and economic opportunity.',
+        href: 'https://b4pcodefound.org/expanding-beyond-borders/organic-food-export-can-transform-economy/',
+      },
+      {
+        title: 'About B4P CODEFOUND',
+        description: 'The organization’s official public profile and background page.',
+        href: 'https://b4pcodefound.org/about/',
+      },
+      {
+        title: 'Peacebuilding program',
+        description: 'The official peacebuilding program page.',
+        href: 'https://b4pcodefound.org/peacebuilding-program/',
+      },
+      {
+        title: 'Economic development program',
+        description: 'The official economic development program page.',
+        href: 'https://b4pcodefound.org/economic-development-program/',
+      },
+    ],
+  },
+  {
+    title: 'Public fundraising / project pages',
+    description: 'Public pages where supporters can learn about or support women’s peace and development work.',
+    badge: 'Fundraising / project',
+    references: [
+      {
+        title: 'Empowering women and girls beyond borders',
+        description: 'The public GoFundMe campaign page.',
+        href: 'https://www.gofundme.com/f/empowering-women-and-girls-beyond-borders',
+      },
+      {
+        title: 'Liberian Women Peace and Development Bridge',
+        description: 'The GlobalGiving project page for the Liberia-focused initiative.',
+        href: 'https://www.globalgiving.org/projects/liberian-women-peace-and-development-bridge/',
+      },
+    ],
+  },
+  {
+    title: 'Social media',
+    description: 'Public profiles for following B4P CODEFOUND and its founder across professional and social platforms.',
+    badge: 'Social channel',
+    references: [
+      {
+        title: 'Lindora Diawara on LinkedIn',
+        description: 'The founder’s public LinkedIn profile.',
+        href: 'https://www.linkedin.com/in/lindora-diawara',
+      },
+      {
+        title: 'B4P CODEFOUND on LinkedIn',
+        description: 'The organization’s public LinkedIn page.',
+        href: 'https://www.linkedin.com/company/b4p-codefound/',
+      },
+      {
+        title: 'B4P CODEFOUND on X',
+        description: 'The organization’s public X profile.',
+        href: 'https://x.com/B4PCODEFOUND',
+      },
+      {
+        title: 'B4P CODEFOUND on Bluesky',
+        description: 'The organization’s public Bluesky profile.',
+        href: 'https://bsky.app/profile/b4p-codefound.bsky.social',
+      },
+    ],
+  },
+  {
+    title: 'Additional official / public records',
+    description: 'Independent public records that help visitors verify the organization and understand its wider network.',
+    badge: 'Public record',
+    references: [
+      {
+        title: 'B4P CODEFOUND nonprofit record',
+        description: 'The organization’s ProPublica Nonprofit Explorer record.',
+        href: 'https://projects.propublica.org/nonprofits/organizations/813170921',
+      },
+      {
+        title: 'Somweil',
+        description: 'A public organization and partner reference.',
+        href: 'https://www.somweil.org/',
+      },
+    ],
+  },
+];
+
 function StoryMeta({ article = story }: { article?: NewsStory }) {
   return (
     <div className="news-story-meta" aria-label="Story details">
@@ -430,6 +598,32 @@ function NewsArchiveCard({ article, index }: { article: NewsStory; index: number
         </div>
       </div>
     </article>
+  );
+}
+
+function ExternalReferenceCard({
+  reference,
+  badge,
+}: {
+  reference: ExternalReference;
+  badge: string;
+}) {
+  return (
+    <a
+      className="news-reference-card"
+      href={reference.href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span className="news-reference-card__badge">Pasted source</span>
+      <span className="news-reference-card__type">{badge}</span>
+      <h4>{reference.title}</h4>
+      <p>{reference.description}</p>
+      <span className="news-reference-card__link">
+        Open external source
+        <ArrowUpRight size={16} aria-hidden="true" />
+      </span>
+    </a>
   );
 }
 
@@ -603,6 +797,47 @@ export default function NewsPage() {
                 Explore the project
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="news-reference-section" aria-labelledby="reference-title">
+          <div className="page-container">
+            <div className="news-section-heading news-section-heading--reference">
+              <div>
+                <span className="news-section-kicker">Source shelf</span>
+                <h2 id="reference-title">
+                  The wider record,
+                  <em>clearly labeled.</em>
+                </h2>
+              </div>
+              <p>
+                These are pasted public references from media, partners, official
+                publications, fundraising platforms, and social channels. Each
+                badge tells visitors what kind of source they are opening.
+              </p>
+            </div>
+            <div className="news-reference-groups">
+              {externalReferenceGroups.map((group) => (
+                <section className="news-reference-group" key={group.title}>
+                  <div className="news-reference-group__heading">
+                    <div>
+                      <span className="news-reference-group__badge">{group.badge}</span>
+                      <h3>{group.title}</h3>
+                    </div>
+                    <p>{group.description}</p>
+                  </div>
+                  <div className="news-reference-grid">
+                    {group.references.map((reference) => (
+                      <ExternalReferenceCard
+                        key={reference.href}
+                        reference={reference}
+                        badge={group.badge}
+                      />
+                    ))}
+                  </div>
+                </section>
+              ))}
             </div>
           </div>
         </section>

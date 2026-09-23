@@ -195,6 +195,18 @@ function Router() {
     return <NewsArticlePage slug="cerue-liyean-mcgill-women-peace-security" />;
   }
 
+  if (location === '/news-blogs/b4p-codefound-women-empowerment-liberia-united-states') {
+    return <NewsArticlePage slug="b4p-codefound-women-empowerment-liberia-united-states" />;
+  }
+
+  if (location === '/news-blogs/lddwyf-csw66-women-climate-change-liberia') {
+    return <NewsArticlePage slug="lddwyf-csw66-women-climate-change-liberia" />;
+  }
+
+  if (location === '/news-blogs/conference-2025-sustaining-women-youth-empowerment') {
+    return <NewsArticlePage slug="conference-2025-sustaining-women-youth-empowerment" />;
+  }
+
   if (location === '/events' || location === '/events-and-conferences') {
     return <EventsPage />;
   }
