@@ -14170,6 +14170,21 @@ main p.text-xl {
   transform: rotate(180deg);
 }
 
+.site-footer__accordion-chevron {
+  display: block;
+  flex: 0 0 auto;
+  width: 0;
+  height: 0;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  border-top: 7px solid currentColor;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.site-footer__accordion-chevron.is-open {
+  transform: rotate(180deg);
+}
+
 .site-footer__accordion-trigger:hover,
 .site-footer__accordion-trigger:hover svg {
   color: hsl(var(--accent));
@@ -17593,6 +17608,12 @@ body.has-site-search-open {
 
   .site-footer.reference-footer .site-footer__accordion-trigger::after {
     display: none;
+  }
+
+  .site-footer.reference-footer .site-footer__accordion-chevron {
+    border-right-width: 6px;
+    border-left-width: 6px;
+    border-top-width: 7px;
   }
 
   .site-footer.reference-footer .site-footer__accordion {
