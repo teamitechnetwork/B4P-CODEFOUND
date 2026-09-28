@@ -148,7 +148,7 @@ export function Footer() {
         </div>
 
         <div className="site-footer__accordions">
-          <FooterAccordion title="ABOUT B4P CODEFOUND">
+          <FooterAccordion title="About B4P CODEFOUND">
             <nav aria-label="About B4P CODEFOUND">
               <a href="/about-us">Our mission &amp; vision</a>
               <a href="/about-us">Our history</a>
@@ -160,7 +160,7 @@ export function Footer() {
             </nav>
           </FooterAccordion>
 
-          <FooterAccordion title="WHAT WE DO">
+          <FooterAccordion title="What We Do">
             <nav aria-label="B4P CODEFOUND approaches">
               <a href="/peacebuilding-program">Peacebuilding</a>
               <a href="/economic-development-program">Economic development</a>
@@ -178,7 +178,7 @@ export function Footer() {
             </nav>
           </FooterAccordion>
 
-          <FooterAccordion title="WORK WITH US">
+          <FooterAccordion title="Work With Us">
             <nav aria-label="Work with B4P CODEFOUND">
               <a href="/become-a-volunteer">Volunteer with us</a>
               <a href="/internship">Internships</a>
@@ -188,7 +188,7 @@ export function Footer() {
             </nav>
           </FooterAccordion>
 
-          <FooterAccordion title="CONNECT WITH US">
+          <FooterAccordion title="Connect With Us">
             <address className="site-footer__contact">
               <a href="/contact">Contact B4P CODEFOUND</a>
               <a href="mailto:management@b4pcodefound.org">
