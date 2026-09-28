@@ -16934,6 +16934,8 @@ body.has-site-search-open {
 }
 
 .site-footer.reference-footer .reference-footer__content {
+  width: min(1180px, calc(100% - 32px));
+  margin-inline: auto;
   max-width: 1180px;
 }
 
