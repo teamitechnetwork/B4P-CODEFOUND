@@ -17565,14 +17565,32 @@ body.has-site-search-open {
     padding: 25px 0;
   }
 
+  .site-footer.reference-footer .site-footer__accordion-trigger {
+    position: relative;
+    border-bottom: 0;
+  }
+
+  .site-footer.reference-footer .site-footer__accordion-trigger::after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    border-top: 2px solid rgba(255, 255, 255, 0.78);
+    content: '';
+    pointer-events: none;
+    transform: translateX(-50%);
+  }
+
   .site-footer.reference-footer .site-footer__social-links {
-    flex-wrap: wrap;
-    gap: 11px;
+    flex-wrap: nowrap;
+    gap: clamp(6px, 2.8vw, 11px);
+    width: 100%;
   }
 
   .site-footer.reference-footer .site-footer__social-links a {
-    width: 52px;
-    height: 52px;
+    flex: 0 0 clamp(40px, 12vw, 52px);
+    width: clamp(40px, 12vw, 52px);
+    height: clamp(40px, 12vw, 52px);
   }
 
   .site-footer.reference-footer .site-footer__link-groups {
