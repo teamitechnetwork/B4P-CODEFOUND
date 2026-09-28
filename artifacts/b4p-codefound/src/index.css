@@ -17625,6 +17625,7 @@ body.has-site-search-open {
 
   .site-footer.reference-footer .site-footer__accordions {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 12px;
     margin-top: 0;
     padding: 0 0 28px;
