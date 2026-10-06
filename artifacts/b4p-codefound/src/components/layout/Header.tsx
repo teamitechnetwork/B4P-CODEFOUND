@@ -10,8 +10,12 @@ import {
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
-import reportBannerUrl from '../../../../../attached_assets/Rooted_&_Rising_1791321727052.jpg';
-import growthReportUrl from '../../../../../attached_assets/B4P_CODEFOUND_10_Years_Report_(1)_1791321714319.pdf?url';
+
+const publicAssetBaseUrl = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const reportBannerUrl = `${publicAssetBaseUrl}brand/rooted-and-rising-banner.jpg`;
+const growthReportUrl = `${publicAssetBaseUrl}documents/b4p-codefound-10-year-growth-report.pdf`;
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
