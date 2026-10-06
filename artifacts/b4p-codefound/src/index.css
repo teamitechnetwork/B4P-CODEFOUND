@@ -6229,13 +6229,40 @@
 }
 
 /* Site shell: logo-only header and desktop/mobile sliding navigation */
+:root {
+  --site-promo-banner-height: clamp(32px, 8vw, 154px);
+}
+
+#root {
+  padding-top: var(--site-promo-banner-height);
+}
+
+.site-promo-banner {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 71;
+  display: block;
+  height: var(--site-promo-banner-height);
+  overflow: hidden;
+  background: linear-gradient(90deg, #ff7900 0 54.5%, #0864d8 54.5% 100%);
+  line-height: 0;
+}
+
+.site-promo-banner img {
+  display: block;
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  margin-inline: auto;
+}
+
 .has-site-drawer-open {
   overflow: hidden;
 }
 
 .site-header-shell {
   position: fixed;
-  inset: 0 0 auto;
+  inset: var(--site-promo-banner-height) 0 auto;
   z-index: 70;
 }
 

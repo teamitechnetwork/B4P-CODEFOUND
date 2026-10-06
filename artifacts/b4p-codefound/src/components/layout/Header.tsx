@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
+import reportBannerUrl from '../../../../../attached_assets/Rooted_&_Rising_1791321727052.jpg';
+import growthReportUrl from '../../../../../attached_assets/B4P_CODEFOUND_10_Years_Report_(1)_1791321714319.pdf?url';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -371,6 +373,18 @@ export function Header() {
 
   return (
     <>
+      <a
+        className="site-promo-banner"
+        href={growthReportUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the B4P CODEFOUND 10-year growth report in a new tab"
+      >
+        <img
+          src={reportBannerUrl}
+          alt="Rooted & Rising: 10 years of community-building, partnerships, and progress. Download the report."
+        />
+      </a>
       <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
         <div className="site-topbar">
           <div className="container site-topbar__inner">
