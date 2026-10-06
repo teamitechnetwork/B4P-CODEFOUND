@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "B4P CODEFOUND"
-description = "A modern, responsive NGO website for B4P CODEFOUND, sharing its mission, founder story, programs, impact framework, and ways to connect with its work across African communities."
+description = "A modern, responsive nonprofit website for Business for Peace Community Development Foundation, sharing its mission, programs, community impact, and ways to get involved."
 version = "1.0.0"
 id = "artifacts/b4p-codefound"
 router = "path"
