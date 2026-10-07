@@ -3,6 +3,7 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  Download,
   Menu,
   Search,
   Sparkles,
@@ -14,7 +15,6 @@ import { SocialLinks } from '@/components/layout/SocialLinks';
 const publicAssetBaseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
-const reportBannerUrl = `${publicAssetBaseUrl}brand/rooted-and-rising-banner.jpg`;
 const growthReportUrl = `${publicAssetBaseUrl}documents/b4p-codefound-10-year-growth-report.pdf`;
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
@@ -377,38 +377,46 @@ export function Header() {
 
   return (
     <>
-      <a
-        className="site-promo-banner"
-        href={growthReportUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the B4P CODEFOUND 10-year growth report in a new tab"
-      >
-        <img
-          src={reportBannerUrl}
-          alt="Rooted & Rising: 10 years of community-building, partnerships, and progress. Download the report."
-        />
-      </a>
+      <section className="site-promo-banner" aria-label="B4P CODEFOUND 10-year growth report">
+        <div className="site-promo-banner__line site-promo-banner__line--primary">
+          <span>Explore the B4P CODEFOUND 10-Year Growth Report</span>
+          <a
+            className="site-promo-banner__download"
+            href={growthReportUrl}
+            download="B4P-CODEFOUND-10-Year-Growth-Report.pdf"
+            aria-label="Download the B4P CODEFOUND 10-Year Growth Report"
+          >
+            <Download size={13} aria-hidden="true" />
+            <span>Download report</span>
+          </a>
+        </div>
+        <div className="site-promo-banner__line site-promo-banner__subline">
+          <span>Peacebuilding · Economic Development · Collective Action</span>
+          <a href="/partner-with-us">See how we can work together!</a>
+        </div>
+      </section>
       <div className={`site-header-shell ${isHeroHeader ? 'site-header-shell--hero' : ''}`}>
         <div className="site-topbar">
           <div className="container site-topbar__inner">
-              <span className="site-topbar__message">Peacebuilding · Economic Development · Collective Action</span>
-              <div className="site-topbar__right">
-                <a className="site-topbar__email" href="mailto:management@b4pcodefound.org">management@b4pcodefound.org</a>
-                <SocialLinks className="site-topbar__socials" />
-                <button
-                  type="button"
-                  className="site-topbar__search"
-                  onClick={() => setIsSearchOpen(true)}
-                  ref={searchButtonRef}
-                  aria-expanded={isSearchOpen}
-                  aria-controls="site-search-dialog"
-                >
-                  <Sparkles size={14} aria-hidden="true" />
-                  <span>AI Search</span>
-                </button>
-              </div>
+            <div className="site-topbar__right">
+              <nav className="site-topbar__quicklinks" aria-label="Utility navigation">
+                <a href="/faqs">FAQ</a>
+                <a href="/contact">Contact</a>
+              </nav>
+              <SocialLinks className="site-topbar__socials" />
+              <button
+                type="button"
+                className="site-topbar__search"
+                onClick={() => setIsSearchOpen(true)}
+                ref={searchButtonRef}
+                aria-expanded={isSearchOpen}
+                aria-controls="site-search-dialog"
+              >
+                <Search size={18} aria-hidden="true" />
+                <span>AI Search</span>
+              </button>
           </div>
+        </div>
         </div>
         <header className="site-header">
           <div className="container site-header__inner">

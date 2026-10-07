@@ -1,4 +1,4 @@
-import { ArrowUpRight, HeartHandshake, Scale, Sparkles, UsersRound } from 'lucide-react';
+import { ArrowUpRight, HeartHandshake, Scale, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -19,7 +19,7 @@ const values = [
     number: '03',
     title: 'Passion & teamwork',
     description: 'We emphasize local ownership and long-term sustainability while building diversified and inclusive teams globally.',
-    icon: Sparkles,
+    icon: UsersRound,
   },
   {
     number: '04',

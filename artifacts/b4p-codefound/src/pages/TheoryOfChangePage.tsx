@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, HeartHandshake, Home, Sparkles, UsersRound } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, HeartHandshake, Home, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -7,7 +7,7 @@ const journey = [
     step: '01',
     title: 'Empowered individuals',
     description: 'People have the confidence, knowledge, relationships, and resources to shape their own future.',
-    icon: Sparkles,
+    icon: UsersRound,
   },
   {
     step: '02',
