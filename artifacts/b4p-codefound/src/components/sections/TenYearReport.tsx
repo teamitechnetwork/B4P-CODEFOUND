@@ -9,7 +9,10 @@ export function TenYearReport() {
     <section className="ten-year-report" aria-labelledby="ten-year-report-title">
       <div className="ten-year-report__inner">
         <div className="ten-year-report__copy">
-          <p className="ten-year-report__eyebrow">B4P CODEFOUND · 2015–2025</p>
+          <p className="ten-year-report__eyebrow">
+            <span>B4P CODEFOUND · 2015–2025</span>
+            <span className="ten-year-report__badge">NEW UPDATE</span>
+          </p>
           <h2 id="ten-year-report-title">
             Ten years of community-led progress.
           </h2>

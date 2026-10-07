@@ -18,12 +18,26 @@
 }
 
 .ten-year-report__eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
   margin: 0 0 1rem;
   color: #07536a;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.ten-year-report__badge {
+  padding: 0.3rem 0.5rem;
+  color: #062e37;
+  background: #d6a53a;
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
 }
 
 .ten-year-report__copy h2 {
