@@ -1,8 +1,8 @@
 import { ArrowDownToLine, ArrowUpRight } from 'lucide-react';
+import { TEN_YEAR_REPORT_DOWNLOAD_FILENAME, TEN_YEAR_REPORT_PDF_URL } from '@/data/tenYearReport';
 import './TenYearReport.css';
 
 const reportUrl = 'https://heyzine.com/flip-book/9bd52434a9.html';
-const downloadUrl = 'https://drive.google.com/file/d/1bUL_d_eyiGdNY9IshXj1ZO8NQ5j1dOmlj/view?usp=sharing';
 
 export function TenYearReport() {
   return (
@@ -35,10 +35,9 @@ export function TenYearReport() {
           </a>
           <a
             className="ten-year-report__download"
-            href={downloadUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Download the B4P CODEFOUND 10-year growth report (opens in a new tab)"
+            href={TEN_YEAR_REPORT_PDF_URL}
+            download={TEN_YEAR_REPORT_DOWNLOAD_FILENAME}
+            aria-label="Download the B4P CODEFOUND 10-year growth report"
             data-testid="link-download-ten-year-report"
           >
             <ArrowDownToLine size={17} aria-hidden="true" />
