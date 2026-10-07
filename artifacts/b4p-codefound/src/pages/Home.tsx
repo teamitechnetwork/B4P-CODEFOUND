@@ -7,6 +7,7 @@ import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Programs } from '@/components/sections/Programs';
 import { FieldStories } from '@/components/sections/FieldStories';
 import { Timeline } from '@/components/sections/Timeline';
+import { TenYearReport } from '@/components/sections/TenYearReport';
 import { News } from '@/components/sections/News';
 import { CTA } from '@/components/sections/CTA';
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Programs />
         <FieldStories />
         <Timeline />
+        <TenYearReport />
         <News />
         <CTA />
       </main>
