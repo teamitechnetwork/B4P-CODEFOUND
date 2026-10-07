@@ -6231,6 +6231,11 @@
 /* Site shell: logo-only header and desktop/mobile sliding navigation */
 :root {
   --site-promo-banner-height: 54px;
+  --site-topbar-height: 19px;
+  --site-header-row-height: 58px;
+  --site-desktop-menu-top: calc(
+    var(--site-promo-banner-height) + var(--site-topbar-height) + var(--site-header-row-height)
+  );
 }
 
 #root {
@@ -6324,7 +6329,7 @@
 }
 
 .site-topbar {
-  height: 19px;
+  height: var(--site-topbar-height);
   color: #354252;
   background: #fff;
   border-bottom: 1px solid #e6e9ee;
@@ -6432,7 +6437,7 @@
 
 .site-header-shell .site-header {
   position: relative;
-  min-height: 58px;
+  min-height: var(--site-header-row-height);
   background: #fff;
   border-bottom: 1px solid rgba(18, 64, 71, 0.12);
   box-shadow: 0 5px 18px rgba(15, 53, 61, 0.06);
@@ -6449,7 +6454,7 @@
 }
 
 .site-header__inner {
-  min-height: 58px;
+  min-height: var(--site-header-row-height);
   padding-left: clamp(16px, 3vw, 36px);
   padding-right: clamp(24px, 4vw, 42px);
 }
@@ -6487,7 +6492,7 @@
 
 .site-desktop-nav__group > button {
   display: inline-flex;
-  min-height: 58px;
+  min-height: var(--site-header-row-height);
   position: relative;
   align-items: center;
   gap: 5px;
@@ -6908,7 +6913,7 @@
 .site-desktop-nav__panel--work-with-us,
 .site-desktop-nav__panel--shop-now {
   position: fixed;
-  top: 104px;
+  top: var(--site-desktop-menu-top);
   right: auto;
   left: 50%;
   width: min(1120px, calc(100vw - 2rem));
