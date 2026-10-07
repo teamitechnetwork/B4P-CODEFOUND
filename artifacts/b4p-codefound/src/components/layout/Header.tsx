@@ -10,9 +10,9 @@ import {
   X,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
-import growthReportUrl from '@assets/B4P_CODEFOUND_10_Years_Report_1791334411538.pdf?url';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
+const growthReportUrl = `${import.meta.env.BASE_URL}documents/b4p-codefound-10-years-report-full.pdf`;
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
