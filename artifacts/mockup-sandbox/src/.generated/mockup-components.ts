@@ -7,5 +7,7 @@ export const modules: ModuleMap = {
   "./components/mockups/homepage-sections/CurrentPillars.tsx": () => import("../components/mockups/homepage-sections/CurrentPillars.tsx"),
   "./components/mockups/homepage-sections/RefinedEDFeature.tsx": () => import("../components/mockups/homepage-sections/RefinedEDFeature.tsx"),
   "./components/mockups/homepage-sections/RefinedPartners.tsx": () => import("../components/mockups/homepage-sections/RefinedPartners.tsx"),
-  "./components/mockups/homepage-sections/RefinedPillars.tsx": () => import("../components/mockups/homepage-sections/RefinedPillars.tsx")
+  "./components/mockups/homepage-sections/RefinedPillars.tsx": () => import("../components/mockups/homepage-sections/RefinedPillars.tsx"),
+  "./components/mockups/report-banner/Current.tsx": () => import("../components/mockups/report-banner/Current.tsx"),
+  "./components/mockups/report-banner/Mobile.tsx": () => import("../components/mockups/report-banner/Mobile.tsx")
 };

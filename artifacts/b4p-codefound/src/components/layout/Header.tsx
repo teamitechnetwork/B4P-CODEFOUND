@@ -15,7 +15,7 @@ import { SocialLinks } from '@/components/layout/SocialLinks';
 const publicAssetBaseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
-const growthReportUrl = `${publicAssetBaseUrl}documents/b4p-codefound-10-year-growth-report.pdf`;
+const growthReportUrl = `${publicAssetBaseUrl}documents/b4p-codefound-10-years-report-full.pdf`;
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -383,7 +383,7 @@ export function Header() {
           <a
             className="site-promo-banner__download"
             href={growthReportUrl}
-            download="B4P-CODEFOUND-10-Year-Growth-Report.pdf"
+            download="B4P-CODEFOUND-10-Years-Report.pdf"
             aria-label="Download the B4P CODEFOUND 10-Year Growth Report"
           >
             <Download size={13} aria-hidden="true" />
