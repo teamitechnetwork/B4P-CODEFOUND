@@ -12,7 +12,8 @@ import {
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
-const growthReportUrl = `${import.meta.env.BASE_URL}documents/b4p-codefound-10-years-report-full.pdf`;
+const growthReportUrl =
+  'https://drive.google.com/file/d/1bULd_eyiGdNY9IshXj1ZO8NQ5j1dOmlj/view?usp=sharing';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -380,7 +381,8 @@ export function Header() {
           <a
             className="site-promo-banner__download"
             href={growthReportUrl}
-            download="B4P_CODEFOUND_10_Years_Report.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="Download the B4P CODEFOUND 10-Year Growth Report"
           >
             <Download size={13} aria-hidden="true" />
