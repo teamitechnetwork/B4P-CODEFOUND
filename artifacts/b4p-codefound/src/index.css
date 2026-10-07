@@ -19567,8 +19567,23 @@ body.has-site-search-open {
   }
 }
 
+.site-header__donate {
+  display: inline-flex !important;
+  flex: 0 0 auto;
+  gap: 7px;
+  white-space: nowrap;
+  border-radius: 13px !important;
+}
+
 .site-header__donate-arrow {
-  display: none;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border-radius: 50%;
+  color: #df5311;
+  background: #fff;
 }
 
 @media (min-width: 1025px) {
@@ -19632,13 +19647,137 @@ body.has-site-search-open {
   }
 
   .site-header__donate-arrow {
-    display: grid;
     width: 30px;
     height: 30px;
     flex: 0 0 30px;
-    place-items: center;
-    border-radius: 50%;
-    color: #df5311;
-    background: #fff;
   }
+}
+
+@media (max-width: 720px) {
+  .site-header__donate-arrow {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+  }
+}
+
+:is(
+  .hero-section__actions > a,
+  .home-support-cta a,
+  .site-footer__callout > a,
+  .site-drawer__footer a:first-of-type,
+  .what-we-do-hero__links a:first-child,
+  .program-detail-next > div > a,
+  .impact-hero__link,
+  .ten-year-report__read,
+  .program-hero__action,
+  .program-hero__action--quiet,
+  .events-hero__actions > a,
+  .events-feature-card__actions > a,
+  .peacebuilding-button,
+  .theory-button,
+  .theory-cta__links > a,
+  .values-cta__links > a,
+  .impact-cta__links > a,
+  .international-days-primary-link,
+  .international-days-cta__inner a,
+  .international-day-detail-actions > .international-day-detail-button,
+  .international-day-detail-cta a,
+  .primary-link,
+  .store-button,
+  .where-button,
+  .not-found-page__primary-link,
+  .not-found-page__secondary-link,
+  .news-archive-card__actions > .news-read-more,
+  .contact-form button,
+  .opportunity-form button,
+  .site-footer__newsletter-form button,
+  button[type='submit']
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  border-radius: 14px !important;
+}
+
+:is(
+  .hero-section__actions > a,
+  .home-support-cta a,
+  .site-footer__callout > a,
+  .site-drawer__footer a:first-of-type,
+  .what-we-do-hero__links a:first-child,
+  .program-detail-next > div > a,
+  .impact-hero__link,
+  .ten-year-report__read,
+  .program-hero__action,
+  .program-hero__action--quiet,
+  .events-hero__actions > a,
+  .events-feature-card__actions > a,
+  .peacebuilding-button,
+  .theory-button,
+  .theory-cta__links > a,
+  .values-cta__links > a,
+  .impact-cta__links > a,
+  .international-days-primary-link,
+  .international-days-cta__inner a,
+  .international-day-detail-actions > .international-day-detail-button,
+  .international-day-detail-cta a,
+  .primary-link,
+  .store-button,
+  .where-button,
+  .not-found-page__primary-link,
+  .not-found-page__secondary-link,
+  .news-archive-card__actions > .news-read-more,
+  .contact-form button,
+  .opportunity-form button,
+  .site-footer__newsletter-form button,
+  button[type='submit']
+)::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border: 1px solid rgba(18, 63, 71, 0.12);
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23016eb4' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7'/%3E%3Cpath d='M8 7h9v9'/%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px 15px;
+  box-shadow: 0 1px 3px rgba(5, 30, 36, 0.12);
+}
+
+:is(
+  .hero-section__actions > a,
+  .home-support-cta a,
+  .what-we-do-hero__links a:first-child,
+  .program-detail-next > div > a,
+  .impact-hero__link,
+  .ten-year-report__read,
+  .program-hero__action,
+  .program-hero__action--quiet,
+  .events-hero__actions > a,
+  .events-feature-card__actions > a,
+  .peacebuilding-button,
+  .theory-button,
+  .theory-cta__links > a,
+  .values-cta__links > a,
+  .impact-cta__links > a,
+  .international-days-primary-link,
+  .international-days-cta__inner a,
+  .international-day-detail-actions > .international-day-detail-button,
+  .international-day-detail-cta a,
+  .primary-link,
+  .store-button,
+  .where-button,
+  .not-found-page__primary-link,
+  .not-found-page__secondary-link,
+  .news-archive-card__actions > .news-read-more,
+  .contact-form button,
+  .opportunity-form button,
+  .site-footer__newsletter-form button
+) > svg {
+  display: none;
 }
