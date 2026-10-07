@@ -10,9 +10,9 @@ import {
   X,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
+import growthReportUrl from '@assets/B4P_CODEFOUND_10_Years_Report_1791334411538.pdf?url';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 
-const growthReportUrl = 'https://drive.google.com/file/d/1bULd_eyiGdNY9IshXj1ZO8NQ5j1dOmlj/view?usp=sharing';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -380,8 +380,7 @@ export function Header() {
           <a
             className="site-promo-banner__download"
             href={growthReportUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download="B4P_CODEFOUND_10_Years_Report.pdf"
             aria-label="Download the B4P CODEFOUND 10-Year Growth Report"
           >
             <Download size={13} aria-hidden="true" />
