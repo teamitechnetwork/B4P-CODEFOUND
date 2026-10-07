@@ -1,5 +1,6 @@
 import { type MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 import {
+  ArrowRight,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -561,7 +562,12 @@ export function Header() {
               })}
             </nav>
             <div className="site-header__utilities">
-              <a href="/make-a-donation" className="site-header__donate" onClick={() => closeMenu()}>Donate</a>
+              <a href="/make-a-donation" className="site-header__donate" onClick={() => closeMenu()}>
+                <span>Donate</span>
+                <span className="site-header__donate-arrow" aria-hidden="true">
+                  <ArrowRight size={15} strokeWidth={2.5} />
+                </span>
+              </a>
               <button
                 type="button"
                 className="site-header__menu-button"

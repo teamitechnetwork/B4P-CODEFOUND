@@ -19566,3 +19566,79 @@ body.has-site-search-open {
     font-size: 1rem;
   }
 }
+
+.site-header__donate-arrow {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --site-topbar-height: 32px;
+    --site-header-row-height: 68px;
+  }
+
+  .site-promo-banner__line--primary {
+    font-size: 0.94rem;
+  }
+
+  .site-promo-banner__download {
+    min-height: 27px;
+    padding: 3px 10px;
+    font-size: 0.76rem;
+  }
+
+  .site-promo-banner__subline {
+    font-size: 0.8rem;
+  }
+
+  .site-topbar__inner,
+  .site-topbar__quicklinks a,
+  .site-topbar__search {
+    font-size: 0.8rem;
+  }
+
+  .site-topbar__socials {
+    gap: 8px;
+  }
+
+  .site-topbar__socials a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .site-topbar__socials svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .site-desktop-nav__group > button {
+    gap: 7px;
+    padding-inline: clamp(0.35rem, 0.52vw, 0.65rem);
+    font-size: clamp(0.82rem, 0.88vw, 0.96rem);
+  }
+
+  .site-desktop-nav__group > button svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .site-header__donate {
+    height: 44px;
+    gap: 11px;
+    padding: 5px 8px 5px 18px;
+    border-radius: 13px !important;
+    font-size: 0.84rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .site-header__donate-arrow {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    place-items: center;
+    border-radius: 50%;
+    color: #df5311;
+    background: #fff;
+  }
+}
