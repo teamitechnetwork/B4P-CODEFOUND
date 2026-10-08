@@ -1,0 +1,1 @@
+- [B4P homepage section scope](b4p-homepage-sections.md) — Preserve News & updates; keep partner logos in the separate Supporters section.
