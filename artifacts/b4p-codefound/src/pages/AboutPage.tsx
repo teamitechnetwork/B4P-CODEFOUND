@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { Founder } from '@/components/sections/Founder';
+import { FounderMessage } from '@/components/sections/FounderMessage';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
 import { mission, vision } from '@/data/mission';
@@ -190,7 +190,7 @@ export default function AboutPage() {
         </section>
 
         {/* Existing Components Refined */}
-        <Founder />
+        <FounderMessage />
         <TheoryOfChange />
 
         {/* CTA Section */}

@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { Pillars } from '@/components/sections/Pillars';
 import { TenYearReport } from '@/components/sections/TenYearReport';
-import { Founder } from '@/components/sections/Founder';
+import { FounderMessage } from '@/components/sections/FounderMessage';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Programs } from '@/components/sections/Programs';
 import { FieldStories } from '@/components/sections/FieldStories';
@@ -20,7 +20,7 @@ export default function Home() {
         <Hero />
         <Pillars />
         <TenYearReport />
-        <Founder />
+        <FounderMessage />
         <TheoryOfChange blueBackground />
         <Programs />
         <FieldStories />
