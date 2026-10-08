@@ -22,4 +22,3 @@ timeoutMs = 20000
 [userenv]
 
 [userenv.shared]
-Mailchimp-API = "6df4f199220e244335c858fe2ca490ca-us7a"

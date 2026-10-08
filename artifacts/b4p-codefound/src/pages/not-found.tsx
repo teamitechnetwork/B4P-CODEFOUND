@@ -1,23 +1,43 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { AlertCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { Link } from 'wouter';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">
-              404 Page Not Found
+    <div className="not-found-page flex min-h-screen flex-col">
+      <Header />
+      <main className="not-found-page__main flex-1">
+        <div className="page-container not-found-page__layout">
+          <section className="not-found-page__copy" aria-labelledby="not-found-title">
+            <div className="not-found-page__code" role="img" aria-label="404">
+              <span className="not-found-page__digit">4</span>
+              <span className="not-found-page__zero">
+                <span className="sr-only">0</span>
+                <img src="/brand/b4p-favicon.png" alt="" />
+              </span>
+              <span className="not-found-page__digit">4</span>
+            </div>
+            <h1 id="not-found-title">
+              Page not found
             </h1>
-          </div>
-
-          <p className="mt-4 text-sm text-gray-600">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+            <p>
+              The page you’re looking for doesn’t exist or has moved.
+            </p>
+            <div className="not-found-page__actions">
+              <Link
+                href="/"
+                className="not-found-page__primary-link"
+                data-testid="link-404-home"
+              >
+                <ArrowLeft size={18} aria-hidden="true" />
+                Return home
+              </Link>
+            </div>
+          </section>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 }
