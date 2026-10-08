@@ -1,0 +1,157 @@
+.ten-year-report-preview {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: #fff;
+  font-family: 'Manrope', sans-serif;
+}
+
+.ten-year-report {
+  width: 100%;
+  padding: clamp(3.5rem, 7vw, 6rem) 1.25rem;
+  color: #062e37;
+  background: #f4f8f7;
+}
+
+.ten-year-report__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.ten-year-report__copy {
+  max-width: 720px;
+}
+
+.ten-year-report__eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  color: #07536a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.ten-year-report__badge {
+  padding: 0.3rem 0.5rem;
+  color: #062e37;
+  background: #d6a53a;
+  font-size: 0.61rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+.ten-year-report__copy h2 {
+  max-width: 16ch;
+  margin: 0;
+  color: #062e37;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.ten-year-report__description {
+  max-width: 650px;
+  margin: 1rem 0 0;
+  color: #46636a;
+  font-size: clamp(1rem, 1.45vw, 1.1rem);
+  font-weight: 500;
+  line-height: 1.75;
+}
+
+.ten-year-report__actions {
+  display: flex;
+  min-width: 12rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
+}
+
+.ten-year-report__actions a {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.ten-year-report__actions a:hover {
+  transform: translateY(-2px);
+}
+
+.ten-year-report__actions a:focus-visible {
+  outline: 3px solid #d6a53a;
+  outline-offset: 3px;
+}
+
+.ten-year-report__read {
+  color: #062e37;
+  background: #d6a53a;
+}
+
+.ten-year-report__read:hover {
+  background: #e5b84d;
+}
+
+.ten-year-report__download {
+  color: #07536a;
+  background: transparent;
+}
+
+.ten-year-report__download:hover {
+  color: #087a9f;
+}
+
+@media (max-width: 760px) {
+  .ten-year-report__inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    max-width: 620px;
+  }
+
+  .ten-year-report__actions {
+    min-width: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .ten-year-report {
+    padding-inline: 1rem;
+  }
+
+  .ten-year-report__actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ten-year-report__actions a {
+    width: min(100%, 17rem);
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ten-year-report__actions a {
+    transition: none;
+  }
+}

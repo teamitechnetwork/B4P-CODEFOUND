@@ -11,5 +11,7 @@ export const modules: ModuleMap = {
   "./components/mockups/homepage-sections/RefinedPartners.tsx": () => import("../components/mockups/homepage-sections/RefinedPartners.tsx"),
   "./components/mockups/homepage-sections/RefinedPillars.tsx": () => import("../components/mockups/homepage-sections/RefinedPillars.tsx"),
   "./components/mockups/report-banner/Current.tsx": () => import("../components/mockups/report-banner/Current.tsx"),
-  "./components/mockups/report-banner/Mobile.tsx": () => import("../components/mockups/report-banner/Mobile.tsx")
+  "./components/mockups/report-banner/Mobile.tsx": () => import("../components/mockups/report-banner/Mobile.tsx"),
+  "./components/mockups/ten-year-report/BlueReport.tsx": () => import("../components/mockups/ten-year-report/BlueReport.tsx"),
+  "./components/mockups/ten-year-report/Current.tsx": () => import("../components/mockups/ten-year-report/Current.tsx")
 };

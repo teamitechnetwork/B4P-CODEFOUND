@@ -1,0 +1,172 @@
+.ten-year-report-preview {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background: #fff;
+  font-family: 'Manrope', sans-serif;
+}
+
+.ten-year-report,
+.ten-year-report * {
+  box-sizing: border-box;
+}
+
+.ten-year-report--blue {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: stretch;
+  width: min(100%, 1120px);
+  min-height: 25rem;
+  overflow: hidden;
+  background: #016eb4;
+}
+
+.ten-year-report__image {
+  min-width: 0;
+  min-height: 25rem;
+  margin: 0;
+  overflow: hidden;
+  background: #e8f0f5;
+}
+
+.ten-year-report__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ten-year-report__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4.4vw, 3.7rem);
+  color: #fff;
+  background: #016eb4;
+}
+
+.ten-year-report__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.2rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.ten-year-report__icon {
+  flex: 0 0 auto;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.ten-year-report__panel h2 {
+  max-width: 15ch;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 3.3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.ten-year-report__description {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.91);
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.ten-year-report__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.6rem;
+}
+
+.ten-year-report__actions a {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.05rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.ten-year-report__actions a:hover {
+  transform: translateY(-2px);
+}
+
+.ten-year-report__actions a:focus-visible {
+  outline: 3px solid #f0cf69;
+  outline-offset: 3px;
+}
+
+.ten-year-report__read {
+  color: #016eb4;
+  background: #fff;
+}
+
+.ten-year-report__read:hover {
+  background: #eaf6fc;
+}
+
+.ten-year-report__download {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  color: #fff;
+  background: transparent;
+}
+
+.ten-year-report__download:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 760px) {
+  .ten-year-report--blue {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 620px;
+  }
+
+  .ten-year-report__image {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ten-year-report__panel {
+    padding: clamp(1.6rem, 6vw, 2.5rem);
+  }
+}
+
+@media (max-width: 420px) {
+  .ten-year-report__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ten-year-report__actions a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ten-year-report__actions a {
+    transition: none;
+  }
+}
