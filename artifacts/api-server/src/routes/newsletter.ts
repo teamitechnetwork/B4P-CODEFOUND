@@ -21,7 +21,7 @@ router.post("/newsletter/subscribe", async (req, res): Promise<void> => {
 
   const apiKey = process.env.MAILCHIMP_API_KEY?.trim();
   const audienceId = process.env.MAILCHIMP_AUDIENCE_ID?.trim();
-  const dataCenter = apiKey?.match(/-([a-z0-9]+)$/i)?.[1];
+  const dataCenter = apiKey?.match(/-((?:us|eu|ca|au|ap)\d+)$/i)?.[1];
 
   if (!apiKey || !audienceId || !dataCenter) {
     req.log.error(
