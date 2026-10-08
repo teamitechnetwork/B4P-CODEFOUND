@@ -8797,18 +8797,6 @@
   background: var(--refined-blue);
 }
 
-.refined-news::after {
-  position: absolute;
-  top: 12%;
-  right: -190px;
-  width: 480px;
-  height: 480px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  content: '';
-  pointer-events: none;
-}
-
 .partners-topline {
   display: flex;
   align-items: center;
