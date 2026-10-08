@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "sJRQ-hui_UHIrq0QTAbVE"
+uri = "file://artifacts/b4p-codefound/public/documents/b4p-codefound-10-years-report-full.pdf"
+type = "pdf"
+title = "Repaired B4P CODEFOUND 10-Year Growth Report"
+description = "A normalized 37-page PDF. All pages render identically to the attached original; download a fresh copy to replace the earlier file."
+logical_id = "22bccafb-a880-43d9-a5c3-6c69f7a52a29"
+content_hash = "sha256:ee83ffc7956bcc1e66aacdad1387106c1a208bb5d8bc11d21cd9b5e5dd94b127"
+size = 45268970
+mtime_ms = 1791362920710
+storage_uri = "gcs://replit-rams-assets-riker/rams/assets/repl:5ff984d0-8dae-4c54-ad98-26c9b2d9726d/22bccafb-a880-43d9-a5c3-6c69f7a52a29/fc8bc753-5296-4c24-be10-c402a6d4126f"
+storage_version_token = "1791363442919663"
+content_type = "application/pdf"

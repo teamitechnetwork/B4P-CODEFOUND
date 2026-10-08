@@ -5,7 +5,6 @@ import {
   HandHeart,
   MessagesSquare,
   ShieldCheck,
-  Sparkles,
   UsersRound,
 } from 'lucide-react';
 import { Footer } from '@/components/layout/Footer';
@@ -106,7 +105,7 @@ export default function PeacebuildingProgramPage() {
                 <strong>Local<br />knowledge<br />in action.</strong>
               </div>
               <div className="peacebuilding-hero__note">
-                <Sparkles size={15} aria-hidden="true" />
+                <MessagesSquare size={15} aria-hidden="true" />
                 <span>Prevention · dialogue · leadership</span>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Box, CreditCard, HeartHandshake, Leaf, Package, PackageCheck, ShoppingCart, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Box, CreditCard, HeartHandshake, Leaf, Package, PackageCheck, ShoppingCart } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 
@@ -191,7 +191,7 @@ function AuthView({ vendor = false }: { vendor?: boolean }) {
   return (
     <section className="store-section store-account-preview">
       <div className="page-container store-account-preview__inner">
-        <div className="store-account-preview__icon" aria-hidden="true"><Sparkles size={28} /></div>
+        <div className="store-account-preview__icon" aria-hidden="true"><ShoppingCart size={28} /></div>
         <span className="page-kicker">{vendor ? 'Partner preview' : 'My account'}</span>
         <h1>{vendor ? 'A home for future makers and partners.' : 'Your store account is coming soon.'}</h1>
         <p>

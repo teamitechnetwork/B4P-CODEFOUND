@@ -2,6 +2,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { Pillars } from '@/components/sections/Pillars';
+import { TenYearReport } from '@/components/sections/TenYearReport';
 import { Founder } from '@/components/sections/Founder';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Programs } from '@/components/sections/Programs';
@@ -17,6 +18,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Pillars />
+        <TenYearReport />
         <Founder />
         <TheoryOfChange blueBackground />
         <Programs />
