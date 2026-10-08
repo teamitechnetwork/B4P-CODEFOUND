@@ -27,6 +27,7 @@ const heroSlides = [
 
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [previousSlideIndex, setPreviousSlideIndex] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [typingText, setTypingText] = useState('');
@@ -43,11 +44,12 @@ export function Hero() {
 
   useEffect(() => {
     if (isPaused || reduceMotion) return;
-    const timer = window.setInterval(() => {
+    const timer = window.setTimeout(() => {
+      setPreviousSlideIndex(activeSlide);
       setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 5600);
-    return () => window.clearInterval(timer);
-  }, [isPaused, reduceMotion]);
+    }, 6400);
+    return () => window.clearTimeout(timer);
+  }, [activeSlide, isPaused, reduceMotion]);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -73,12 +75,14 @@ export function Hero() {
       const nextText = phrase.slice(0, typingText.length + 1);
       setTypingText(nextText);
       if (nextText === phrase) setIsDeletingText(true);
-    }, isDeletingText ? 78 : isPhraseComplete ? 2600 : 118);
+    }, isDeletingText ? 105 : isPhraseComplete ? 3400 : 165);
 
     return () => window.clearTimeout(timer);
   }, [isDeletingText, reduceMotion, typingPhraseIndex, typingText]);
 
   const slide = heroSlides[activeSlide];
+  const previousSlide =
+    previousSlideIndex === null ? null : heroSlides[previousSlideIndex];
 
   return (
     <section
@@ -139,12 +143,22 @@ export function Hero() {
         </div>
 
         <div className="hero-section__media" aria-live="polite">
+          {previousSlide && (
+            <img
+              key={`previous-${previousSlide.src}`}
+              src={previousSlide.src}
+              alt=""
+              className="hero-section__photo hero-section__photo--previous"
+              aria-hidden="true"
+            />
+          )}
           <img
             key={slide.src}
             src={slide.src}
             alt={slide.alt}
-            className="hero-section__photo"
+            className="hero-section__photo hero-section__photo--active"
           />
+          <div className="hero-section__welcome-group">
           <span className="hero-section__welcome" aria-hidden="true">
             Welcome
           </span>
@@ -155,7 +169,8 @@ export function Hero() {
             </div>
             <span className="hero-section__media-day">{slide.label}</span>
           </div>
-          <div className="hero-section__controls" aria-label="Conference image controls">
+          </div>
+          <div className="hero-section__controls" aria-label="Conference image slideshow controls">
             <button
               type="button"
               className="hero-section__play"
@@ -164,21 +179,6 @@ export function Hero() {
             >
               {isPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
             </button>
-            <div className="hero-section__indicators">
-              {heroSlides.map((item, index) => (
-                <button
-                  key={item.src}
-                  type="button"
-                  className={`hero-section__indicator ${index === activeSlide ? 'is-active' : ''}`}
-                  onClick={() => setActiveSlide(index)}
-                  aria-label={`Show ${item.label} conference image`}
-                  aria-current={index === activeSlide ? 'true' : undefined}
-                />
-              ))}
-            </div>
-            <span className="hero-section__count">
-              {String(activeSlide + 1).padStart(2, '0')} / {String(heroSlides.length).padStart(2, '0')}
-            </span>
           </div>
         </div>
       </div>
