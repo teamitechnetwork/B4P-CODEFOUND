@@ -1,15 +1,5 @@
 import { ArrowUpRight, ExternalLink, Globe2, MapPin, Users2 } from 'lucide-react';
 
-const partnerLogos = [
-  { name: 'Global Network of Women Peacebuilders', src: '/brand/partners/gnwp.png' },
-  { name: 'NDLC', src: '/brand/partners/ndlc.png' },
-  { name: 'Lisle — Building Global Citizens', src: '/brand/partners/lisle.png' },
-  { name: 'Women’s NGO Secretariat of Liberia', src: '/brand/partners/womens-ngo-secretariat-liberia.png' },
-  { name: 'Platform for Dialogue and Peace', src: '/brand/partners/p4d.png' },
-  { name: 'aCIO Hatch', src: '/brand/partners/acio-hatch.png' },
-  { name: 'WANEP', src: '/brand/partners/wanep.png' },
-];
-
 const partnerGroups = [
   {
     title: 'International frameworks',
@@ -48,7 +38,7 @@ const partnerGroups = [
 
 export function News() {
   return (
-    <section id="partner" className="refined-section refined-partners" aria-labelledby="partners-title">
+    <section id="news-updates" className="refined-section refined-news" aria-labelledby="news-updates-title">
       <div className="refined-shell">
         <div className="partners-topline">
           <div className="section-kicker section-kicker-light">
@@ -63,7 +53,7 @@ export function News() {
         <div className="partners-grid">
           <div className="partners-statement">
             <p className="statement-mark" aria-hidden="true">↗</p>
-            <h2 id="partners-title">
+            <h2 id="news-updates-title">
               Follow the work
               <em>across borders.</em>
             </h2>
@@ -112,25 +102,6 @@ export function News() {
           </div>
         </div>
 
-        <div className="partner-logos" aria-labelledby="partner-logos-title">
-          <div className="partner-logos__intro">
-            <p className="partner-logos__eyebrow">In community with</p>
-            <h3 id="partner-logos-title">Partners who help move the work forward.</h3>
-          </div>
-          <div className="partner-logos__viewport">
-            <div className="partner-logos__track">
-              {[0, 1].map((setIndex) => (
-                <div className="partner-logos__set" key={setIndex} aria-hidden={setIndex === 1}>
-                  {partnerLogos.map((partner) => (
-                    <div className="partner-logo" key={`${setIndex}-${partner.name}`}>
-                      <img src={partner.src} alt={setIndex === 0 ? partner.name : ''} loading="lazy" />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
