@@ -52,7 +52,6 @@ export function News() {
 
         <div className="partners-grid">
           <div className="partners-statement">
-            <p className="statement-mark" aria-hidden="true">↗</p>
             <h2 id="news-updates-title">
               Follow the work
               <em>across borders.</em>
