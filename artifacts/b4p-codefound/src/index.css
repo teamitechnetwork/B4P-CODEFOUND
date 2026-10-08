@@ -4053,7 +4053,7 @@
     padding: 0 12px;
     justify-content: center;
     align-items: center;
-    transform: none;
+    transform: translateY(12px);
     text-align: center;
   }
 
@@ -8840,14 +8840,6 @@
 .partners-statement {
   padding: 0 62px 0 0;
   border-right: 1px solid rgba(255, 255, 255, 0.22);
-}
-
-.statement-mark {
-  margin: 0 0 24px;
-  color: var(--refined-gold);
-  font-family: Georgia, serif;
-  font-size: 3.4rem;
-  line-height: 0.7;
 }
 
 .partners-statement h2 {
