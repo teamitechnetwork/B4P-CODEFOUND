@@ -5,15 +5,6 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
-
-export interface NewsletterSubscribeInput {
-  /** @maxLength 254 */
-  email: string;
-  marketingConsent: true;
-}
 
 export type NewsletterSubscriptionResultStatus = typeof NewsletterSubscriptionResultStatus[keyof typeof NewsletterSubscriptionResultStatus];
 
@@ -22,13 +13,3 @@ export const NewsletterSubscriptionResultStatus = {
   pending: 'pending',
   subscribed: 'subscribed',
 } as const;
-
-export interface NewsletterSubscriptionResult {
-  status: NewsletterSubscriptionResultStatus;
-  message: string;
-}
-
-export interface NewsletterSubscriptionError {
-  error: string;
-}
-

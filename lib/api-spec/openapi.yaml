@@ -10,6 +10,8 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: newsletter
+    description: Newsletter subscriptions
 paths:
   /healthz:
     get:
@@ -24,6 +26,42 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /newsletter/subscribe:
+    post:
+      operationId: subscribeToNewsletter
+      tags: [newsletter]
+      summary: Subscribe an email address to the B4P CODEFOUND newsletter
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewsletterSubscribeInput"
+      responses:
+        "200":
+          description: Subscription accepted or the address is already subscribed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSubscriptionResult"
+        "400":
+          description: Invalid email address or missing marketing consent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSubscriptionError"
+        "409":
+          description: The address cannot be resubscribed through this form
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSubscriptionError"
+        "503":
+          description: Newsletter service is not configured or is temporarily unavailable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsletterSubscriptionError"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +71,36 @@ components:
           type: string
       required:
         - status
+    NewsletterSubscribeInput:
+      type: object
+      additionalProperties: false
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        marketingConsent:
+          type: boolean
+          enum: [true]
+      required:
+        - email
+        - marketingConsent
+    NewsletterSubscriptionResult:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [pending, subscribed]
+        message:
+          type: string
+      required:
+        - status
+        - message
+    NewsletterSubscriptionError:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
 
