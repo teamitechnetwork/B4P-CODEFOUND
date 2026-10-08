@@ -145,6 +145,9 @@ export function Hero() {
             alt={slide.alt}
             className="hero-section__photo"
           />
+          <span className="hero-section__welcome" aria-hidden="true">
+            Welcome
+          </span>
           <div className="hero-section__media-caption">
             <div>
               <span>Conference field notes</span>
