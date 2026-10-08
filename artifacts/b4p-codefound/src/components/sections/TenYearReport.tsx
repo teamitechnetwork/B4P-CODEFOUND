@@ -23,6 +23,7 @@ export function TenYearReport() {
             <span>B4P CODEFOUND</span>
             <span aria-hidden="true">·</span>
             <span>2015–2025</span>
+            <span className="ten-year-report__badge">NEW UPDATE</span>
           </p>
           <FileText className="ten-year-report__icon" size={30} strokeWidth={1.5} aria-hidden="true" />
           <h2 id="ten-year-report-title">10 Years of Progress, Built Together</h2>
