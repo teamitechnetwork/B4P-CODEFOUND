@@ -1,6 +1,7 @@
 import { ArrowUpRight, Building2, Landmark, Mail, ShieldCheck } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { ZEFFY_DONATION_URL } from '@/data/donation';
 
 export default function DonationPage() {
   return (
@@ -82,10 +83,35 @@ export default function DonationPage() {
               <div className="sticky top-28 rounded-[1.5rem] border border-[#062e37]/10 bg-white p-8 shadow-[0_2rem_5rem_rgba(6,46,55,0.08)] md:p-10">
                 <h2 className="mb-3 text-2xl font-extrabold tracking-tight text-[#062e37]">Ways to Give</h2>
                 <p className="mb-8 text-[0.95rem] font-medium leading-relaxed text-[#3d5c63]">
-                  Secure online giving is being prepared. In the meantime, use one of the verified methods below or contact our team for help.
+                  Make an online donation with Zeffy or choose one of the other ways to give below.
                 </p>
 
                 <div className="space-y-5">
+                  {/* Online donation */}
+                  <div className="rounded-[1.15rem] border border-[#118f9b]/20 bg-[#f4fbfc] p-6">
+                    <div className="mb-4 flex items-center gap-4">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#118f9b]/15 text-[#118f9b]">
+                        <ArrowUpRight size={22} strokeWidth={2.5} aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h3 className="text-[1.1rem] font-extrabold text-[#062e37]">Donate online with Zeffy</h3>
+                        <span className="text-[0.75rem] font-bold uppercase tracking-wider text-[#118f9b]">Online donation</span>
+                      </div>
+                    </div>
+                    <p className="mb-6 text-[0.9rem] leading-relaxed text-[#3d5c63]">
+                      Use our Zeffy donation form to support B4P CODEFOUND’s mission.
+                    </p>
+                    <a
+                      href={ZEFFY_DONATION_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#062e37] px-6 py-4 text-[0.95rem] font-bold tracking-wide text-white transition-colors hover:bg-[#118f9b]"
+                      data-testid="link-donation-zeffy"
+                    >
+                      Donate with Zeffy <ArrowUpRight size={18} aria-hidden="true" />
+                    </a>
+                  </div>
+
                   {/* Direct Deposit */}
                   <div className="group relative overflow-hidden rounded-[1.15rem] border border-[#118f9b]/20 bg-[#f4fbfc] p-6 transition-all hover:border-[#118f9b]/40 hover:bg-[#edf7f9]">
                     <div className="mb-4 flex items-center gap-4">
