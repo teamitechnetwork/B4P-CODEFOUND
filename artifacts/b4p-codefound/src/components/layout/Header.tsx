@@ -13,6 +13,7 @@ import {
 import { useLocation } from 'wouter';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 import { TEN_YEAR_REPORT_DOWNLOAD_FILENAME, TEN_YEAR_REPORT_PDF_URL } from '@/data/tenYearReport';
+import { ZEFFY_DONATION_URL } from '@/data/donation';
 
 type NavItem = { name: string; href: string; children?: NavItem[] };
 type NavGroup = { name: string; items: NavItem[] };
@@ -562,7 +563,13 @@ export function Header() {
               })}
             </nav>
             <div className="site-header__utilities">
-              <a href="/make-a-donation" className="site-header__donate" onClick={() => closeMenu()}>
+              <a
+                href={ZEFFY_DONATION_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="site-header__donate"
+                onClick={() => closeMenu()}
+              >
                 <span className="site-header__donate-arrow" aria-hidden="true">
                   <ArrowUpRight size={15} strokeWidth={2.5} />
                 </span>
