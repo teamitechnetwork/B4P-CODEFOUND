@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Pause, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const heroTypingPhrases = ['peaceful communities.', 'women leaders.', 'shared prosperity.'];
 
@@ -28,7 +28,6 @@ const heroSlides = [
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [previousSlideIndex, setPreviousSlideIndex] = useState<number | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
   const [typingText, setTypingText] = useState('');
   const [typingPhraseIndex, setTypingPhraseIndex] = useState(0);
@@ -43,13 +42,13 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    if (isPaused || reduceMotion) return;
+    if (reduceMotion) return;
     const timer = window.setTimeout(() => {
       setPreviousSlideIndex(activeSlide);
       setActiveSlide((current) => (current + 1) % heroSlides.length);
     }, 6400);
     return () => window.clearTimeout(timer);
-  }, [activeSlide, isPaused, reduceMotion]);
+  }, [activeSlide, reduceMotion]);
 
   useEffect(() => {
     if (reduceMotion) {
@@ -88,14 +87,6 @@ export function Hero() {
     <section
       id="home"
       className="hero-section"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-          setIsPaused(false);
-        }
-      }}
     >
       <div className="hero-section__layout">
         <div className="hero-section__copy">
@@ -159,26 +150,16 @@ export function Hero() {
             className="hero-section__photo hero-section__photo--active"
           />
           <div className="hero-section__welcome-group">
-          <span className="hero-section__welcome" aria-hidden="true">
-            Welcome
-          </span>
-          <div className="hero-section__media-caption">
-            <div>
-              <span>Conference field notes</span>
-              <strong>{slide.detail}</strong>
+            <span className="hero-section__welcome" aria-hidden="true">
+              Welcome
+            </span>
+            <div className="hero-section__media-caption">
+              <div>
+                <span>Conference field notes</span>
+                <strong>{slide.detail}</strong>
+              </div>
+              <span className="hero-section__media-day">{slide.label}</span>
             </div>
-            <span className="hero-section__media-day">{slide.label}</span>
-          </div>
-          </div>
-          <div className="hero-section__controls" aria-label="Conference image slideshow controls">
-            <button
-              type="button"
-              className="hero-section__play"
-              onClick={() => setIsPaused((paused) => !paused)}
-              aria-label={isPaused ? 'Play conference image slideshow' : 'Pause conference image slideshow'}
-            >
-              {isPaused ? <Play size={15} aria-hidden="true" /> : <Pause size={15} aria-hidden="true" />}
-            </button>
           </div>
         </div>
       </div>
