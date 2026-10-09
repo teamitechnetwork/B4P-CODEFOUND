@@ -44,7 +44,7 @@ export function PartnersSection() {
   return (
     <section id="partner" className="home-partners" aria-labelledby="home-partners-title">
       <div className="home-partners__inner">
-        <h2 id="home-partners-title">THANKS TO OUR PARTNERS</h2>
+        <h2 id="home-partners-title">THANKS TO OUR SUPPORTERS</h2>
 
         <div
           ref={carouselRef}
@@ -83,8 +83,8 @@ export function PartnersSection() {
           ))}
         </div>
 
-        <a className="home-partners__cta" href="/partner-with-us">
-          <span>Partner with us</span>
+        <a className="home-partners__cta" href="#footer-newsletter">
+          <span>Join Our Growing Supporter List</span>
           <span className="home-partners__cta-icon">
             <ArrowUpRight size={17} aria-hidden="true" />
           </span>

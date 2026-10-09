@@ -1,5 +1,6 @@
 import { useId, useState, type FormEvent, type ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight, ChevronDown, Mail, MapPin, Phone } from 'lucide-react';
+import { useSubscribeToNewsletter } from '@workspace/api-client-react';
 import { SocialLinks } from '@/components/layout/SocialLinks';
 import { openCookieSettings } from '@/components/layout/CookieConsent';
 
@@ -67,20 +68,33 @@ function FooterNestedAccordion({
 
 function FooterNewsletter() {
   const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [hasConsent, setHasConsent] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const subscription = useSubscribeToNewsletter();
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!email.trim()) return;
-    setIsSubmitted(true);
+    if (!email.trim() || !hasConsent || subscription.isPending) return;
+
+    setErrorMessage('');
+    try {
+      const result = await subscription.mutateAsync({
+        data: { email: email.trim(), marketingConsent: true },
+      });
+      setSuccessMessage(result.message);
+      setEmail('');
+    } catch {
+      setErrorMessage('We could not complete your signup right now. Please try again shortly.');
+    }
   }
 
   return (
-    <section className="site-footer__newsletter" aria-labelledby="footer-newsletter-title">
+    <section id="footer-newsletter" className="site-footer__newsletter" aria-labelledby="footer-newsletter-title">
       <h2 id="footer-newsletter-title">Get Our Newsletter</h2>
-      {isSubmitted ? (
+      {successMessage ? (
         <p className="site-footer__newsletter-success" role="status">
-          Thank you for staying connected with B4P CODEFOUND.
+          {successMessage}
         </p>
       ) : (
         <form className="site-footer__newsletter-form-wrapper" onSubmit={handleSubmit}>
@@ -92,16 +106,31 @@ function FooterNewsletter() {
               value={email}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email Address"
+              disabled={subscription.isPending}
               required
             />
-            <button type="submit" aria-label="Subscribe to the B4P CODEFOUND newsletter">
-              <ArrowRight size={26} aria-hidden="true" />
+            <button
+              type="submit"
+              aria-label="Subscribe to the B4P CODEFOUND newsletter"
+              disabled={subscription.isPending}
+            >
+              {subscription.isPending ? <span className="site-footer__newsletter-loading">Sending…</span> : <ArrowRight size={26} aria-hidden="true" />}
             </button>
           </div>
           <label className="site-footer__consent">
-            <input type="checkbox" required />
-            <span>I agree to B4P CODEFOUND’s <a href="/terms-and-conditions">Terms &amp; Conditions</a>.</span>
+            <input
+              type="checkbox"
+              checked={hasConsent}
+              onChange={(event) => setHasConsent(event.target.checked)}
+              disabled={subscription.isPending}
+              required
+            />
+            <span>
+              I agree to receive B4P CODEFOUND newsletter and supporter updates, and accept the{' '}
+              <a href="/terms-and-conditions">Terms &amp; Conditions</a>.
+            </span>
           </label>
+          {errorMessage && <p className="site-footer__newsletter-error" role="alert">{errorMessage}</p>}
         </form>
       )}
     </section>
