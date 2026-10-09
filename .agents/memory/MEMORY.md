@@ -8,3 +8,4 @@
 - [Large GitHub assets](github-large-assets.md) — upload large binary assets through Git, not the GitHub REST blob endpoint.
 - [GitHub CLI write authentication](github-cli-write-auth.md) — shell pushes may use different authentication from the connected GitHub App; a successful fetch does not prove write access.
 - [B4P homepage section scope](b4p-homepage-sections.md) — Preserve News & updates; keep partner logos in the separate Supporters section.
+- [B4P full homepage hero](b4p-homepage-hero.md) — the “Welcome” restoration means the full previous composition, not only its label.
