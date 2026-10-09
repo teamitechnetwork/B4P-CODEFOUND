@@ -7477,44 +7477,62 @@
 
 .site-drawer__footer {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin-top: auto;
-  padding: 26px 32px 32px;
-  color: #fff;
-  background: #016eb4;
+  padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+  border-top: 1px solid #e2eaed;
+  color: #123f47;
+  background: #fff;
   flex: 0 0 auto;
 }
 
-.site-drawer__footer p {
-  margin: 0 0 3px;
-  color: rgba(255, 255, 255, 0.74);
-  font-size: 0.91rem;
-  font-weight: 500;
-  line-height: 1.5;
+.site-drawer__footer-banner {
+  margin: 0;
+  padding: 10px 13px;
+  border-radius: 9px;
+  color: #fff;
+  background: #016eb4;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.4;
 }
 
-.site-drawer__footer a {
+.site-drawer__footer-legal {
   display: flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 14px;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.46);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  gap: 12px;
+  padding: 0 2px;
+}
+
+.site-drawer__footer-legal a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 3px 0;
+  border: 0;
+  color: #016eb4;
+  background: transparent;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-decoration: none;
-  text-transform: uppercase;
+  text-underline-offset: 3px;
 }
 
-.site-drawer__footer a:first-of-type {
-  border-color: #df5311;
-  background: #df5311;
+.site-drawer__footer-legal a:hover {
+  color: #00558c;
+  text-decoration: underline;
 }
 
-.site-drawer__footer a:hover {
-  border-color: #016eb4;
-  background: #016eb4;
+.site-drawer__footer-legal a:focus-visible {
+  border-radius: 2px;
+  outline: 3px solid #d6a438;
+  outline-offset: 2px;
+}
+
+.site-drawer__footer-legal span {
+  color: #8a9ca2;
+  font-size: 0.75rem;
 }
 
 /* Modern, editorial team profiles */
@@ -19648,56 +19666,69 @@ body.has-site-search-open {
   display: none;
 }
 
-/* Mobile drawer actions use a neutral footer instead of the full blue panel. */
+/* Mobile drawer footer: a compact B4P banner with plain legal links. */
 @media (max-width: 960px) {
   .site-drawer .site-drawer__footer {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-    padding: 16px 20px max(16px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px max(12px, env(safe-area-inset-bottom));
     border-top: 1px solid #e2eaed;
     color: #123f47;
     background: #fff;
   }
 
-  .site-drawer .site-drawer__footer p {
-    grid-column: 1 / -1;
-    margin: 0 0 1px;
-    color: #536c72;
-    font-size: 0.76rem;
+  .site-drawer .site-drawer__footer .site-drawer__footer-banner {
+    margin: 0;
+    padding: 9px 12px;
+    border-radius: 9px;
+    color: #fff;
+    background: #016eb4;
+    font-size: 0.74rem;
     line-height: 1.35;
   }
 
-  .site-drawer .site-drawer__footer a {
-    min-height: 46px;
-    padding-inline: 8px;
-    border: 1px solid #d2dfe3;
-    border-radius: 14px !important;
-    color: #123f47;
-    background: #fff;
-    font-size: 0.63rem;
-    letter-spacing: 0.045em;
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 0 2px;
+  }
+
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a,
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a:first-of-type,
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a:last-of-type {
+    display: inline-flex;
+    min-height: 32px;
+    align-items: center;
+    padding: 3px 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #016eb4 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-transform: none;
   }
 
-  .site-drawer .site-drawer__footer a:first-of-type {
-    border-color: #d6a438 !important;
-    color: #123f47 !important;
-    background: #d6a438 !important;
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a::before {
+    display: none !important;
+    content: none !important;
   }
 
-  .site-drawer .site-drawer__footer a:last-of-type {
-    border-color: #cbdadd;
-    color: #123f47;
-    background: #fff;
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a:hover {
+    color: #00558c !important;
+    background: transparent !important;
   }
 
-  .site-drawer .site-drawer__footer a:last-of-type:hover {
-    border-color: #123f47;
-    background: #f8fbfc;
-  }
-
-  .site-drawer .site-drawer__footer a:focus-visible {
+  .site-drawer .site-drawer__footer .site-drawer__footer-legal a:focus-visible {
     outline: 3px solid #016eb4;
     outline-offset: 2px;
   }
@@ -19705,17 +19736,7 @@ body.has-site-search-open {
 
 @media (max-width: 360px) {
   .site-drawer .site-drawer__footer {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    padding-inline: 16px;
-  }
-
-  .site-drawer .site-drawer__footer p {
-    grid-column: auto;
-  }
-
-  .site-drawer .site-drawer__footer a {
-    min-height: 46px;
-    font-size: 0.68rem;
+    gap: 7px;
+    padding-inline: 14px;
   }
 }
