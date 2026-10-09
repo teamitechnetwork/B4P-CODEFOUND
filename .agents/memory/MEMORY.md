@@ -7,3 +7,4 @@
 - [Cross-document storage events](cross-document-storage-events.md) — test tab-to-tab saves through StorageEvent.newValue and ignore malformed payloads without replacing valid state.
 - [Large GitHub assets](github-large-assets.md) — upload large binary assets through Git, not the GitHub REST blob endpoint.
 - [GitHub CLI write authentication](github-cli-write-auth.md) — shell pushes may use different authentication from the connected GitHub App; a successful fetch does not prove write access.
+- [B4P homepage section scope](b4p-homepage-sections.md) — Preserve News & updates; keep partner logos in the separate Supporters section.
