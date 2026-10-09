@@ -130,11 +130,6 @@ function FooterNewsletter() {
               <a href="/terms-and-conditions">Terms &amp; Conditions</a>.
             </span>
           </label>
-          {subscription.isPending && (
-            <p className="site-footer__newsletter-loading" role="status">
-              Sending your subscription…
-            </p>
-          )}
           {errorMessage && <p className="site-footer__newsletter-error" role="alert">{errorMessage}</p>}
         </form>
       )}

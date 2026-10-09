@@ -761,14 +761,9 @@ export function Header() {
         </div>
 
         <div className="site-drawer__footer">
-          <p className="site-drawer__footer-banner">
-            Support African-led peacebuilding and economic development.
-          </p>
-          <nav className="site-drawer__footer-legal" aria-label="Legal information">
-            <a href="/privacy-policy" onClick={() => closeMenu()}>Privacy Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="/terms-and-conditions" onClick={() => closeMenu()}>Terms &amp; Conditions</a>
-          </nav>
+          <p>Support African-led peacebuilding and economic development.</p>
+          <a href="/make-a-donation" onClick={() => closeMenu()}>Make a donation</a>
+          <a href="/partner-with-us" onClick={() => closeMenu()}>Become a partner</a>
         </div>
       </aside>
     </>
