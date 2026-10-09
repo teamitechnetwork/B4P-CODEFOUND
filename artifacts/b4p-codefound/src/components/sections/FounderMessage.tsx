@@ -5,9 +5,9 @@ export function FounderMessage() {
         <div className="grid grid-cols-1 overflow-hidden bg-white shadow-[0_18px_50px_-32px_rgba(8,40,58,0.28)] ring-1 ring-[#123f47]/10 lg:grid-cols-[0.94fr_1.06fr] lg:items-stretch">
           <div className="relative aspect-[4/3] bg-[#eaf2f5] lg:aspect-auto lg:min-h-[560px]">
             <img
-              src="/brand/b4p-og-source.png"
+              src="/images/founder-lindora-kolu-howard-diawara.png"
               alt="Lindora Kolu Howard-Diawara, Founder and Executive Director of B4P CODEFOUND"
-              className="absolute inset-0 h-full w-full object-cover object-[center_36%]"
+              className="absolute inset-0 h-full w-full object-cover object-top"
               loading="lazy"
               decoding="async"
             />
