@@ -107,7 +107,7 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
   switch (type) {
     case 'management':
       title = 'Management Team';
-      description = 'Our dedicated leadership driving global-local peacebuilding and sustainable development daily.';
+      description = 'Meet the people advancing locally led peacebuilding, community development, and women’s empowerment.';
       team = MANAGEMENT_TEAM;
       break;
     case 'board':
@@ -136,9 +136,9 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
           </div>
         </div>
 
-        <section className="team-page__content container mx-auto px-6">
+        <section className="team-page__content container mx-auto px-6" aria-labelledby="team-list-heading">
           <div className="team-page__heading">
-            <span>{type === 'board' ? 'Governance' : type === 'advisory' ? 'Global expertise' : 'Meet the team'}</span>
+            <h2 id="team-list-heading">{type === 'board' ? 'Governance' : type === 'advisory' ? 'Global expertise' : 'Meet the team'}</h2>
             <div />
             {type === 'management' && (
               <span className="team-page__member-count">{team.length} team members</span>
@@ -181,29 +181,18 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                   )}
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
-                    {type === 'management' && (
-                      member.linkedin ? (
-                        <a
-                          className="team-card__linkedin"
-                          href={member.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Open LinkedIn profile for ${member.name}`}
-                        >
-                          <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
-                        </a>
-                      ) : null
-                    )}
                   </div>
                   {type === 'management' ? (
                     member.linkedin ? (
                       <a
-                        className="team-card__meet"
+                        className="team-card__profile"
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${member.name} on LinkedIn`}
                       >
-                        Meet {member.name.split(' ')[0]} <ArrowUpRight size={16} strokeWidth={2.2} aria-hidden="true" />
+                        <span><Linkedin size={15} strokeWidth={2.3} aria-hidden="true" /> LinkedIn</span>
+                        <span>View profile <ArrowUpRight size={16} strokeWidth={2.2} aria-hidden="true" /></span>
                       </a>
                     ) : null
                   ) : (
