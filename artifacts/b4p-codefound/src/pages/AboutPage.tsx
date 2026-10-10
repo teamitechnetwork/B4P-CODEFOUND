@@ -15,9 +15,8 @@ export default function AboutPage() {
         <section className="about-hero" aria-labelledby="text-about-title">
           <img
             className="about-hero__image"
-            src="/images/hero-community.jpg"
-            alt=""
-            aria-hidden="true"
+            src="/images/conference/day-1-community-gathering.jpg"
+            alt="B4P CODEFOUND participants gathered for a community programme in Liberia."
             fetchPriority="high"
           />
           <div className="about-hero__overlay" aria-hidden="true" />
