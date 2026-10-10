@@ -164,7 +164,7 @@ export function Footer() {
       <div className="container px-4 md:px-6 reference-footer__content">
         <div className="site-footer__brand-block">
           <a href="/" className="site-footer__brand" aria-label="B4P CODEFOUND home">
-            <img src="/brand/b4p-logo-clean.png" alt="B4P CODEFOUND" />
+            <img src="/brand/b4p-footer-logo.webp" alt="B4P CODEFOUND" />
           </a>
           <div className="site-footer__brand-copy">
             <strong>B4P CODEFOUND</strong>

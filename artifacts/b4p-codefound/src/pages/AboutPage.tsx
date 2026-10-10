@@ -4,69 +4,74 @@ import { Footer } from '@/components/layout/Footer';
 import { FounderMessage } from '@/components/sections/FounderMessage';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
-import { mission, vision } from '@/data/mission';
+import { goal, mission, vision } from '@/data/mission';
 
 export default function AboutPage() {
   return (
     <div className="about-page flex flex-col min-h-screen bg-background font-sans">
       <Header />
       <main className="flex-1">
-        {/* Editorial Hero Section */}
-        <section className="pt-32 pb-16 md:pt-48 md:pb-24 bg-[#016EB4] text-white">
+        {/* Image-led introduction */}
+        <section className="about-hero" aria-labelledby="text-about-title">
+          <img
+            className="about-hero__image"
+            src="/images/hero-community.jpg"
+            alt=""
+            aria-hidden="true"
+            fetchPriority="high"
+          />
+          <div className="about-hero__overlay" aria-hidden="true" />
+          <div className="about-hero__content container px-4 md:px-6 mx-auto">
+            <p className="about-hero__eyebrow">Who we are · Established 2015</p>
+            <h1 id="text-about-title" data-testid="text-about-title">
+              Re-imagining <span>empowerment.</span>
+            </h1>
+            <p className="about-hero__summary" data-testid="text-about-subtitle">
+              The Business for Peace Community Development Foundation advances political, social,
+              and economic justice by working with women and girls to strengthen equality, peace,
+              and opportunity.
+            </p>
+            <p className="about-hero__meta">501(c)(3) nonprofit · Liberia and the United States</p>
+          </div>
+        </section>
+
+        <section className="about-approach-section" aria-labelledby="about-approach-title">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="max-w-4xl animate-in fade-in slide-in-from-bottom-8 duration-700">
-              <h1 
-                className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-8 leading-[1.05] text-balance text-white"
-                data-testid="text-about-title"
-              >
-                Re-imagining <span className="text-[#f0cf69]">empowerment</span>.
-              </h1>
-              <p 
-                className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-3xl mb-12"
-                data-testid="text-about-subtitle"
-              >
-                B4P CODEFOUND promotes political, social, and economic justice globally. We work with women and girls to foster gender equality and dismantle the vicious circle of violence impacting society.
+            <div className="about-section-heading">
+              <p className="about-section-heading__eyebrow">Our approach</p>
+              <h2 id="about-approach-title">Progress, built together.</h2>
+              <p>
+                We partner with women, girls, and communities to turn shared purpose into lasting
+                change.
               </p>
             </div>
-          </div>
-          <div className="container px-4 md:px-6 mx-auto mt-4 md:mt-8 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-200">
-            <div className="relative overflow-hidden rounded-2xl bg-[#062e37] px-6 py-10 text-white shadow-2xl md:px-14 md:py-16">
-              <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full border border-white/10" aria-hidden="true" />
-              <div className="absolute -bottom-40 left-1/3 h-[28rem] w-[28rem] rounded-full border border-primary/30" aria-hidden="true" />
-              <div className="relative">
-                <div className="mb-10 flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
-                  <span className="flex items-center gap-3 text-xs font-extrabold uppercase tracking-[0.2em] text-primary">
-                    <span className="h-2 w-2 rounded-full bg-primary" aria-hidden="true" />
-                    Established 2015
-                  </span>
-                  <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-white/50">501(c)(3) nonprofit</span>
-                </div>
-                <div className="grid gap-8 md:grid-cols-3 md:gap-10">
-                  {[
-                    {
-                      number: '01',
-                      title: 'Build',
-                      description: 'Build women and girls’ confidence to act as agents of change at local, national, and international levels.',
-                    },
-                    {
-                      number: '02',
-                      title: 'Invest',
-                      description: 'Invest resources in women, girls, and communities to enhance their self-reliance and development.',
-                    },
-                    {
-                      number: '03',
-                      title: 'Connect',
-                      description: 'Connect individuals and groups to foster learning and collective action that yields greater community impact.',
-                    },
-                  ].map((item) => (
-                    <div key={item.number} className="border-l border-primary/70 pl-5">
-                      <span className="mb-4 block text-sm font-extrabold tracking-[0.2em] text-primary">{item.number}</span>
-                      <h2 className="mb-3 text-2xl font-extrabold md:text-3xl">{item.title}</h2>
-                      <p className="text-base leading-relaxed text-white/70">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="about-approach-grid">
+              {[
+                {
+                  number: '01',
+                  title: 'Build',
+                  description:
+                    'Build women and girls’ confidence to act as agents of change at local, national, and international levels.',
+                },
+                {
+                  number: '02',
+                  title: 'Invest',
+                  description:
+                    'Invest resources in women, girls, and communities to strengthen self-reliance and development.',
+                },
+                {
+                  number: '03',
+                  title: 'Connect',
+                  description:
+                    'Connect people and groups to share learning and take collective action for stronger community impact.',
+                },
+              ].map((item) => (
+                <article className="about-approach-card" key={item.number}>
+                  <span className="about-approach-card__number">{item.number}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -79,7 +84,6 @@ export default function AboutPage() {
               <h2 className="mb-5 text-3xl font-extrabold text-foreground md:text-5xl" data-testid="text-mission-title">
                 Our Purpose
               </h2>
-              <div className="mx-auto mb-6 h-1 w-16 bg-primary"></div>
               <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
                 Two commitments shape how B4P CODEFOUND works with communities and partners around the world.
               </p>
@@ -109,7 +113,7 @@ export default function AboutPage() {
                 <h3 className="mt-3 text-2xl font-extrabold text-foreground md:text-3xl">From shared purpose to shared prosperity.</h3>
               </div>
               <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-                Facilitate, accompany, and support community cooperation; enhance local community capacities for promoting and sustaining local peace initiatives and shared prosperity.
+                {goal}
               </p>
             </div>
           </div>
@@ -118,9 +122,10 @@ export default function AboutPage() {
         {/* Our History */}
         <section className="py-24 md:py-32 bg-muted/30 border-y border-border/50">
           <div className="container px-4 md:px-6 mx-auto">
-            <div className="mb-16 md:mb-24">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-foreground mb-6">A Journey of Impact</h2>
-              <p className="text-xl text-muted-foreground max-w-2xl">
+            <div className="about-section-heading mb-16 md:mb-24">
+              <p className="about-section-heading__eyebrow">Our story</p>
+              <h2>A Journey of Impact</h2>
+              <p>
                 From a foundational idea to a global network of women leading change in their communities.
               </p>
             </div>
