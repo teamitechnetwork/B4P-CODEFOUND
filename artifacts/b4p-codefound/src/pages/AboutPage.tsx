@@ -5,7 +5,7 @@ import { FounderMessage } from '@/components/sections/FounderMessage';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
 import { goal, mission, vision } from '@/data/mission';
-import { Compass, Sprout, Target } from 'lucide-react';
+import { ArrowUpRight, Sprout } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -16,8 +16,8 @@ export default function AboutPage() {
         <section className="about-hero" aria-labelledby="text-about-title">
           <img
             className="about-hero__image"
-            src="/images/conference/day-1-community-gathering.jpg"
-            alt="B4P CODEFOUND participants gathered for a community programme in Liberia."
+            src="/images/uploaded/hero-community-outdoors.webp"
+            alt="Women and community partners gathered for a B4P CODEFOUND programme in Liberia."
             fetchPriority="high"
           />
           <div className="about-hero__overlay" aria-hidden="true" />
@@ -32,6 +32,17 @@ export default function AboutPage() {
               and opportunity.
             </p>
             <p className="about-hero__meta">501(c)(3) nonprofit · Liberia and the United States</p>
+            <Button
+              asChild
+              size="lg"
+              className="about-hero__cta"
+              data-testid="link-about-hero-cta"
+            >
+              <Link href="/what-we-do">
+                Explore our work
+                <ArrowUpRight size={18} strokeWidth={2.2} aria-hidden="true" />
+              </Link>
+            </Button>
           </div>
         </section>
 
@@ -92,23 +103,11 @@ export default function AboutPage() {
 
             <div className="purpose-refresh__cards">
               <article className="purpose-refresh__card purpose-refresh__card--mission">
-                <div className="purpose-refresh__card-top">
-                  <span className="purpose-refresh__icon" aria-hidden="true">
-                    <Target />
-                  </span>
-                  <span className="purpose-refresh__index">01 / MISSION</span>
-                </div>
                 <h3>Our Mission</h3>
                 <p className="purpose-refresh__statement">{mission}</p>
               </article>
 
               <article className="purpose-refresh__card purpose-refresh__card--vision">
-                <div className="purpose-refresh__card-top">
-                  <span className="purpose-refresh__icon" aria-hidden="true">
-                    <Compass />
-                  </span>
-                  <span className="purpose-refresh__index">02 / VISION</span>
-                </div>
                 <h3>Our Vision</h3>
                 <p className="purpose-refresh__statement">{vision}</p>
               </article>

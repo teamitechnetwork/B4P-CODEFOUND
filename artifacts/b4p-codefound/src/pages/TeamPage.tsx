@@ -140,6 +140,9 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
           <div className="team-page__heading">
             <span>{type === 'board' ? 'Governance' : type === 'advisory' ? 'Global expertise' : 'Meet the team'}</span>
             <div />
+            {type === 'management' && (
+              <span className="team-page__member-count">{team.length} team members</span>
+            )}
           </div>
           <div className="team-grid">
             {team.map((member) => (
@@ -156,21 +159,26 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                           alt={member.name}
                           className="team-card__image"
                           loading="lazy"
+                          decoding="async"
                         />
                       ) : (
-                        <div className="team-card__monogram" aria-label={`${member.name} portrait unavailable`}>
+                        <div
+                          className="team-card__monogram"
+                          role="img"
+                          aria-label={`Portrait unavailable for ${member.name}`}
+                        >
                           <span>
                             {member.name.split(' ').map(n => n[0]).join('').substring(0,2)}
                           </span>
                         </div>
                       )}
                     </div>
-                    <div className="team-card__role-band">
-                      <span>{member.role}</span>
-                    </div>
                   </div>
                 )}
                 <div className="team-card__content">
+                  {type === 'management' && (
+                    <span className="team-card__role-label">{member.role}</span>
+                  )}
                   <div className="team-card__title-row">
                     <h3>{member.name}</h3>
                     {type === 'management' && (
@@ -179,30 +187,25 @@ export function TeamPage({ type }: { type: 'management' | 'board' | 'advisory' }
                           className="team-card__linkedin"
                           href={member.linkedin}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           aria-label={`Open LinkedIn profile for ${member.name}`}
                         >
                           <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
                         </a>
-                      ) : (
-                        <span
-                          className="team-card__linkedin team-card__linkedin--pending"
-                          role="img"
-                          aria-label={`LinkedIn profile for ${member.name} coming soon`}
-                        >
-                          <Linkedin size={16} strokeWidth={2.3} aria-hidden="true" />
-                        </span>
-                      )
+                      ) : null
                     )}
                   </div>
                   {type === 'management' ? (
                     member.linkedin ? (
-                      <a className="team-card__meet" href={member.linkedin} target="_blank" rel="noreferrer">
+                      <a
+                        className="team-card__meet"
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         Meet {member.name.split(' ')[0]} <ArrowUpRight size={16} strokeWidth={2.2} aria-hidden="true" />
                       </a>
-                    ) : (
-                      <span className="team-card__meet">Meet {member.name.split(' ')[0]}</span>
-                    )
+                    ) : null
                   ) : (
                     <p>{member.role}</p>
                   )}
