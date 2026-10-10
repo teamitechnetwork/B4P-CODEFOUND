@@ -5,6 +5,7 @@ import { FounderMessage } from '@/components/sections/FounderMessage';
 import { TheoryOfChange } from '@/components/sections/TheoryOfChange';
 import { Button } from '@/components/ui/button';
 import { goal, mission, vision } from '@/data/mission';
+import { Compass, Sprout, Target } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -76,45 +77,55 @@ export default function AboutPage() {
         </section>
 
         {/* Mission & Vision */}
-        <section className="about-purpose-section bg-white py-24 md:py-32">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
-              <span className="mb-4 block text-xs font-extrabold uppercase tracking-[0.2em] text-primary">What guides us</span>
-              <h2 className="mb-5 text-3xl font-extrabold text-foreground md:text-5xl" data-testid="text-mission-title">
+        <section className="purpose-refresh" aria-labelledby="about-purpose-title">
+          <div className="purpose-refresh__inner">
+            <header className="purpose-refresh__heading">
+              <p className="purpose-refresh__eyebrow">What guides us</p>
+              <h2 id="about-purpose-title" data-testid="text-mission-title">
                 Our Purpose
               </h2>
-              <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-                Two commitments shape how B4P CODEFOUND works with communities and partners around the world.
+              <p>
+                Two commitments shape how B4P CODEFOUND works with communities and partners around
+                the world.
               </p>
-            </div>
+            </header>
 
-            <div className="grid gap-6 lg:grid-cols-2">
-              <article className="about-purpose-card about-purpose-card--mission">
-                <div className="about-purpose-card__topline">
-                  <span className="about-purpose-card__number">01</span>
-                  <span className="about-purpose-card__label">The Mission</span>
+            <div className="purpose-refresh__cards">
+              <article className="purpose-refresh__card purpose-refresh__card--mission">
+                <div className="purpose-refresh__card-top">
+                  <span className="purpose-refresh__icon" aria-hidden="true">
+                    <Target />
+                  </span>
+                  <span className="purpose-refresh__index">01 / MISSION</span>
                 </div>
-                <p className="about-purpose-card__statement">{mission}</p>
+                <h3>Our Mission</h3>
+                <p className="purpose-refresh__statement">{mission}</p>
               </article>
 
-              <article className="about-purpose-card about-purpose-card--vision">
-                <div className="about-purpose-card__topline">
-                  <span className="about-purpose-card__number">02</span>
-                  <span className="about-purpose-card__label">The Vision</span>
+              <article className="purpose-refresh__card purpose-refresh__card--vision">
+                <div className="purpose-refresh__card-top">
+                  <span className="purpose-refresh__icon" aria-hidden="true">
+                    <Compass />
+                  </span>
+                  <span className="purpose-refresh__index">02 / VISION</span>
                 </div>
-                <p className="about-purpose-card__statement">{vision}</p>
+                <h3>Our Vision</h3>
+                <p className="purpose-refresh__statement">{vision}</p>
               </article>
             </div>
 
-            <div className="about-purpose-goal mt-6">
-              <div>
-                <span className="about-purpose-card__label">The Goal</span>
-                <h3 className="mt-3 text-2xl font-extrabold text-foreground md:text-3xl">From shared purpose to shared prosperity.</h3>
+            <aside className="purpose-refresh__goal" aria-label="Our goal">
+              <div className="purpose-refresh__goal-heading">
+                <span className="purpose-refresh__goal-icon" aria-hidden="true">
+                  <Sprout />
+                </span>
+                <div>
+                  <p className="purpose-refresh__goal-label">The Goal</p>
+                  <h3>From shared purpose to shared prosperity.</h3>
+                </div>
               </div>
-              <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground">
-                {goal}
-              </p>
-            </div>
+              <p className="purpose-refresh__goal-copy">{goal}</p>
+            </aside>
           </div>
         </section>
 
