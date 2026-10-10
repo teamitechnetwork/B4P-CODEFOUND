@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { ArrowUpRight, Pause, Play } from 'lucide-react';
 
 const partnerLogos = [
   { name: 'Global Network of Women Peacebuilders', src: '/brand/partners/gnwp.png' },
@@ -15,7 +15,19 @@ const pageCount = Math.ceil(partnerLogos.length / 3);
 
 export function PartnersSection() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const currentPageRef = useRef(0);
   const [activePage, setActivePage] = useState(0);
+  const [isAutoPaused, setIsAutoPaused] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateMotionPreference = () => setPrefersReducedMotion(motionPreference.matches);
+
+    updateMotionPreference();
+    motionPreference.addEventListener('change', updateMotionPreference);
+    return () => motionPreference.removeEventListener('change', updateMotionPreference);
+  }, []);
 
   const updateActivePage = () => {
     const carousel = carouselRef.current;
@@ -26,10 +38,11 @@ export function PartnersSection() {
       ? Math.round((carousel.scrollLeft / maxScroll) * (pageCount - 1))
       : 0;
 
+    currentPageRef.current = nextPage;
     setActivePage((currentPage) => currentPage === nextPage ? currentPage : nextPage);
   };
 
-  const showPage = (page: number) => {
+  const showPage = useCallback((page: number) => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
@@ -38,8 +51,20 @@ export function PartnersSection() {
       left: maxScroll * (page / (pageCount - 1)),
       behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
     });
+    currentPageRef.current = page;
     setActivePage(page);
-  };
+  }, []);
+
+  useEffect(() => {
+    if (isAutoPaused || prefersReducedMotion || pageCount < 2) return;
+
+    const interval = window.setInterval(() => {
+      if (document.visibilityState !== 'visible') return;
+      showPage((currentPageRef.current + 1) % pageCount);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, [isAutoPaused, prefersReducedMotion, showPage]);
 
   return (
     <section id="partner" className="home-partners" aria-labelledby="home-partners-title">
@@ -52,6 +77,7 @@ export function PartnersSection() {
           role="region"
           aria-label="Our partners"
           aria-roledescription="carousel"
+          aria-live="off"
           tabIndex={0}
           onScroll={updateActivePage}
         >
@@ -81,6 +107,16 @@ export function PartnersSection() {
               onClick={() => showPage(index)}
             />
           ))}
+          <button
+            className="home-partners__toggle"
+            type="button"
+            aria-label={isAutoPaused ? 'Resume automatic logo rotation' : 'Pause automatic logo rotation'}
+            onClick={() => setIsAutoPaused((paused) => !paused)}
+          >
+            {isAutoPaused
+              ? <Play size={14} fill="currentColor" aria-hidden="true" />
+              : <Pause size={14} fill="currentColor" aria-hidden="true" />}
+          </button>
         </div>
 
         <a className="home-partners__cta" href="#footer-newsletter">
