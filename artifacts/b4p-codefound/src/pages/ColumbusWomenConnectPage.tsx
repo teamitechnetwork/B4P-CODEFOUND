@@ -1,6 +1,7 @@
-import { ArrowUpRight, CalendarDays, Check, Instagram, Mail, MapPin, Phone, UsersRound, X as XIcon } from 'lucide-react';
+import { ArrowUpRight, CalendarDays, Check, Clock3, Mail, MapPin, Phone, UsersRound } from 'lucide-react';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { cwcConference2026 } from '@/data/cwc-conference-2026';
 
 const cwcPrograms = [
   { title: 'Community Dialogues', description: 'Safe spaces for shared experiences.' },
@@ -34,6 +35,60 @@ export default function ColumbusWomenConnectPage() {
               <img src="/images/cwc/community-photo.png" alt="Women leaders gathered at a Columbus Women Connect event" />
               <div className="cwc-hero__badge" data-image-overlay="badge"><span>CWC</span><small>Women leading together</small></div>
             </div>
+          </div>
+        </section>
+
+        <section className="cwc-section cwc-section--conference" aria-labelledby="cwc-conference-title">
+          <div className="container mx-auto px-6">
+            <article className="cwc-conference-card">
+              <a
+                className="cwc-conference-card__flyer"
+                href={cwcConference2026.flyer}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open the full conference flyer and registration QR code"
+              >
+                <img src={cwcConference2026.flyer} alt={cwcConference2026.flyerAlt} loading="lazy" />
+              </a>
+              <div className="cwc-conference-card__copy">
+                <span className="cwc-label">Upcoming · {cwcConference2026.date}</span>
+                <h2 id="cwc-conference-title">{cwcConference2026.name}</h2>
+                <p className="cwc-conference-card__theme">{cwcConference2026.theme}</p>
+                <p className="cwc-conference-card__intro">
+                  Spend an afternoon with Columbus Women Connect exploring ways to build influence,
+                  opportunity, and belonging in America. Keynote speaker {cwcConference2026.keynote.name}
+                  {' '}will be joined by speakers from leadership, business, and community organizations.
+                </p>
+                <dl className="cwc-conference-card__meta">
+                  <div>
+                    <dt><CalendarDays size={17} aria-hidden="true" /> Date</dt>
+                    <dd>{cwcConference2026.date}</dd>
+                  </div>
+                  <div>
+                    <dt><Clock3 size={17} aria-hidden="true" /> Time</dt>
+                    <dd>{cwcConference2026.time}</dd>
+                  </div>
+                  <div>
+                    <dt><MapPin size={17} aria-hidden="true" /> Location</dt>
+                    <dd>{cwcConference2026.venue}<br />{cwcConference2026.address}</dd>
+                  </div>
+                </dl>
+                <div className="cwc-conference-card__actions">
+                  <a className="cwc-conference-card__read-more" href={cwcConference2026.path}>
+                    Read more <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
+                  <a
+                    className="cwc-conference-card__flyer-link"
+                    href={cwcConference2026.flyer}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open flyer to scan the registration QR code
+                    <ArrowUpRight size={16} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 

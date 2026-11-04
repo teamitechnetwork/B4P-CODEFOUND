@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
+import { cwcConference2026 } from '@/data/cwc-conference-2026';
 
 type NewsSection = {
   heading: string;
@@ -376,7 +377,59 @@ const conferenceStory: NewsStory = {
   },
 };
 
-const newsStories = [story, launchStory, empowermentStory, forumStory, conferenceStory];
+const cwcConferenceStory: NewsStory = {
+  slug: cwcConference2026.slug,
+  title: 'The Thrive Blueprint: Third Multicultural Annual Conference',
+  date: cwcConference2026.dateShort,
+  location: cwcConference2026.location,
+  category: 'Upcoming event',
+  image: cwcConference2026.flyer,
+  imageAlt: cwcConference2026.flyerAlt,
+  imageCaption: `${cwcConference2026.date} · ${cwcConference2026.time} · ${cwcConference2026.location}`,
+  deck: cwcConference2026.deck,
+  intro: [
+    'Columbus Women Connect invites the community to its third multicultural annual conference in Reynoldsburg, Ohio.',
+    'The conference theme, “The Thrive Blueprint,” focuses on helping multicultural women build influence, opportunity, and belonging in America.',
+  ],
+  sections: [
+    {
+      heading: 'Conference details',
+      paragraphs: ['The afternoon gathering will take place in Reynoldsburg, Ohio.'],
+      bullets: [
+        cwcConference2026.date,
+        cwcConference2026.time,
+        `${cwcConference2026.venue}, ${cwcConference2026.address}`,
+      ],
+    },
+    {
+      heading: 'Keynote and featured speakers',
+      paragraphs: [
+        `Keynote speaker ${cwcConference2026.keynote.name} is the ${cwcConference2026.keynote.role}.`,
+        'The program also features speakers from business consulting, leadership, the Hispanic Chamber of Columbus, and community organizations.',
+      ],
+      bullets: cwcConference2026.speakers.map((speaker) =>
+        'affiliation' in speaker ? `${speaker.name} — ${speaker.affiliation}` : speaker.name,
+      ),
+    },
+    {
+      heading: 'Registration',
+      paragraphs: [
+        'Scan the registration QR code printed on the conference flyer. The full flyer is available to download on this page.',
+      ],
+    },
+    {
+      heading: 'Conference sponsors',
+      paragraphs: ['The flyer lists the following sponsors:'],
+      bullets: [...cwcConference2026.sponsors],
+    },
+  ],
+  download: {
+    href: cwcConference2026.flyer,
+    label: 'Download the conference flyer',
+  },
+};
+
+const newsStories = [story, cwcConferenceStory, launchStory, empowermentStory, forumStory, conferenceStory];
 
 const projectPage = {
   title: 'Bong County Women and Youth Development Cooperation',
@@ -630,6 +683,50 @@ export default function NewsPage() {
           </div>
         </section>
 
+        <section className="news-upcoming-section" aria-labelledby="cwc-upcoming-heading">
+          <div className="page-container">
+            <div className="news-section-heading news-section-heading--archive">
+              <div>
+                <span className="news-section-kicker">Upcoming event · Columbus Women Connect</span>
+                <h2 id="cwc-upcoming-heading">
+                  The Thrive Blueprint
+                  <em>Build influence, opportunity, and belonging.</em>
+                </h2>
+              </div>
+              <p>
+                Columbus Women Connect’s Third Multicultural Annual Conference takes place
+                Saturday, November 7, in Reynoldsburg, Ohio.
+              </p>
+            </div>
+
+            <article className="news-release-card news-release-card--flyer">
+              <div className="news-release-card__image">
+                <img src={cwcConferenceStory.image} alt={cwcConferenceStory.imageAlt} loading="lazy" />
+                <div className="news-card-badges">
+                  <span className="news-pasted-badge">Upcoming event</span>
+                  <span>Columbus Women Connect</span>
+                </div>
+              </div>
+              <div className="news-release-card__body">
+                <div className="news-feature-card__category">{cwcConferenceStory.category}</div>
+                <h3>{cwcConferenceStory.title}</h3>
+                <StoryMeta article={cwcConferenceStory} />
+                <p>{cwcConferenceStory.deck}</p>
+                <div className="news-archive-card__actions">
+                  <a className="news-read-more" href={cwcConference2026.path}>
+                    Read more
+                    <ArrowUpRight size={17} aria-hidden="true" />
+                  </a>
+                  <a className="news-download-link" href={cwcConference2026.flyer} download>
+                    <Download size={15} aria-hidden="true" />
+                    Download the flyer
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section className="news-feature-section" aria-labelledby="featured-story-title">
           <div className="page-container">
             <div className="news-section-heading">
@@ -867,7 +964,11 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
                <h1>{article.title}</h1>
                <StoryMeta article={article} />
             </div>
-            <figure className="news-article-hero__image">
+            <figure
+              className={`news-article-hero__image ${
+                article.category === 'Upcoming event' ? 'news-article-hero__image--flyer' : ''
+              }`}
+            >
                <img src={article.image} alt={article.imageAlt} />
                <figcaption>{article.imageCaption}</figcaption>
             </figure>
@@ -917,7 +1018,9 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
             <aside className="news-article-aside">
               <span className="news-section-kicker">The story in focus</span>
                <strong>
-                 {article.category === 'Press Release'
+                  {article.category === 'Upcoming event'
+                    ? <>An afternoon<br />to thrive.</>
+                    : article.category === 'Press Release'
                    ? <>A launch<br />with purpose.</>
                    : article.category === 'Event report'
                      ? <>Dialogue<br />in motion.</>
@@ -928,7 +1031,9 @@ export function NewsArticlePage({ slug = story.slug }: { slug?: string }) {
                          : <>Women, Peace<br />&amp; Security</>}
                </strong>
               <p>
-                 {article.category === 'Press Release'
+                  {article.category === 'Upcoming event'
+                    ? 'Columbus Women Connect’s 2026 conference centers on influence, opportunity, and belonging for multicultural women.'
+                    : article.category === 'Press Release'
                    ? 'B4P CODEFOUND’s first Liberian launch brought its commitment to women, girls, youth, and community-led development into the open.'
                    : article.category === 'Event report'
                      ? 'The Liberia-Diaspora Women and Youth Forum connected climate, gender, peacebuilding, and community leadership through a CSW66 side event.'

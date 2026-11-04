@@ -36,6 +36,7 @@ import FaqsPage from '@/pages/FaqsPage';
 import { CookieConsent } from '@/components/layout/CookieConsent';
 import { LoadingScreen } from '@/components/layout/LoadingScreen';
 import type { ProgramRegion } from '@/data/programs';
+import { cwcConference2026 } from '@/data/cwc-conference-2026';
 import {
   useLocation,
   Router as WouterRouter,
@@ -185,6 +186,10 @@ function Router() {
 
   if (location === '/news-blogs') {
     return <NewsPage />;
+  }
+
+  if (location === cwcConference2026.path) {
+    return <NewsArticlePage slug={cwcConference2026.slug} />;
   }
 
   const newsResourceMatch = location.match(/^\/news-blogs\/resources\/([^/]+)$/);
