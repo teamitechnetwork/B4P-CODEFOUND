@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "B4P CODEFOUND"
-description = "A modern, responsive nonprofit website for Business for Peace Community Development Foundation, sharing its mission, programs, community impact, and ways to get involved."
+description = "The B4P CODEFOUND public website for Business for Peace Community Development Foundation, sharing its mission, programs, community impact, and ways to get involved."
 version = "1.0.0"
 id = "artifacts/b4p-codefound"
 router = "path"
