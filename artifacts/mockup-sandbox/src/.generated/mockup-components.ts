@@ -3,10 +3,10 @@ type ModuleMap = Record<string, () => Promise<Record<string, unknown>>>;
 export const modules: ModuleMap = {
   "./components/mockups/about-purpose/Current.tsx": () => import("../components/mockups/about-purpose/Current.tsx"),
   "./components/mockups/about-purpose/Refined.tsx": () => import("../components/mockups/about-purpose/Refined.tsx"),
-  "./components/mockups/b4p-homepage-hero/Current.tsx": () => import("../components/mockups/b4p-homepage-hero/Current.tsx"),
-  "./components/mockups/b4p-homepage-hero/Refined.tsx": () => import("../components/mockups/b4p-homepage-hero/Refined.tsx"),
   "./components/mockups/founder-message/Current.tsx": () => import("../components/mockups/founder-message/Current.tsx"),
   "./components/mockups/founder-message/Reference.tsx": () => import("../components/mockups/founder-message/Reference.tsx"),
+  "./components/mockups/b4p-homepage-hero/Current.tsx": () => import("../components/mockups/b4p-homepage-hero/Current.tsx"),
+  "./components/mockups/b4p-homepage-hero/Refined.tsx": () => import("../components/mockups/b4p-homepage-hero/Refined.tsx"),
   "./components/mockups/header-redesign/ModernDesktopMenus.tsx": () => import("../components/mockups/header-redesign/ModernDesktopMenus.tsx"),
   "./components/mockups/homepage-sections/CurrentEDFeature.tsx": () => import("../components/mockups/homepage-sections/CurrentEDFeature.tsx"),
   "./components/mockups/homepage-sections/CurrentPartners.tsx": () => import("../components/mockups/homepage-sections/CurrentPartners.tsx"),
@@ -16,8 +16,8 @@ export const modules: ModuleMap = {
   "./components/mockups/homepage-sections/RefinedPillars.tsx": () => import("../components/mockups/homepage-sections/RefinedPillars.tsx"),
   "./components/mockups/mobile-nav-menu/CleanMobileMenu.tsx": () => import("../components/mockups/mobile-nav-menu/CleanMobileMenu.tsx"),
   "./components/mockups/mobile-nav-menu/CurrentMobileMenu.tsx": () => import("../components/mockups/mobile-nav-menu/CurrentMobileMenu.tsx"),
-  "./components/mockups/report-banner/Current.tsx": () => import("../components/mockups/report-banner/Current.tsx"),
-  "./components/mockups/report-banner/Mobile.tsx": () => import("../components/mockups/report-banner/Mobile.tsx"),
   "./components/mockups/ten-year-report/BlueReport.tsx": () => import("../components/mockups/ten-year-report/BlueReport.tsx"),
-  "./components/mockups/ten-year-report/Current.tsx": () => import("../components/mockups/ten-year-report/Current.tsx")
+  "./components/mockups/ten-year-report/Current.tsx": () => import("../components/mockups/ten-year-report/Current.tsx"),
+  "./components/mockups/report-banner/Current.tsx": () => import("../components/mockups/report-banner/Current.tsx"),
+  "./components/mockups/report-banner/Mobile.tsx": () => import("../components/mockups/report-banner/Mobile.tsx")
 };
